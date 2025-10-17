@@ -3,9 +3,18 @@
 <head>
 <title> </title>
 <script>
-  if(document.location.pathname.toLowerCase() == "/s5")
+  var p = document.location.pathname.toLowerCase();
+  if(p == "/s5")
   {
   	window.location.href = "https://drive.google.com/drive/folders/1E2VtrpipZxFWu3KTIKJeuajYN5S8bGmD?usp=sharing";
+  }
+  else if(p == "/s3")
+  {
+    window.location.href = "https://drive.google.com/drive/folders/1NjOFOxB3h9IiCcmfrufZS9QlFTz9Okjw?usp=drive_link";
+  }
+  else if(p == "/p")
+  {
+    window.location.href = "https://drive.google.com/drive/folders/100sHKEs5lAdWoDZjxesw7GwibhQY5r7M?usp=sharing";
   }
 </script>
 </head>
