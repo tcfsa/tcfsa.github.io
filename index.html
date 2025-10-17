@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <title> </title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        button {
+            width: 100%;
+            padding: 20px;
+            margin: 10px 0;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button onclick="buttonClicked('p')">PC-P Nouvelle Réforme - FSA Agadir (Physique S1, S2, S3, S4, S5, S6)</button>
+        <button onclick="buttonClicked('s3')">PC-P3 (2024-2025) (Physique S3)</button>
+        <button onclick="buttonClicked('s5')">PC-P5 (2025-2026) (Physique S5)</button>
+    </div>
+
+    <script>
+        function buttonClicked(url) {
+            window.location.href = "https://tcfsa.github.io/"+url;
+        }
+    </script>
+
+</body>
+</html>
