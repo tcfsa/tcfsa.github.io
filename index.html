@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
-    <title> </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
     <style>
         body, html {
             height: 100%;
@@ -9,14 +11,16 @@
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
         }
 
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
+            width: 90%;
             max-width: 400px;
+            padding: 10px;
         }
 
         button {
@@ -35,6 +39,22 @@
             background-color: #007BFF;
             color: white;
         }
+
+        /* Mobile-specific styles */
+        @media (max-width: 900px) {
+            button {
+                padding: 24px;
+                font-size: 24px;
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 400px) {
+            button {
+                padding: 28px;
+                font-size: 26px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -43,6 +63,13 @@
         <button onclick="buttonClicked('p')">PC-P Nouvelle Réforme - FSA Agadir (Physique S1, S2, S3, S4, S5, S6)</button>
         <button onclick="buttonClicked('s3')">PC-P3 (2024-2025) (Physique S3)</button>
         <button onclick="buttonClicked('s5')">PC-P5 (2025-2026) (Physique S5)</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button onclick="buttonClicked('a1')">Autre PC-P (Physique)</button>
+        <button onclick="buttonClicked('a2')">SMP FSA (Agadir) 2024/2021 by Oussama Derraj</button>
+        <button onclick="buttonClicked('a3')">PC S1-->S6 (2021)</button>
     </div>
 
     <script>
