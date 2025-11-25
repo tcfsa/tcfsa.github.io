@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZT5VSZS3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-8BZT5VSZS3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+
+    <title></title>
+    <style>
+
+        /*@font-face {
+          font-family: mfont;
+          src: url(font.ttf);
+        }*/
+
+        * {
+          box-sizing: border-box;
+             -webkit-user-select: none; /* Safari */
+            -ms-user-select: none;     /* IE 10+ */
+            user-select: none;         /* Standard syntax */
+            /*font-family: mfont;*/
+            font-weight: 500;
+
+              font-family: "Google Sans Flex", sans-serif;
+              font-optical-sizing: auto;
+              /*font-weight: <weight>;*/
+              font-style: normal;
+              font-variation-settings:
+                "slnt" 0,
+                "wdth" 100,
+                "GRAD" 0,
+                "ROND" 0;
+        }
+
+        body, html {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          background-color: #f9f9f9;
+          min-height: 100vh;
+        }
+
+        .container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 90%;
+          max-width: 500px;
+          margin: 20px auto; /* space from the top */
+          padding: 10px;
+        }
+
+        button {
+          width: 100%;
+          padding: 20px;
+          margin: 10px 0;
+          font-size: 20px;
+          cursor: pointer;
+          border: none;
+          border-radius: 8px;
+            background-color: #8A8A8A;
+          transition: background-color 0.3s;
+          color: white;
+        }
+
+        .folder {
+            background-color: #575757;
+        }
+
+        .image_ {
+            background-color: #f96161;
+        }
+
+        button:hover {
+          background-color: #3890f5;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 900px) {
+            button {
+                padding: 24px;
+                font-size: 24px;
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 400px) {
+            button {
+                padding: 28px;
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button onclick="buttonClicked('es')" class="folder">Électronique et systèmes
+            </br>
+            (Physique S5)</button>
+        <button onclick="buttonClicked('eer')" class="folder">Énergétiques et énergie renouvelable
+            </br>
+            (Physique S5)</button>
+        <button onclick="buttonClicked('PC_P5_NewColors')" class="image_" style="margin-bottom: 150px;">PC_P5_NewColors.png</button>
+    </div>
+
+    <script>
+        function buttonClicked(url) {
+            window.location.href = "https://tcfsa.github.io/"+url;
+        }
+    </script>
+
+</body>
+</html>
