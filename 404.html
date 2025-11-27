@@ -89,19 +89,13 @@
   ];
 
   var e = 0;
-  addresses.forEach((addr, index) =>
-  {
-    if(p == addr)
+  addresses.forEach((addr, index) => {
+    if(p == addr || p == addr+"/")
     {
       window.location.href = urls[index];
       e+=1;
-      // return;
     }
-    if(
-      index==addresses.length-1 &&
-      // &&p!=addr
-      e==0
-      )
+    if(index==addresses.length-1 &&e==0)
     {
       window.location.href = "https://tcfsa.github.io";
     }
