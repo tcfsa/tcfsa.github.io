@@ -88,19 +88,19 @@
     "https://drive.google.com/drive/folders/1nlET-ECxWim0cSlkscXt1Kuvwz1BtjPf",
   ];
 
+  var e = 0;
   addresses.forEach((addr, index) =>
   {
-    var e = false;
     if(p == addr)
     {
       window.location.href = urls[index];
-      e=true;
+      e+=1;
       // return;
     }
     if(
       index==addresses.length-1 &&
       // &&p!=addr
-      !e
+      e==0
       )
     {
       window.location.href = "https://tcfsa.github.io";
