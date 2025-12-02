@@ -106,7 +106,7 @@ function red(x) {
 function downf(u){
   var e = 0;
   addressesXurls.forEach((elem, index) => {
-    y=x.replace("https://tcfsa.github.io", "").toLowerCase();
+    var y=u.replace("https://tcfsa.github.io", "").toLowerCase();
     if(decodeURI(y) == decodeURI(elem[0]) || decodeURI(y) == decodeURI(elem[0])+"/")
     {
       window.location.href = elem[1];
