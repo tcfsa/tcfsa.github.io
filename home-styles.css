@@ -78,6 +78,10 @@ h3 {
   /*transform: translateY(3px);*/
 }
 
+.list-folder:has(.semester-list:hover) {
+  background: #575757!important;
+}
+
 .semester-item {
   /*background-color: #f1f1f1;*/
   background-color: #575757;
@@ -115,3 +119,4 @@ a
 .image_:hover {
     background-color: white!important;
 }
+
