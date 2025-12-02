@@ -55,7 +55,7 @@ h3 {
 
 .course-item:hover {
   /*background-color: #e0e0e0;*/
-  /*background-color: #3890f5;*/
+  background-color: #3890f5;
   transform: translateY(-3px);
 }
 
@@ -127,3 +127,4 @@ a
 .enn_:hover {
     background-color: white!important;
 }
+
