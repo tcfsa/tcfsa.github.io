@@ -58,7 +58,7 @@ button {
 }
 
 .image_ {
-    background-color: #f96161;
+    background-color: #f96161!important;
 }
 
 .a_es { background-color: #ff595e; }
@@ -97,4 +97,3 @@ Extra small phones
     }
 
 }*/
-
