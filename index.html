@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+<html lang="fr">
 <head>
-    
-    <!-- Google tag (gtag.js) -->
+
+  <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZT5VSZS3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,92 +12,166 @@
       gtag('config', 'G-8BZT5VSZS3');
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://tcfsa.github.io/styles.css">
+  <link rel="stylesheet" href="https://tcfsa.github.io/styles.css">
+  <link rel="stylesheet" href="home-styles.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
 
-    <title>PC-P Nouvelle Réforme - FSA Agadir (2023-2026)</title>
+  <title>PC-P Nouvelle Réforme - FSA Agadir (2023-2026)</title>
 
-    <link rel="apple-touch-icon" sizes="57x57" href="https://tcfsa.github.io/icons/apple-touch-icon-57x57.png"> 
-    <link rel="apple-touch-icon" sizes="60x60" href="https://tcfsa.github.io/icons/apple-touch-icon-60x60.png"> 
-    <link rel="apple-touch-icon" sizes="72x72" href="https://tcfsa.github.io/icons/apple-touch-icon-72x72.png"> 
-    <link rel="apple-touch-icon" sizes="76x76" href="https://tcfsa.github.io/icons/apple-touch-icon-76x76.png"> 
-    <link rel="apple-touch-icon" sizes="114x114" href="https://tcfsa.github.io/icons/apple-touch-icon-114x114.png"> 
-    <link rel="apple-touch-icon" sizes="120x120" href="https://tcfsa.github.io/icons/apple-touch-icon-120x120.png"> 
-    <link rel="apple-touch-icon" sizes="144x144" href="https://tcfsa.github.io/icons/apple-touch-icon-144x144.png"> 
-    <link rel="apple-touch-icon" sizes="152x152" href="https://tcfsa.github.io/icons/apple-touch-icon-152x152.png"> 
-    <link rel="apple-touch-icon" sizes="180x180" href="https://tcfsa.github.io/icons/apple-touch-icon-180x180.png"> 
-    <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-32x32.png" sizes="32x32"> 
-    <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/android-chrome-192x192.png" sizes="192x192"> 
-    <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-96x96.png" sizes="96x96"> 
-    <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-touch-icon-57x57.png"> 
+  <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-touch-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-touch-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-touch-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-touch-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-touch-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-touch-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180x180.png"> 
+  <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32"> 
+  <link rel="icon" type="image/png" href="icons/android-chrome-192x192.png" sizes="192x192"> 
+  <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96"> 
+  <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
 </head>
 <body>
 
-    <div class="container">
+  <!-- Main Course List -->
+  <div class="course-container">
 
-        <a href="https://tcfsa.github.io/s5/es" style="width: 100%;">
-            <button>ES - Électronique et systèmes
+    <div class="course-item" onclick="toggleSec('sec1')">
+
+      <h3>PC-P5 (2025-2026)
             </br>
-            (Physique S5)</button>
-        </a>
+            (Physique S5)</h3>
 
-        <a href="https://tcfsa.github.io/s5/eer" style="width: 100%;">
-            <button>EER - Énergétiques et énergie renouvelable
+      <ul id="sec1" class="semester-list">
+
+        <a href="https://tcfsa.github.io/s5/es">
+          <li class="semester-item" onclick="keep('sec1')">
+            ES - Électronique et systèmes
             </br>
-            (Physique S5)</button>
+            (Physique S5)
+          </li>
         </a>
 
-        <!-- <button onclick="buttonClicked('pm')">PM - Physique moderne (Physique S5)</button>
-        <button onclick="buttonClicked('sm')">SM - Sciences des matériaux (Physique S5)</button> -->
-
-        <a href="https://tcfsa.github.io/s5" style="width: 100%; margin-bottom: 150px">
-            <button>PC-P5 (2025-2026)
+        <a href="https://tcfsa.github.io/s5/eer">
+          <li class="semester-item" onclick="keep('sec1')">
+            EER - Énergétiques et énergie renouvelable
             </br>
-            (Physique S5)</button>
+            (Physique S5)
+          </li>
         </a>
+      </ul>
+    </div>
 
-        <a target="_blank" href="https://tcfsa.github.io/p" style="width: 100%;">
-            <button>PC-P Nouvelle Réforme - FSA Agadir
+    <div class="course-item" onclick="toggleSec('sec2')">
+
+      <h3>PC-P Nouvelle Réforme - FSA Agadir
             </br>
-            (Physique S1, S2, S3, S4, S5, S6)</button>
-        </a>
+            (Physique S1, S2, S3, S4, S5, S6)</h3>
 
-        <a target="_blank" href="https://tcfsa.github.io/s3" style="width: 100%;margin-bottom: 150px">
-            <button>PC-P3 (2024-2025)
+      <!-- <p>Click to view Semesters</p> -->
+
+      <ul id="sec2" class="semester-list">
+
+        <a href="https://tcfsa.github.io/s5">
+          <li class="semester-item" onclick="keep('sec2')">
+            PC-P5 (2025-2026)
             </br>
-            (Physique S3)</button>
+            (Physique S5)
+          </li>
         </a>
 
-        <br>
-        <a target="_blank" href="https://tcfsa.github.io/a1" style="width: 100%;">
-            <button>Autre PC-P
+        <a target="_blank" href="https://tcfsa.github.io/s3">
+          <li class="semester-item" onclick="keep('sec2')">
+            PC-P3 (2024-2025)
             </br>
-            (Physique)</button>
+            (Physique S3)
+          </li>
         </a>
-
-        <a target="_blank" href="https://tcfsa.github.io/a2" style="width: 100%;">
-            <button>SMP FSA (Agadir) 2024/2021
+        <a target="_blank" href="https://tcfsa.github.io/p">
+          <li class="semester-item" onclick="keep('sec2')">
+            PC-P Nouvelle Réforme - FSA Agadir
             </br>
-            by Oussama Derraj</button>
-        </a>
-
-        <a target="_blank" href="https://tcfsa.github.io/a3" style="width: 100%;">
-            <button>PC S1-->S6 (2021)</button>
-        </a>
+            (Physique S1, S2, S3, S4, S5, S6)
+          </li>
+        </a>  
+      </ul>
 
     </div>
 
-    <script>
-        // function buttonClicked(url) {
-        //     window.location.href = "https://tcfsa.github.io/"+url;
-        // }
-    </script>
+    <div class="course-item" onclick="toggleSec('sec3')">
+
+      <h3>Autres</h3>
+
+      <ul id="sec3" class="semester-list">
+
+        <!-- <a target="_blank" href="https://tcfsa.github.io/a1">
+          <li class="semester-item" onclick="keep('sec3')">
+            Autre PC-P
+            </br>
+            (Physique)
+          </li>
+        </a> --> 
+        <a target="_blank" href="https://tcfsa.github.io/a2">
+          <li class="semester-item" onclick="keep('sec3')">
+            SMP FSA (Agadir) 2024/2021
+            </br>
+            by Oussama Derraj
+          </li>
+        </a> 
+        
+          <a target="_blank" href="https://tcfsa.github.io/a3">
+            <li class="semester-item" onclick="keep('sec3')">PC S1-->S6 (2021)</li>
+          </a> 
+      </ul>
+    </div>
+
+
+  <!-- Inline JavaScript -->
+  <script>
+
+    var temp_semesterList = null;
+    var k=0;
+
+    function toggleSec(courseName) {
+      const semesterList = document.getElementById(courseName);
+
+      k=0;
+
+      if(temp_semesterList!=null)
+      {
+        if(semesterList!=temp_semesterList||k==0)
+        {
+          temp_semesterList.style.display = "none";
+          temp_semesterList=null;
+        }
+      }
+
+      // Toggle the visibility of the semester list
+      if (semesterList.style.display === "none" || semesterList.style.display === "") {
+        semesterList.style.display = "block"; // Show the semesters
+      } else {
+        semesterList.style.display = "none"; // Hide the semesters
+      }
+      if(temp_semesterList!=null)
+      {
+        temp_semesterList.style.display = "block";
+      }
+    }
+
+    function keep(courseName) {
+      const semesterList = document.getElementById(courseName);
+
+      temp_semesterList=semesterList;
+      k=1;
+    }
+  </script>
 
 </body>
 </html>
