@@ -11,6 +11,7 @@ function toggleSec(courseName) {
     if(semesterList!=temp_semesterList||k==0)
     {
       temp_semesterList.style.display = "none";
+     document.documentElement.style.setProperty('--course-item-hover-clr', '#3890f5');
       temp_semesterList=null;
     }
   }
@@ -18,14 +19,15 @@ function toggleSec(courseName) {
   // Toggle the visibility of the semester list
   if (semesterList.style.display === "none" || semesterList.style.display === "") {
     semesterList.style.display = "block"; // Show the semesters
-     semesterList.parentElement.style.backgroundColor = "#575757!important";
+     document.documentElement.style.setProperty('--course-item-hover-clr', '#575757');
   } else {
     semesterList.style.display = "none"; // Hide the semesters
+     document.documentElement.style.setProperty('--course-item-hover-clr', '#3890f5');
   }
   if(temp_semesterList!=null)
   {
       temp_semesterList.style.display = "block";
-     temp_semesterList.parentElement.style.backgroundColor = "#575757!important";
+     document.documentElement.style.setProperty('--course-item-hover-clr', '#575757');
     
   }
 }
@@ -37,4 +39,5 @@ function keep(courseName) {
   k=1;
 
 }
+
 
