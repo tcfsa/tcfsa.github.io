@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  /*background-color: #f4f4f4;*/
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Align to the top */
+  height: 100vh; /* Full height of the viewport */
+  padding-top: 40px; /* Space from the top */
+}
+
+* {
+  text-decoration: none;
+  /*box-sizing: border-box;*/
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
+  /*font-family: mfont;*/
+  font-weight: 500;
+
+  font-family: "Google Sans Flex", sans-serif;
+  font-optical-sizing: auto;
+  /*font-weight: <weight>;*/
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "GRAD" 0,
+    "ROND" 0;
+}
+
+.course-container {
+  width: 90%;
+  max-width: 500px; /* Limit max width */
+}
+
+h3 {
+  color: white;
+  font-size: 20px;
+  margin: 8px 0px;
+}
+
+.course-item {
+  /*background: #ffffff;*/
+  background: #8A8A8A;
+  padding: 15px;
+  margin: 0px 0px 20px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  text-align: center; /* Center text inside each course item */
+}
+
+.course-item:hover {
+  /*background-color: #e0e0e0;*/
+  background-color: #3890f5;
+  transform: translateY(-3px);
+}
+
+.course-item p {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+
+/* Styles for the semester list inside the course */
+.semester-list {
+  list-style: none;
+  padding: 10px 20px 0px 20px;
+  display: none; /* Hide by default */
+  margin: 0;
+  transition: width 0.2s;
+}
+
+.course-item:has(.semester-list:hover) {
+  background: #8A8A8A;
+  /*transform: translateY(3px);*/
+}
+
+.semester-item {
+  /*background-color: #f1f1f1;*/
+  background-color: #575757;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  margin: 15px 0px 7px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+a
+{
+  color: white;
+}
+
+.semester-item:hover a{
+  color: black;
+}
+
+.semester-item:hover {
+  /*background-color: #ddd;*/
+  background-color: white;
+  color: black;
+  transform: translateY(-3px);
+}
