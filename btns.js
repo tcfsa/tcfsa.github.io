@@ -18,13 +18,14 @@ function toggleSec(courseName) {
   // Toggle the visibility of the semester list
   if (semesterList.style.display === "none" || semesterList.style.display === "") {
     semesterList.style.display = "block"; // Show the semesters
+     semesterList.parentElement.style.backgroundColor = "#575757!important";
   } else {
     semesterList.style.display = "none"; // Hide the semesters
   }
   if(temp_semesterList!=null)
   {
       temp_semesterList.style.display = "block";
-     temp_semesterList.parentNode.style.backgroundColor = "#575757";
+     temp_semesterList.parentElement.style.backgroundColor = "#575757!important";
     
   }
 }
@@ -36,3 +37,4 @@ function keep(courseName) {
   k=1;
 
 }
+
