@@ -81,7 +81,7 @@ button:hover {
   background-color: #3890f5;
 }
 /*
-/* Mobile-specific styles */
+Mobile-specific styles
 @media (max-width: 900px) {
     button {
         padding: 24px;
@@ -89,7 +89,7 @@ button:hover {
     }
 }
 
-/* Extra small phones */
+Extra small phones
 @media (max-width: 400px) {
     button {
         padding: 28px;
@@ -97,3 +97,4 @@ button:hover {
     }
 
 }*/
+
