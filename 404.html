@@ -15,7 +15,7 @@
 <title> </title>
 <script>
   var p = document.location.pathname.toLowerCase();
-console.log(p);
+  
   let addressesXurls = [
     ["/es", "https://drive.google.com/drive/folders/1uBF9PtOvTMQEVUdf7nmEcLDtRvseSZ4E?usp=drive_link"],
     ["/eer", "https://drive.google.com/drive/folders/1YmBIMwcIkzI3ZVnP_lTg5Iiahhrfszr2?usp=sharing"],
@@ -108,7 +108,10 @@ console.log(p);
 
   var e = 0;
   addressesXurls.forEach((elem, index) => {
-    if(decodeURI(p) == elem[0] || decodeURI(p) == elem[0]+"/")
+    
+console.log(decodeURI(p));
+console.log(decodeURI(elem[0]));
+    if(decodeURI(p) == decodeURI(elem[0]) || decodeURI(p) == decodeURI(elem[0])+"/")
     {
       window.location.href = elem[1];
       e+=1;
