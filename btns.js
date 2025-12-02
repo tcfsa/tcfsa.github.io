@@ -23,7 +23,9 @@ function toggleSec(courseName) {
   }
   if(temp_semesterList!=null)
   {
-    temp_semesterList.style.display = "block";
+      temp_semesterList.style.display = "block";
+     temp_semesterList.parentNode.style.backgroundColor = "#575757";
+    
   }
 }
 
@@ -32,4 +34,5 @@ function keep(courseName) {
 
   temp_semesterList=semesterList;
   k=1;
+
 }
