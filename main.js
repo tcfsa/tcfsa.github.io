@@ -104,17 +104,6 @@ function red(x) {
 }
 
 function downf(u){
-  var e = 0;
-  addressesXurls.forEach((elem, index) => {
     var y=u.replace("https://tcfsa.github.io", "").toLowerCase();
-    if(decodeURI(y) == decodeURI(elem[0]) || decodeURI(y) == decodeURI(elem[0])+"/")
-    {
-      window.location.href = elem[1];
-      e+=1;
-    }
-    if(index==addressesXurls.length-1 &&e==0)
-    {
-      window.location.href = "https://tcfsa.github.io";
-    }
-  });
+    red(y);
 }
