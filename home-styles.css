@@ -1,3 +1,7 @@
+:root {
+  --course-item-hover-clr: #3890f5;
+}
+
 body {
   margin: 0;
   padding: 20px;
@@ -55,7 +59,7 @@ h3 {
 
 .course-item:hover {
   /*background-color: #e0e0e0;*/
-  background-color: #3890f5;
+  background-color: var(--course-item-hover-clr);
   transform: translateY(-3px);
 }
 
@@ -127,4 +131,5 @@ a
 .enn_:hover {
     background-color: white!important;
 }
+
 
