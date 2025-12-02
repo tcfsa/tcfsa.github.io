@@ -24,12 +24,16 @@ function toggleSec(courseName) {
      document.documentElement.style.setProperty('--course-item-hover-clr', def_color);
   } else {
     semesterList.style.display = "none"; // Hide the semesters
-     document.documentElement.style.setProperty('--course-item-hover-clr', '#3890f5');
   }
   if(temp_semesterList!=null)
   {
       temp_semesterList.style.display = "block";
      document.documentElement.style.setProperty('--course-item-hover-clr', def_color);
+    
+  }
+  if(temp_semesterList==null)
+  {
+     document.documentElement.style.setProperty('--course-item-hover-clr', '#3890f5');
     
   }
 }
@@ -41,6 +45,7 @@ function keep(courseName) {
   k=1;
 
 }
+
 
 
 
