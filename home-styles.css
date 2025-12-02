@@ -106,3 +106,12 @@ a
   transform: translateY(-3px);
 
 }
+
+.list-folder
+{
+  background: #575757;
+}
+
+.image_:hover {
+    background-color: white!important;
+}
