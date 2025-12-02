@@ -63,7 +63,7 @@ let addressesXurls = [
 ["/s5/es/eltelnp/tps", "https://drive.google.com/drive/folders/1921VK1Wq-wCEwbB5Qrfr3EHH3A3ZxGPC"],
 
 ["/s5/es/elnnum2/cours", "https://drive.google.com/drive/folders/1fv92fMRJqX2MxSsw7zITO3o3oGXBsQD4"],
-["/s5/es/elnnum2/cours/chapt 1-2-3-4_pdf", "https://drive.google.com/uc?id=1ltAbcmc2YbrRbxhiEbuaZhGsR0znL-Pp"],
+["/s5/es/elnnum2/cours/chapt 1-2-3-4.pdf", "https://drive.google.com/uc?id=1ltAbcmc2YbrRbxhiEbuaZhGsR0znL-Pp"],
 
 ["/s5/es/elnnum2/tds", "https://drive.google.com/drive/folders/1k9fa4yInfbEAVnYgTlui9-N-7VQUo0hQ"],
 ["/s5/es/elnnum2/tps", "https://drive.google.com/drive/folders/1ezXQhXa--HybBwB613GAHme57ODERzQq"],
@@ -92,6 +92,22 @@ function red(x) {
   var e = 0;
   addressesXurls.forEach((elem, index) => {
     if(decodeURI(x) == decodeURI(elem[0]) || decodeURI(x) == decodeURI(elem[0])+"/")
+    {
+      window.location.href = elem[1];
+      e+=1;
+    }
+    if(index==addressesXurls.length-1 &&e==0)
+    {
+      window.location.href = "https://tcfsa.github.io";
+    }
+  });
+}
+
+function downf(u){
+  var e = 0;
+  addressesXurls.forEach((elem, index) => {
+    y=x.replace("https://tcfsa.github.io", "").toLowerCase();
+    if(decodeURI(y) == decodeURI(elem[0]) || decodeURI(y) == decodeURI(elem[0])+"/")
     {
       window.location.href = elem[1];
       e+=1;
