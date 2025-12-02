@@ -11,113 +11,14 @@
   
     gtag('config', 'G-8BZT5VSZS3');
   </script>
+  <script src="https://tcfsa.github.io/main.js"></script>
 
 <title> </title>
 <script>
-  var p = document.location.pathname.toLowerCase();
   
-  let addressesXurls = [
-    ["/es", "https://drive.google.com/drive/folders/1uBF9PtOvTMQEVUdf7nmEcLDtRvseSZ4E?usp=drive_link"],
-    ["/eer", "https://drive.google.com/drive/folders/1YmBIMwcIkzI3ZVnP_lTg5Iiahhrfszr2?usp=sharing"],
+  var p = document.location.pathname.toLowerCase();
 
-
-    ["/mecqua2"       , "https://drive.google.com/drive/folders/1JhJHYxGRJnm73hEOIEwmy--ImtIHzOsU"],
-    ["/elnana2"       , "https://drive.google.com/drive/folders/16rAKS6KjQRSIzKbewB4vTJDkMqPuuniM"],
-    ["/es-eltelnp"    , "https://drive.google.com/drive/folders/1FDWqF-rPa7Qehnad1IZC6GkkrAmb1oOl"],
-    ["/elnnum2"       , "https://drive.google.com/drive/folders/1R6yp1Q4ouwj9-sZr5o8bYSOYqoxCfmZF"],
-    ["/es-calcsci"    , "https://drive.google.com/drive/folders/1RIaiA3HCuDmEHZ4EBV9x6W1fBSQvTkCU"],
-    ["/s5-es-lngetr3" , "https://drive.google.com/drive/folders/1qqjXE5hw1NDx_xw4xdUhGkJPGNGpqKOB"],
-    ["/es-option"     , "https://drive.google.com/drive/folders/1evDjl_6qcx1ybJmAsVy0XbeRy3-u7QYD"],
-
-    ["/thermap"       , "https://drive.google.com/drive/folders/1k6U4XdHDLZLYUfTJk9pB9NxtETpiuMsm"],
-    ["/phystat"       , "https://drive.google.com/drive/folders/1Wj_sXZAY-BTTdG8c3ezwE2En1U82cOWf"],
-    ["/eer-eltelnp"    , "https://drive.google.com/drive/folders/1TpmN2q09H_E9rkol9UJVPl_jJD6fIMLC"],
-    ["/mecmilc"       , "https://drive.google.com/drive/folders/1bYlDMMtBW-0zTXbMK63CyqSS3tsAcdM8"],
-    ["/eer-calcsci"    , "https://drive.google.com/drive/folders/1cZJKfhl0hGeLK2WeZVwcC39Z7P_C4q_B"],
-    ["/s5-eer-lngetr3" , "https://drive.google.com/drive/folders/1LfVmwh2n-QiO0Z0T9t87CMI53PtOawW-"],
-    ["/eer-option"     , "https://drive.google.com/drive/folders/1qKrd1RWp9TgEgpJcdmIakW_gAWRG7gll"],
-
-
-    ["/s5/eer/thermap/cours", "https://drive.google.com/drive/folders/165DI_qIdCpc2NkxnF2ztaXpY9Ub9Qpnc"],
-    ["/s5/eer/thermap/tds", "https://drive.google.com/drive/folders/1O6wmHT6c5VeY33mDgA_Hdsvlga4Z7WEY"],
-    ["/s5/eer/thermap/tps", "https://drive.google.com/drive/folders/1AAs4pZA8r54G2TuN3wev6J0PsRfWm6gX"],
-
-    ["/s5/eer/phystat/cours", "https://drive.google.com/drive/folders/1BBTq4VC7HeMRWniNM1XtbmMpBWZ3-tQu"],
-    ["/s5/eer/phystat/tds", "https://drive.google.com/drive/folders/1iOOaIWLl7vNmbxoGjIYoA4JIf6jNRCMm"],
-    ["/s5/eer/phystat/examens", "https://drive.google.com/drive/folders/1AfQ5kr1vtkUteTUWOfnmxrDx3U0XI-Ot"],
-
-    ["/s5/eer/eltelnp/cours", "https://drive.google.com/drive/folders/11SdXkc2_qrO3HbpjqNM2Xwc0uYCSp9Zh"],
-    ["/s5/eer/eltelnp/tds", "https://drive.google.com/drive/folders/1evEqEfZJrmG9PVQTgw-zCOrz9m8DTIQ7"],
-    ["/s5/eer/eltelnp/tps", "https://drive.google.com/drive/folders/1hqBHW8d8WlQm5L9JxUtfDEulXXtBl-oM"],
-
-    ["/s5/eer/mecmilc/cours", "https://drive.google.com/drive/folders/1cRvA81eINnQldIM1rmrUUHSyugGCmUhD"],
-    ["/s5/eer/mecmilc/tds", "https://drive.google.com/drive/folders/1I8ZheFl0mAbmzWY317gI7z81-0NZGQfy"],
-    ["/s5/eer/mecmilc/tps", "https://drive.google.com/drive/folders/1QlebZ6n20nE3kH3awzlfcMPsW9CHlsc_"],
-
-    ["/s5/eer/calcsci/cours", "https://drive.google.com/drive/folders/1M7sP9Q0x8jbcaQ81u0EGgW7GxySGjT3r"],
-    ["/s5/eer/calcsci/tds", "https://drive.google.com/drive/folders/15ab3WT6KIxSlA9cg8DSQBpynDvZRctY5"],
-    ["/s5/eer/calcsci/tps", "https://drive.google.com/drive/folders/1zGo9np9YQgX-bktXb44MDRSNTgJs7lHj"],
-    ["/s5/eer/calcsci/examens", "https://drive.google.com/drive/folders/1rKV6idcCiDXwVi1siO2LbTMBThKkmO0y"],
-
-    ["/s5/eer/lngetr3/tds", "https://drive.google.com/drive/folders/1LfVmwh2n-QiO0Z0T9t87CMI53PtOawW-"],
-
-    ["/s5/eer/option/cours", "https://drive.google.com/drive/folders/1qKrd1RWp9TgEgpJcdmIakW_gAWRG7gll"],
-    
-    ["/s5/eer/modules", "https://drive.google.com/file/d/1bEpLBdST_XrJ3wIOk1mMk1NG0jgzAves/view?usp=drive_link"],
-
-    ["/pc_p5_newcolors", "https://drive.google.com/file/d/1RjU1AfyoxrMiyMbYTk3WUvvH0Du3kZSj/view?usp=sharing"],
-
-    ["/s5/es/mecqua2/cours", "https://drive.google.com/drive/folders/1qnoqBCnDXCkEYNtDa-AZAXqNT9hhxMVk"],
-    ["/s5/es/mecqua2/tds", "https://drive.google.com/drive/folders/1LyUAiPcfGtVXavMaO0_SUXeRcA0gQSmT"],
-    ["/s5/es/mecqua2/examens", "https://drive.google.com/drive/folders/1bPEk_nl7TtlN-N-ceISliotsOuI5Fr0r"],
-
-    ["/s5/es/elnana2/cours", "https://drive.google.com/drive/folders/196a83ZfdRBwQjGNms3a0EXe3D43S5GXX"],
-    ["/s5/es/elnana2/tds", "https://drive.google.com/drive/folders/12qYl7VNUs3uRi2dBgUIAEVZRxT0wekxw"],
-    ["/s5/es/elnana2/tps", "https://drive.google.com/drive/folders/1OwYVAC4g1Vh1S2zAGUqqPYY2oTlog-eE"],
-    ["/s5/es/elnana2/examens", "https://drive.google.com/drive/folders/1H3D6AA4y9O6VYbjPib5anmPfI3lEE40K"],
-
-    ["/s5/es/eltelnp/cours", "https://drive.google.com/drive/folders/1x_047q1elqagw_tZQs51sKy9UokhNz9E"],
-    ["/s5/es/eltelnp/tds", "https://drive.google.com/drive/folders/1p-krh-KnpO6kSx1Zf1MglyLnSO3xxDkt"],
-    ["/s5/es/eltelnp/tps", "https://drive.google.com/drive/folders/1921VK1Wq-wCEwbB5Qrfr3EHH3A3ZxGPC"],
-
-    ["/s5/es/elnnum2/cours", "https://drive.google.com/drive/folders/1fv92fMRJqX2MxSsw7zITO3o3oGXBsQD4"],
-    ["/s5/es/elnnum2/cours/chapt 1-2-3-4_pdf", "https://drive.google.com/uc?id=1ltAbcmc2YbrRbxhiEbuaZhGsR0znL-Pp"],
-    
-    ["/s5/es/elnnum2/tds", "https://drive.google.com/drive/folders/1k9fa4yInfbEAVnYgTlui9-N-7VQUo0hQ"],
-    ["/s5/es/elnnum2/tps", "https://drive.google.com/drive/folders/1ezXQhXa--HybBwB613GAHme57ODERzQq"],
-    ["/s4/elnnum1", "https://drive.google.com/drive/folders/1pvQjMi-bj9SHqHSS3n8im7DhmNyZEX8t"],
-
-    ["/s5/es/calcsci/cours", "https://drive.google.com/drive/folders/16Bn2rDo1didSDYMF-fPq6Q9q5FQ_tCar"],
-    ["/s5/es/calcsci/tds", "https://drive.google.com/drive/folders/1dEtfU3x4MRU1lYk42zgyBK8H7EMoXa1_"],
-    ["/s5/es/calcsci/tps", "https://drive.google.com/drive/folders/1ajM_1ix9cfr1aANyJckjEmWwyf1eVT7p"],
-    ["/s5/es/calcsci/examens", "https://drive.google.com/drive/folders/14w70ll4KZW7QtNZKHu6mQjXXydOc_3Zn"],
-
-    ["/s5/es/lngetr3/tds", "https://drive.google.com/drive/folders/1qqjXE5hw1NDx_xw4xdUhGkJPGNGpqKOB"],
-
-    ["/s5/es/option/cours", "https://drive.google.com/drive/folders/1evDjl_6qcx1ybJmAsVy0XbeRy3-u7QYD"],
-
-    ["/s5/es/modules", "https://drive.google.com/file/d/1Wv54V9hVJWWTPwyNi1Bv2svs-opf8Pk7/view?usp=sharing"],
-
-    ["/s4", "https://drive.google.com/drive/folders/1AbkccDkshVpDaYBdR1cLlX3D4BYHFyfj?usp=sharing"],
-    ["/s3", "https://drive.google.com/drive/folders/1NjOFOxB3h9IiCcmfrufZS9QlFTz9Okjw?usp=drive_link"],
-    ["/p", "https://drive.google.com/drive/folders/100sHKEs5lAdWoDZjxesw7GwibhQY5r7M?usp=sharing"],
-    ["/a1", "https://drive.google.com/drive/folders/1FmS3pFvWcfHvP_aLFMY6Icfe6nV-5_qg"],
-    ["/a2", "https://drive.google.com/drive/folders/1wnJgrB-ADvwvKkuyk8baLPrEvAbZJCQI"],
-    ["/a3", "https://drive.google.com/drive/folders/1nlET-ECxWim0cSlkscXt1Kuvwz1BtjPf"]
-  ];
-
-  var e = 0;
-  addressesXurls.forEach((elem, index) => {
-    if(decodeURI(p) == decodeURI(elem[0]) || decodeURI(p) == decodeURI(elem[0])+"/")
-    {
-      window.location.href = elem[1];
-      e+=1;
-    }
-    if(index==addressesXurls.length-1 &&e==0)
-    {
-      window.location.href = "https://tcfsa.github.io";
-    }
-  });
+  red(p);
   
 </script>
 </head>
