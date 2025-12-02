@@ -1,5 +1,6 @@
 var temp_semesterList = null;
 var k=0;
+var op=0;
 
 function toggleSec(courseName) {
   const semesterList = document.getElementById(courseName);
@@ -11,7 +12,7 @@ function toggleSec(courseName) {
     if(semesterList!=temp_semesterList||k==0)
     {
       temp_semesterList.style.display = "none";
-     document.documentElement.style.setProperty('--course-item-hover-clr', '#3890f5');
+    op-=1;
       temp_semesterList=null;
     }
   }
@@ -22,16 +23,19 @@ function toggleSec(courseName) {
   if (semesterList.style.display === "none" || semesterList.style.display === "") {
     semesterList.style.display = "block"; // Show the semesters
      document.documentElement.style.setProperty('--course-item-hover-clr', def_color);
+    op+=1;
   } else {
     semesterList.style.display = "none"; // Hide the semesters
+    op-=1;
   }
   if(temp_semesterList!=null)
   {
       temp_semesterList.style.display = "block";
      document.documentElement.style.setProperty('--course-item-hover-clr', def_color);
+    op+=1;
     
   }
-  if(temp_semesterList==null)
+  if(op==0)
   {
      document.documentElement.style.setProperty('--course-item-hover-clr', '#3890f5');
     
@@ -45,6 +49,7 @@ function keep(courseName) {
   k=1;
 
 }
+
 
 
 
