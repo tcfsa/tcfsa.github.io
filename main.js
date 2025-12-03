@@ -58,8 +58,19 @@ let addressesXurls = [
 ["/s5/es/elnana2/tps", "https://drive.google.com/drive/folders/1OwYVAC4g1Vh1S2zAGUqqPYY2oTlog-eE"],
 ["/s5/es/elnana2/examens", "https://drive.google.com/drive/folders/1H3D6AA4y9O6VYbjPib5anmPfI3lEE40K"],
 
-["/s5/es/eltelnp/cours", "https://drive.google.com/drive/folders/1x_047q1elqagw_tZQs51sKy9UokhNz9E"],
-["/s5/es/eltelnp/tds", "https://drive.google.com/drive/folders/1p-krh-KnpO6kSx1Zf1MglyLnSO3xxDkt"],
+["/s5/es/eltelnp/cours/chapt 1 à 4.pdf", "https://drive.google.com/uc?id=1mU-FyUgeNXn3jufFINpXAD_ltDmhZpGA"],
+["/s5/es/eltelnp/cours/chapt 1.pdf", "https://drive.google.com/uc?id=1NczkNEUjkHPXuQeBeaiaROB6bXcTIbEl"],
+["/s5/es/eltelnp/cours/chapt 2.pdf", "https://drive.google.com/uc?id=199t2g_IA535gFUyokstDi121p6tghohA"],
+["/s5/es/eltelnp/cours/chapt 3.pdf", "https://drive.google.com/uc?id=1Ueu0SS5abp8Ufv2wTkiZSQukT0Rs674X"],
+["/s5/es/eltelnp/cours/chapt 4.pdf", "https://drive.google.com/uc?id=1GZP4qi2mnSQq2iW1vv-Ny068ySKLDOuI"],
+["/s5/es/eltelnp/cours/résumé circelc.pdf", "https://drive.google.com/uc?id=18svzA8okrRHXWMfmq9c_qoUWaOFQKutG"],
+["/s5/es/eltelnp/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1uqSDhRzwEX0HhIlcBccOTDDprhN5a46e"],
+["/s5/es/eltelnp/tds/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1sa6nWcwlNRvwhH6H64Axr-Qx4yHuZLuN"],
+["/s5/es/eltelnp/tds/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1l_8JrsOov_b5Agry9ibo-i-LJLjXJIZb"],
+["/s5/es/eltelnp/tds/td2 - corrigé.pdf", "https://drive.google.com/uc?id=1N36YlF14nTPQZRzjpkwXv2fFcIk7ZY8U"],
+["/s5/es/eltelnp/tds/td3 - énoncé.pdf", "https://drive.google.com/uc?id=1_uV9g5XLijCwhFLjYkN3svyrBGej6HSU"],
+["/s5/es/eltelnp/tds/td3 - corrigé.pdf", "https://drive.google.com/uc?id=1bd3o5cls71hLvVqG5Ek97SNTKLeCNWyp"],
+
 ["/s5/es/eltelnp/tps", "https://drive.google.com/drive/folders/1921VK1Wq-wCEwbB5Qrfr3EHH3A3ZxGPC"],
 
 ["/s5/es/elnnum2/cours", "https://drive.google.com/drive/folders/1fv92fMRJqX2MxSsw7zITO3o3oGXBsQD4"],
