@@ -65,8 +65,24 @@ button {
     background-color: #00cd0a!important;
 }
 
-.enn_ {
+.chapt_ {
     background-color: #0082ff!important;
+}
+
+.enn_ {
+    background-color: #f96161!important;
+}
+
+.supptp_ {
+    background-color: #ff4b27!important;
+}
+
+.fiche_ {
+    background-color: #fffa00!important;
+}
+
+.corrtp_ {
+    background-color: #ff9200!important;
 }
 
 .a_es { background-color: #ff595e; }
@@ -105,4 +121,5 @@ Extra small phones
     }
 
 }*/
+
 
