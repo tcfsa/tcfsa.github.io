@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://tcfsa.github.io/styles.css">
+    <link rel="stylesheet" href="https://tcfsa.github.io/home-styles.css">
+    <script src="https://tcfsa.github.io/main.js"></script>
+    <script src="https://tcfsa.github.io/btns.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,18 +39,39 @@
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-96x96.png" sizes="96x96"> 
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-16x16.png" sizes="16x16">
 </head>
-<body>
+<body style="padding: 0px">
 
     <div class="container">
 
         <button style="cursor: auto;background-color: #2c002c;margin-bottom: 80px">Option</button>
 
-        <a target="_blank" href="https://tcfsa.github.io/s5/eer/Option/Cours" style="width: 100%">
-            <button class="folder">Cours</button>
-        </a>
+        <div class="course-container">
+
+            <div class="course-item list-folder" onclick="toggleSec('sec1')">
+
+              <h3>Cours</h3>
+
+              <ul id="sec1" class="semester-list">
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/Option/Cours/Algorithmique - Leçons 1 à 5.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Algorithmique - Leçons 1 à 5.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/Option/Cours/Python - Chapitres 1 à 5.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Python - Chapitres 1 à 5.pdf</li>
+                </a>
+
+              </ul>
+            </div>
+
+        </div>
         
         <a target="_blank" href="https://algopython.hamzahrid.com" style="width: 100%;margin-bottom: 80px">
             <button class="folder">Site Web du Module</button>
+        </a>
+        
+        <a target="_blank" href="https://tcfsa.github.io/EER-Option" style="width: 100%;margin-bottom: 80px">
+            <button class="folder">Drive</button>
         </a>
 
         <a href="https://tcfsa.github.io/s5/eer" style="width: 100%;">
