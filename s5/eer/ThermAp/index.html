@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://tcfsa.github.io/styles.css">
+    <link rel="stylesheet" href="https://tcfsa.github.io/home-styles.css">
+    <script src="https://tcfsa.github.io/main.js"></script>
+    <script src="https://tcfsa.github.io/btns.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,21 +39,123 @@
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-96x96.png" sizes="96x96"> 
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-16x16.png" sizes="16x16">
 </head>
-<body>
+<body style="padding: 0px">
 
     <div class="container">
 
         <button style="cursor: auto;background-color: #af070c;margin-bottom: 80px">Thermodynamique appliquée</button>
 
-        <a target="_blank" href="https://tcfsa.github.io/s5/eer/ThermAp/Cours" style="width: 100%;">
-            <button class="folder">Cours</button>
+        <div class="course-container" style="margin-bottom: 80px">
+
+            <div class="course-item list-folder" onclick="toggleSec('sec1')">
+
+              <h3>Cours</h3>
+
+              <ul id="sec1" class="semester-list">
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/Cours/Chapt 1 à 7.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 1 à 7.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/Cours/Chapt 1.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 1.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/Cours/Chapt 2.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 2.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/Cours/Chapt 3 et 4.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 3 et 4.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/Cours/Chapt 5.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 5.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/Cours/Chapt 6 et 7.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 6 et 7.pdf</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <div class="course-item list-folder" onclick="toggleSec('sec2')">
+
+              <h3>TDs</h3>
+
+              <ul id="sec2" class="semester-list">
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TDs/TD1 - Énoncé.pdf')">
+                  <li class="semester-item enn_ " onclick="keep('sec2')">TD1 - Énoncé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TDs/TD1 - Corrigé.pdf')">
+                  <li class="semester-item corr_ " onclick="keep('sec2')">TD1 - Corrigé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TDs/TD2 - Énoncé.pdf')">
+                  <li class="semester-item enn_ " onclick="keep('sec2')">TD2 - Énoncé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TDs/TD2 - Corrigé.pdf')">
+                  <li class="semester-item corr_ " onclick="keep('sec2')">TD2 - Corrigé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TDs/TD3 - Énoncé.pdf')">
+                  <li class="semester-item enn_ " onclick="keep('sec2')">TD3 - Énoncé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TDs/TD3 - Corrigé.pdf')">
+                  <li class="semester-item corr_ " onclick="keep('sec2')">TD3 - Corrigé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TDs/TD4 - Énoncé.pdf')">
+                  <li class="semester-item enn_ " onclick="keep('sec2')">TD4 - Énoncé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TDs/TD4 - Corrigé.pdf')">
+                  <li class="semester-item corr_ " onclick="keep('sec2')">TD4 - Corrigé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TDs/TD5 - Énoncé.pdf')">
+                  <li class="semester-item enn_ " onclick="keep('sec2')">TD5 - Énoncé.pdf</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <div class="course-item list-folder" onclick="toggleSec('sec3')">
+
+              <h3>TPs</h3>
+
+              <ul id="sec3" class="semester-list">
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TPs/Support des TPs.pdf')">
+                  <li class="semester-item supptp_ " onclick="keep('sec3')">Support des TPs.pdf</li>
+                </a>
+
+                <!-- <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TPs/TP1 - Compte Rendu.pdf')">
+                  <li class="semester-item fiche_ " onclick="keep('sec3')" style="color: black;">TP1 - Compte Rendu.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TPs/TP1 - Corrigé.pdf')">
+                  <li class="semester-item corrtp_ " onclick="keep('sec3')">TP1 - Corrigé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/ThermAp/TPs/TP2 - Compte Rendu.pdf')">
+                  <li class="semester-item fiche_ " onclick="keep('sec3')" style="color: black;">TP2 - Compte Rendu.pdf</li>
+                </a> -->
+
+              </ul>
+            </div>
+
+        </div>
+        
+        <a target="_blank" href="https://tcfsa.github.io/ThermAp" style="width: 100%;margin-bottom: 80px">
+            <button class="folder">Drive</button>
         </a>
-        <a target="_blank" href="https://tcfsa.github.io/s5/eer/ThermAp/TDs" style="width: 100%;">
-            <button class="folder">TDs</button>
-        </a>
-        <a target="_blank" href="https://tcfsa.github.io/s5/eer/ThermAp/TPs" style="width: 100%;margin-bottom: 80px">
-            <button class="folder">TPs</button>
-        </a>
+
         <a href="https://tcfsa.github.io/s5/eer" style="width: 100%;">
             <button>Énergétiques et énergie renouvelable
             </br>
@@ -64,11 +169,6 @@
         <a href="https://tcfsa.github.io/" style="width: 100%">
             <button>Accueil</button>
         </a>
-    <script>
-        // function buttonClicked(url) {
-        //  window.location.href = "https://tcfsa.github.io/"+url;
-        // }
-    </script>
 
-</body>
+    </body>
 </html>
