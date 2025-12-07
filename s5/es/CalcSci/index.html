@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://tcfsa.github.io/styles.css">
+    <link rel="stylesheet" href="https://tcfsa.github.io/home-styles.css">
+    <script src="https://tcfsa.github.io/main.js"></script>
+    <script src="https://tcfsa.github.io/btns.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,24 +39,128 @@
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-96x96.png" sizes="96x96"> 
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-16x16.png" sizes="16x16">
 </head>
-<body>
+<body style="padding: 0px">
 
     <div class="container">
 
         <button style="cursor: auto;background-color: #D100D1;margin-bottom: 80px">Calcul scientifique</button>
 
-        <a target="_blank" href="https://tcfsa.github.io/s5/es/CalcSci/Cours" style="width: 100%;">
-            <button class="folder">Cours</button>
+        <div class="course-container">
+
+            <div class="course-item list-folder" onclick="toggleSec('sec1')">
+
+              <h3>Cours</h3>
+
+              <ul id="sec1" class="semester-list">
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/Cours/Chapt 1.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 1.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/Cours/Chapt 2.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 2.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/Cours/Chapt 3.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 3.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/Cours/Chapt 4.pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Chapt 4.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/Cours/Cours (Polycopié).pdf')">
+                  <li class="semester-item chapt_" onclick="keep('sec1')">Cours (Polycopié)</li>
+                </a>
+
+                <a target="_blank" href="https://tcfsa.github.io/s5/CalcSci/Cours/Résumés">
+                  <li class="semester-item" onclick="keep('sec1')" style="background-color: #8A8A8A;">Résumés</li>
+                </a>
+
+                <a target="_blank" href="https://tcfsa.github.io/s5/CalcSci/Cours/Fichiers Python">
+                  <li class="semester-item" onclick="keep('sec1')" style="background-color: #8A8A8A;">Fichiers Python du cours</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <div class="course-item list-folder" onclick="toggleSec('sec2')">
+
+              <h3>TDs</h3>
+
+              <ul id="sec2" class="semester-list">
+
+                <br>
+                <h3>TD1</h3>
+                  
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/TDs/TD1 - Énoncé.pdf')">
+                  <li class="semester-item enn_ " onclick="keep('sec2')">TD1 - Énoncé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/TDs/TD1 - Corrigé.pdf')">
+                  <li class="semester-item corr_ " onclick="keep('sec2')">TD1 - Corrigé.pdf</li>
+                </a>
+                  
+                <br>
+                <h3>TD2</h3>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/TDs/TD2 - Énoncé.pdf')">
+                  <li class="semester-item enn_ " onclick="keep('sec2')">TD2 - Énoncé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/TDs/TD2 - Corrigé.pdf')">
+                  <li class="semester-item corr_ " onclick="keep('sec2')">TD2 - Corrigé.pdf</li>
+                </a>
+                  
+                <br>
+                <h3>TD3</h3>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/TDs/TD3 - Énoncé.pdf')">
+                  <li class="semester-item enn_ " onclick="keep('sec2')">TD3 - Énoncé.pdf</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/TDs/TD3 - Corrigé.pdf')">
+                  <li class="semester-item corr_ " onclick="keep('sec2')">TD3 - Corrigé.pdf</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <div class="course-item list-folder" onclick="toggleSec('sec3')">
+
+              <h3>TPs</h3>
+
+              <ul id="sec3" class="semester-list">
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/CalcSci/TPs/Révisions des TPs.pdf')">
+                  <li class="semester-item supptp_ " onclick="keep('sec3')">Révisions des TPs.pdf</li>
+                </a>
+
+                <a target="_blank" href="https://tcfsa.github.io/s5/CalcSci/TPs/TP 1">
+                  <li class="semester-item" onclick="keep('sec1')" style="background-color: #8A8A8A;">TP 1</li>
+                </a>
+
+                <a target="_blank" href="https://tcfsa.github.io/s5/CalcSci/TPs/TP 2">
+                  <li class="semester-item" onclick="keep('sec1')" style="background-color: #8A8A8A;">TP 2</li>
+                </a>
+
+                <a target="_blank" href="https://tcfsa.github.io/s5/CalcSci/TPs/TP 3">
+                  <li class="semester-item" onclick="keep('sec1')" style="background-color: #8A8A8A;">TP 3</li>
+                </a>
+
+                <a target="_blank" href="https://tcfsa.github.io/s5/CalcSci/TPs/Dossier des TPs">
+                  <li class="semester-item" onclick="keep('sec1')" style="background-color: #8A8A8A;">Dossier des TPs</li>
+                </a>
+
+              </ul>
+            </div>
+
+        </div>
+        
+        <a target="_blank" href="https://tcfsa.github.io/ES-CalcSci" style="width: 100%;margin-bottom: 80px">
+            <button class="folder">Drive</button>
         </a>
-        <a target="_blank" href="https://tcfsa.github.io/s5/es/CalcSci/TDs" style="width: 100%;">
-            <button class="folder">TDs</button>
-        </a>
-        <a target="_blank" href="https://tcfsa.github.io/s5/es/CalcSci/TPs" style="width: 100%;">
-            <button class="folder">TPs</button>
-        </a>
-        <a target="_blank" href="https://tcfsa.github.io/s5/es/CalcSci/Examens" style="width: 100%;margin-bottom: 80px">
-            <button class="folder">Examens</button>
-        </a>
+
         <a href="https://tcfsa.github.io/s5/es" style="width: 100%;">
             <button>Électronique et systèmes
             </br>
@@ -67,11 +174,5 @@
         <a href="https://tcfsa.github.io/" style="width: 100%">
             <button>Accueil</button>
         </a>
-    <script>
-        // function buttonClicked(url) {
-        //  window.location.href = "https://tcfsa.github.io/"+url;
-        // }
-    </script>
-
-</body>
+    </body>
 </html>
