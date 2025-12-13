@@ -142,22 +142,41 @@ let addressesXurls = [
 ["/a3", "https://drive.google.com/drive/folders/1nlET-ECxWim0cSlkscXt1Kuvwz1BtjPf"]
 ];
 
-function red(x) {
+function getURL(x) {
   var e = 0;
+  var _url="";
   addressesXurls.forEach((elem, index) => {
     if(decodeURI(x) == decodeURI(elem[0]) || decodeURI(x) == decodeURI(elem[0])+"/")
     {
-      window.location.href = elem[1];
+      _url = elem[1];
       e+=1;
     }
     if(index==addressesXurls.length-1 &&e==0)
     {
-      window.location.href = "https://tcfsa.github.io";
+      _url = "https://tcfsa.github.io";
     }
   });
+  return _url;
+}
+
+function red(x) {
+  direct_red(getURL(x.replace("https://tcfsa.github.io", "").toLowerCase()));
+}
+
+function direct_red(x) {
+  window.location.href = x;
+}
+
+function newtab_red(x) {
+  window.open(x, '_blank').focus();
 }
 
 function downf(u){
     var y=u.replace("https://tcfsa.github.io", "").toLowerCase();
     red(y);
+}
+
+function viewf(u){
+    d_url = getURL(u.replace("https://tcfsa.github.io", "").toLowerCase());
+    newtab_red(d_url.replace("https://drive.google.com/uc?id=", "https://drive.google.com/file/d/")+"/view?usp=sharing");
 }
