@@ -2,6 +2,16 @@ var temp_semesterList = null;
 var k=0;
 var op=0;
 
+function toggleThing(courseName) {
+  const semesterList = document.getElementById(courseName);
+
+  if (semesterList.style.display === "none" || semesterList.style.display === "") {
+    semesterList.style.display = "block"; // Show the semesters
+  } else {
+    semesterList.style.display = "none"; // Hide the semesters
+  }
+}
+
 function toggleSec(courseName) {
   const semesterList = document.getElementById(courseName);
 
