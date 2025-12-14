@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
 
-    <title>Option - ES - PCP5 (2025-2026)</title>
+    <title>Option (Algorithmique & Python) - ES - PCP5 (2025-2026)</title>
 
     <link rel="apple-touch-icon" sizes="57x57" href="https://tcfsa.github.io/icons/apple-touch-icon-57x57.png"> 
     <link rel="apple-touch-icon" sizes="60x60" href="https://tcfsa.github.io/icons/apple-touch-icon-60x60.png"> 
@@ -43,7 +43,7 @@
 
     <div class="container">
 
-        <button style="cursor: auto;background-color: #2c002c;margin-bottom: 80px">Option</button>
+        <button style="cursor: auto;background-color: #2c002c;margin-bottom: 80px">Option (Algorithmique & Python)</button>
 
         <div class="course-container">
 
@@ -53,13 +53,43 @@
 
               <ul id="sec1" class="semester-list">
 
-                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/Option/Cours/Algorithmique - Leçons 1 à 5.pdf')">
-                  <li class="semester-item chapt_" onclick="keep('sec1')">Algorithmique - Leçons 1 à 5.pdf</li>
-                </a>
+                <!-- ELEMENT 1 -->
 
-                <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/Option/Cours/Python - Chapitres 1 à 5.pdf')">
-                  <li class="semester-item chapt_" onclick="keep('sec1')">Python - Chapitres 1 à 5.pdf</li>
-                </a>
+                  <li class="semester-item chapt_" onclick="keep('sec1'); toggleThing('elem11'); toggleSec('subsec11')">Algorithmique - Leçons 1 à 5.pdf</li>
+
+                  <div class="course-item list-folder" id ="elem11" onclick="toggleSec('sec1');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                    <ul id="subsec11" class="semester-list">
+
+                      <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/Option/Cours/Algorithmique - Leçons 1 à 5.pdf')">
+                        <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                      </a>
+
+                      <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/Option/Cours/Algorithmique - Leçons 1 à 5.pdf')">
+                        <li class="semester-item corr_">Télécharger</li>
+                      </a>
+
+                    </ul>
+                  </div>
+
+                  <!-- ELEMENT 2 -->
+
+                  <li class="semester-item chapt_" onclick="keep('sec1'); toggleThing('elem12'); toggleSec('subsec12')">Python - Chapitres 1 à 5.pdf</li>
+
+                  <div class="course-item list-folder" id ="elem12" onclick="toggleSec('sec1');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+
+                    <ul id="subsec12" class="semester-list">
+
+                      <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/Option/Cours/Python - Chapitres 1 à 5.pdf')">
+                        <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                      </a>
+
+                      <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/Option/Cours/Python - Chapitres 1 à 5.pdf')">
+                        <li class="semester-item corr_">Télécharger</li>
+                      </a>
+
+                    </ul>
+                  </div>
 
               </ul>
             </div>
