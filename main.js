@@ -105,7 +105,7 @@ let addressesXurls = [
 ["/s5/eltelnp/tds/td2 - corrigé.pdf", "https://drive.google.com/uc?id=1N36YlF14nTPQZRzjpkwXv2fFcIk7ZY8U"],
 ["/s5/eltelnp/tds/td3 - énoncé.pdf", "https://drive.google.com/uc?id=1_uV9g5XLijCwhFLjYkN3svyrBGej6HSU"],
 ["/s5/eltelnp/tds/td3 - corrigé.pdf", "https://drive.google.com/uc?id=1bd3o5cls71hLvVqG5Ek97SNTKLeCNWyp"],
-["/s5/eltelnp/tds/td5 - énoncé.pdf", "https://drive.google.com/uc?1l-ze5SBvNO0u8_Mi7MFcNhGc4TnQ3GO6"],
+["/s5/eltelnp/tds/td5 - énoncé.pdf", "https://drive.google.com/uc?id=1l-ze5SBvNO0u8_Mi7MFcNhGc4TnQ3GO6"],
 ["/s5/eltelnp/tps/support des tps.pdf", "https://drive.google.com/uc?id=1H0Mqlr4Dq6I3KuWYUQPzEvofCqsci49s"],
 ["/s5/eltelnp/tps/tp1 - compte rendu.pdf", "https://drive.google.com/uc?id=1H8EYVlKXB13SvVkrTSRvk3ceRHh9nHOv"],
 ["/s5/eltelnp/tps/tp1 - corrigé.pdf", "https://drive.google.com/uc?id=1dPG4B1OjOE4fvEUI2cI67PGjbRJGhKwh"],
