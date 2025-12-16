@@ -141,6 +141,7 @@ let addressesXurls = [
 
 ["/s5/option/cours/algorithmique - leçons 1 à 5.pdf", "https://drive.google.com/uc?id=1LrnFiwU4VKquzFnLKG2gZvQbKkQ6iybI"],
 ["/s5/option/cours/python - chapitres 1 à 5.pdf", "https://drive.google.com/uc?id=1UQRDBRTq5dafa3tDyS_i3FR-G0UAMiHv"],
+["/s5/option/cours/option - exemples corrigés (tous chapitres inclus).pdf", "https://drive.google.com/uc?id=1wWBlYTpbjzV5u-NnxcPvvXqWfpecrNZ3"],
 
 ["/s5/es/modules", "https://drive.google.com/file/d/1Wv54V9hVJWWTPwyNi1Bv2svs-opf8Pk7/view?usp=sharing"],
 
