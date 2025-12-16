@@ -106,6 +106,22 @@ button:hover {
 .f_eer { background-color: #800080; }
 .g_eer { background-color: #2c002c; }
 
+.a_es_s6 { background-color: #219EBC; }
+.b_es_s6 { background-color: #126782; }
+.c_es_s6 { background-color: #ffca3a; }
+.d_es_s6 { background-color: #FD9E02; }
+.e_es_s6 {background-color: #BB3E03;}
+.f_es_s6 { background-color: #AE2012; }
+.g_es_s6 { background-color: #3f0b0d; }
+
+.a_eer_s6 { background-color: #8ECAE6; }
+.b_eer_s6 { background-color: #126782; }
+.c_eer_s6 { background-color: #023047; }
+.d_eer_s6 { background-color: #FD9E02; }
+.e_eer_s6 {background-color: #FB8500;}
+.f_eer_s6 { background-color: #AE2012; }
+.g_eer_s6 { background-color: #3f0b0d; }
+
 /*
 Mobile-specific styles
 @media (max-width: 900px) {
