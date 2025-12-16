@@ -16,7 +16,7 @@
     var adobeDCView = new AdobeDC.View({clientId: "<YOUR_CLIENT_ID>", divId: "adobe-dc-view"});
     adobeDCView.previewFile({
       content:{location: {url: query}},
-      metaData:{fileName: query.split(/[?#]/)[0].split('/').pop()}
+      metaData:{fileName: decodeURIComponent(query.split(/[?#]/)[0].split('/').pop())}
     }, {});
   });
 </script>
