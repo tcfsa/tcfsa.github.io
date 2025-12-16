@@ -8,11 +8,15 @@
   
   <script async type="module">
     import EmbedPDF from 'https://snippet.embedpdf.com/embedpdf.js';
+
+    var queryStart = window.location.href.indexOf("?file=");
+    var queryEnd = window.location.href.indexOf("#");
+    var query = window.location.href.slice(queryStart, queryEnd).replace("?file=", "").replace("#", "");
  
     EmbedPDF.init({
       type: 'container',
       target: document.getElementById('pdf-viewer'),
-      src: 'https://tcfsa.github.io/s5/es/Option/Option%20-%20Exemples%20corrigés%20(tous%20chapitres%20inclus).pdf'
+      src: query
     });
   </script>
 </body>
