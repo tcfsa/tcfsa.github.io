@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My PDF Viewer</title>
+</head>
+<body>
+  <div id="pdf-viewer" style="height: 100vh"></div>
+  
+  <script async type="module">
+    import EmbedPDF from 'https://snippet.embedpdf.com/embedpdf.js';
+ 
+    EmbedPDF.init({
+      type: 'container',
+      target: document.getElementById('pdf-viewer'),
+      src: 'https://tcfsa.github.io/s5/es/Option/Option%20-%20Exemples%20corrigés%20(tous%20chapitres%20inclus).pdf'
+    });
+  </script>
+</body>
+</html>
