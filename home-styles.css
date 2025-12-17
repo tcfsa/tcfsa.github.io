@@ -1,5 +1,6 @@
 :root {
   --course-item-hover-clr: #3890f5;
+  --selection: none;
 }
 
 body {
@@ -18,9 +19,9 @@ body {
 * {
   text-decoration: none;
   /*box-sizing: border-box;*/
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none;     /* IE 10+ */
-  user-select: none;         /* Standard syntax */
+  -webkit-user-select: var(--selection); /* Safari */
+  -ms-user-select: var(--selection);     /* IE 10+ */
+  user-select: var(--selection);         /* Standard syntax */
   /*font-family: mfont;*/
   font-weight: 500;
 
@@ -33,6 +34,11 @@ body {
     "wdth" 100,
     "GRAD" 0,
     "ROND" 0;
+}
+
+#homepage-text:hover
+{
+  --selection: all;
 }
 
 .course-container {
