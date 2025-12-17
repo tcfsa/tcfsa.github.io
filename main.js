@@ -75,7 +75,12 @@ let addressesXurls = [
 ["/s5/calcsci/tps/tp 3", "https://drive.google.com/drive/folders/1_R-yVJZKyJD9qiGpcN6lZGmgj34fVtxO?usp=drive_link"],
 ["/s5/calcsci/tps/dossier des tps", "https://drive.google.com/drive/folders/1ajM_1ix9cfr1aANyJckjEmWwyf1eVT7p?usp=drive_link"],
 
-["/s5/eer/lngetr3/tds", "https://drive.google.com/drive/folders/1LfVmwh2n-QiO0Z0T9t87CMI53PtOawW-"],
+["/s5/lngetr3/tds/lngetr3 - unit 1 to 6.pdf", "https://drive.google.com/uc?id=1K19ft5BwCHbKxMjRKR_z9QyJFVRfln20"],
+["/s5/lngetr3/tds/lngetr3 - week 1.pdf", "https://drive.google.com/uc?id=1bC2UcPgLja9oiiflRj7OW54ypMBsWiuA"],
+["/s5/lngetr3/tds/lngetr3 - week 2.pdf", "https://drive.google.com/uc?id=1j1yaTsLlUL9rP3X-HrJQdNPkv4UjOmlz"],
+["/s5/lngetr3/tds/lngetr3 - week 3.pdf", "https://drive.google.com/uc?id=1oKB2wzacZuW1bQ4K3yOwdBrB9F4NcibE"],
+["/s5/lngetr3/tds/lngetr3 - week 4.pdf", "https://drive.google.com/uc?id=1s19VfqR8ItseXSPGgYZBmUfL8trFHYYp"],
+["/s5/lngetr3/tds/lngetr3 - week 5.pdf", "https://drive.google.com/uc?id=1r_Q1gR_PmkAkmfTirMYyQprJY16VvXa4"],
 
 ["/s5/eer/option/cours", "https://drive.google.com/drive/folders/1qKrd1RWp9TgEgpJcdmIakW_gAWRG7gll"],
 
@@ -135,9 +140,6 @@ let addressesXurls = [
 ["/s5/es/elnnum2/tps/tp2 - corrigé.pdf", "https://drive.google.com/uc?id=1KLsTCnluN0zeLD5erXhGeaTTGIjA-mAH"],
 ["/s5/es/elnnum2/tps/tp3 - corrigé.pdf", "https://drive.google.com/uc?id=1oPuSlgoFXps1bq5Z2jhINNBQXr2x4KQd"],
 ["/s4/elnnum1", "https://drive.google.com/drive/folders/1pvQjMi-bj9SHqHSS3n8im7DhmNyZEX8t"],
-
-
-["/s5/es/lngetr3/tds", "https://drive.google.com/drive/folders/1qqjXE5hw1NDx_xw4xdUhGkJPGNGpqKOB"],
 
 ["/s5/option/cours/algorithmique - leçons 1 à 5.pdf", "https://drive.google.com/uc?id=1LrnFiwU4VKquzFnLKG2gZvQbKkQ6iybI"],
 ["/s5/option/cours/python - chapitres 1 à 5.pdf", "https://drive.google.com/uc?id=1UQRDBRTq5dafa3tDyS_i3FR-G0UAMiHv"],

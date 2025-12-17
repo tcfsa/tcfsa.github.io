@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<head>
-    
+<html lang="fr">
+  <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZT5VSZS3"></script>
     <script>
@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://tcfsa.github.io/styles.css">
+    <link rel="stylesheet" href="https://tcfsa.github.io/home-styles.css">
+    <script src="https://tcfsa.github.io/main.js"></script>
+    <script src="https://tcfsa.github.io/btns.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,15 +38,141 @@
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/android-chrome-192x192.png" sizes="192x192"> 
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-96x96.png" sizes="96x96"> 
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-16x16.png" sizes="16x16">
-</head>
-<body>
-
+  </head>
+  <body style="padding: 0px">
     <div class="container">
 
         <button style="cursor: auto;background-color: #800080;margin-bottom: 80px">Langues étrangères 3</button>
 
-        <a target="_blank" href="https://tcfsa.github.io/s5/es/LngEtr3/TDs" style="width: 100%;margin-bottom: 80px">
-            <button class="folder">TDs</button>
+        <div class="course-container">
+
+          <div class="course-item list-folder" onclick="toggleSec('sec2')">
+
+            <h3>Cours / TDs</h3>
+
+            <ul id="sec2" class="semester-list">
+
+              <!-- ELEMENT 1 -->
+
+              <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem21'); toggleSec('subsec21')">Unit 1 to 6.pdf</li>
+
+              <div class="course-item list-folder" id ="elem21" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec21" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Unit 1 to 6.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Unit 1 to 6.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 3 -->
+
+              <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem23'); toggleSec('subsec23')">Week 1.pdf</li>
+
+              <div class="course-item list-folder" id ="elem23" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec23" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 1.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 1.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 5 -->
+
+              <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem25'); toggleSec('subsec25')">Week 2.pdf</li>
+
+              <div class="course-item list-folder" id ="elem25" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec25" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 2.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 2.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 7 -->
+
+              <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem27'); toggleSec('subsec27')">Week 3.pdf</li>
+
+              <div class="course-item list-folder" id ="elem27" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec27" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 3.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 3.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 8 -->
+
+              <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem28'); toggleSec('subsec28')">Week 4.pdf</li>
+
+              <div class="course-item list-folder" id ="elem28" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec28" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 4.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 4.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 9 -->
+
+              <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem29'); toggleSec('subsec29')">Week 5.pdf</li>
+
+              <div class="course-item list-folder" id ="elem29" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+
+                <ul id="subsec29" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 5.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/LngEtr3/TDs/LngEtr3 - Week 5.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+            </ul>
+          </div>
+
+      </div>
+      
+        <a target="_blank" href="https://tcfsa.github.io/S5-ES-LngEtr3" style="width: 100%;margin-bottom: 80px">
+            <button class="folder">Drive</button>
         </a>
         
         <a href="https://tcfsa.github.io/s5/es" style="width: 100%;">
@@ -59,11 +188,6 @@
         <a href="https://tcfsa.github.io/" style="width: 100%">
             <button>Accueil</button>
         </a>
-    <script>
-        // function buttonClicked(url) {
-        //  window.location.href = "https://tcfsa.github.io/"+url;
-        // }
-    </script>
-
-</body>
+    </div>
+  </body>
 </html>
