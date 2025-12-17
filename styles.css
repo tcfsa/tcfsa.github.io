@@ -5,9 +5,9 @@
 
 * {
     box-sizing: border-box;
-    -webkit-user-select: var(--selection); /* Safari */
-    -ms-user-select: var(--selection);     /* IE 10+ */
-    user-select: var(--selection);         /* Standard syntax */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none;     /* IE 10+ */
+    user-select: none;         /* Standard syntax */
     /*font-family: mfont;*/
     font-weight: 500;
 
