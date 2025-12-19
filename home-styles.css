@@ -120,7 +120,7 @@ a
   background: #575757;
 }
 
-.enn_:hover, .corr_:hover, .image_:hover, .chapt_:hover, .supptp_:hover, .fiche_:hover, .corrtp_:hover {
+.enn_:hover, .corr_:hover, .image_:hover, .chapt_:hover, .supptp_:hover, .fiche_:hover, .corrtp_:hover, .exam_:hover {
     background-color: white!important;
 }
 

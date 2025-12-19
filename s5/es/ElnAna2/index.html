@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<head>
-    
+<html lang="fr">
+  <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZT5VSZS3"></script>
     <script>
@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="https://tcfsa.github.io/styles.css">
+    <link rel="stylesheet" href="https://tcfsa.github.io/home-styles.css">
+    <script src="https://tcfsa.github.io/main.js"></script>
+    <script src="https://tcfsa.github.io/btns.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,43 +38,520 @@
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/android-chrome-192x192.png" sizes="192x192"> 
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-96x96.png" sizes="96x96"> 
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-16x16.png" sizes="16x16">
-</head>
-<body>
-
+  </head>
+  <body style="padding: 0px">
     <div class="container">
+      <button style="cursor: auto;background-color: #fe7116;margin-bottom: 80px">Électronique analogique 2</button>
 
-        <button style="cursor: auto;background-color: #fe7116;margin-bottom: 80px">Électronique analogique 2</button>
+      <div class="course-container">
 
-        <a target="_blank" href="https://tcfsa.github.io/s5/es/ElnAna2/Cours" style="width: 100%;">
-            <button class="folder">Cours</button>
-        </a>
-        <a target="_blank" href="https://tcfsa.github.io/s5/es/ElnAna2/TDs" style="width: 100%;">
-            <button class="folder">TDs</button>
-        </a>
-        <a target="_blank" href="https://tcfsa.github.io/s5/es/ElnAna2/TPs" style="width: 100%;">
-            <button class="folder">TPs</button>
-        </a>
-        <a target="_blank" href="https://tcfsa.github.io/s5/es/ElnAna2/Examens" style="width: 100%;margin-bottom: 80px">
-            <button class="folder">Examens</button>
-        </a>
-        <a href="https://tcfsa.github.io/s5/es" style="width: 100%;">
-            <button>Électronique et systèmes
-            </br>
-            (Physique S5)</button>
-        </a>
-        <a href="https://tcfsa.github.io/s5" style="width: 100%;">
-            <button>PC-P5 (2025-2026)
-                </br>
-                (Physique S5)</button>
-        </a>
-        <a href="https://tcfsa.github.io/" style="width: 100%">
-            <button>Accueil</button>
-        </a>
-    <script>
-        // function buttonClicked(url) {
-        //  window.location.href = "https://tcfsa.github.io/"+url;
-        // }
-    </script>
+          <div class="course-item list-folder" onclick="toggleSec('sec1')">
 
-</body>
+            <h3>Cours</h3>
+
+            <ul id="sec1" class="semester-list">
+
+              <!-- ELEMENT 1 -->
+
+              <li class="semester-item chapt_" onclick="keep('sec1'); toggleThing('elem11'); toggleSec('subsec11')">Support du cours - MODULE EQ.pdf</li>
+
+              <div class="course-item list-folder" id ="elem11" onclick="toggleSec('sec1');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec11" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Support du cours - MODULE EQ.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Support du cours - MODULE EQ.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 2 -->
+
+              <li class="semester-item chapt_" onclick="keep('sec1'); toggleThing('elem12'); toggleSec('subsec12')">Rappel - Montage à AOP.pdf</li>
+
+              <div class="course-item list-folder" id ="elem12" onclick="toggleSec('sec1');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec12" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Rappel - Montage à AOP.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Rappel - Montage à AOP.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 3 -->
+
+              <li class="semester-item chapt_" onclick="keep('sec1'); toggleThing('elem13'); toggleSec('subsec13')">Chapt 1 - Synthese Filtres Actifs.pdf</li>
+
+              <div class="course-item list-folder" id ="elem13" onclick="toggleSec('sec1');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec13" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Chapt 1 - Synthese Filtres Actifs.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Chapt 1 - Synthese Filtres Actifs.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 4 -->
+
+              <li class="semester-item chapt_" onclick="keep('sec1'); toggleThing('elem14'); toggleSec('subsec14')">Chapt 1 - Synthèse Filtre Passe-Bas - 4 Méthodes.pdf</li>
+
+              <div class="course-item list-folder" id ="elem14" onclick="toggleSec('sec1');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec14" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Chapt 1 - Synthèse Filtre Passe-Bas - 4 Méthodes.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Chapt 1 - Synthèse Filtre Passe-Bas - 4 Méthodes.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+
+              <!-- ELEMENT 5 -->
+
+              <li class="semester-item chapt_" onclick="keep('sec1'); toggleThing('elem15'); toggleSec('subsec15')">Chapt 3 - Les oscillateurs sinusoïdaux.pdf</li>
+
+              <div class="course-item list-folder" id ="elem15" onclick="toggleSec('sec1');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec15" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Chapt 3 - Les oscillateurs sinusoïdaux.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Chapt 3 - Les oscillateurs sinusoïdaux.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 6 -->
+
+              <li class="semester-item chapt_" onclick="keep('sec1'); toggleThing('elem16'); toggleSec('subsec16')">Chapt 4.pdf</li>
+
+              <div class="course-item list-folder" id ="elem16" onclick="toggleSec('sec1');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+
+                <ul id="subsec16" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Chapt 4.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/Cours/Chapt 4.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+            </ul>
+          </div>
+
+          <div class="course-item list-folder" onclick="toggleSec('sec2')">
+
+            <h3>TDs</h3>
+
+            <ul id="sec2" class="semester-list">
+
+
+              <br>
+              <h3>TD1</h3>
+
+              <!-- ELEMENT 1 -->
+
+              <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem21'); toggleSec('subsec21')">TD1 - Énoncé.pdf</li>
+
+              <div class="course-item list-folder" id ="elem21" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec21" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD1 - Énoncé.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD1 - Énoncé.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 2 -->
+
+              <li class="semester-item corr_" onclick="keep('sec2'); toggleThing('elem22'); toggleSec('subsec22')">TD1 - Corrigé.pdf</li>
+
+              <div class="course-item list-folder" id ="elem22" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec22" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD1 - Corrigé.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD1 - Corrigé.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 21 -->
+
+              <li class="semester-item corr_" onclick="keep('sec2'); toggleThing('elem221'); toggleSec('subsec221')">TD1 - Corrigé (Ex 4).pdf</li>
+
+              <div class="course-item list-folder" id ="elem221" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec221" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD1 - Corrigé (Ex 4).pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD1 - Corrigé (Ex 4).pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <a target="_blank" href="https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD1 Exercice supplémentaire des filtres actifs">
+                <li class="semester-item" onclick="keep('sec2')" style="background-color: #8A8A8A;">TD1 Exercice supplémentaire des filtres actifs</li>
+              </a>
+                
+              <br>
+              <h3>TD2</h3>
+
+              <!-- ELEMENT 3 -->
+
+              <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem23'); toggleSec('subsec23')">TD2 - Énoncé.pdf</li>
+
+              <div class="course-item list-folder" id ="elem23" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec23" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD2 - Énoncé.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD2 - Énoncé.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 4 -->
+
+              <li class="semester-item corr_" onclick="keep('sec2'); toggleThing('elem24'); toggleSec('subsec24')">TD2 - Corrigé.pdf</li>
+
+              <div class="course-item list-folder" id ="elem24" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec24" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD2 - Corrigé.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD2 - Corrigé.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+                
+              <br>
+              <h3>TD3</h3>
+
+              <!-- ELEMENT 5 -->
+
+              <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem25'); toggleSec('subsec25')">TD3 - Énoncé.pdf</li>
+
+              <div class="course-item list-folder" id ="elem25" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec25" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD3 - Énoncé.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD3 - Énoncé.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 6 -->
+
+              <li class="semester-item corr_" onclick="keep('sec2'); toggleThing('elem26'); toggleSec('subsec26')">TD3 - Corrigé.pdf</li>
+
+              <div class="course-item list-folder" id ="elem26" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+
+                <ul id="subsec26" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD3 - Corrigé.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TDs/TD3 - Corrigé.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+            </ul>
+          </div>
+
+          <div class="course-item list-folder" onclick="toggleSec('sec3')">
+
+            <h3>TPs</h3>
+
+            <ul id="sec3" class="semester-list">
+
+              <!-- ELEMENT 1 -->
+
+              <li class="semester-item supptp_" onclick="keep('sec3'); toggleThing('elem31'); toggleSec('subsec31')">Support des TPs.pdf</li>
+
+              <div class="course-item list-folder" id ="elem31" onclick="toggleSec('sec3');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec31" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/Support des TPs.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/Support des TPs.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 2 -->
+
+              <li class="semester-item fiche_" onclick="keep('sec3'); toggleThing('elem32'); toggleSec('subsec32')" style="color: black;">TP1 - Compte Rendu.pdf</li>
+
+              <div class="course-item list-folder" id ="elem32" onclick="toggleSec('sec3');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec32" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP1 - Compte Rendu.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP1 - Compte Rendu.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 4 -->
+
+              <li class="semester-item corrtp_" onclick="keep('sec3'); toggleThing('elem34'); toggleSec('subsec34')">TP1 - Corrigé.pdf</li>
+
+              <div class="course-item list-folder" id ="elem34" onclick="toggleSec('sec3');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec34" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP1 - Corrigé.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP1 - Corrigé.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 3 -->
+
+              <li class="semester-item fiche_" onclick="keep('sec3'); toggleThing('elem33'); toggleSec('subsec33')" style="color: black;">TP2 - Compte Rendu.pdf</li>
+
+              <div class="course-item list-folder" id ="elem33" onclick="toggleSec('sec3');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec33" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP2 - Compte Rendu.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP2 - Compte Rendu.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 5 -->
+
+              <li class="semester-item corrtp_" onclick="keep('sec3'); toggleThing('elem35'); toggleSec('subsec35')">TP2 - Corrigé.pdf</li>
+
+              <div class="course-item list-folder" id ="elem35" onclick="toggleSec('sec3');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec35" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP2 - Corrigé.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP2 - Corrigé.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 6 -->
+
+              <li class="semester-item fiche_" onclick="keep('sec3'); toggleThing('elem36'); toggleSec('subsec36')" style="color: black;">TP3 - Compte Rendu.pdf</li>
+
+              <div class="course-item list-folder" id ="elem36" onclick="toggleSec('sec3');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec36" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP3 - Compte Rendu.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP3 - Compte Rendu.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 7 -->
+
+              <li class="semester-item corrtp_" onclick="keep('sec3'); toggleThing('elem37'); toggleSec('subsec37')">TP3 - Corrigé.pdf</li>
+
+              <div class="course-item list-folder" id ="elem37" onclick="toggleSec('sec3');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+
+                <ul id="subsec37" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP3 - Corrigé.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/TPs/TP3 - Corrigé.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+            </ul>
+          </div>
+
+          <div class="course-item list-folder" onclick="toggleSec('sec4')">
+
+            <h3>Examens</h3>
+
+            <ul id="sec4" class="semester-list">
+
+              <!-- ELEMENT 1 -->
+
+              <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem41'); toggleSec('subsec41')">Quelques Examens Corrigés.pdf</li>
+
+              <div class="course-item list-folder" id ="elem41" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec41" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/Examens/Quelques Examens Corrigés.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/Examens/Quelques Examens Corrigés.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 2 -->
+
+              <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem42'); toggleSec('subsec42')">Fascicule d'Examens Corrigés.pdf</li>
+
+              <div class="course-item list-folder" id ="elem42" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+                <ul id="subsec42" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/Examens/Fascicule d\'Examens Corrigés.pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/Examens/Fascicule d\'Examens Corrigés.pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+              <!-- ELEMENT 3 -->
+
+              <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem43'); toggleSec('subsec43')">Devoir - Oscillateurs Sinus (2020 - 2021).pdf</li>
+
+              <div class="course-item list-folder" id ="elem43" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+
+                <ul id="subsec43" class="semester-list">
+
+                  <a target="_blank" onclick="viewf('https://tcfsa.github.io/s5/es/ElnAna2/Examens/Devoir - Oscillateurs Sinus (2020 - 2021).pdf')">
+                    <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                  </a>
+
+                  <a target="_blank" onclick="downf('https://tcfsa.github.io/s5/es/ElnAna2/Examens/Devoir - Oscillateurs Sinus (2020 - 2021).pdf')">
+                    <li class="semester-item corr_">Télécharger</li>
+                  </a>
+
+                </ul>
+              </div>
+
+            </ul>
+          </div>
+
+      </div>
+      
+      <a target="_blank" href="https://tcfsa.github.io/ElnAna2" style="width: 100%;margin-bottom: 80px">
+          <button class="folder">Drive</button>
+      </a>
+
+      <a href="https://tcfsa.github.io/s5/es" style="width: 100%;">
+          <button>Électronique et systèmes
+          </br>
+          (Physique S5)</button>
+      </a>
+      <a href="https://tcfsa.github.io/s5" style="width: 100%;">
+          <button>PC-P5 (2025-2026)
+              </br>
+              (Physique S5)</button>
+      </a>
+      <a href="https://tcfsa.github.io/" style="width: 100%">
+          <button>Accueil</button>
+      </a>
+    </div>
+  </body>
 </html>
