@@ -1,7 +1,7 @@
 let addressesXurls = [
 ["/es", "https://drive.google.com/drive/folders/1uBF9PtOvTMQEVUdf7nmEcLDtRvseSZ4E?usp=drive_link"],
 ["/eer", "https://drive.google.com/drive/folders/1YmBIMwcIkzI3ZVnP_lTg5Iiahhrfszr2?usp=sharing"],
-["/d-s5", "https://drive.google.com/drive/folders/1E2VtrpipZxFWu3KTIKJeuajYN5S8bGmD?usp=sharing"],
+["/s5", "https://drive.google.com/drive/folders/1E2VtrpipZxFWu3KTIKJeuajYN5S8bGmD?usp=sharing"],
 ["/d-s3", "https://drive.google.com/drive/folders/1NjOFOxB3h9IiCcmfrufZS9QlFTz9Okjw?usp=drive_link"],
 ["/d-p", "https://drive.google.com/drive/folders/100sHKEs5lAdWoDZjxesw7GwibhQY5r7M?usp=sharing"],
 
@@ -40,9 +40,19 @@ let addressesXurls = [
 ["/p/s5/eer/thermap/tds/td5 - corrigé.pdf", "https://drive.google.com/uc?id=1NA_-edniK2s8rb1WdpRssmld0lKn6-z2"],
 ["/p/s5/eer/thermap/tps/support des tps.pdf", "https://drive.google.com/uc?id=1X7JB5KQoevenm0SBJNWzwSYTMxpGKigE"],
 
-["/p/s5/eer/phystat/cours", "https://drive.google.com/drive/folders/1BBTq4VC7HeMRWniNM1XtbmMpBWZ3-tQu"],
-["/p/s5/eer/phystat/tds", "https://drive.google.com/drive/folders/1iOOaIWLl7vNmbxoGjIYoA4JIf6jNRCMm"],
-["/p/s5/eer/phystat/examens", "https://drive.google.com/drive/folders/1AfQ5kr1vtkUteTUWOfnmxrDx3U0XI-Ot"],
+["/p/s5/eer/phystat/cours/chapt 0.pdf", "https://drive.google.com/uc?id=1yaxutN1UfT40vlNA-Um8EsRvMKDy0TrQ"],
+["/p/s5/eer/phystat/cours/chapt 1.pdf", "https://drive.google.com/uc?id=1I_qgg_g6EIeQMPwtRtT_SkKhgnEC2VLg"],
+["/p/s5/eer/phystat/cours/chapt 2.pdf", "https://drive.google.com/uc?id=15_WuIK1aWdP-ePqmnFgJLhSp-2HNRsy1"],
+["/p/s5/eer/phystat/cours/concept 3.pdf", "https://drive.google.com/uc?id=1Y5Y64XWvc7srYcw6e00ZwrQgOtRU4Rco"],
+["/p/s5/eer/phystat/cours/cours (policopié).pdf", "https://drive.google.com/uc?id=1mjduwZnDguTLFjONMzb8n51pMqzRHNx8"],
+["/p/s5/eer/phystat/cours/résumé.pdf", "https://drive.google.com/uc?id=1qaUM3L9hFIizO4as8zlXS10pPNEKdqg6"],
+["/p/s5/eer/phystat/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=18LK_L-W-Q93pxOEkHc8h-5Fx52b2d0uu"],
+["/p/s5/eer/phystat/tds/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1l88IXkEodytWABv-ZhUM8bsO0bVhWUzZ"],
+["/p/s5/eer/phystat/tds/td2 - énoncé et corrigé.pdf", "https://drive.google.com/uc?id=12WiuAD-0EbDUJSndbb-DsntgOgMU4gDk"],
+["/p/s5/eer/phystat/tds/td3 - énoncé et corrigé.pdf", "https://drive.google.com/uc?id=1Hb9zUk0ZrjVYIK6pZ1XuH7kmP7oPA9C0"],
+["/p/s5/eer/phystat/tds/td3 - corrigé (détails ex 5).pdf", "https://drive.google.com/uc?id=1lEXsIIbfzAPL2ys3DudXUO97jZ12iOis"],
+["/p/s5/eer/phystat/examens/quelques examens corrigés", "https://drive.google.com/uc?id=1lvLcQRtBVlsRjd6XUX28NWW89ZAF3zlJ"],
+["/p/s5/eer/phystat/examens/manuscript d\'examens", "https://drive.google.com/uc?id=1CToK5WiXFwALR_xePewdNo-YTVP3NWdf"],
 
 ["/p/s5/eer/mecmilc/cours/chapt 1 à 4.pdf", "https://drive.google.com/uc?id=1RsThFPI9QWX5obYVcungzWYwE5YuHmGG"],
 ["/p/s5/eer/mecmilc/cours/chapt 1.pdf", "https://drive.google.com/uc?id=1gb21MHk2B8LU0ShcTXM1M9sAswYYzVJs"],
@@ -71,7 +81,6 @@ let addressesXurls = [
 ["/p/s5/calcsci/tds/td2 - corrigé.pdf", "https://drive.google.com/uc?id=1Fqx4gv1MZ-9xHVcxhaDv22R63--0yIDQ"],
 ["/p/s5/calcsci/tds/td3 - énoncé.pdf", "https://drive.google.com/uc?id=1pxnPRKcVyjn5Nmw13ysvHB0fbxp_Aaja"],
 ["/p/s5/calcsci/tds/td3 - corrigé.pdf", "https://drive.google.com/uc?id=1MHWOiYTh5eADonJKreOSSFVVHXUhOUSk"],
-
 ["/p/s5/calcsci/tps/révisions des tps.pdf", "https://drive.google.com/uc?id=1QUUXQ9sE1Lr-MXn3aueH6_-N0nCH6YOM"],
 ["/p/s5/calcsci/tps/tp 1", "https://drive.google.com/drive/folders/1qsdfqJ60G0A2Xz_-LIjucV5Dxw7Z4nd3?usp=drive_link"],
 ["/p/s5/calcsci/tps/tp 2", "https://drive.google.com/drive/folders/10X96JfmqiXVkD5rz1YbLrjGpNItsfrSS?usp=drive_link"],
@@ -91,9 +100,16 @@ let addressesXurls = [
 
 ["/pc_p5_newcolors", "https://drive.google.com/file/d/1RjU1AfyoxrMiyMbYTk3WUvvH0Du3kZSj/view?usp=sharing"],
 
-["/p/s5/es/mecqua2/cours", "https://drive.google.com/drive/folders/1qnoqBCnDXCkEYNtDa-AZAXqNT9hhxMVk"],
-["/p/s5/es/mecqua2/tds", "https://drive.google.com/drive/folders/1LyUAiPcfGtVXavMaO0_SUXeRcA0gQSmT"],
-["/p/s5/es/mecqua2/examens", "https://drive.google.com/drive/folders/1bPEk_nl7TtlN-N-ceISliotsOuI5Fr0r"],
+["/p/s5/es/mecqua2/cours/cours (2020 - 2021).pdf", "https://drive.google.com/uc?id=1_gynDz4bZA1CN8KOd-YYVx4T0IDjIvc1"],
+["/p/s5/es/mecqua2/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1lViRoX8-KDO4cMVT_0J3YMAg7hhWVnWN"],
+["/p/s5/es/mecqua2/tds/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1PEkPvmlbhp-yRBzzcGywOX3Tgl1rKqIm"],
+["/p/s5/es/mecqua2/tds/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1DgHq0R5mI9Hm0XhyncjvxfemFDC_NtGl"],
+["/p/s5/es/mecqua2/tds/td2 - corrigé.pdf", "https://drive.google.com/uc?id=1yp_20GunR5Y4qwLe5jxty2iQkMhfm24_"],
+["/p/s5/es/mecqua2/tds/td3 - énoncé.pdf", "https://drive.google.com/uc?id=15ttkAcNoXk-rMYEPnLweqrYGUNkjc1Lo"],
+["/p/s5/es/mecqua2/tds/td4 - énoncé.pdf", "https://drive.google.com/uc?id=1PL5kZSXYEOUfpmttHkUHqKy_OKN4y9Ku"],
+["/p/s5/es/mecqua2/examens/recueil d\'examens corrigés", "https://drive.google.com/uc?id=1s94NjQ8FJpbkExAXczUWRigs8fmUZdLs"],
+["/p/s5/es/mecqua2/examens/examen - corrigé sn (20-21)", "https://drive.google.com/uc?id=1MTvOASNJUkgRLjpJc4zlGRqD4pM_6Jhc"],
+["/p/s5/es/mecqua2/examens/examen - corrigé sr (20-21)", "https://drive.google.com/uc?id=1OkpMdXUKMRqjWUmPuRz_HBnganC2WYP3"],
 
 ["/p/s5/es/elnana2/cours/support du cours - module eq.pdf", "https://drive.google.com/uc?id=123H8siCjSQ140pE0TDr9YqYt6xNWeVo1"],
 ["/p/s5/es/elnana2/cours/rappel - montage à aop.pdf", "https://drive.google.com/uc?id=1SUZvGiHy_KRSij44ePb_pJSEz6WfH5cx"],

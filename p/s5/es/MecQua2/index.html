@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://tcfsa.github.io/styles.css">
+    <link rel="stylesheet" href="https://tcfsa.github.io/home-styles.css">
+    <script src="https://tcfsa.github.io/main.js"></script>
+    <script src="https://tcfsa.github.io/btns.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,20 +39,287 @@
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-96x96.png" sizes="96x96"> 
     <link rel="icon" type="image/png" href="https://tcfsa.github.io/icons/favicon-16x16.png" sizes="16x16">
   </head>
-  <body>
+  <body style="padding: 0px">
     <div class="container">
       <button style="cursor: auto;background-color: #ff595e;margin-bottom: 80px;transition: transform 0s;transform: translate(-3px);">
       Mécanique quantique 2</button>
 
-      <a target="_blank" href="https://tcfsa.github.io/p/s5/es/MecQua2/Cours" style="width: 100%;">
-          <button class="folder">Cours</button>
+      <div class="course-container">
+
+        <div class="course-item list-folder" onclick="toggleSec('sec1')">
+
+          <h3>Cours</h3>
+
+          <ul id="sec1" class="semester-list">
+
+            <!-- ELEMENT 1 -->
+
+            <li class="semester-item chapt_" onclick="keep('sec1'); toggleThing('elem11'); toggleSec('subsec11')">Cours (2020 - 2021).pdf</li>
+
+            <div class="course-item list-folder" id ="elem11" onclick="toggleSec('sec1');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+
+              <ul id="subsec11" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/Cours/Cours (2020 - 2021).pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/Cours/Cours (2020 - 2021).pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+
+          </ul>
+        </div>
+
+        <div class="course-item list-folder" onclick="toggleSec('sec2')">
+
+          <h3>TDs</h3>
+
+          <ul id="sec2" class="semester-list">
+
+
+            <br>
+            <h3>TD1</h3>
+
+            <!-- ELEMENT 1 -->
+
+            <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem21'); toggleSec('subsec21')">TD1 - Énoncé.pdf</li>
+
+            <div class="course-item list-folder" id ="elem21" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+              <ul id="subsec21" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD1 - Énoncé.pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD1 - Énoncé.pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <!-- ELEMENT 2 -->
+
+            <li class="semester-item corr_" onclick="keep('sec2'); toggleThing('elem22'); toggleSec('subsec22')">TD1 - Corrigé.pdf</li>
+
+            <div class="course-item list-folder" id ="elem22" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+              <ul id="subsec22" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD1 - Corrigé.pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD1 - Corrigé.pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+              
+            <br>
+            <h3>TD2</h3>
+
+            <!-- ELEMENT 3 -->
+
+            <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem23'); toggleSec('subsec23')">TD2 - Énoncé.pdf</li>
+
+            <div class="course-item list-folder" id ="elem23" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+              <ul id="subsec23" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD2 - Énoncé.pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD2 - Énoncé.pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <!-- ELEMENT 4 -->
+
+            <li class="semester-item corr_" onclick="keep('sec2'); toggleThing('elem24'); toggleSec('subsec24')">TD2 - Corrigé.pdf</li>
+
+            <div class="course-item list-folder" id ="elem24" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+              <ul id="subsec24" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD2 - Corrigé.pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD2 - Corrigé.pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+              
+            <br>
+            <h3>TD3</h3>
+
+            <!-- ELEMENT 5 -->
+
+            <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem25'); toggleSec('subsec25')">TD3 - Énoncé.pdf</li>
+
+            <div class="course-item list-folder" id ="elem25" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+              <ul id="subsec25" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD3 - Énoncé.pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD3 - Énoncé.pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <!-- ELEMENT 6 -->
+
+            <!-- <li class="semester-item corr_" onclick="keep('sec2'); toggleThing('elem26'); toggleSec('subsec26')">TD3 - Corrigé.pdf</li>
+
+            <div class="course-item list-folder" id ="elem26" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+              <ul id="subsec26" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD3 - Corrigé.pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD3 - Corrigé.pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div> -->
+              
+            <br>
+            <h3>TD4</h3>
+
+            <!-- ELEMENT 7 -->
+
+            <li class="semester-item enn_" onclick="keep('sec2'); toggleThing('elem27'); toggleSec('subsec27')">TD4 - Énoncé.pdf</li>
+
+            <div class="course-item list-folder" id ="elem27" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+              <ul id="subsec27" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD4 - Énoncé.pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD4 - Énoncé.pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <!-- ELEMENT 8 -->
+
+            <!-- <li class="semester-item corr_" onclick="keep('sec2'); toggleThing('elem28'); toggleSec('subsec28')">TD4 - Corrigé.pdf</li>
+
+            <div class="course-item list-folder" id ="elem28" onclick="toggleSec('sec2');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+
+              <ul id="subsec28" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD4 - Corrigé.pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/TDs/TD4 - Corrigé.pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div> -->
+
+          </ul>
+        </div>
+        
+        <div class="course-item list-folder" onclick="toggleSec('sec4')">
+
+          <h3>Examens</h3>
+
+          <ul id="sec4" class="semester-list">
+
+            <!-- ELEMENT 1 -->
+
+            <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem41'); toggleSec('subsec41')">Recueil d’examens corrigés.pdf</li>
+
+            <div class="course-item list-folder" id ="elem41" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+              <ul id="subsec41" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/Examens/Recueil d\'examens corrigés.pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/Examens/Recueil d\'examens corrigés.pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <!-- ELEMENT 2 -->
+
+            <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem42'); toggleSec('subsec42')">Examen - Corrigé SN (20-21).pdf</li>
+
+            <div class="course-item list-folder" id ="elem42" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
+
+              <ul id="subsec42" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/Examens/Examen - Corrigé SN (20-21).pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/Examens/Examen - Corrigé SN (20-21).pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+
+            <!-- ELEMENT 3 -->
+
+            <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem43'); toggleSec('subsec43')">Examen - Corrigé SR (20-21).pdf</li>
+
+            <div class="course-item list-folder" id ="elem43" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+
+              <ul id="subsec43" class="semester-list">
+
+                <a target="_blank" onclick="viewf('https://tcfsa.github.io/p/s5/es/MecQua2/Examens/Examen - Corrigé SR (20-21).pdf')">
+                  <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
+                </a>
+
+                <a target="_blank" onclick="downf('https://tcfsa.github.io/p/s5/es/MecQua2/Examens/Examen - Corrigé SR (20-21).pdf')">
+                  <li class="semester-item corr_">Télécharger</li>
+                </a>
+
+              </ul>
+            </div>
+
+          </ul>
+        </div>
+
+      </div>
+      
+      <a target="_blank" href="https://tcfsa.github.io/MecQua2" style="width: 100%;margin-bottom: 80px">
+          <button class="folder">Drive</button>
       </a>
-      <a target="_blank" href="https://tcfsa.github.io/p/s5/es/MecQua2/TDs" style="width: 100%;">
-          <button class="folder">TDs</button>
-      </a>
-      <a target="_blank" href="https://tcfsa.github.io/p/s5/es/MecQua2/Examens" style="width: 100%;margin-bottom: 80px">
-          <button class="folder">Examens</button>
-      </a>
+
       <a href="https://tcfsa.github.io/p/s5/es" style="width: 100%;">
           <button>Électronique et systèmes
           </br>
