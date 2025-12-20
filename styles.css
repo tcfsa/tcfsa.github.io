@@ -79,6 +79,10 @@ button:hover {
     background-color: #f96161!important;
 }
 
+.enn_corr {
+    background: linear-gradient(90deg,rgba(249, 97, 97, 1) 50%, rgba(0, 205, 10, 1) 50%)!important;
+}
+
 .supptp_ {
     background-color: #ff4b27!important;
 }
