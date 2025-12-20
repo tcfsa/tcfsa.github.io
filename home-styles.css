@@ -37,7 +37,7 @@ body {
 
 .course-container {
   width: 100%;
-  max-width: 500px; /* Limit max width */
+  max-width: 540px; /* Limit max width */
 }
 
 h3 {
