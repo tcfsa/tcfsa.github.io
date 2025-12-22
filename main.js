@@ -107,9 +107,8 @@ let addressesXurls = [
 ["/p/s5/es/mecqua2/tds/td2 - corrigé.pdf", "https://drive.google.com/uc?id=1yp_20GunR5Y4qwLe5jxty2iQkMhfm24_"],
 ["/p/s5/es/mecqua2/tds/td3 - énoncé.pdf", "https://drive.google.com/uc?id=15ttkAcNoXk-rMYEPnLweqrYGUNkjc1Lo"],
 ["/p/s5/es/mecqua2/tds/td4 - énoncé.pdf", "https://drive.google.com/uc?id=1PL5kZSXYEOUfpmttHkUHqKy_OKN4y9Ku"],
-["/p/s5/es/mecqua2/examens/recueil d\'examens corrigés.pdf", "https://drive.google.com/uc?id=1s94NjQ8FJpbkExAXczUWRigs8fmUZdLs"],
-["/p/s5/es/mecqua2/examens/examen - corrigé sn (20-21).pdf", "https://drive.google.com/uc?id=1MTvOASNJUkgRLjpJc4zlGRqD4pM_6Jhc"],
-["/p/s5/es/mecqua2/examens/examen - corrigé sr (20-21).pdf", "https://drive.google.com/uc?id=1OkpMdXUKMRqjWUmPuRz_HBnganC2WYP3"],
+["/p/s5/es/mecqua2/examens/recueil d\'examens corrigés (2016 - 2019).pdf", "https://drive.google.com/uc?id=1s94NjQ8FJpbkExAXczUWRigs8fmUZdLs"],
+["/p/s5/es/mecqua2/examens/17 examens corrigés (2016 - 2024).pdf", "https://drive.google.com/uc?id=1qB2qEqigKfJ9_q9Hyxp3LULCBayPY3xJ"],
 
 ["/p/s5/es/elnana2/cours/support du cours - module eq.pdf", "https://drive.google.com/uc?id=123H8siCjSQ140pE0TDr9YqYt6xNWeVo1"],
 ["/p/s5/es/elnana2/cours/rappel - montage à aop.pdf", "https://drive.google.com/uc?id=1SUZvGiHy_KRSij44ePb_pJSEz6WfH5cx"],
