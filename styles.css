@@ -48,10 +48,13 @@ button {
   font-size: 20px;
   cursor: pointer;
   border: none;
-  border-radius: 8px;
+  /*border-radius: 8px;*/
+  border-radius: 20px;
   background-color: #8A8A8A;
   transition: background-color 0.3s, transform 0.2s;
   color: white;
+  
+  box-shadow: 0px 3px 10px 0px rgba(31, 31, 31, 0.25);
 }
 
 button:hover {
@@ -98,6 +101,58 @@ button:hover {
 .exam_ {
     background-color: #ff3df7!important;
 }
+
+/**/
+
+.folder_c {
+    background-color: #575757;
+}
+
+.image_c {
+    background-color: #f96161!important;
+}
+
+.corr_c {
+    background-color: #00cd0a!important;
+}
+
+.chapt_c {
+    background-color: #0082ff!important;
+}
+
+.enn_c {
+    background-color: #f96161!important;
+}
+
+.enn_corr_c {
+    background: linear-gradient(90deg,rgba(249, 97, 97, 1) 50%, rgba(0, 205, 10, 1) 50%)!important;
+}
+
+.supptp_c {
+    background-color: #ff4b27!important;
+}
+
+.fiche_c {
+    background-color: #fffa00!important;
+}
+
+.corrtp_c {
+    background-color: #ff9200!important;
+}
+
+.exam_c {
+    background-color: #ff3df7!important;
+}
+
+.enn_c:hover, .corr_c:hover, .image_c:hover, .chapt_c:hover, .supptp_c:hover, .fiche_c:hover, .corrtp_c:hover, .exam_c:hover {
+    /*background-color: white!important;*/
+    background-color: #3890f5!important;
+}
+
+
+/*.enn_c:hover, .corr_c:hover, .image_c:hover, .chapt_c:hover, .supptp_c:hover, .fiche_c:hover, .corrtp_c:hover, .exam_c:hover .result-title {
+    color: black!important;
+}*/
 
 .a_es { background-color: #ff595e; }
 .b_es { background-color: #fe7116; }
@@ -156,13 +211,24 @@ button:hover {
 .g_s3 { background-color: #3398db; }
 .h_s3 { background-color: #9b58b6; }
 
-.a_s4 { background-color: #00202e; }
+/*.a_s4 { background-color: #00202e; }
 .b_s4 { background-color: #003f5c; }
 .c_s4 { background-color: #58508d; }
 .d_s4 { background-color: #bc5090; }
 .e_s4 { background-color: #ff6361; }
 .f_s4 { background-color: #ffa600; }
-.g_s4 { background-color: #ffbd40; }
+.g_s4 { background-color: #ffbd40; }*/
+
+.a_s4 { background-color: #00202e; padding: 18px; margin: 7px 0px; }
+.b_s4 { background-color: #003f5c; padding: 18px; margin: 7px 0px; }
+.c_s4 { background-color: #2c4875; padding: 18px; margin: 7px 0px; }
+.d_s4 { background-color: #8a508f; padding: 18px; margin: 7px 0px; }
+.e_s4 { background-color: #bc5090; padding: 18px; margin: 7px 0px; }
+.f_s4 { background-color: #ff6361; padding: 18px; margin: 7px 0px; }
+.g_s4 { background-color: #ff8531; padding: 18px; margin: 7px 0px; }
+.h_s4 { background-color: #ffa600; padding: 18px; margin: 7px 0px; }
+/*.i_s4 { background-color: #ffd380; }*/
+.i_s4 { background-color: #ffbd40; padding: 18px; margin: 7px 0px; }
 
 /*
 Mobile-specific styles

@@ -14,9 +14,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://tcfsa.github.io/styles.css">
-    <link rel="stylesheet" href="https://tcfsa.github.io/home-styles.css">
-    <script src="https://tcfsa.github.io/btns.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home-styles.css">
+    <link rel="stylesheet" href="search-bar.css">
+    <script src="main.js"></script>
+    <script src="btns.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,31 +40,81 @@
     <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96"> 
     <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
   </head>
-  <body>
+
+  <body style="padding-top: 0px;">
+
     <!-- Main Course List -->
-    <div class="course-container">
+    <div class="course-container" id="frst-course-container" style="
+    padding: 20px 0px;
+    padding-top: 40px;
+    margin: 0px 20px;">
+
+      <div class="search-container">
+
+        <div id="searchBar" class="search-bar">
+          <img src="icons/favicon-32x32.png" alt="Search" class="search-icon">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Rechercher un module, cours, td, examen, ..."
+                onkeyup="filterResults()"
+                autocomplete="off"
+                onkeydown="expand_results_list(event)">
+
+            <div id="xIcon" class="itemclassa" style="display:none">
+              <div class="itemclassb">
+                <div class="itemclassc itemclassd">
+                  <span class="itemclasse">
+                    <svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                      </path>
+                    </svg>
+                  </span>
+                </div>
+                <span class="itemclassg itemclassc"></span>
+              </div>
+            </div>
+
+            <!-- <span class="search-icon">🔍</span> -->
+            <!--  aria-label="Rechercher" role="button" -->
+
+            <div class="itemclassf">
+              <span class="itemclasse">
+                <svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                  </path>
+                </svg>
+              </span>
+            </div>
+        </div>
+
+        <div class="results hide-scrollbar" id="results">
+        </div>
+
+      </div>
 
       <div class="course-item" onclick="toggleSec('sec1')">
 
-        <h3>PC-P5 (2025-2026)
+        <h3>PC-P6 (2025-2026)
               </br>
-              (Physique S5)</h3>
+              (Physique S6)</h3>
 
         <ul id="sec1" class="semester-list">
 
-          <a href="https://tcfsa.github.io/p/s5/es">
+          <a href="https://tcfsa.github.io/p/s6/es">
             <li class="semester-item" onclick="keep('sec1')">
               ES - Électronique et systèmes
               </br>
-              (Physique S5)
+              (Physique S6)
             </li>
           </a>
 
-          <a href="https://tcfsa.github.io/p/s5/eer">
+          <a href="https://tcfsa.github.io/p/s6/eer">
             <li class="semester-item" onclick="keep('sec1')">
               EER - Énergétiques et énergie renouvelable
               </br>
-              (Physique S5)
+              (Physique S6)
             </li>
           </a>
         </ul>
@@ -171,42 +223,38 @@
         </ul>
       </div>
 
-      <div class="course-item" style="color: black;background-color: #f9f9f9;padding: 0;transition: transform 0s;transform: translate(-3px);">
-
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <h3 style="color: black;text-box: auto;">
-
-        <br>
-        <br>
-        <br>
-
-        Le drive et le site web ont été rendus possibles grâce aux contributions de Said, Marouane, Ahmed et Ilyas.
-
-        <br>
-        <br>
-        <br>
-        <br>
-
-        Visiteurs uniques (total) : 322
-        <br>
-        Visiteurs uniques ce mois : 120
-        
-        <br>
-        <br>
-        <br>
-        <br>
-
-        En cas d’erreur concernant les fichiers de cours ou de TD affichés sur le site web, ou pour toute question, veuillez nous contacter à cette adresse e-mail.
-        <!-- <a target="_blank" style="color: blue;" href="https://mail.google.com/mail/?view=cm&fs=1&to=fsastudentacc@gmail.com">fsastudentacc@gmail.com</a> -->
-        <a target="_blank" style="color: blue;" href="mailto:fsastudentacc@gmail.com">fsastudentacc@gmail.com</a>
-        </h3>
-      </div>
+      
 
     </div>
+
+    <div class="home-footer">
+      <div class="course-item home-footer-item" style="transition: transform 0s;transform: translate(-3px);">
+
+        <h2 class="home-footer-item-1" style="text-box: auto;">
+          Le drive et le site web ont été rendus possibles grâce aux contributions de Said, Marouane, Ahmed et Ilyas.
+        </h2>
+
+        <h3 class="home-footer-item-2" style="text-box: auto;">
+          Visiteurs uniques (total) : 397
+          <br>
+          Visiteurs uniques ce mois : 36
+        </h3>
+
+
+        <!-- <h3 class="home-footer-item-3" style="text-box: auto;">
+          Dernière mise à jour : 10/02/2026 - Il ya 2 jours
+        </h3> -->
+
+        <h3 class="home-footer-item-1" style="margin-bottom: 20px;text-box: auto;">
+          En cas d’erreur concernant les fichiers de cours ou de TDs affichés sur le site web, ou pour toute question, veuillez nous contacter à cette adresse e-mail.
+          <!-- <a target="_blank" style="color: blue;" href="https://mail.google.com/mail/?view=cm&fs=1&to=fsastudentacc@gmail.com">fsastudentacc@gmail.com</a> -->
+          <a target="_blank" style="color: yellow;" href="mailto:fsastudentacc@gmail.com">fsastudentacc@gmail.com</a>
+        </h3>
+
+      </div>
+    </div>
+
+    <script src="search-bar.js"></script>
 
   </body>
 </html>

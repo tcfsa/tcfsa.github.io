@@ -4,7 +4,6 @@
 
 body {
   margin: 0;
-  padding: 20px;
   font-family: Arial, sans-serif;
   /*background-color: #f4f4f4;*/
   background-color: #f9f9f9;
@@ -13,6 +12,7 @@ body {
   align-items: flex-start; /* Align to the top */
   height: 100vh; /* Full height of the viewport */
   padding-top: 40px; /* Space from the top */
+  flex-wrap: wrap;
 }
 
 * {
@@ -51,10 +51,13 @@ h3 {
   background: #8A8A8A;
   padding: 15px;
   margin: 0px 0px 20px 0;
-  border-radius: 8px;
+  /*border-radius: 8px;*/
+  border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
   text-align: center; /* Center text inside each course item */
+  
+  box-shadow: 0px 3px 10px 0px rgba(31, 31, 31, 0.25);
 }
 
 .course-item:hover {
@@ -94,6 +97,7 @@ h3 {
   font-size: 18px;
   margin: 15px 0px 7px 0;
   border-radius: 8px;
+  border-radius: 16px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
@@ -126,4 +130,76 @@ a
 
 .enn_corr:hover{
   background: white!important;
+}
+
+.home-footer {
+  max-width: none;
+  width: 100%;
+  background-color: #292929;
+  padding: 40px 0px 10px 0px;
+  /*margin: 170px 0px 0px 0px;*/
+  margin: 270px 0px 0px 0px;
+}
+
+.home-footer-item {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.home-footer-item h3, h2 {
+  color: white;
+}
+
+.home-footer-item-1 {
+  margin-bottom: 60px;
+  padding: 0px 450px;
+}
+
+.home-footer-item-2 {
+  margin-bottom: 60px;
+}
+
+.home-footer-item-3 {
+  margin-bottom: 60px;
+}
+
+.home-footer-item:hover {
+  background-color: transparent;
+  cursor: default;
+}
+
+@media only screen and (max-width: 1350px) {
+  .home-footer-item-1 {
+    padding: 0px 330px;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .home-footer-item-1 {
+    padding: 0px 230px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .home-footer-item-1 {
+    padding: 0px 120px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .home-footer-item-1 {
+    padding: 0px 60px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .home-footer-item-1 {
+    padding: 0px 25px;
+    font-size: 20px;
+  }
+  .home-footer-item-3 {
+    padding: 0px 60px;
+  }
 }
