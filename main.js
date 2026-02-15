@@ -336,7 +336,7 @@ addressesXurls = aXu_others.concat(aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5
 function getURL(x) {
   var e = 0;
   var _url="";
-	addressesXurls = aXu_others.concat(aXu_s5, aXu_es_s5, aXu_eer_s5);
+	addressesXurls = aXu_others.concat(aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5, aXu_es_s6, aXu_eer_s6);
 
   addressesXurls.forEach((elem, index) => {
     if(decodeURI(x) == decodeURI(elem[0]) || decodeURI(x) == decodeURI(elem[0])+"/")
