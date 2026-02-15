@@ -294,7 +294,7 @@ let aXu_s4 = [
 
 let aXu_s3 = [
 
-	["/algprg", "https://drive.google.com/drive/folders/1NjOFOxB3h9IiCcmfrufZS9QlFTz9Okjw?usp=drive_link"],
+	["/algprg", "https://drive.google.com/drive/folders/1qun8Yp-D7Pb9P4O-cvak20wifhnD5t9U?usp=sharing"],
 
 
 	["/s3", "https://drive.google.com/drive/folders/1qun8Yp-D7Pb9P4O-cvak20wifhnD5t9U?usp=sharing"],
@@ -331,12 +331,12 @@ let aXu_s3 = [
 	["/pc_p5_newcolors", "https://drive.google.com/file/d/1RjU1AfyoxrMiyMbYTk3WUvvH0Du3kZSj/view?usp=sharing"]
 ];
 
-addressesXurls = aXu_others.concat(aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5, aXu_es_s6, aXu_eer_s6);
+addressesXurls = aXu_others.concat(aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5, aXu_s6, aXu_es_s6, aXu_eer_s6);
 
 function getURL(x) {
   var e = 0;
   var _url="";
-	addressesXurls = aXu_others.concat(aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5, aXu_es_s6, aXu_eer_s6);
+	addressesXurls = aXu_others.concat(aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5, aXu_s6, aXu_es_s6, aXu_eer_s6);
 
   addressesXurls.forEach((elem, index) => {
     if(decodeURI(x) == decodeURI(elem[0]) || decodeURI(x) == decodeURI(elem[0])+"/")
