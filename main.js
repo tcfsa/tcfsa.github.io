@@ -36,6 +36,11 @@ let aXu_es_s6 = [
 
 
 	["/systp"			, "https://drive.google.com/file/d/1eQBnD2KdOPZUIWUdzXxnBpYphbBWSWgP/view?usp=sharing"],
+	["/syscours"			, "https://drive.google.com/file/d/1EFC7NxIItFFyNBy8apUHMDfn7j8cFV1r/view?usp=sharing"],
+	["/syscour"			, "https://drive.google.com/file/d/1EFC7NxIItFFyNBy8apUHMDfn7j8cFV1r/view?usp=sharing"],
+	["/microtp"			, "https://drive.google.com/file/d/1eQBnD2KdOPZUIWUdzXxnBpYphbBWSWgP/view?usp=sharing"],
+	["/microcours"			, "https://drive.google.com/file/d/1EFC7NxIItFFyNBy8apUHMDfn7j8cFV1r/view?usp=sharing"],
+	["/microcour"			, "https://drive.google.com/file/d/1EFC7NxIItFFyNBy8apUHMDfn7j8cFV1r/view?usp=sharing"],
 	["/p/s6/es/sysmicr/cours/cours (polycopié).pdf", "https://drive.google.com/uc?id=1EFC7NxIItFFyNBy8apUHMDfn7j8cFV1r"],
 	["/p/s6/es/sysmicr/cours/chapt 1.pdf", "https://drive.google.com/uc?id=17m5VRlBWGV5oie3D70rEJryRY0tpZMmX"],
 	["/p/s6/es/sysmicr/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=11ngHakMxyErBHqRNZa3OmIZTeXqMOzEf"],
