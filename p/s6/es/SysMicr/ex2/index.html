@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZT5VSZS3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-8BZT5VSZS3');
+  </script>
+
+  <title>SysMicr - TD1 - Exercice 2 (Mémoire framebuffer) (Présentation interactive)</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="../../../../../icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../../../../icons/apple-touch-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="../../../../../icons/apple-touch-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../icons/apple-touch-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="../../../../../icons/apple-touch-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="../../../../../icons/apple-touch-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="../../../../../icons/apple-touch-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="../../../../../icons/apple-touch-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../../icons/apple-touch-icon-180x180.png"> 
+  <link rel="icon" type="image/png" href="../../../../../icons/favicon-32x32.png" sizes="32x32"> 
+  <link rel="icon" type="image/png" href="../../../../../icons/android-chrome-192x192.png" sizes="192x192"> 
+  <link rel="icon" type="image/png" href="../../../../../icons/favicon-96x96.png" sizes="96x96"> 
+  <link rel="icon" type="image/png" href="../../../../../icons/favicon-16x16.png" sizes="16x16">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#111827;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --soft:#f9fafb;
+      --accent:#2563eb;
+      --ok:#10b981;
+      --warn:#f59e0b;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 16px;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+    }
+
+    /* Top bar */
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:0;}
+    .badge{
+      width:34px; height:34px; border-radius:10px;
+      background:linear-gradient(135deg, rgba(37,99,235,.12), rgba(16,185,129,.12));
+      border:1px solid var(--border);
+      display:grid; place-items:center; flex:0 0 auto;
+    }
+    .brand h1{
+      font-size:14px; margin:0; font-weight:800; line-height:1.2;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .brand p{
+      margin:0; font-size:12px; color:var(--muted);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+
+    .controls{display:flex; align-items:center; gap:10px; flex:0 0 auto;}
+    .btn{
+      appearance:none; border:1px solid var(--border);
+      background:var(--bg); color:var(--fg);
+      padding:10px 12px; border-radius:12px;
+      cursor:pointer; font-weight:700; font-size:13px;
+      display:flex; align-items:center; gap:8px;
+      box-shadow:0 1px 0 rgba(0,0,0,.03);
+      transition:transform .08s ease, border-color .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .btn:hover{border-color:#cbd5e1; background:var(--soft)}
+    .btn:active{transform:scale(.98)}
+    .btn.primary{
+      border-color:rgba(37,99,235,.25);
+      background:rgba(37,99,235,.08);
+    }
+    .btn.primary:hover{background:rgba(37,99,235,.12)}
+    .btn:disabled{opacity:.5; cursor:not-allowed}
+
+    /* Main */
+    main{
+      min-height:calc(100vh - 120px);
+      display:flex;
+      justify-content:center;
+      padding:18px 16px 28px;
+    }
+    .deck{width:100%; max-width:var(--maxw); position:relative;}
+
+    .slide{
+      display:none;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      background:#fff;
+      overflow:hidden;
+    }
+    .slide.active{display:block}
+
+    .title{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      border-bottom:1px solid var(--border);
+      padding-bottom:12px; margin-bottom:14px;
+    }
+    h2{margin:0; font-size:20px; letter-spacing:-.02em;}
+    .kicker{margin:4px 0 0; color:var(--muted); font-size:13px;}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      background:var(--soft); border:1px solid var(--border);
+      color:var(--muted); font-size:12px; font-weight:800;
+      white-space:nowrap;
+    }
+
+    .grid{display:grid; gap:14px;}
+    @media (min-width: 900px){
+      .grid.cols2{grid-template-columns: 1.05fr .95fr;}
+      .grid.cols3{grid-template-columns: 1fr 1fr 1fr;}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      padding:14px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02);
+    }
+    .card.soft{background:var(--soft)}
+    .card h3{margin:0 0 8px; font-size:14px; letter-spacing:-.01em;}
+    .card p, .card li{color:#374151; font-size:13px; line-height:1.45;}
+    .card ul{margin:8px 0 0; padding-left:18px;}
+    .hint{margin-top:10px; font-size:12px; color:var(--muted);}
+
+    .svgwrap{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      overflow:hidden;
+    }
+    .svgwrap svg{width:100%; height:auto; display:block;}
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:12px;
+      background:var(--soft);
+      border:1px solid var(--border);
+      padding:2px 6px;
+      border-radius:8px;
+      white-space:nowrap;
+    }
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px;}
+    .tag{
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:8px 10px;
+      background:#fff;
+      cursor:pointer;
+      font-size:12px;
+      font-weight:900;
+      color:#111827;
+      transition:background .15s ease, border-color .15s ease, transform .08s ease;
+      user-select:none;
+    }
+    .tag:hover{background:var(--soft); border-color:#cbd5e1}
+    .tag:active{transform:scale(.98)}
+    .tag[data-active="true"]{
+      border-color: rgba(37,99,235,.35);
+      background: rgba(37,99,235,.10);
+      color:#0b2a6f;
+    }
+
+    /* Inputs */
+    .form{
+      display:grid;
+      gap:10px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:8px;
+    }
+    @media (min-width: 720px){
+      .row{grid-template-columns: 1fr 1fr; gap:10px;}
+    }
+    label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+    input{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      font-size:13px;
+      font-weight:700;
+      outline:none;
+      background:#fff;
+    }
+    input:focus{border-color:rgba(37,99,235,.35); box-shadow:0 0 0 4px rgba(37,99,235,.08);}
+
+    .result{
+      display:grid;
+      gap:10px;
+    }
+    .big{
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.02em;
+    }
+    .muted{color:var(--muted)}
+    .kv{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap:8px;
+      padding:10px 12px;
+      border:1px dashed #d1d5db;
+      border-radius:12px;
+      background:#fff;
+      font-size:13px;
+      color:#374151;
+    }
+
+    /* Progress / dots */
+    .progress{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 16px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .dots{display:flex; gap:8px; flex-wrap:wrap}
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      cursor:pointer;
+    }
+    .dot.active{background:rgba(37,99,235,.6); border-color:rgba(37,99,235,.35)}
+    .footnote{color:var(--muted); font-size:12px;}
+
+    /* SVG highlight classes */
+    .hl { transition: opacity .15s ease, filter .15s ease; }
+    .dim { opacity:.22 }
+    .glow { filter: drop-shadow(0 8px 18px rgba(37,99,235,.18)); }
+    .glowOk { filter: drop-shadow(0 8px 18px rgba(16,185,129,.18)); }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:16px;
+      background:rgba(17,24,39,.92);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:12px;
+      display:none;
+      max-width:min(560px, calc(100vw - 24px));
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+    }
+    .toast.show{display:block}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="badge" aria-hidden="true">
+          <!-- Memory icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="7" width="16" height="10" rx="2" stroke="#2563eb" stroke-width="2"/>
+            <path d="M8 10h8M8 14h6" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 7V5M10 7V5M13 7V5M16 7V5M7 17v2M10 17v2M13 17v2M16 17v2" stroke="#94a3b8" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div style="min-width:0">
+          <h1>TD Systèmes à µp et à µc — Série I</h1>
+          <p>Exercice 2 : Propriétés d’une mémoire (framebuffer) — mode présentation interactive</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="btnPrev" title="Précédent (←)">◀︎ <span style="font-weight:900">Précédent</span></button>
+        <button class="btn primary" id="btnNext" title="Suivant (→)"><span style="font-weight:900">Suivant</span> ▶︎</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="deck" id="deck">
+
+      <!-- Slide 0 -->
+      <section class="slide active" data-slide="0">
+        <div class="title">
+          <div>
+            <h2>Énoncé — Framebuffer (mémoire tampon d’image)</h2>
+            <p class="kicker">
+              Image <span class="mono">1280 × 1024</span>, couleur RGB avec <span class="mono">8 bits</span> par couleur (R, G, B).
+              On veut : (1) taille mémoire minimale, (2) temps minimal d’envoi à <span class="mono">100 Mbit/s</span>.
+            </p>
+          </div>
+          <div class="pill">Astuce : change les paramètres pour “voir” l’impact</div>
+        </div>
+
+        <div class="grid cols2">
+          <div class="card">
+            <h3>Idée clé (très exam)</h3>
+            <ul>
+              <li><strong>Nombre de pixels</strong> = largeur × hauteur</li>
+              <li><strong>Bits par pixel (bpp)</strong> = canaux × bits par canal</li>
+              <li><strong>Taille (octets)</strong> = pixels × (bpp / 8)</li>
+              <li><strong>Temps d’envoi</strong> = (taille en bits) / (débit en bit/s)</li>
+            </ul>
+            <p class="hint">
+              Pour RGB 8 bits/canal → bpp = 3 × 8 = <span class="mono">24 bpp</span> = <span class="mono">3 octets/pixel</span>.
+            </p>
+          </div>
+
+          <div class="card soft">
+            <h3>Illustration : un pixel RGB (cliquable)</h3>
+
+            <div class="tags" style="margin-bottom:10px">
+              <button class="tag" data-target="r">R (8 bits)</button>
+              <button class="tag" data-target="g">G (8 bits)</button>
+              <button class="tag" data-target="b">B (8 bits)</button>
+              <button class="tag" data-target="all">Tout (24 bits)</button>
+              <button class="tag" data-target="reset0">Réinitialiser</button>
+            </div>
+
+            <div class="svgwrap" aria-label="Pixel RGB et codage">
+              <svg viewBox="0 0 980 420" role="img">
+                <rect width="980" height="420" fill="#fff"/>
+
+                <text x="490" y="58" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">
+                  Un pixel couleur = 3 sous-pixels (R, G, B)
+                </text>
+
+                <!-- Pixel blocks -->
+                <g id="r" class="hl">
+                  <rect x="140" y="110" width="220" height="190" rx="18" fill="rgba(239,68,68,.10)" stroke="rgba(239,68,68,.35)" stroke-width="3"/>
+                  <text x="250" y="160" text-anchor="middle" font-size="16" font-weight="900" fill="#991b1b">Rouge</text>
+                  <text x="250" y="190" text-anchor="middle" font-size="12" fill="#374151">8 bits = 1 octet</text>
+                  <rect x="170" y="215" width="160" height="55" rx="14" fill="#fff" stroke="rgba(239,68,68,.25)"/>
+                  <text x="250" y="248" text-anchor="middle" font-size="12" font-weight="900" fill="#991b1b">0 → 255</text>
+                </g>
+
+                <g id="g" class="hl">
+                  <rect x="380" y="110" width="220" height="190" rx="18" fill="rgba(16,185,129,.10)" stroke="rgba(16,185,129,.35)" stroke-width="3"/>
+                  <text x="490" y="160" text-anchor="middle" font-size="16" font-weight="900" fill="#065f46">Vert</text>
+                  <text x="490" y="190" text-anchor="middle" font-size="12" fill="#374151">8 bits = 1 octet</text>
+                  <rect x="410" y="215" width="160" height="55" rx="14" fill="#fff" stroke="rgba(16,185,129,.25)"/>
+                  <text x="490" y="248" text-anchor="middle" font-size="12" font-weight="900" fill="#065f46">0 → 255</text>
+                </g>
+
+                <g id="b" class="hl">
+                  <rect x="620" y="110" width="220" height="190" rx="18" fill="rgba(37,99,235,.10)" stroke="rgba(37,99,235,.35)" stroke-width="3"/>
+                  <text x="730" y="160" text-anchor="middle" font-size="16" font-weight="900" fill="#1d4ed8">Bleu</text>
+                  <text x="730" y="190" text-anchor="middle" font-size="12" fill="#374151">8 bits = 1 octet</text>
+                  <rect x="650" y="215" width="160" height="55" rx="14" fill="#fff" stroke="rgba(37,99,235,.25)"/>
+                  <text x="730" y="248" text-anchor="middle" font-size="12" font-weight="900" fill="#1d4ed8">0 → 255</text>
+                </g>
+
+                <!-- Summary bar -->
+                <g id="all" class="hl">
+                  <rect x="170" y="322" width="640" height="62" rx="18" fill="rgba(37,99,235,.06)" stroke="#cbd5e1" stroke-width="2"/>
+                  <text x="490" y="358" text-anchor="middle" font-size="14" font-weight="900" fill="#0f172a">
+                    Total par pixel : 8 + 8 + 8 = 24 bits = 3 octets / pixel
+                  </text>
+                </g>
+
+                <text x="490" y="405" text-anchor="middle" font-size="12" fill="#6b7280">
+                  Framebuffer : on stocke “octet R”, puis “octet G”, puis “octet B” pour chaque pixel.
+                </text>
+              </svg>
+            </div>
+
+            <p class="hint">
+              Clique sur R/G/B pour mettre en évidence → tu comprends pourquoi c’est <span class="mono">3 octets/pixel</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 1 -->
+      <section class="slide" data-slide="1">
+        <div class="title">
+          <div>
+            <h2>Question 1 — Taille minimale du framebuffer (octets / Mo)</h2>
+            <p class="kicker">On calcule pixels puis octets/pixel → taille totale.</p>
+          </div>
+          <div class="pill">Calculateur interactif + réponse officielle</div>
+        </div>
+
+        <div class="grid cols2">
+          <div class="card">
+            <h3>Calculateur (modifiable)</h3>
+            <div class="form">
+              <div class="row">
+                <div>
+                  <label>Largeur (px)</label>
+                  <input id="w" type="number" min="1" step="1" value="1280" />
+                </div>
+                <div>
+                  <label>Hauteur (px)</label>
+                  <input id="h" type="number" min="1" step="1" value="1024" />
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label>Canaux (RGB=3)</label>
+                  <input id="channels" type="number" min="1" step="1" value="3" />
+                </div>
+                <div>
+                  <label>Bits / canal (8)</label>
+                  <input id="bpc" type="number" min="1" step="1" value="8" />
+                </div>
+              </div>
+            </div>
+
+            <div class="result" style="margin-top:12px">
+              <div class="kv">
+                <div><strong>Nombre de pixels</strong> (= largeur × hauteur)</div>
+                <div class="mono" id="pixelsOut">—</div>
+              </div>
+              <div class="kv">
+                <div><strong>Bits par pixel</strong> (= canaux × bits/canal)</div>
+                <div class="mono" id="bppOut">—</div>
+              </div>
+              <div class="kv">
+                <div><strong>Octets par pixel</strong> (= bpp / 8)</div>
+                <div class="mono" id="bppBytesOut">—</div>
+              </div>
+              <div class="kv">
+                <div><strong>Taille framebuffer</strong> (octets)</div>
+                <div class="mono" id="bytesOut">—</div>
+              </div>
+              <div class="kv">
+                <div><strong>Taille framebuffer</strong> (Mo, base 2 → MiB)</div>
+                <div class="mono" id="mibOut">—</div>
+              </div>
+
+              <div class="card soft">
+                <h3>Réponse attendue (cas de l’énoncé)</h3>
+                <p style="margin:0">
+                  <span class="mono">1280 × 1024 = 1 310 720 pixels</span><br/>
+                  <span class="mono">RGB 8 bits/canal → 3 octets/pixel</span><br/>
+                  <strong class="big">Taille = 1 310 720 × 3 = 3 932 160 octets ≈ 3.75 Mo (MiB)</strong>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card soft">
+            <h3>Schéma : comment on “remplit” la mémoire</h3>
+
+            <div class="svgwrap">
+              <svg viewBox="0 0 980 520" role="img" aria-label="Mapping pixels vers mémoire framebuffer">
+                <rect width="980" height="520" fill="#fff"/>
+
+                <text x="490" y="60" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">
+                  Framebuffer = tableau linéaire d’octets
+                </text>
+                <text x="490" y="86" text-anchor="middle" font-size="12" fill="#6b7280">
+                  Chaque pixel occupe 3 octets : [R][G][B] → on répète pour tous les pixels
+                </text>
+
+                <!-- Left: image grid (stylized) -->
+                <g class="hl" id="img">
+                  <rect x="90" y="125" width="300" height="300" rx="18" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.25)" stroke-width="2"/>
+                  <text x="240" y="158" text-anchor="middle" font-size="13" font-weight="900" fill="#0b2a6f">Image (pixels)</text>
+
+                  <!-- 6x6 tiny squares -->
+                  <g transform="translate(125,185)">
+                    <!-- squares -->
+                    <script type="application/ecmascript"><![CDATA[
+                      // (SVG only visual; no JS here)
+                    ]]></script>
+                    <!-- draw manually -->
+                    <!-- row 1 -->
+                    <rect x="0" y="0" width="40" height="40" fill="rgba(239,68,68,.10)" stroke="#e5e7eb"/>
+                    <rect x="42" y="0" width="40" height="40" fill="rgba(16,185,129,.10)" stroke="#e5e7eb"/>
+                    <rect x="84" y="0" width="40" height="40" fill="rgba(37,99,235,.10)" stroke="#e5e7eb"/>
+                    <rect x="126" y="0" width="40" height="40" fill="rgba(239,68,68,.10)" stroke="#e5e7eb"/>
+                    <rect x="168" y="0" width="40" height="40" fill="rgba(16,185,129,.10)" stroke="#e5e7eb"/>
+                    <rect x="210" y="0" width="40" height="40" fill="rgba(37,99,235,.10)" stroke="#e5e7eb"/>
+                    <!-- row 2 -->
+                    <rect x="0" y="42" width="40" height="40" fill="rgba(16,185,129,.10)" stroke="#e5e7eb"/>
+                    <rect x="42" y="42" width="40" height="40" fill="rgba(37,99,235,.10)" stroke="#e5e7eb"/>
+                    <rect x="84" y="42" width="40" height="40" fill="rgba(239,68,68,.10)" stroke="#e5e7eb"/>
+                    <rect x="126" y="42" width="40" height="40" fill="rgba(16,185,129,.10)" stroke="#e5e7eb"/>
+                    <rect x="168" y="42" width="40" height="40" fill="rgba(37,99,235,.10)" stroke="#e5e7eb"/>
+                    <rect x="210" y="42" width="40" height="40" fill="rgba(239,68,68,.10)" stroke="#e5e7eb"/>
+                    <!-- row 3 -->
+                    <rect x="0" y="84" width="40" height="40" fill="rgba(37,99,235,.10)" stroke="#e5e7eb"/>
+                    <rect x="42" y="84" width="40" height="40" fill="rgba(239,68,68,.10)" stroke="#e5e7eb"/>
+                    <rect x="84" y="84" width="40" height="40" fill="rgba(16,185,129,.10)" stroke="#e5e7eb"/>
+                    <rect x="126" y="84" width="40" height="40" fill="rgba(37,99,235,.10)" stroke="#e5e7eb"/>
+                    <rect x="168" y="84" width="40" height="40" fill="rgba(239,68,68,.10)" stroke="#e5e7eb"/>
+                    <rect x="210" y="84" width="40" height="40" fill="rgba(16,185,129,.10)" stroke="#e5e7eb"/>
+                    <!-- row 4 -->
+                    <rect x="0" y="126" width="40" height="40" fill="rgba(239,68,68,.10)" stroke="#e5e7eb"/>
+                    <rect x="42" y="126" width="40" height="40" fill="rgba(16,185,129,.10)" stroke="#e5e7eb"/>
+                    <rect x="84" y="126" width="40" height="40" fill="rgba(37,99,235,.10)" stroke="#e5e7eb"/>
+                    <rect x="126" y="126" width="40" height="40" fill="rgba(239,68,68,.10)" stroke="#e5e7eb"/>
+                    <rect x="168" y="126" width="40" height="40" fill="rgba(16,185,129,.10)" stroke="#e5e7eb"/>
+                    <rect x="210" y="126" width="40" height="40" fill="rgba(37,99,235,.10)" stroke="#e5e7eb"/>
+                  </g>
+
+                  <text x="240" y="445" text-anchor="middle" font-size="11" fill="#6b7280">
+                    (Illustration : une partie de l’image)
+                  </text>
+                </g>
+
+                <!-- Arrow -->
+                <path d="M410 275 C465 275, 505 275, 560 275" fill="none" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+                <polygon points="560,275 545,266 545,284" fill="#94a3b8"/>
+
+                <!-- Right: memory -->
+                <g class="hl" id="mem">
+                  <rect x="590" y="125" width="300" height="300" rx="18" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="2"/>
+                  <text x="740" y="158" text-anchor="middle" font-size="13" font-weight="900" fill="#065f46">Mémoire framebuffer (octets)</text>
+
+                  <!-- bytes lines -->
+                  <g transform="translate(625,185)">
+                    <rect x="0" y="0" width="250" height="28" rx="8" fill="#fff" stroke="#e5e7eb"/>
+                    <text x="10" y="19" font-size="11" fill="#374151">[R0][G0][B0][R1][G1][B1]...</text>
+
+                    <rect x="0" y="38" width="250" height="28" rx="8" fill="#fff" stroke="#e5e7eb"/>
+                    <text x="10" y="57" font-size="11" fill="#374151">[Rk][Gk][Bk]...</text>
+
+                    <rect x="0" y="76" width="250" height="28" rx="8" fill="#fff" stroke="#e5e7eb"/>
+                    <text x="10" y="95" font-size="11" fill="#374151">...</text>
+
+                    <rect x="0" y="114" width="250" height="28" rx="8" fill="#fff" stroke="#e5e7eb"/>
+                    <text x="10" y="133" font-size="11" fill="#374151">[R(N-1)][G(N-1)][B(N-1)]</text>
+                  </g>
+
+                  <text x="740" y="445" text-anchor="middle" font-size="11" fill="#6b7280">
+                    N = largeur × hauteur pixels
+                  </text>
+                </g>
+
+                <text x="490" y="505" text-anchor="middle" font-size="12" fill="#6b7280">
+                  Taille totale = Npx × (3 octets/pixel) dans le cas RGB 8 bits/canal.
+                </text>
+              </svg>
+            </div>
+
+            <p class="hint">
+              La mémoire est “linéaire”, même si l’image est 2D → c’est le contrôleur vidéo qui reconstruit la trame.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2 -->
+      <section class="slide" data-slide="2">
+        <div class="title">
+          <div>
+            <h2>Question 2 — Temps minimal d’envoi sur un réseau à 100 Mbit/s</h2>
+            <p class="kicker">Débit = (nombre de bits) / temps ⇒ temps = bits / débit.</p>
+          </div>
+          <div class="pill">Animation + calcul automatique</div>
+        </div>
+
+        <div class="grid cols2">
+          <div class="card">
+            <h3>Paramètres réseau</h3>
+            <div class="form">
+              <div class="row">
+                <div>
+                  <label>Débit réseau (Mbit/s)</label>
+                  <input id="rate" type="number" min="0.001" step="1" value="100" />
+                </div>
+                <div>
+                  <label>Unité du “Mo”</label>
+                  <input id="unitMode" type="text" value="MiB (base 2) + bits SI" readonly />
+                </div>
+              </div>
+            </div>
+
+            <div class="result" style="margin-top:12px">
+              <div class="kv">
+                <div><strong>Taille (bits)</strong> (= octets × 8)</div>
+                <div class="mono" id="bitsOut">—</div>
+              </div>
+              <div class="kv">
+                <div><strong>Débit (bit/s)</strong></div>
+                <div class="mono" id="rateOut">—</div>
+              </div>
+              <div class="kv">
+                <div><strong>Temps minimal</strong> (= bits / débit)</div>
+                <div class="mono" id="timeOut">—</div>
+              </div>
+
+              <div class="card soft">
+                <h3>Réponse attendue (cas de l’énoncé)</h3>
+                <p style="margin:0">
+                  Taille = <span class="mono">3 932 160 octets</span> → <span class="mono">31 457 280 bits</span><br/>
+                  Débit = <span class="mono">100 × 10⁶ bit/s</span><br/>
+                  <strong class="big">Temps ≈ 0.3146 s ≈ 0.3 s</strong>
+                </p>
+              </div>
+
+              <p class="hint">
+                Ici on suppose un envoi “idéal” : sans overhead (protocoles), ni pertes, ni latence supplémentaire.
+              </p>
+            </div>
+          </div>
+
+          <div class="card soft">
+            <h3>Animation : “tuyau” réseau (lance / stop)</h3>
+
+            <div class="tags" style="margin-bottom:10px">
+              <button class="tag" id="btnPlay">▶︎ Lancer</button>
+              <button class="tag" id="btnStop">■ Stop</button>
+              <button class="tag" id="btnFast">⚡ Accélérer</button>
+              <button class="tag" id="btnResetAnim">↺ Reset</button>
+            </div>
+
+            <div class="svgwrap">
+              <svg viewBox="0 0 980 420" role="img" aria-label="Animation réseau">
+                <rect width="980" height="420" fill="#fff"/>
+
+                <text x="490" y="56" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">
+                  Envoi des bits sur le réseau
+                </text>
+                <text x="490" y="82" text-anchor="middle" font-size="12" fill="#6b7280">
+                  Le temps dépend du débit : plus le débit est grand, plus la barre se remplit vite.
+                </text>
+
+                <!-- Source -->
+                <g class="hl" id="src">
+                  <rect x="90" y="140" width="260" height="160" rx="18" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.25)" stroke-width="2"/>
+                  <text x="220" y="175" text-anchor="middle" font-size="13" font-weight="900" fill="#0b2a6f">Framebuffer</text>
+                  <text x="220" y="205" text-anchor="middle" font-size="12" fill="#374151">Taille : bits à envoyer</text>
+                  <text x="220" y="235" text-anchor="middle" font-size="11" fill="#6b7280" id="animSize">—</text>
+                </g>
+
+                <!-- Pipe -->
+                <rect x="380" y="205" width="220" height="30" rx="15" fill="rgba(148,163,184,.25)" stroke="#cbd5e1"/>
+                <rect id="flow" x="380" y="205" width="0" height="30" rx="15" fill="rgba(16,185,129,.55)"/>
+
+                <path d="M350 220 C365 220, 370 220, 380 220" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+                <path d="M600 220 C610 220, 615 220, 630 220" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+
+                <!-- Destination -->
+                <g class="hl" id="dst">
+                  <rect x="630" y="140" width="260" height="160" rx="18" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="2"/>
+                  <text x="760" y="175" text-anchor="middle" font-size="13" font-weight="900" fill="#065f46">Réseau</text>
+                  <text x="760" y="205" text-anchor="middle" font-size="12" fill="#374151">Débit : bit/s</text>
+                  <text x="760" y="235" text-anchor="middle" font-size="11" fill="#6b7280" id="animRate">—</text>
+                </g>
+
+                <!-- Progress -->
+                <rect x="90" y="330" width="800" height="28" rx="14" fill="rgba(148,163,184,.18)" stroke="#e5e7eb"/>
+                <rect id="bar" x="90" y="330" width="0" height="28" rx="14" fill="rgba(37,99,235,.55)"/>
+                <text x="490" y="350" text-anchor="middle" font-size="12" font-weight="900" fill="#111827" id="pct">0%</text>
+
+                <text x="490" y="395" text-anchor="middle" font-size="12" fill="#6b7280" id="animTime">
+                  Temps estimé : —
+                </text>
+              </svg>
+            </div>
+
+            <p class="hint">
+              La barre bleue = progression de l’envoi. Le “tuyau vert” = flux instantané.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3 -->
+      <section class="slide" data-slide="3">
+        <div class="title">
+          <div>
+            <h2>Synthèse — Réponses de l’Exercice 2</h2>
+            <p class="kicker">Les formules à mémoriser + résultats numériques du cas donné.</p>
+          </div>
+          <div class="pill">Fiche révision</div>
+        </div>
+
+        <div class="grid cols3">
+          <div class="card">
+            <h3>Formules</h3>
+            <ul>
+              <li><span class="mono">Npx = L × H</span></li>
+              <li><span class="mono">bpp = canaux × bits/canal</span></li>
+              <li><span class="mono">octets = Npx × (bpp/8)</span></li>
+              <li><span class="mono">temps = (octets×8) / débit</span></li>
+            </ul>
+          </div>
+
+          <div class="card soft">
+            <h3>Résultat Q1 (énoncé)</h3>
+            <p style="margin:0">
+              <strong>Pixels</strong> : <span class="mono">1280×1024 = 1 310 720</span><br/>
+              <strong>Octets/pixel</strong> : <span class="mono">RGB 8b → 3</span><br/>
+              <strong class="big">Taille = 3 932 160 octets ≈ 3.75 Mo</strong>
+            </p>
+          </div>
+
+          <div class="card soft">
+            <h3>Résultat Q2 (énoncé)</h3>
+            <p style="margin:0">
+              <strong>Bits</strong> : <span class="mono">3 932 160 × 8 = 31 457 280</span><br/>
+              <strong>Débit</strong> : <span class="mono">100 Mbit/s = 100×10⁶ bit/s</span><br/>
+              <strong class="big">Temps ≈ 0.3146 s ≈ 0.3 s</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3>À dire clairement en copie (phrase type)</h3>
+          <p style="margin:0">
+            “L’image contient <strong>L×H</strong> pixels. Un pixel RGB codé sur <strong>8 bits</strong> par couleur occupe
+            <strong>24 bits = 3 octets</strong>. La taille minimale du framebuffer vaut donc <strong>Npx×3</strong> octets.
+            Le temps minimal d’envoi sur un réseau de débit <strong>D</strong> vaut <strong>(taille en bits)/D</strong>.”
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="progress">
+    <div class="dots" id="dots"></div>
+    <div class="footnote">Navigation : <span class="mono">←</span>/<span class="mono">→</span> • ou boutons • 4 “diapos”</div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // ---------- helpers ----------
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+    function fmtInt(n){
+      return new Intl.NumberFormat("fr-FR").format(Math.round(n));
+    }
+    function fmt(n, digits=4){
+      return new Intl.NumberFormat("fr-FR",{maximumFractionDigits:digits}).format(n);
+    }
+    function toast(msg){
+      const t = $("#toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(()=>t.classList.remove("show"), 1500);
+    }
+
+    // ---------- slides ----------
+    const slides = $$(".slide");
+    let idx = 0;
+
+    function renderDots(){
+      const dots = $("#dots");
+      dots.innerHTML = "";
+      slides.forEach((s,i)=>{
+        const d = document.createElement("button");
+        d.className = "dot" + (i===idx ? " active":"");
+        d.title = `Aller à la diapo ${i+1}`;
+        d.addEventListener("click", ()=>go(i));
+        dots.appendChild(d);
+      });
+    }
+    function go(i){
+      idx = Math.max(0, Math.min(slides.length-1, i));
+      slides.forEach((s,k)=>s.classList.toggle("active", k===idx));
+      // $("#btnPrev").disabled = idx===0;
+      if(i===-1)
+      {
+        window.location.href=window.location.origin+"/p/s6/es/SysMicr/ex1";
+      }
+      $("#btnNext").disabled = idx===slides.length-1;
+      renderDots();
+      toast(`Diapo ${idx+1} / ${slides.length}`);
+    }
+    $("#btnPrev").addEventListener("click", ()=>go(idx-1));
+    $("#btnNext").addEventListener("click", ()=>go(idx+1));
+    window.addEventListener("keydown", (e)=>{
+      if(e.key==="ArrowLeft") go(idx-1);
+      if(e.key==="ArrowRight") go(idx+1);
+    });
+    renderDots();
+    // $("#btnPrev").disabled = true;
+
+    // ---------- Slide 0 pixel highlight ----------
+    (function(){
+      const slide = slides[0];
+      const svg = $("svg", slide);
+      if(!svg) return;
+
+      const r = svg.getElementById("r");
+      const g = svg.getElementById("g");
+      const b = svg.getElementById("b");
+      const all = svg.getElementById("all");
+      const parts = [r,g,b,all];
+
+      function reset(){
+        parts.forEach(p=>p.classList.remove("glow","glowOk","dim"));
+        $$(".tag", slide).forEach(t=>t.dataset.active="false");
+      }
+      function focus(which){
+        parts.forEach(p=>p.classList.add("dim"));
+        const map = {r, g, b, all};
+        const target = map[which];
+        if(!target) return;
+        target.classList.remove("dim");
+        if(which==="g") target.classList.add("glowOk");
+        else target.classList.add("glow");
+      }
+
+      $$(".tag", slide).forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const t = btn.dataset.target;
+          if(t==="reset0"){ reset(); toast("Réinitialisé"); return; }
+          $$(".tag", slide).forEach(x=>x.dataset.active = (x===btn) ? (x.dataset.active!=="true") : "false");
+          if(btn.dataset.active==="true"){ focus(t); toast(`Focus : ${btn.textContent}`); }
+          else reset();
+        });
+      });
+    })();
+
+    // ---------- Calculator (Slide 1 & Slide 2 share same computed size) ----------
+    const W = $("#w"), H = $("#h"), CH = $("#channels"), BPC = $("#bpc");
+    const pixelsOut = $("#pixelsOut");
+    const bppOut = $("#bppOut");
+    const bppBytesOut = $("#bppBytesOut");
+    const bytesOut = $("#bytesOut");
+    const mibOut = $("#mibOut");
+
+    const rateIn = $("#rate");
+    const bitsOut = $("#bitsOut");
+    const rateOut = $("#rateOut");
+    const timeOut = $("#timeOut");
+
+    // Animation labels
+    const animSize = $("#animSize");
+    const animRate = $("#animRate");
+    const animTime = $("#animTime");
+
+    // Animation bars
+    const bar = $("#bar");
+    const pct = $("#pct");
+    const flow = $("#flow");
+
+    function compute(){
+      const w = Math.max(1, Number(W.value||1280));
+      const h = Math.max(1, Number(H.value||1024));
+      const channels = Math.max(1, Number(CH.value||3));
+      const bpc = Math.max(1, Number(BPC.value||8));
+
+      const npx = w * h;
+      const bpp = channels * bpc;
+      const bytesPerPixel = bpp / 8;
+      const totalBytes = npx * bytesPerPixel;
+      const totalBits = totalBytes * 8;
+
+      // outputs slide 1
+      if(pixelsOut) pixelsOut.textContent = fmtInt(npx);
+      if(bppOut) bppOut.textContent = fmtInt(bpp) + " bpp";
+      if(bppBytesOut) bppBytesOut.textContent = fmt(bytesPerPixel, 3) + " octets/pixel";
+      if(bytesOut) bytesOut.textContent = fmtInt(totalBytes) + " octets";
+      if(mibOut) mibOut.textContent = fmt(totalBytes / (1024*1024), 3) + " Mo (MiB)";
+
+      // network slide 2
+      const rateM = Math.max(0.001, Number(rateIn?.value || 100));
+      const rateBits = rateM * 1e6; // Mbit/s = 10^6 bit/s
+      const timeSec = totalBits / rateBits;
+
+      if(bitsOut) bitsOut.textContent = fmtInt(totalBits) + " bits";
+      if(rateOut) rateOut.textContent = fmtInt(rateBits) + " bit/s";
+      if(timeOut) timeOut.textContent = fmt(timeSec, 4) + " s";
+
+      if(animSize) animSize.textContent = fmtInt(totalBits) + " bits";
+      if(animRate) animRate.textContent = fmtInt(rateBits) + " bit/s";
+      if(animTime) animTime.textContent = "Temps estimé : " + fmt(timeSec, 4) + " s";
+
+      return {totalBits, timeSec};
+    }
+
+    [W,H,CH,BPC,rateIn].forEach(el=>{
+      if(!el) return;
+      el.addEventListener("input", ()=>{
+        compute();
+        resetAnim(); // keep animation consistent with new numbers
+      });
+    });
+
+    compute();
+
+    // ---------- Network animation ----------
+    let timer = null;
+    let speed = 1.0; // multiplier
+    let progress = 0; // 0..1
+    function resetAnim(){
+      progress = 0;
+      if(bar) bar.setAttribute("width", 0);
+      if(pct) pct.textContent = "0%";
+      if(flow) flow.setAttribute("width", 0);
+    }
+    resetAnim();
+
+    function tick(){
+      const {timeSec} = compute(); // ensures updated labels
+      // If timeSec is very small, just finish
+      const dt = 0.016; // ~60fps
+      const incr = (timeSec <= 0.00001) ? 1 : (dt / timeSec) * speed;
+      progress = Math.min(1, progress + incr);
+
+      const totalW = 800; // progress bar width in SVG coords
+      const newW = totalW * progress;
+      if(bar) bar.setAttribute("width", newW);
+      if(pct) pct.textContent = Math.round(progress * 100) + "%";
+
+      // flow pipe pulse
+      const pipeMax = 220;
+      const pulse = Math.abs(Math.sin(progress * 12 * Math.PI)) * 0.8 + 0.2;
+      if(flow) flow.setAttribute("width", pipeMax * pulse);
+
+      if(progress >= 1){
+        stop();
+        toast("Envoi terminé ✅");
+      }
+    }
+
+    function play(){
+      if(timer) return;
+      toast("Animation : ON");
+      timer = setInterval(tick, 16);
+    }
+    function stop(){
+      if(!timer) return;
+      clearInterval(timer);
+      timer = null;
+      toast("Animation : OFF");
+    }
+
+    $("#btnPlay")?.addEventListener("click", play);
+    $("#btnStop")?.addEventListener("click", stop);
+    $("#btnFast")?.addEventListener("click", ()=>{
+      speed = (speed >= 4) ? 1 : (speed * 2);
+      toast("Vitesse ×" + speed);
+    });
+    $("#btnResetAnim")?.addEventListener("click", ()=>{
+      resetAnim();
+      toast("Reset animation");
+    });
+  </script>
+</body>
+</html>

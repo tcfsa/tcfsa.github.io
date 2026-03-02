@@ -1,0 +1,1292 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZT5VSZS3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-8BZT5VSZS3');
+  </script>
+
+  <title>SysMicr - TD1 - Exercice 1 (Présentation interactive)</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="../../../../../icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../../../../icons/apple-touch-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="../../../../../icons/apple-touch-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../icons/apple-touch-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="../../../../../icons/apple-touch-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="../../../../../icons/apple-touch-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="../../../../../icons/apple-touch-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="../../../../../icons/apple-touch-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../../icons/apple-touch-icon-180x180.png"> 
+  <link rel="icon" type="image/png" href="../../../../../icons/favicon-32x32.png" sizes="32x32"> 
+  <link rel="icon" type="image/png" href="../../../../../icons/android-chrome-192x192.png" sizes="192x192"> 
+  <link rel="icon" type="image/png" href="../../../../../icons/favicon-96x96.png" sizes="96x96"> 
+  <link rel="icon" type="image/png" href="../../../../../icons/favicon-16x16.png" sizes="16x16">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#111827;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --soft:#f9fafb;
+      --accent:#2563eb;
+      --accent2:#10b981;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 16px;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+    }
+
+    .app{min-height:100vh; display:flex; flex-direction:column;}
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:0;}
+    .badge{
+      width:34px; height:34px; border-radius:10px;
+      background:linear-gradient(135deg, rgba(37,99,235,.12), rgba(16,185,129,.12));
+      border:1px solid var(--border);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+    }
+    .brand h1{
+      font-size:14px; margin:0; font-weight:700; line-height:1.2;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .brand p{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+
+    .controls{display:flex; align-items:center; gap:10px; flex:0 0 auto;}
+    .btn{
+      appearance:none; border:1px solid var(--border);
+      background:var(--bg); color:var(--fg);
+      padding:10px 12px; border-radius:12px;
+      cursor:pointer; font-weight:600; font-size:13px;
+      display:flex; align-items:center; gap:8px;
+      box-shadow:0 1px 0 rgba(0,0,0,.03);
+      transition:transform .08s ease, border-color .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .btn:hover{border-color:#cbd5e1; background:var(--soft)}
+    .btn:active{transform:scale(.98)}
+    .btn.primary{
+      border-color:rgba(37,99,235,.25);
+      background:rgba(37,99,235,.08);
+    }
+    .btn.primary:hover{background:rgba(37,99,235,.12)}
+    .btn:disabled{opacity:.5; cursor:not-allowed}
+
+    main{
+      flex:1;
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      padding:18px 16px 28px;
+    }
+    .deck{width:100%; max-width:var(--maxw); position:relative;}
+
+    .slide{
+      display:none;
+      background:var(--bg);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      overflow:hidden;
+    }
+    .slide.active{display:block}
+    .slide .title{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      border-bottom:1px solid var(--border);
+      padding-bottom:12px; margin-bottom:14px;
+    }
+    .slide h2{margin:0; font-size:20px; letter-spacing:-.02em;}
+    .kicker{margin:4px 0 0; color:var(--muted); font-size:13px;}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      background:var(--soft); border:1px solid var(--border);
+      color:var(--muted); font-size:12px; font-weight:700;
+      white-space:nowrap;
+    }
+
+    .grid{display:grid; gap:14px;}
+    @media (min-width: 900px){
+      .grid.cols2{grid-template-columns: 1.1fr .9fr;}
+      .grid.cols3{grid-template-columns: 1fr 1fr 1fr;}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:var(--bg);
+      padding:14px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02);
+    }
+    .card.soft{background:var(--soft)}
+    .card h3{margin:0 0 8px; font-size:14px; letter-spacing:-.01em;}
+    .card p, .card li{color:#374151; font-size:13px; line-height:1.45}
+    .card ul{margin:8px 0 0; padding-left:18px}
+    .hint{margin-top:10px; font-size:12px; color:var(--muted);}
+
+    .svgwrap{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      overflow:hidden;
+    }
+    .svgwrap svg{width:100%; height:auto; display:block;}
+
+    .tags{display:flex; flex-wrap:wrap; gap:8px;}
+    .tag{
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:8px 10px;
+      background:var(--bg);
+      cursor:pointer;
+      font-size:12px;
+      font-weight:800;
+      color:#111827;
+      transition:background .15s ease, border-color .15s ease, transform .08s ease;
+      user-select:none;
+    }
+    .tag:hover{background:var(--soft); border-color:#cbd5e1}
+    .tag:active{transform:scale(.98)}
+    .tag[data-active="true"]{
+      border-color: rgba(37,99,235,.35);
+      background: rgba(37,99,235,.10);
+      color:#0b2a6f;
+    }
+
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+    }
+    th, td{
+      text-align:left;
+      padding:10px 10px;
+      border-bottom:1px solid var(--border);
+      vertical-align:top;
+      font-size:13px;
+    }
+    th{
+      background:var(--soft);
+      font-size:12px;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    tr:last-child td{border-bottom:none}
+
+    .compare{display:grid; gap:12px;}
+    @media (min-width: 900px){
+      .compare{grid-template-columns:1fr 1fr}
+    }
+    .box{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px;
+      background:#fff;
+    }
+    .box .head{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-bottom:8px;
+    }
+    .box .head strong{font-size:13px}
+    .chip{
+      font-size:11px; font-weight:900;
+      border-radius:999px;
+      padding:6px 8px;
+      border:1px solid var(--border);
+      background:var(--soft);
+      color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .progress{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 16px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .dots{display:flex; gap:8px; flex-wrap:wrap}
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      cursor:pointer;
+    }
+    .dot.active{background:rgba(37,99,235,.6); border-color:rgba(37,99,235,.35)}
+    .footnote{color:var(--muted); font-size:12px;}
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:12px;
+      background:var(--soft);
+      border:1px solid var(--border);
+      padding:2px 6px;
+      border-radius:8px;
+      white-space:nowrap;
+    }
+
+    .hl { transition: opacity .15s ease, filter .15s ease; }
+    .dim { opacity:.22 }
+    .glow { filter: drop-shadow(0 8px 18px rgba(37,99,235,.18)); }
+    .glow2 { filter: drop-shadow(0 8px 18px rgba(16,185,129,.18)); }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:16px;
+      background:rgba(17,24,39,.92);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:12px;
+      display:none;
+      max-width:min(560px, calc(100vw - 24px));
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+    }
+    .toast.show{display:block}
+
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto !important; transition:none !important; animation:none !important;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <div class="topbar">
+        <div class="brand">
+          <div class="badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="7" y="7" width="10" height="10" rx="2" stroke="#2563eb" stroke-width="2"/>
+              <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div style="min-width:0">
+            <h1>TD Systèmes à µp et à µc — Série I</h1>
+            <p>Exercice 1 : Systèmes à microprocesseur (mode présentation interactive)</p>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button class="btn" id="btnPrev" type="button" title="Précédent (←)">◀︎ <span style="font-weight:800">Précédent</span></button>
+          <button class="btn primary" id="btnNext" type="button" title="Suivant (→)"><span style="font-weight:800">Suivant</span> ▶︎</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="deck" id="deck" aria-live="polite">
+
+        <!-- Slide 0 -->
+        <section class="slide active" data-slide="0">
+          <div class="title">
+            <div>
+              <h2>1) Éléments principaux d’un système à microprocesseur</h2>
+              <p class="kicker">
+                À retenir : un système à µp = <strong>CPU</strong> + <strong>horloge</strong> + <strong>mémoires</strong> + <strong>bus</strong> + <strong>interfaces E/S</strong>.
+              </p>
+            </div>
+            <div class="pill">Astuce : clique sur un élément pour le mettre en évidence</div>
+          </div>
+
+          <div class="grid cols2">
+            <div class="card">
+              <h3>Réponse (liste structurée)</h3>
+              <ul>
+                <li><strong>Microprocesseur (CPU)</strong> : exécute les instructions et traite les données.</li>
+                <li><strong>Horloge</strong> : synchronise toutes les opérations (rythme du système).</li>
+                <li><strong>Mémoires</strong> : stockent programmes et données (ROM/Flash, RAM, cache…).</li>
+                <li><strong>Bus</strong> : transportent adresses, données et signaux de contrôle.</li>
+                <li><strong>Interfaces Entrées/Sorties (E/S)</strong> : relient clavier, afficheur, capteurs, réseau, etc.</li>
+              </ul>
+            </div>
+
+            <div class="card soft">
+              <h3>Schéma global (interactif)</h3>
+
+              <div class="tags" style="margin-bottom:10px">
+                <button class="tag" type="button" data-target="cpu">CPU</button>
+                <button class="tag" type="button" data-target="clk">Horloge</button>
+                <button class="tag" type="button" data-target="mem">Mémoires</button>
+                <button class="tag" type="button" data-target="bus">Bus</button>
+                <button class="tag" type="button" data-target="io">Interfaces E/S</button>
+                <button class="tag" type="button" data-target="reset">Réinitialiser</button>
+              </div>
+
+              <div class="svgwrap" aria-label="Schéma d'un système à microprocesseur">
+                <svg viewBox="0 0 980 520" role="img">
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="rgba(37,99,235,.10)"/>
+                      <stop offset="1" stop-color="rgba(16,185,129,.10)"/>
+                    </linearGradient>
+                  </defs>
+
+                  <rect x="0" y="0" width="980" height="520" fill="#fff"/>
+
+                  <g id="bus" class="hl">
+                    <rect x="330" y="240" width="320" height="50" rx="12" fill="url(#g1)" stroke="#cbd5e1" stroke-width="2"/>
+                    <text x="490" y="272" text-anchor="middle" font-size="16" font-weight="800" fill="#0f172a">BUS (Adresse • Données • Contrôle)</text>
+                  </g>
+
+                  <g id="cpu" class="hl">
+                    <rect x="390" y="90" width="200" height="120" rx="16" fill="#fff" stroke="rgba(37,99,235,.55)" stroke-width="3"/>
+                    <text x="490" y="125" text-anchor="middle" font-size="16" font-weight="900" fill="#1d4ed8">Microprocesseur (CPU)</text>
+                    <text x="490" y="150" text-anchor="middle" font-size="12" fill="#374151">UC + UT (ALU, registres…)</text>
+                    <rect x="415" y="165" width="150" height="30" rx="10" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.25)"/>
+                    <text x="490" y="185" text-anchor="middle" font-size="12" font-weight="800" fill="#0b2a6f">Exécute instructions</text>
+                  </g>
+
+                  <g id="clk" class="hl">
+                    <rect x="90" y="90" width="220" height="120" rx="16" fill="#fff" stroke="rgba(245,158,11,.65)" stroke-width="3"/>
+                    <text x="200" y="125" text-anchor="middle" font-size="16" font-weight="900" fill="#92400e">Horloge</text>
+                    <circle cx="200" cy="162" r="28" fill="rgba(245,158,11,.10)" stroke="rgba(245,158,11,.35)" stroke-width="2"/>
+                    <path d="M200 162 L200 145 M200 162 L218 162" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+                    <text x="200" y="200" text-anchor="middle" font-size="12" fill="#374151">Synchronise le système</text>
+                  </g>
+
+                  <g id="mem" class="hl">
+                    <rect x="690" y="60" width="240" height="180" rx="16" fill="#fff" stroke="rgba(16,185,129,.65)" stroke-width="3"/>
+                    <text x="810" y="95" text-anchor="middle" font-size="16" font-weight="900" fill="#047857">Mémoires</text>
+
+                    <rect x="720" y="110" width="180" height="38" rx="10" fill="rgba(16,185,129,.10)" stroke="rgba(16,185,129,.25)"/>
+                    <text x="810" y="134" text-anchor="middle" font-size="12" font-weight="800" fill="#065f46">ROM / Flash</text>
+                    <text x="810" y="152" text-anchor="middle" font-size="11" fill="#374151">Programme (souvent)</text>
+
+                    <rect x="720" y="160" width="180" height="38" rx="10" fill="rgba(16,185,129,.10)" stroke="rgba(16,185,129,.25)"/>
+                    <text x="810" y="184" text-anchor="middle" font-size="12" font-weight="800" fill="#065f46">RAM</text>
+                    <text x="810" y="202" text-anchor="middle" font-size="11" fill="#374151">Données temporaires</text>
+                  </g>
+
+                  <g id="io" class="hl">
+                    <rect x="90" y="315" width="240" height="160" rx="16" fill="#fff" stroke="rgba(37,99,235,.35)" stroke-width="2"/>
+                    <text x="210" y="350" text-anchor="middle" font-size="16" font-weight="900" fill="#1f2937">Interfaces E/S</text>
+                    <text x="210" y="375" text-anchor="middle" font-size="12" fill="#374151">GPIO, UART, SPI, I²C, USB…</text>
+
+                    <rect x="120" y="395" width="180" height="58" rx="12" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.18)"/>
+                    <text x="210" y="425" text-anchor="middle" font-size="12" font-weight="800" fill="#0b2a6f">Capteurs / Clavier</text>
+                    <text x="210" y="444" text-anchor="middle" font-size="11" fill="#374151">Entrées</text>
+                  </g>
+
+                  <g class="hl" id="io2">
+                    <rect x="650" y="315" width="280" height="160" rx="16" fill="#fff" stroke="rgba(16,185,129,.35)" stroke-width="2"/>
+                    <text x="790" y="350" text-anchor="middle" font-size="16" font-weight="900" fill="#1f2937">Périphériques</text>
+                    <text x="790" y="375" text-anchor="middle" font-size="12" fill="#374151">Écran, moteur, réseau, stockage…</text>
+
+                    <rect x="700" y="395" width="180" height="58" rx="12" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.18)"/>
+                    <text x="790" y="425" text-anchor="middle" font-size="12" font-weight="800" fill="#065f46">Afficheur / Actionneurs</text>
+                    <text x="790" y="444" text-anchor="middle" font-size="11" fill="#374151">Sorties</text>
+                  </g>
+
+                  <g opacity="0.9">
+                    <path d="M310 150 C350 150, 360 150, 390 150" fill="none" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M590 150 C640 150, 650 150, 690 150" fill="none" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+
+                    <path d="M490 210 C490 225, 490 230, 490 240" fill="none" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M330 265 C300 265, 280 290, 250 315" fill="none" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M650 265 C700 265, 720 285, 760 315" fill="none" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                  </g>
+
+                  <text x="490" y="505" text-anchor="middle" font-size="12" fill="#6b7280">
+                    Schéma générique : CPU ↔ Bus ↔ Mémoires / E/S — Horloge synchronise.
+                  </text>
+                </svg>
+              </div>
+
+              <p class="hint">
+                Le <span class="mono">BUS</span> regroupe généralement : bus d’adresses, bus de données, bus de contrôle.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 1 -->
+        <section class="slide" data-slide="1">
+          <div class="title">
+            <div>
+              <h2>2) Rôle de l’Unité de Commande (UC) et de l’Unité de Traitement (UT)</h2>
+              <p class="kicker">UC = “chef d’orchestre”, UT = “calcul et manipulation des données”.</p>
+            </div>
+            <div class="pill">Clique : UC vs UT</div>
+          </div>
+
+          <div class="grid cols2">
+            <div class="card">
+              <h3>Réponse attendue</h3>
+              <ul>
+                <li><strong>Unité de commande (UC)</strong> : <u>séquence</u> le déroulement des instructions (orchestration).</li>
+                <li><strong>Unité de traitement (UT)</strong> : <u>traite</u> les données (opérations arithmétiques/logiques, registres de travail).</li>
+              </ul>
+              <p class="hint">
+                Mémo : UC “séquencer”, UT “traitement des données”.
+              </p>
+            </div>
+
+            <div class="card soft">
+              <h3>Schéma interne CPU (interactif)</h3>
+
+              <div class="tags" style="margin-bottom:10px">
+                <button class="tag" type="button" data-target="uc">Mettre en évidence UC</button>
+                <button class="tag" type="button" data-target="ut">Mettre en évidence UT</button>
+                <button class="tag" type="button" data-target="reset2">Réinitialiser</button>
+              </div>
+
+              <div class="svgwrap">
+                <svg viewBox="0 0 980 420" role="img" aria-label="CPU : Unité de commande et unité de traitement">
+                  <rect width="980" height="420" fill="#fff"/>
+                  <rect x="80" y="50" width="820" height="300" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+                  <text x="490" y="88" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">Microprocesseur (CPU)</text>
+
+                  <g id="uc" class="hl">
+                    <rect x="140" y="120" width="340" height="190" rx="16" fill="rgba(37,99,235,.07)" stroke="rgba(37,99,235,.45)" stroke-width="3"/>
+                    <text x="310" y="152" text-anchor="middle" font-size="16" font-weight="900" fill="#1d4ed8">Unité de Commande (UC)</text>
+                    <text x="310" y="178" text-anchor="middle" font-size="12" fill="#374151">Séquencement & contrôle</text>
+
+                    <rect x="170" y="198" width="280" height="34" rx="10" fill="#fff" stroke="rgba(37,99,235,.25)"/>
+                    <text x="310" y="220" text-anchor="middle" font-size="12" font-weight="800" fill="#0b2a6f">Fetch / Decode</text>
+
+                    <rect x="170" y="242" width="280" height="52" rx="12" fill="#fff" stroke="rgba(37,99,235,.25)"/>
+                    <text x="310" y="268" text-anchor="middle" font-size="12" font-weight="800" fill="#0b2a6f">Génère signaux de contrôle</text>
+                    <text x="310" y="286" text-anchor="middle" font-size="11" fill="#374151">lecture/écriture, sélection, etc.</text>
+                  </g>
+
+                  <g id="ut" class="hl">
+                    <rect x="500" y="120" width="340" height="190" rx="16" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.45)" stroke-width="3"/>
+                    <text x="670" y="152" text-anchor="middle" font-size="16" font-weight="900" fill="#047857">Unité de Traitement (UT)</text>
+                    <text x="670" y="178" text-anchor="middle" font-size="12" fill="#374151">Calcul & registres</text>
+
+                    <rect x="530" y="198" width="280" height="34" rx="10" fill="#fff" stroke="rgba(16,185,129,.25)"/>
+                    <text x="670" y="220" text-anchor="middle" font-size="12" font-weight="800" fill="#065f46">UAL (ALU)</text>
+
+                    <rect x="530" y="242" width="280" height="52" rx="12" fill="#fff" stroke="rgba(16,185,129,.25)"/>
+                    <text x="670" y="268" text-anchor="middle" font-size="12" font-weight="800" fill="#065f46">Registres de travail</text>
+                    <text x="670" y="286" text-anchor="middle" font-size="11" fill="#374151">accumulateur, flags, etc.</text>
+                  </g>
+
+                  <path d="M480 220 C490 220, 495 220, 500 220" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                  <text x="490" y="245" text-anchor="middle" font-size="11" fill="#6b7280">signaux ↔ données</text>
+
+                  <text x="490" y="380" text-anchor="middle" font-size="12" fill="#6b7280">
+                    UC contrôle “quoi faire et quand”, UT réalise “les opérations sur les données”.
+                  </text>
+                </svg>
+              </div>
+
+              <p class="hint">
+                Mémo : <span class="mono">UC = contrôle</span> ; <span class="mono">UT = calcul</span>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 2 -->
+        <section class="slide" data-slide="2">
+          <div class="title">
+            <div>
+              <h2>3) Rôle des registres / UAL / pile — et leur unité (UC ou UT)</h2>
+              <p class="kicker">Clique sur une ligne pour afficher un rappel rapide.</p>
+            </div>
+            <div class="pill">Tableau + aide interactive</div>
+          </div>
+
+          <div class="grid cols2">
+            <div class="card">
+              <h3>Tableau de synthèse</h3>
+              <table aria-label="Rôle des composants et unité associée">
+                <thead>
+                  <tr>
+                    <th>Composant</th>
+                    <th>Rôle</th>
+                    <th>Unité</th>
+                  </tr>
+                </thead>
+                <tbody id="regTable">
+                  <tr data-tip="PC : pointe toujours vers la prochaine instruction à aller chercher en mémoire.">
+                    <td><strong>Compteur de programme (PC)</strong></td>
+                    <td>Stocke l’adresse de la prochaine instruction à exécuter</td>
+                    <td><strong>UC</strong></td>
+                  </tr>
+                  <tr data-tip="IR : une fois l’instruction lue en mémoire, elle est placée ici pour être décodée.">
+                    <td><strong>Registre d’instruction (IR)</strong></td>
+                    <td>Stocke temporairement l’instruction machine en cours de traitement</td>
+                    <td><strong>UC</strong></td>
+                  </tr>
+                  <tr data-tip="Flags : Z (zéro), C (carry), N (négatif), V (overflow)… utiles pour les branchements conditionnels.">
+                    <td><strong>Registre d’état (Flags)</strong></td>
+                    <td>Indique l’état du processeur / résultat des opérations (flags)</td>
+                    <td><strong>UT</strong></td>
+                  </tr>
+                  <tr data-tip="Accumulateur : registre central historique pour les opérations ALU (ADD, SUB, AND…).">
+                    <td><strong>Accumulateur</strong></td>
+                    <td>Stocke opérandes et résultats des opérations arithmétiques et logiques</td>
+                    <td><strong>UT</strong></td>
+                  </tr>
+                  <tr data-tip="Pile (stack) : utilisée pour CALL/RET, sauvegarde de registres, interruptions, variables locales…">
+                    <td><strong>Pile (Stack)</strong></td>
+                    <td>Stocke des données critiques (adresse de retour CALL/RET, etc.)</td>
+                    <td><strong>UC</strong></td>
+                  </tr>
+                  <tr data-tip="UAL/ALU : fait les additions, soustractions, AND/OR/XOR, décalages…">
+                    <td><strong>UAL (ALU)</strong></td>
+                    <td>Exécute les opérations arithmétiques et logiques</td>
+                    <td><strong>UT</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="hint">Conseil : PC & IR = “pilotage”, ALU/accumulateur/flags = “calcul”.</p>
+            </div>
+
+            <div class="card soft">
+              <h3>Mini-illustration : “où ça se place ?”</h3>
+              <div class="svgwrap">
+                <svg viewBox="0 0 980 520" role="img" aria-label="Placement des registres UC/UT">
+                  <rect width="980" height="520" fill="#fff"/>
+
+                  <rect x="90" y="70" width="800" height="360" rx="18" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+                  <text x="490" y="105" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">CPU</text>
+
+                  <rect x="150" y="140" width="320" height="250" rx="16" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.35)" stroke-width="3"/>
+                  <text x="310" y="170" text-anchor="middle" font-size="15" font-weight="900" fill="#1d4ed8">Unité de Commande (UC)</text>
+
+                  <rect x="180" y="190" width="260" height="44" rx="12" fill="#fff" stroke="rgba(37,99,235,.25)"/>
+                  <text x="310" y="218" text-anchor="middle" font-size="12" font-weight="800" fill="#0b2a6f">PC (Compteur de programme)</text>
+
+                  <rect x="180" y="245" width="260" height="44" rx="12" fill="#fff" stroke="rgba(37,99,235,.25)"/>
+                  <text x="310" y="273" text-anchor="middle" font-size="12" font-weight="800" fill="#0b2a6f">IR (Registre d’instruction)</text>
+
+                  <rect x="180" y="300" width="260" height="70" rx="12" fill="#fff" stroke="rgba(37,99,235,.25)"/>
+                  <text x="310" y="332" text-anchor="middle" font-size="12" font-weight="800" fill="#0b2a6f">Pile (Stack)</text>
+                  <text x="310" y="352" text-anchor="middle" font-size="11" fill="#374151">CALL/RET, interruptions…</text>
+
+                  <rect x="510" y="140" width="320" height="250" rx="16" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.35)" stroke-width="3"/>
+                  <text x="670" y="170" text-anchor="middle" font-size="15" font-weight="900" fill="#047857">Unité de Traitement (UT)</text>
+
+                  <rect x="540" y="190" width="260" height="44" rx="12" fill="#fff" stroke="rgba(16,185,129,.25)"/>
+                  <text x="670" y="218" text-anchor="middle" font-size="12" font-weight="800" fill="#065f46">UAL (ALU)</text>
+
+                  <rect x="540" y="245" width="260" height="44" rx="12" fill="#fff" stroke="rgba(16,185,129,.25)"/>
+                  <text x="670" y="273" text-anchor="middle" font-size="12" font-weight="800" fill="#065f46">Accumulateur</text>
+
+                  <rect x="540" y="300" width="260" height="70" rx="12" fill="#fff" stroke="rgba(16,185,129,.25)"/>
+                  <text x="670" y="332" text-anchor="middle" font-size="12" font-weight="800" fill="#065f46">Registre d’état (Flags)</text>
+                  <text x="670" y="352" text-anchor="middle" font-size="11" fill="#374151">Z, C, N, V…</text>
+
+                  <path d="M470 265 C490 265, 500 265, 510 265" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                  <text x="490" y="292" text-anchor="middle" font-size="11" fill="#6b7280">contrôle ↔ calcul</text>
+
+                  <text x="490" y="470" text-anchor="middle" font-size="12" fill="#6b7280">
+                    L’idée : UC pilote la séquence, UT réalise les opérations et met à jour les flags.
+                  </text>
+                </svg>
+              </div>
+
+              <div class="card" style="margin-top:12px">
+                <h3>Rappel express (utile en examen)</h3>
+                <ul>
+                  <li><strong>PC</strong> : “où est la prochaine instruction ?” → UC</li>
+                  <li><strong>IR</strong> : “quelle instruction je traite ?” → UC</li>
+                  <li><strong>Pile</strong> : “où revenir après CALL ?” → UC</li>
+                  <li><strong>UAL + Accu + Flags</strong> : “je calcule et je mémorise le résultat” → UT</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3 -->
+        <section class="slide" data-slide="3">
+          <div class="title">
+            <div>
+              <h2>4) Différences clés : CISC vs RISC • Harvard vs Von Neumann • Classique vs Pipeline</h2>
+              <p class="kicker">Compare “philosophie d’instructions”, “organisation mémoire”, et “mode d’exécution”.</p>
+            </div>
+            <div class="pill">Comparaisons + pipeline</div>
+          </div>
+
+          <div class="grid">
+            <div class="compare">
+              <div class="box">
+                <div class="head">
+                  <strong>CISC</strong>
+                  <span class="chip">instructions complexes</span>
+                </div>
+                <ul>
+                  <li>Instructions souvent <strong>longues</strong> et <strong>puissantes</strong> (une instruction = plusieurs micro-étapes).</li>
+                  <li>Objectif historique : <strong>réduire le nombre d’instructions</strong> (au prix de complexité matérielle).</li>
+                </ul>
+              </div>
+              <div class="box">
+                <div class="head">
+                  <strong>RISC</strong>
+                  <span class="chip">instructions simples</span>
+                </div>
+                <ul>
+                  <li>Instructions <strong>simples</strong>, souvent de durée plus régulière.</li>
+                  <li>Objectif : <strong>vitesse matérielle</strong> et exécution efficace (souvent pipeline-friendly).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid cols2">
+              <div class="card soft">
+                <h3>Harvard vs Von Neumann (schéma interactif)</h3>
+                <div class="tags" style="margin-bottom:10px">
+                  <button class="tag" type="button" data-target="vn">Von Neumann</button>
+                  <button class="tag" type="button" data-target="hv">Harvard</button>
+                  <button class="tag" type="button" data-target="reset3">Réinitialiser</button>
+                </div>
+
+                <div class="svgwrap">
+                  <svg viewBox="0 0 980 430" role="img" aria-label="Von Neumann vs Harvard">
+                    <rect width="980" height="430" fill="#fff"/>
+
+                    <g id="vn" class="hl">
+                      <text x="240" y="55" text-anchor="middle" font-size="15" font-weight="900" fill="#0f172a">Von Neumann</text>
+                      <rect x="80" y="80" width="320" height="280" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+                      <rect x="120" y="125" width="240" height="70" rx="14" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.35)" stroke-width="2"/>
+                      <text x="240" y="155" text-anchor="middle" font-size="12" font-weight="900" fill="#065f46">Mémoire unique</text>
+                      <text x="240" y="175" text-anchor="middle" font-size="11" fill="#374151">Instructions + Données</text>
+
+                      <rect x="140" y="245" width="200" height="70" rx="14" fill="rgba(37,99,235,.07)" stroke="rgba(37,99,235,.35)" stroke-width="2"/>
+                      <text x="240" y="275" text-anchor="middle" font-size="12" font-weight="900" fill="#1d4ed8">CPU</text>
+                      <text x="240" y="295" text-anchor="middle" font-size="11" fill="#374151">bus partagé</text>
+
+                      <path d="M240 195 L240 245" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                      <text x="240" y="220" text-anchor="middle" font-size="10" fill="#6b7280">même bus</text>
+                    </g>
+
+                    <g id="hv" class="hl">
+                      <text x="740" y="55" text-anchor="middle" font-size="15" font-weight="900" fill="#0f172a">Harvard</text>
+                      <rect x="580" y="80" width="320" height="280" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+
+                      <rect x="620" y="120" width="240" height="60" rx="14" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.35)" stroke-width="2"/>
+                      <text x="740" y="147" text-anchor="middle" font-size="12" font-weight="900" fill="#065f46">Mémoire instructions</text>
+
+                      <rect x="620" y="200" width="240" height="60" rx="14" fill="rgba(16,185,129,.07)" stroke="rgba(16,185,129,.35)" stroke-width="2"/>
+                      <text x="740" y="227" text-anchor="middle" font-size="12" font-weight="900" fill="#065f46">Mémoire données</text>
+
+                      <rect x="640" y="285" width="200" height="60" rx="14" fill="rgba(37,99,235,.07)" stroke="rgba(37,99,235,.35)" stroke-width="2"/>
+                      <text x="740" y="312" text-anchor="middle" font-size="12" font-weight="900" fill="#1d4ed8">CPU</text>
+
+                      <path d="M740 180 L740 285" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                      <path d="M700 260 L740 285" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                      <text x="740" y="272" text-anchor="middle" font-size="10" fill="#6b7280">bus séparés</text>
+                    </g>
+
+                    <text x="490" y="405" text-anchor="middle" font-size="12" fill="#6b7280">
+                      Von Neumann : 1 mémoire partagée • Harvard : mémoires séparées (instr/données).
+                    </text>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Pipeline (version plus lisible) -->
+              <div class="card">
+                <h3>Classique vs Pipeline (animation + “cycle”)</h3>
+                <p style="margin-top:0">
+                  <strong>Classique</strong> : une instruction à la fois.<br/>
+                  <strong>Pipeline</strong> : plusieurs instructions avancent en parallèle (Fetch/Decode/Execute).
+                </p>
+
+                <div class="tags" style="margin-bottom:10px">
+                  <button class="tag" type="button" id="btnPipePlay">▶︎ Lancer l’animation</button>
+                  <button class="tag" type="button" id="btnPipeStep">⏭︎ Cycle suivant</button>
+                  <button class="tag" type="button" id="btnPipeReset">↺ Réinitialiser</button>
+                  <button class="tag" type="button" id="btnPipeStop">■ Stop</button>
+                </div>
+
+                <div class="svgwrap">
+                  <svg id="pipeSvg" viewBox="0 0 980 420" role="img" aria-label="Pipeline : cycles et étapes">
+                    <rect width="980" height="420" fill="#fff"/>
+
+                    <!-- Titles -->
+                    <text x="120" y="50" font-size="12" fill="#6b7280" font-weight="900">Étapes</text>
+                    <text x="270" y="50" font-size="12" fill="#6b7280" font-weight="900">Fetch</text>
+                    <text x="470" y="50" font-size="12" fill="#6b7280" font-weight="900">Decode</text>
+                    <text x="670" y="50" font-size="12" fill="#6b7280" font-weight="900">Execute</text>
+
+                    <!-- Row labels -->
+                    <text x="120" y="105" font-size="12" fill="#111827" font-weight="900">Classique</text>
+                    <text x="120" y="235" font-size="12" fill="#111827" font-weight="900">Pipeline</text>
+
+                    <!-- Classic (static) -->
+                    <g opacity="0.95">
+                      <rect x="210" y="85" width="170" height="40" rx="12" fill="rgba(37,99,235,.10)" stroke="rgba(37,99,235,.25)"/>
+                      <text x="295" y="110" text-anchor="middle" font-size="11" font-weight="900" fill="#0b2a6f">I1 : Fetch</text>
+
+                      <rect x="410" y="85" width="170" height="40" rx="12" fill="rgba(37,99,235,.10)" stroke="rgba(37,99,235,.25)"/>
+                      <text x="495" y="110" text-anchor="middle" font-size="11" font-weight="900" fill="#0b2a6f">I1 : Decode</text>
+
+                      <rect x="610" y="85" width="170" height="40" rx="12" fill="rgba(37,99,235,.10)" stroke="rgba(37,99,235,.25)"/>
+                      <text x="695" y="110" text-anchor="middle" font-size="11" font-weight="900" fill="#0b2a6f">I1 : Execute</text>
+
+                      <rect x="210" y="135" width="170" height="40" rx="12" fill="rgba(16,185,129,.10)" stroke="rgba(16,185,129,.25)"/>
+                      <text x="295" y="160" text-anchor="middle" font-size="11" font-weight="900" fill="#065f46">I2 : Fetch</text>
+
+                      <rect x="410" y="135" width="170" height="40" rx="12" fill="rgba(16,185,129,.10)" stroke="rgba(16,185,129,.25)"/>
+                      <text x="495" y="160" text-anchor="middle" font-size="11" font-weight="900" fill="#065f46">I2 : Decode</text>
+
+                      <rect x="610" y="135" width="170" height="40" rx="12" fill="rgba(16,185,129,.10)" stroke="rgba(16,185,129,.25)"/>
+                      <text x="695" y="160" text-anchor="middle" font-size="11" font-weight="900" fill="#065f46">I2 : Execute</text>
+                    </g>
+
+                    <!-- Pipeline area frame -->
+                    <rect x="160" y="205" width="720" height="145" rx="16" fill="rgba(249,250,251,.65)" stroke="#e5e7eb"/>
+
+                    <!-- Pipeline tokens (animated) -->
+                    <g id="pipeTokens">
+                      <rect id="pt1" x="210" y="220" width="170" height="40" rx="12" fill="rgba(37,99,235,.14)" stroke="rgba(37,99,235,.28)"/>
+                      <text id="pt1txt" x="295" y="245" text-anchor="middle" font-size="12" font-weight="900" fill="#0b2a6f">I1</text>
+
+                      <rect id="pt2" x="210" y="270" width="170" height="40" rx="12" fill="rgba(16,185,129,.14)" stroke="rgba(16,185,129,.28)" opacity="0"/>
+                      <text id="pt2txt" x="295" y="295" text-anchor="middle" font-size="12" font-weight="900" fill="#065f46" opacity="0">I2</text>
+
+                      <rect id="pt3" x="210" y="320" width="170" height="40" rx="12" fill="rgba(245,158,11,.16)" stroke="rgba(245,158,11,.30)" opacity="0"/>
+                      <text id="pt3txt" x="295" y="345" text-anchor="middle" font-size="12" font-weight="900" fill="#92400e" opacity="0">I3</text>
+                    </g>
+
+                    <!-- Cycle explanation box -->
+                    <rect x="160" y="365" width="720" height="40" rx="14" fill="#fff" stroke="#e5e7eb"/>
+                    <text id="cycleTitle" x="185" y="390" font-size="12" font-weight="900" fill="#111827">Cycle 1</text>
+                    <text id="cycleDesc" x="260" y="390" font-size="12" fill="#6b7280">I1 est en Fetch</text>
+                  </svg>
+                </div>
+
+                <p class="hint">
+                  Lecture “cycle par cycle” : à chaque cycle, une instruction avance d’une étape.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4 -->
+        <section class="slide" data-slide="4">
+          <div class="title">
+            <div>
+              <h2>5) Les 3 phases principales d’exécution d’une instruction</h2>
+              <p class="kicker">Fetch → Decode → Execute (et on recommence pour l’instruction suivante).</p>
+            </div>
+            <div class="pill">Clique sur une phase</div>
+          </div>
+
+          <div class="grid cols2">
+            <div class="card">
+              <h3>Réponse attendue</h3>
+              <ol style="margin:8px 0 0; padding-left:18px; color:#374151; font-size:13px; line-height:1.45">
+                <li><strong>Recherche (Fetch)</strong> de l’instruction en mémoire</li>
+                <li><strong>Décodage (Decode)</strong> par l’unité de commande</li>
+                <li><strong>Exécution (Execute)</strong> de l’opération</li>
+              </ol>
+
+              <div class="card soft" style="margin-top:12px">
+                <h3>Mini-méthode pour expliquer aux étudiants</h3>
+                <ul>
+                  <li><strong>Fetch</strong> : “je lis la consigne”</li>
+                  <li><strong>Decode</strong> : “je comprends ce que je dois faire”</li>
+                  <li><strong>Execute</strong> : “je fais l’action (calcul, lecture/écriture, saut…)”</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card soft">
+              <h3>Animation + explication (interactif)</h3>
+
+              <div class="tags" style="margin-bottom:10px">
+                <button class="tag" type="button" data-phase="fetch">Fetch</button>
+                <button class="tag" type="button" data-phase="decode">Decode</button>
+                <button class="tag" type="button" data-phase="execute">Execute</button>
+                <button class="tag" type="button" id="btnCycle">▶︎ Cycle automatique</button>
+                <button class="tag" type="button" id="btnCycleStop">■ Stop</button>
+              </div>
+
+              <div class="svgwrap">
+                <svg viewBox="0 0 980 380" role="img" aria-label="Fetch Decode Execute">
+                  <rect width="980" height="380" fill="#fff"/>
+
+                  <path d="M250 190 C340 120, 420 120, 510 190" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M510 190 C600 260, 680 260, 770 190" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+
+                  <g id="p_fetch" class="hl">
+                    <rect x="120" y="160" width="220" height="90" rx="16" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.35)" stroke-width="3"/>
+                    <text x="230" y="195" text-anchor="middle" font-size="16" font-weight="900" fill="#1d4ed8">Fetch</text>
+                    <text x="230" y="220" text-anchor="middle" font-size="12" fill="#374151">Lire l’instruction</text>
+                    <text x="230" y="238" text-anchor="middle" font-size="11" fill="#6b7280">depuis la mémoire</text>
+                  </g>
+
+                  <g id="p_decode" class="hl">
+                    <rect x="380" y="120" width="220" height="90" rx="16" fill="rgba(16,185,129,.08)" stroke="rgba(16,185,129,.35)" stroke-width="3"/>
+                    <text x="490" y="155" text-anchor="middle" font-size="16" font-weight="900" fill="#047857">Decode</text>
+                    <text x="490" y="180" text-anchor="middle" font-size="12" fill="#374151">Interpréter</text>
+                    <text x="490" y="198" text-anchor="middle" font-size="11" fill="#6b7280">par l’UC</text>
+                  </g>
+
+                  <g id="p_execute" class="hl">
+                    <rect x="640" y="160" width="220" height="90" rx="16" fill="rgba(245,158,11,.10)" stroke="rgba(245,158,11,.40)" stroke-width="3"/>
+                    <text x="750" y="195" text-anchor="middle" font-size="16" font-weight="900" fill="#92400e">Execute</text>
+                    <text x="750" y="220" text-anchor="middle" font-size="12" fill="#374151">Réaliser l’action</text>
+                    <text x="750" y="238" text-anchor="middle" font-size="11" fill="#6b7280">ALU / mémoire / saut…</text>
+                  </g>
+
+                  <rect x="120" y="285" width="740" height="70" rx="16" fill="#fff" stroke="#e5e7eb"/>
+                  <text id="phaseTitle" x="150" y="315" font-size="13" font-weight="900" fill="#111827">Clique sur une phase</text>
+                  <text id="phaseDesc" x="150" y="338" font-size="12" fill="#6b7280">Tu verras une explication courte et claire ici.</text>
+                </svg>
+              </div>
+
+              <p class="hint">
+                Ces 3 étapes : <span class="mono">fetch</span>, <span class="mono">decode</span>, <span class="mono">execute</span>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <div class="progress">
+      <div class="dots" id="dots" aria-label="Navigation par diapos"></div>
+      <div class="footnote">
+        Navigation : <span class="mono">←</span>/<span class="mono">→</span> • ou boutons • 5 diapos
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <script>
+    // =======================
+    // Helpers
+    // =======================
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    function toast(msg){
+      const t = $("#toast");
+      if(!t) return;
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(()=>t.classList.remove("show"), 1600);
+    }
+
+    // =======================
+    // Slides navigation
+    // =======================
+    const slides = $$(".slide");
+    let idx = 0;
+
+    function renderDots(){
+      const dots = $("#dots");
+      if(!dots) return;
+      dots.innerHTML = "";
+      slides.forEach((s,i)=>{
+        const d = document.createElement("button");
+        d.type = "button";
+        d.className = "dot" + (i===idx ? " active":"");
+        d.title = `Aller à la diapo ${i+1}`;
+        d.addEventListener("click", ()=>go(i));
+        dots.appendChild(d);
+      });
+    }
+
+    let pipeTimer = null;
+    let cycleTimer = null;
+
+    function stopAnimations(){
+      if(pipeTimer){ clearInterval(pipeTimer); pipeTimer = null; }
+      if(cycleTimer){ clearInterval(cycleTimer); cycleTimer = null; }
+    }
+
+    function go(i){
+      stopAnimations();
+      idx = Math.max(0, Math.min(slides.length-1, i));
+      slides.forEach((s,k)=>s.classList.toggle("active", k===idx));
+      const prev = $("#btnPrev");
+      const next = $("#btnNext");
+      if(prev) prev.disabled = idx===0;
+      // if(next) next.disabled = idx===slides.length-1;
+      if(next&&i===slides.length)
+      {
+        window.location.href=window.location.origin+"/p/s6/es/SysMicr/ex2";
+      }
+      renderDots();
+      toast(`Diapo ${idx+1} / ${slides.length}`);
+    }
+
+    $("#btnPrev").addEventListener("click", ()=>go(idx-1));
+    $("#btnNext").addEventListener("click", ()=>go(idx+1));
+
+    window.addEventListener("keydown", (e)=>{
+      const tag = (document.activeElement && document.activeElement.tagName) || "";
+      if(["INPUT","TEXTAREA","SELECT"].includes(tag)) return;
+      if(e.key==="ArrowLeft") go(idx-1);
+      if(e.key==="ArrowRight") go(idx+1);
+    });
+
+    renderDots();
+    $("#btnPrev").disabled = true;
+
+    // =======================
+    // Slide 0: highlight system elements
+    // =======================
+    (function(){
+      const slide = slides[0];
+      if(!slide) return;
+
+      const tags = $$(".tag", slide);
+      const svg = $("svg", slide);
+      if(!svg) return;
+
+      const groupIds = ["cpu","clk","mem","bus","io","io2"];
+      const groups = groupIds.map(id=>svg.getElementById(id)).filter(Boolean);
+
+      function reset(){
+        tags.forEach(t=>t.dataset.active="false");
+        groups.forEach(g=>g.classList.remove("glow","glow2","dim"));
+      }
+      function focus(id){
+        reset();
+        if(id==="reset") return;
+        groups.forEach(g=>g.classList.add("dim"));
+        const g = svg.getElementById(id);
+        if(!g) return;
+        g.classList.remove("dim");
+        g.classList.add(id==="mem" ? "glow2" : "glow");
+      }
+
+      tags.forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const id = btn.dataset.target;
+          if(id==="reset"){ reset(); toast("Schéma réinitialisé"); return; }
+
+          const willActivate = btn.dataset.active !== "true";
+          tags.forEach(t=>t.dataset.active="false");
+          btn.dataset.active = willActivate ? "true" : "false";
+
+          if(willActivate){ focus(id); toast(`Focus : ${btn.textContent.trim()}`); }
+          else { reset(); }
+        });
+      });
+    })();
+
+    // =======================
+    // Slide 1: highlight UC/UT
+    // =======================
+    (function(){
+      const slide = slides[1];
+      if(!slide) return;
+      const svg = $("svg", slide);
+      if(!svg) return;
+
+      const uc = svg.getElementById("uc");
+      const ut = svg.getElementById("ut");
+      if(!uc || !ut) return;
+
+      function reset(){
+        [uc,ut].forEach(g=>g.classList.remove("glow","glow2","dim"));
+      }
+      function focus(which){
+        reset();
+        [uc,ut].forEach(g=>g.classList.add("dim"));
+        if(which==="uc"){ uc.classList.remove("dim"); uc.classList.add("glow"); }
+        if(which==="ut"){ ut.classList.remove("dim"); ut.classList.add("glow2"); }
+      }
+
+      $$(".tag", slide).forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const t = btn.dataset.target;
+          if(t==="reset2"){ reset(); toast("CPU réinitialisé"); return; }
+          if(t==="uc"){ focus("uc"); toast("Focus : Unité de Commande (UC)"); }
+          if(t==="ut"){ focus("ut"); toast("Focus : Unité de Traitement (UT)"); }
+        });
+      });
+    })();
+
+    // =======================
+    // Slide 2: clickable rows tips
+    // =======================
+    (function(){
+      const tbody = $("#regTable");
+      if(!tbody) return;
+      $$("#regTable tr").forEach(tr=>{
+        tr.style.cursor = "pointer";
+        tr.setAttribute("tabindex","0");
+        tr.addEventListener("click", ()=>toast(tr.dataset.tip || "—"));
+        tr.addEventListener("keydown", (e)=>{
+          if(e.key === "Enter" || e.key === " "){
+            e.preventDefault();
+            toast(tr.dataset.tip || "—");
+          }
+        });
+      });
+    })();
+
+    // =======================
+    // Slide 3: Von Neumann vs Harvard highlight
+    // =======================
+    (function(){
+      const slide = slides[3];
+      if(!slide) return;
+      const svg = slide.querySelector("svg");
+      if(!svg) return;
+
+      const vn = svg.getElementById("vn");
+      const hv = svg.getElementById("hv");
+      if(!vn || !hv) return;
+
+      function reset(){
+        [vn,hv].forEach(g=>g.classList.remove("glow","glow2","dim"));
+      }
+      function focus(which){
+        reset();
+        [vn,hv].forEach(g=>g.classList.add("dim"));
+        if(which==="vn"){ vn.classList.remove("dim"); vn.classList.add("glow"); }
+        if(which==="hv"){ hv.classList.remove("dim"); hv.classList.add("glow2"); }
+      }
+
+      $$(".tag", slide).forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          const t = btn.dataset.target;
+          if(t==="reset3"){ reset(); toast("Comparaison réinitialisée"); return; }
+          if(t==="vn"){ focus("vn"); toast("Von Neumann : mémoire unique"); }
+          if(t==="hv"){ focus("hv"); toast("Harvard : mémoires séparées"); }
+        });
+      });
+    })();
+
+    // =======================
+    // Slide 3: Pipeline (version plus lisible) — animation + cycle
+    // =======================
+    (function(){
+      const slide = slides[3];
+      if(!slide) return;
+
+      const svg = document.getElementById("pipeSvg");
+      const btnPlay = document.getElementById("btnPipePlay");
+      const btnStop = document.getElementById("btnPipeStop");
+      const btnStep = document.getElementById("btnPipeStep");
+      const btnReset = document.getElementById("btnPipeReset");
+      if(!svg || !btnPlay || !btnStop || !btnStep || !btnReset) return;
+
+      const pt1 = svg.getElementById("pt1");
+      const pt2 = svg.getElementById("pt2");
+      const pt3 = svg.getElementById("pt3");
+      const pt1txt = svg.getElementById("pt1txt");
+      const pt2txt = svg.getElementById("pt2txt");
+      const pt3txt = svg.getElementById("pt3txt");
+      const cycleTitle = svg.getElementById("cycleTitle");
+      const cycleDesc = svg.getElementById("cycleDesc");
+
+      const xs = [210, 410, 610]; // Fetch, Decode, Execute
+      const ys = [220, 270, 320]; // lignes I1, I2, I3 (visuel)
+
+      // États "cycle par cycle"
+      // chaque état = positions {I1, I2, I3} sur (étape ou null)
+      const states = [
+        { label:"Cycle 1", desc:"I1 est en Fetch",      I1:"F", I2:null, I3:null },
+        { label:"Cycle 2", desc:"I1 → Decode, I2 → Fetch", I1:"D", I2:"F", I3:null },
+        { label:"Cycle 3", desc:"I1 → Execute, I2 → Decode, I3 → Fetch", I1:"E", I2:"D", I3:"F" },
+        { label:"Cycle 4", desc:"I2 → Execute, I3 → Decode", I1:null, I2:"E", I3:"D" },
+        { label:"Cycle 5", desc:"I3 → Execute",          I1:null, I2:null, I3:"E" },
+        { label:"Cycle 6", desc:"Retour à l’état initial", I1:"F", I2:null, I3:null }
+      ];
+
+      // map étape -> index colonne
+      const col = { F:0, D:1, E:2 };
+
+      let s = 0; // index état courant
+
+      function setToken(rect, txt, visible, x, y){
+        rect.setAttribute("opacity", visible ? "1" : "0");
+        txt.setAttribute("opacity", visible ? "1" : "0");
+        if(visible){
+          rect.setAttribute("x", x);
+          rect.setAttribute("y", y);
+          txt.setAttribute("x", x + 85);
+          txt.setAttribute("y", y + 26);
+        }
+      }
+
+      function renderState(){
+        const st = states[s];
+
+        cycleTitle.textContent = st.label;
+        cycleDesc.textContent  = st.desc;
+
+        // I1
+        if(st.I1){
+          setToken(pt1, pt1txt, true, xs[col[st.I1]], ys[0]);
+        } else {
+          setToken(pt1, pt1txt, false, xs[0], ys[0]);
+        }
+
+        // I2
+        if(st.I2){
+          setToken(pt2, pt2txt, true, xs[col[st.I2]], ys[1]);
+        } else {
+          setToken(pt2, pt2txt, false, xs[0], ys[1]);
+        }
+
+        // I3
+        if(st.I3){
+          setToken(pt3, pt3txt, true, xs[col[st.I3]], ys[2]);
+        } else {
+          setToken(pt3, pt3txt, false, xs[0], ys[2]);
+        }
+      }
+
+      function nextState(){
+        s = (s + 1) % states.length;
+        renderState();
+      }
+
+      function resetState(){
+        s = 0;
+        renderState();
+      }
+
+      // init
+      resetState();
+
+      btnStep.addEventListener("click", ()=>{
+        nextState();
+        toast(states[s].label);
+      });
+
+      btnReset.addEventListener("click", ()=>{
+        resetState();
+        toast("Pipeline réinitialisé");
+      });
+
+      btnPlay.addEventListener("click", ()=>{
+        if(pipeTimer) return;
+        toast("Animation pipeline : ON");
+        pipeTimer = setInterval(nextState, 750);
+      });
+
+      btnStop.addEventListener("click", ()=>{
+        if(!pipeTimer) return;
+        clearInterval(pipeTimer);
+        pipeTimer = null;
+        toast("Animation pipeline : OFF");
+      });
+    })();
+
+    // =======================
+    // Slide 4: phases interactions
+    // =======================
+    (function(){
+      const slide = slides[4];
+      if(!slide) return;
+      const svg = slide.querySelector("svg");
+      if(!svg) return;
+
+      const pFetch = svg.getElementById("p_fetch");
+      const pDecode = svg.getElementById("p_decode");
+      const pExec = svg.getElementById("p_execute");
+      const title = svg.getElementById("phaseTitle");
+      const desc = svg.getElementById("phaseDesc");
+      if(!pFetch || !pDecode || !pExec || !title || !desc) return;
+
+      function clearFocus(){
+        [pFetch,pDecode,pExec].forEach(g=>g.classList.remove("glow","glow2","dim"));
+      }
+
+      function focus(which){
+        clearFocus();
+        [pFetch,pDecode,pExec].forEach(g=>g.classList.add("dim"));
+
+        if(which==="fetch"){
+          pFetch.classList.remove("dim"); pFetch.classList.add("glow");
+          title.textContent = "Fetch (Recherche)";
+          desc.textContent = "Le CPU lit l’instruction en mémoire (adresse donnée par le PC).";
+        } else if(which==="decode"){
+          pDecode.classList.remove("dim"); pDecode.classList.add("glow2");
+          title.textContent = "Decode (Décodage)";
+          desc.textContent = "L’UC interprète l’opcode et prépare les signaux de contrôle.";
+        } else if(which==="execute"){
+          pExec.classList.remove("dim"); pExec.classList.add("glow");
+          title.textContent = "Execute (Exécution)";
+          desc.textContent = "L’UT/ALU réalise l’opération : calcul, accès mémoire, branchement, etc.";
+        }
+      }
+
+      $$(".tag[data-phase]", slide).forEach(btn=>{
+        btn.addEventListener("click", ()=>{
+          focus(btn.dataset.phase);
+          toast(`Phase : ${btn.dataset.phase}`);
+        });
+      });
+
+      const btnCycle = $("#btnCycle");
+      const btnStop = $("#btnCycleStop");
+      if(!btnCycle || !btnStop) return;
+
+      let step = 0;
+      const order = ["fetch","decode","execute"];
+
+      btnCycle.addEventListener("click", ()=>{
+        if(cycleTimer) return;
+        toast("Cycle automatique : ON");
+        cycleTimer = setInterval(()=>{
+          focus(order[step]);
+          step = (step + 1) % order.length;
+        }, 900);
+      });
+
+      btnStop.addEventListener("click", ()=>{
+        if(!cycleTimer) return;
+        clearInterval(cycleTimer);
+        cycleTimer = null;
+        toast("Cycle automatique : OFF");
+      });
+    })();
+  </script>
+</body>
+</html>

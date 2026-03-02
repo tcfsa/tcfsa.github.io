@@ -34,6 +34,14 @@ let aXu_es_s6 = [
 	["/s5-es-lngetr4"	, "https://drive.google.com/drive/folders/1cw5o9JkQMBWea1_J6uPNYCEir_F1JznC?usp=sharing"],
 	["/es-entrepr"		, "https://drive.google.com/drive/folders/12LXN56LK_k2a_t2T4s4KCajJvI0FT3pA?usp=sharing"],
 
+
+	["/systp"			, "https://drive.google.com/file/d/1eQBnD2KdOPZUIWUdzXxnBpYphbBWSWgP/view?usp=sharing"],
+	["/p/s6/es/sysmicr/cours/cours (polycopié).pdf", "https://drive.google.com/uc?id=1EFC7NxIItFFyNBy8apUHMDfn7j8cFV1r"],
+	["/p/s6/es/sysmicr/cours/chapt 1.pdf", "https://drive.google.com/uc?id=17m5VRlBWGV5oie3D70rEJryRY0tpZMmX"],
+	["/p/s6/es/sysmicr/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=11ngHakMxyErBHqRNZa3OmIZTeXqMOzEf"],
+	["/p/s6/es/sysmicr/tds/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1HZjjUZ-F-VAY8ZM_LIkej6Qo9KxhFm86"],
+	["/p/s6/es/sysmicr/tps/support des tps.pdf", "https://drive.google.com/uc?id=1eQBnD2KdOPZUIWUdzXxnBpYphbBWSWgP"],
+
 	["/p/s6/es/trasign/cours/2023 - 2024/polycopié.pdf", "https://drive.google.com/uc?id=1B9YEsvoBnakTgfmdDdgLr1z47Aob4nKQ"],
 	["/p/s6/es/trasign/cours/2023 - 2024/polycopié_compressed.pdf", "https://drive.google.com/uc?id=1VQOlIivUGBo3_6uQeTP_hkjlULW_P8W8"]
 
