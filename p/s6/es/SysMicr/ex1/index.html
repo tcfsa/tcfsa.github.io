@@ -1287,6 +1287,11 @@
         toast("Cycle automatique : OFF");
       });
     })();
+    c = new URL(window.location.href).search.replace("?f=", "");
+    if(c != ""&&c=="last")
+    {
+      go(idx+4);
+    }
   </script>
 </body>
 </html>
