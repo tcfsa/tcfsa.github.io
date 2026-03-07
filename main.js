@@ -71,7 +71,16 @@ let aXu_s6 = [
 	["/p/s6/automat/cours/2024 - 2025/séance 08.pdf", "https://drive.google.com/uc?id=1sxTdR8QEjFEdv3y1GcU9DqlZh1Ecn4DT"],
 	["/p/s6/automat/cours/2024 - 2025/séance 09.pdf", "https://drive.google.com/uc?id=12Hbss9BTyfTy578Ff55rO7mQqauK5WUD"],
 	["/p/s6/automat/cours/2024 - 2025/séance 10.pdf", "https://drive.google.com/uc?id=1J6GenRx-DNgsJdMveLJCW1oWPM13SXBF"],
-	["/p/s6/automat/cours/2024 - 2025/séance 11.pdf", "https://drive.google.com/uc?id=14Gz7ArFpOjA9e2I6qfNhykrsq9il9Q7o"]
+	["/p/s6/automat/cours/2024 - 2025/séance 11.pdf", "https://drive.google.com/uc?id=14Gz7ArFpOjA9e2I6qfNhykrsq9il9Q7o"],
+
+	["/p/s6/automat/cours/2025 - 2026/séance 01.pdf", "https://drive.google.com/uc?id=1BVizJ1cex3vgQ_Vp_3CuLO-PFiQEFt6V"],
+	["/p/s6/automat/cours/2025 - 2026/séance 02.pdf", "https://drive.google.com/uc?id=1wFZ4z-XrzLUTwmVoD66Kk1zIRd6IXe0a"],
+	
+	["/p/s6/automat/tds/2025 - 2026/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1N_-O4JV1R1QETICryfYTCxK13u5jfBl_"],
+	["/p/s6/automat/tds/2025 - 2026/td1 - corrigé.pdf", "https://drive.google.com/uc?id="],
+	["/p/s6/automat/tds/2025 - 2026/td1 - annexe 1.pdf", "https://drive.google.com/uc?id=1_p2pKtExVhMLRYmatbW5zXEHXtCv-jtq"],
+
+	["/p/s6/automat/tps/support des tps.pdf", "https://drive.google.com/uc?id=1bBB9NZOSOpd-I3fe3I6AfsTcerBPR_Jy"]
 ];
 
 let aXu_eer_s5 = [
