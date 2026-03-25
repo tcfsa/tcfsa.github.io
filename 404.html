@@ -19,20 +19,20 @@
   var p = document.location.pathname.toLowerCase();
 
   url = new URL(window.location.href).search.replace("?u=", "");
-  if(p.replace("https://tcfsa.github.io/", "").toLowerCase().replace(url, "")=="qr1")
+  if(p.replace("https://tcfsa.github.io/", "").toLowerCase()=="/qr1")
   {
     window.location.href="https://quickchart.io/qr?text="+url;
   }
-  if(p.replace("https://tcfsa.github.io/", "").toLowerCase().replace(url, "")=="qr2")
+  if(p.replace("https://tcfsa.github.io/", "").toLowerCase()=="/qr2")
   {
     window.location.href="https://barcode.orcascan.com/?type=qr&data="+url;
   }
-  if(p.replace("https://tcfsa.github.io/", "").toLowerCase().replace(url, "")=="qr3")
+  if(p.replace("https://tcfsa.github.io/", "").toLowerCase()=="/qr3")
   {
     window.location.href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+url;
   }
 
-  // red(p);
+  red(p);
   
 </script>
 </head>
