@@ -18,7 +18,7 @@
   
   var p = document.location.pathname.toLowerCase();
 
-  url = new URL(window.location.href).search.Replace("?u=", "");
+  url = new URL(window.location.href).search.replace("?u=", "");
   if(p.Replace("https://tcfsa.github.io/", "").toLowerCase().Replace(url, "")=="qr1")
   {
     window.location.href="https://quickchart.io/qr?text="+url;
