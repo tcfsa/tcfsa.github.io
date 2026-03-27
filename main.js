@@ -51,7 +51,15 @@ let aXu_es_s6 = [
 	["/p/s6/es/sysmicr/tps/tp1 - corrigé (version 2).pdf", "https://drive.google.com/uc?id=1CXdFUtqosmOdAkB-lAinXt1AIvsnxAFG"],
 
 	["/p/s6/es/trasign/cours/2023 - 2024/polycopié.pdf", "https://drive.google.com/uc?id=1B9YEsvoBnakTgfmdDdgLr1z47Aob4nKQ"],
-	["/p/s6/es/trasign/cours/2023 - 2024/polycopié_compressed.pdf", "https://drive.google.com/uc?id=1VQOlIivUGBo3_6uQeTP_hkjlULW_P8W8"]
+	["/p/s6/es/trasign/cours/2023 - 2024/polycopié_compressed.pdf", "https://drive.google.com/uc?id=1VQOlIivUGBo3_6uQeTP_hkjlULW_P8W8"],
+
+	["/p/s6/es/trasign/cours/2025 - 2026/polycopié.pdf", "https://drive.google.com/uc?id=1z953_JRpwozY2vwMqQhkSCyXts9bVctL"],
+	["/p/s6/es/trasign/cours/2025 - 2026/chapt 1.pdf", "https://drive.google.com/uc?id=1OYWw8K4qxclUTkhhbhrJAAlUfw5lS5Ei"],
+	["/p/s6/es/trasign/tds/2025 - 2026/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1ziLri2Hc175F_KmuPIinbFKAu2QistP0"],
+	["/p/s6/es/trasign/tds/2025 - 2026/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1_t_fl7quqMtHGDO0P-oeE5nFF1txMvnb"],
+	["/p/s6/es/trasign/tds/2025 - 2026/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1Y3O1ezaCHyvjj_H452RNw_KypnsTkJfT"],
+	["/p/s6/es/trasign/tps/2025 - 2026/tp1 - énoncé.pdf", "https://drive.google.com/uc?id=1NsTke2srsVar6Cs9hAOwMFXZ2lfEbUMy"],
+	["/p/s6/es/trasign/tps/2025 - 2026/tp2 - énoncé.pdf", "https://drive.google.com/uc?id=1hdKaahnDFhL4ZFONjcRsnfKzXSOfpTks"]
 
 ];
 
@@ -80,6 +88,7 @@ let aXu_s6 = [
 	["/p/s6/automat/cours/2025 - 2026/séance 02.pdf", "https://drive.google.com/uc?id=1wFZ4z-XrzLUTwmVoD66Kk1zIRd6IXe0a"],
 	["/p/s6/automat/cours/2025 - 2026/séance 03.pdf", "https://drive.google.com/uc?id=1MUVH7amnccnK1zg_30Y1FEadfkvosePt"],
 	["/p/s6/automat/cours/2025 - 2026/séance 04.pdf", "https://drive.google.com/uc?id=1QaM74oxWYumBY531guTvNqHuVVSM6YOQ"],
+	["/p/s6/automat/cours/2025 - 2026/séance 05.pdf", "https://drive.google.com/uc?id=1fGsf8asTGlgRWbnjmBwD3PQU42b5-l4U"],
 	
 	["/p/s6/automat/tds/2025 - 2026/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1N_-O4JV1R1QETICryfYTCxK13u5jfBl_"],
 	["/p/s6/automat/tds/2025 - 2026/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1Zvvq1EmSeog7z9oGemRYCZ84G_htGpNb"],
