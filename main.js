@@ -21,6 +21,29 @@ let aXu_eer_s6 = [
 	["/photoeol"		, "https://drive.google.com/drive/folders/1dHf1UBru9Q29zjoXvaWoGQmEOpLtUWuA?usp=sharing"],
 	["/s5-eer-lngetr4"	, "https://drive.google.com/drive/folders/1Ttk2ngiAT-9qxXhRTIcX6Y0_QVrOb3CG?usp=sharing"],
 	["/eer-entrepr"		, "https://drive.google.com/drive/folders/1cADemGj95vqL37-9O1LqOCn3xH21gsHN?usp=sharing"],
+
+	["/p/s6/eer/photoeol/cours/livre energie solaire photovoltaïque.pdf", "https://drive.google.com/uc?id=14qtMpCHH5Yy4kyL7ksXxbafD4yzDhpd8"],
+	["/p/s6/eer/photoeol/cours/ines.pdf", "https://drive.google.com/uc?id=1VYosXGR2N7uUXwosNLq80wiK7tOXFSMA"],
+	["/p/s6/eer/photoeol/cours/partie 1 - chapt 1.pdf", "https://drive.google.com/uc?id=1a-Wz3-SN37PKXGztc-pUU7MY2ozz00p0"],
+	["/p/s6/eer/photoeol/cours/partie 1 - chapt 2.pdf", "https://drive.google.com/uc?id=1Oiq2WT4PwykKSnkxR5Rzh6AuJ-JDoVGP"],
+	["/p/s6/eer/photoeol/cours/partie 1 - chapt 3.pdf", "https://drive.google.com/uc?id=1W0-GqGKixJzr9yolfUcdBUkAITgWmgYi"],
+	["/p/s6/eer/photoeol/cours/partie 2 - chapt 1.pdf", "https://drive.google.com/uc?id=1aRYboSMiaX1u2d5VICHwH_-Ladm1eaWK"],
+	["/p/s6/eer/photoeol/cours/partie 2 - chapt 2.pdf", "https://drive.google.com/uc?id=1i1opB10Zf5WkSpijnnDYxV_jE6n-rj5L"],
+	["/p/s6/eer/photoeol/cours/partie 2 - chapt 3.pdf", "https://drive.google.com/uc?id=1OukG2LIA2Wm4UzrAreyCYrfBn-RM7kTE"],
+	["/p/s6/eer/photoeol/cours/partie 2 - chapt 4.pdf", "https://drive.google.com/uc?id=1-jlQ29dXF0R7J0rer9ZNfusme2BOgy2W"],
+	["/p/s6/eer/photoeol/cours/remarque (cours pv ines).jpg", "https://drive.google.com/uc?id=1lHaPM6YQwHw5VDx2k_CyDkhr8k3rx3Qk"],
+	["/p/s6/eer/photoeol/cours/remarque 1.jpeg", "https://drive.google.com/uc?id=1H7OVKpOjW9hf-utHxe23TgO2j50EhNKf"],
+	["/p/s6/eer/photoeol/cours/remarque 2.jpeg", "https://drive.google.com/uc?id=1CS4AnsoZeBlkRopNHuKOQqkMwU8quuTv"],
+	["/p/s6/eer/photoeol/tds/td1 - rappels.pdf", "https://drive.google.com/uc?id=1f4QXdLeKivyJ_0OPx7lb6u2_xbBP4HP5"],
+	["/p/s6/eer/photoeol/tds/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1loY9GX48R_FQJOUu1gs6vHnMMV6Em7Ua"],
+	["/p/s6/eer/photoeol/tds/td1 corrigé.pdf", "https://drive.google.com/uc?id=1UY0tc3XiZ2p5JqXwkPGkAeAicogOqA1K"],
+	["/p/s6/eer/photoeol/tds/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1kn_MhJgRJNjJWV748cGlEPdUbAk7egBF"],
+	["/p/s6/eer/photoeol/tds/corrigé + rappels.pdf", "https://drive.google.com/uc?id=1yShNHKr7YPPLRpK8nI-HMrXLdDDcaY4u"],
+	["/p/s6/eer/photoeol/tds/td3 - énoncé.pdf", "https://drive.google.com/uc?id=1DLJlVWZvSUS5ylBsLrJvy-gayu0H3HHH"],
+	["/p/s6/eer/photoeol/tds/td3 - corrigé + rappels.pdf", "https://drive.google.com/uc?id=1LzspfL1oeQ2G8JZ-ndCVu9BEwAZDOf25"],
+	["/p/s6/eer/photoeol/tps/support des tps (twodiodemoodel).pdf", "https://drive.google.com/uc?id=1gkDlU5RvNQvGy2Di0OSQJrCT76isfzTJ"],
+	["/p/s6/eer/photoeol/tps/compte rendu.pdf", "https://drive.google.com/uc?id=11rg8HCyCayRMKZWR6JLY6Bo2UJtBXcFd"],
+	["/p/s6/eer/photoeol/tps/tp1 - énoncé.pdf", "https://drive.google.com/uc?id=1sK8kMKmTLPE1_7pLxxHSdavGxD5AAet0"]
 ];
 
 let aXu_es_s6 = [
