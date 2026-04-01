@@ -69,9 +69,11 @@ let aXu_es_s6 = [
 	["/p/s6/es/sysmicr/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=11ngHakMxyErBHqRNZa3OmIZTeXqMOzEf"],
 	["/p/s6/es/sysmicr/tds/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1HZjjUZ-F-VAY8ZM_LIkej6Qo9KxhFm86"],
 	["/p/s6/es/sysmicr/tds/td2 - énoncé.pdf", "https://drive.google.com/uc?id=186Fmqa3X4NUT9LYgfjmVnPDarFCTmOzx"],
+	["/p/s6/es/sysmicr/tds/td3 - énoncé.pdf", "https://drive.google.com/uc?id=1PPW-2iFtQRdE7ukTvkpAEyU-lxoAtlUC"],
 	["/p/s6/es/sysmicr/tps/support des tps.pdf", "https://drive.google.com/uc?id=1eQBnD2KdOPZUIWUdzXxnBpYphbBWSWgP"],
 	["/p/s6/es/sysmicr/tps/tp1 - corrigé (version 1).pdf", "https://drive.google.com/uc?id=12LtBv3URYoQ-8JU4CnZ_sVys01EwPpL1"],
 	["/p/s6/es/sysmicr/tps/tp1 - corrigé (version 2).pdf", "https://drive.google.com/uc?id=1CXdFUtqosmOdAkB-lAinXt1AIvsnxAFG"],
+	["/p/s6/es/sysmicr/tps/tp2 - codes.pdf", "https://drive.google.com/uc?id=1AtDhA5tN7kpUK7TwXIppHbN0DtdOMxVn"],
 
 	["/p/s6/es/trasign/cours/2023 - 2024/polycopié.pdf", "https://drive.google.com/uc?id=1B9YEsvoBnakTgfmdDdgLr1z47Aob4nKQ"],
 	["/p/s6/es/trasign/cours/2023 - 2024/polycopié_compressed.pdf", "https://drive.google.com/uc?id=1VQOlIivUGBo3_6uQeTP_hkjlULW_P8W8"],
@@ -97,8 +99,8 @@ let aXu_s6 = [
 
 	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 1).pdf", "https://drive.google.com/uc?id=17i_nOyS88w7SzyJ9_E14YyHK1T4hFIee"],
 	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 1)_compressed.pdf", "https://drive.google.com/uc?id=1B7LQnQRakK62-P_zMoucxh9iEIwNbTgQ"],
-	["/p/s6/automat/cours/polycopié (partie 2).pdf", "https://drive.google.com/uc?id=1IKy2lMKz2PuHytBNAn8j7d6lTrhwJ27c"],
-	["/p/s6/automat/cours/polycopié (partie 2)_compressed.pdf", "https://drive.google.com/uc?id=14diacO3dv97pPPXaI5erKEGzZSuvIoCd"],
+	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 2).pdf", "https://drive.google.com/uc?id=1IKy2lMKz2PuHytBNAn8j7d6lTrhwJ27c"],
+	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 2)_compressed.pdf", "https://drive.google.com/uc?id=14diacO3dv97pPPXaI5erKEGzZSuvIoCd"],
 
 	["/p/s6/automat/cours/2024 - 2025/séance 01.pdf", "https://drive.google.com/uc?id=1rzt2Y4qWYCJzMLVbLAL_gCV1jNHdm40X"],
 	["/p/s6/automat/cours/2024 - 2025/séance 02.pdf", "https://drive.google.com/uc?id=10_t4Ll8V_iHWXIfikAyASba18PT_2-er"],
