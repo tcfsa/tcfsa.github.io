@@ -19,7 +19,7 @@ let aXu_eer_s6 = [
 	["/trtherm"			, "https://drive.google.com/drive/folders/1pK0xzw1z7GrSOXXX3WHt01Rckyd3oEM8?usp=sharing"],
 	["/eer-automat"		, "https://drive.google.com/drive/folders/1pUq18-aCPMfMXS3Bh3AuvibnwZE6Hd8I?usp=sharing"],
 	["/photoeol"		, "https://drive.google.com/drive/folders/1dHf1UBru9Q29zjoXvaWoGQmEOpLtUWuA?usp=sharing"],
-	["/s5-eer-lngetr4"	, "https://drive.google.com/drive/folders/1Ttk2ngiAT-9qxXhRTIcX6Y0_QVrOb3CG?usp=sharing"],
+	["/s6-eer-lngetr4"	, "https://drive.google.com/drive/folders/1Ttk2ngiAT-9qxXhRTIcX6Y0_QVrOb3CG?usp=sharing"],
 	["/eer-entrepr"		, "https://drive.google.com/drive/folders/1cADemGj95vqL37-9O1LqOCn3xH21gsHN?usp=sharing"],
 
 	["/p/s6/eer/photoeol/cours/livre energie solaire photovoltaïque.pdf", "https://drive.google.com/uc?id=14qtMpCHH5Yy4kyL7ksXxbafD4yzDhpd8"],
@@ -54,7 +54,7 @@ let aXu_es_s6 = [
 	["/sysmicr"			, "https://drive.google.com/drive/folders/1po1_4YlfzijK4InXhJuAEqRyDmXPTIg4?usp=sharing"],
 	["/es-automat"		, "https://drive.google.com/drive/folders/1Prd259Fdt0ZyjjRGve9alwU0am9UCW8g?usp=sharing"],
 	["/elncom"			, "https://drive.google.com/drive/folders/1HbPO6uOGcmpnAMVTDtRfTDwYiBtv3WzR?usp=sharing"],
-	["/s5-es-lngetr4"	, "https://drive.google.com/drive/folders/1cw5o9JkQMBWea1_J6uPNYCEir_F1JznC?usp=sharing"],
+	["/s6-es-lngetr4"	, "https://drive.google.com/drive/folders/1cw5o9JkQMBWea1_J6uPNYCEir_F1JznC?usp=sharing"],
 	["/es-entrepr"		, "https://drive.google.com/drive/folders/12LXN56LK_k2a_t2T4s4KCajJvI0FT3pA?usp=sharing"],
 
 
@@ -81,7 +81,10 @@ let aXu_es_s6 = [
 	["/p/s6/es/trasign/tds/2025 - 2026/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1ziLri2Hc175F_KmuPIinbFKAu2QistP0"],
 	["/p/s6/es/trasign/tds/2025 - 2026/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1_t_fl7quqMtHGDO0P-oeE5nFF1txMvnb"],
 	["/p/s6/es/trasign/tds/2025 - 2026/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1Y3O1ezaCHyvjj_H452RNw_KypnsTkJfT"],
+	["/p/s6/es/trasign/tds/2025 - 2026/td2 - corrigé (incomplet).pdf", "https://drive.google.com/uc?id=1-vzDOzW8puq3wKwB3B1HtPfprLJl6UvN"],
+	["/p/s6/es/trasign/tds/2025 - 2026/td3 - énoncé.pdf", "https://drive.google.com/uc?id=11JeplfBg0TjzYYwlewTbRuIiO_jxLd0d"],
 	["/p/s6/es/trasign/tps/2025 - 2026/tp1 - énoncé.pdf", "https://drive.google.com/uc?id=1NsTke2srsVar6Cs9hAOwMFXZ2lfEbUMy"],
+	["/p/s6/es/trasign/tps/2025 - 2026/tp1 - corrigé.pdf", "https://drive.google.com/uc?id=13P8yndrBtHpgYTINnz00ywJ1GpcZs_lH"],
 	["/p/s6/es/trasign/tps/2025 - 2026/tp2 - énoncé.pdf", "https://drive.google.com/uc?id=1hdKaahnDFhL4ZFONjcRsnfKzXSOfpTks"]
 
 ];
@@ -89,6 +92,8 @@ let aXu_es_s6 = [
 let aXu_s6 = [
 
 	["/s6", "https://drive.google.com/drive/folders/1WMOKzQhX-XUCewfXSnNlAQjIcUz4N5Nu?usp=sharing"],
+
+	["/p/s6/lngetr4/tds/lngetr4 - unit 1.pdf", "https://drive.google.com/uc?id=1_jEw7yvXb6xpj80J1TBOKYf86P8Wdn8U"],
 
 	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 1).pdf", "https://drive.google.com/uc?id=17i_nOyS88w7SzyJ9_E14YyHK1T4hFIee"],
 	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 1)_compressed.pdf", "https://drive.google.com/uc?id=1B7LQnQRakK62-P_zMoucxh9iEIwNbTgQ"],
