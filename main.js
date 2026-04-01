@@ -111,12 +111,14 @@ let aXu_s6 = [
 	["/p/s6/automat/cours/2025 - 2026/séance 02.pdf", "https://drive.google.com/uc?id=1wFZ4z-XrzLUTwmVoD66Kk1zIRd6IXe0a"],
 	["/p/s6/automat/cours/2025 - 2026/séance 03.pdf", "https://drive.google.com/uc?id=1MUVH7amnccnK1zg_30Y1FEadfkvosePt"],
 	["/p/s6/automat/cours/2025 - 2026/séance 04.pdf", "https://drive.google.com/uc?id=1QaM74oxWYumBY531guTvNqHuVVSM6YOQ"],
-	["/p/s6/automat/cours/2025 - 2026/séance 05.pdf", "https://drive.google.com/uc?id=1fGsf8asTGlgRWbnjmBwD3PQU42b5-l4U"],
+	["/p/s6/automat/cours/2025 - 2026/séance 05.pdf", "https://drive.google.com/uc?id=1gRrJzQTIbl7KE1v0YSg6pkZX0H0c0ZeK"],
+	["/p/s6/automat/cours/2025 - 2026/séance 06.pdf", "https://drive.google.com/uc?id=1zGEAAZACWY-E_3CdzUopEk5Vvig7hwRS"],
 	
 	["/p/s6/automat/tds/2025 - 2026/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1N_-O4JV1R1QETICryfYTCxK13u5jfBl_"],
-	["/p/s6/automat/tds/2025 - 2026/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1Zvvq1EmSeog7z9oGemRYCZ84G_htGpNb"],
+	["/p/s6/automat/tds/2025 - 2026/td1 - corrigé (classe).pdf", "https://drive.google.com/uc?id=1Zvvq1EmSeog7z9oGemRYCZ84G_htGpNb"],
+	["/p/s6/automat/tds/2025 - 2026/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1Z2TVkVwP0jEoNHEh6OGEm1qi6bEDW4RH"],
 	["/p/s6/automat/tds/2025 - 2026/td1 - annexe 1.pdf", "https://drive.google.com/uc?id=1_p2pKtExVhMLRYmatbW5zXEHXtCv-jtq"],
-	["/p/s6/automat/tds/2025 - 2026/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1bytkCLUkLpvdd5VpeVI1hfhCWaWHfeeE"],
+	["/p/s6/automat/tds/2025 - 2026/td2 - énoncé.pdf", "https://drive.google.com/uc?id="],
 
 	["/p/s6/automat/tps/tp1 - corrigé.pdf", "https://drive.google.com/uc?id=1WBcUC_pTePHuHzrGmCpfL9U3HCRygE63"],
 	["/p/s6/automat/tps/support des tps.pdf", "https://drive.google.com/uc?id=1bBB9NZOSOpd-I3fe3I6AfsTcerBPR_Jy"]
