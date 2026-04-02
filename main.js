@@ -7,7 +7,8 @@ let aXu_others = [
 	["/a1", "https://drive.google.com/drive/folders/1FmS3pFvWcfHvP_aLFMY6Icfe6nV-5_qg"],
 	["/a2", "https://drive.google.com/drive/folders/1wnJgrB-ADvwvKkuyk8baLPrEvAbZJCQI"],
 	["/a3", "https://drive.google.com/drive/folders/1nlET-ECxWim0cSlkscXt1Kuvwz1BtjPf"],
-	["/a4", "https://mega.nz/folder/K4500IjB#4OrXSVRCXG2ddZlwVT25FQ"]
+	["/a4", "https://mega.nz/folder/K4500IjB#4OrXSVRCXG2ddZlwVT25FQ"],
+	["/a5", "https://mega.nz/folder/XoQzwbAS#vVfprilIRfbfnxeSGny6Hg"]
 
 ];
 
@@ -21,6 +22,35 @@ let aXu_eer_s6 = [
 	["/photoeol"		, "https://drive.google.com/drive/folders/1dHf1UBru9Q29zjoXvaWoGQmEOpLtUWuA?usp=sharing"],
 	["/s6-eer-lngetr4"	, "https://drive.google.com/drive/folders/1Ttk2ngiAT-9qxXhRTIcX6Y0_QVrOb3CG?usp=sharing"],
 	["/eer-entrepr"		, "https://drive.google.com/drive/folders/1cADemGj95vqL37-9O1LqOCn3xH21gsHN?usp=sharing"],
+
+	["/p/s6/eer/mecflu/cours/chapt 1.pdf", "https://drive.google.com/uc?id=1Jh1AkWIkCy9yJgY73Zq7J2_129gwoe6b"],
+	["/p/s6/eer/mecflu/cours/chapt 2.pdf", "https://drive.google.com/uc?id=12-w1sbn2wZKJYJMnAZLuMnByIkUuLpy0"],
+	["/p/s6/eer/mecflu/cours/chapt 3.pdf", "https://drive.google.com/uc?id=1d27c_ZX2QGVrdgbY1IYSk1gbWhsva9Vp"],
+	["/p/s6/eer/mecflu/cours/chapt 4.pdf", "https://drive.google.com/uc?id=101LITtZ3Re0ihn09E_eOLZApdGaKCcdL"],
+	["/p/s6/eer/mecflu/cours/ancien/chapt 1.pdf", "https://drive.google.com/uc?id=10DRDpoECuqj4JkNoSeGXYNOKcAUahGDd"],
+	["/p/s6/eer/mecflu/cours/ancien/chapt 1 (diapos).pdf", "https://drive.google.com/uc?id=1NLrNlEqg0xOgVQCublVd_qiH6zqyoFTj"],
+	["/p/s6/eer/mecflu/cours/ancien/chapt 2.pdf", "https://drive.google.com/uc?id=1Dl_FDeaNG-rH6BjgOP7d0K7sJkkAXN3M"],
+	["/p/s6/eer/mecflu/cours/ancien/chapt 2 (diapos).pdf", "https://drive.google.com/uc?id=1gt2co8lp4O95z8ufW-0K5I3LyBMjJJH6"],
+	["/p/s6/eer/mecflu/cours/ancien/chapt 3 (diapos).pdf", "https://drive.google.com/uc?id=1rGOUz7afXfjuEzzzZQXdkM1Z08rPpxbw"],
+	["/p/s6/eer/mecflu/cours/ancien/chapt 4 (diapos).pdf", "https://drive.google.com/uc?id=1cKAEEXYJW9CaZ-hneSLLYLNPA45EyBsB"],
+	["/p/s6/eer/mecflu/tds/exercices chapt 2.pdf", "https://drive.google.com/uc?id=1_ZC4hYMOWpIp73uh3mu3ChHXgvgRZcrX"],
+	["/p/s6/eer/mecflu/tds/exercices dynamique corrigés.pdf", "https://drive.google.com/uc?id=1EVI2tktQ6VFy5iPhffSIrCYupgcoiC0e"],
+	["/p/s6/eer/mecflu/tps/support des tps.pdf", "https://drive.google.com/uc?id=1DdlsU-QWhIxP5KuWt-vJrx4WYyRBD3xw"],
+
+	["/p/s6/eer/ththerm/cours/2025 - 2026/chapt 1.pdf", "https://drive.google.com/uc?id=1TyV2PuQFXOfAn09-ocTGjgEEnHBKfFZe"],
+	["/p/s6/eer/ththerm/cours/2025 - 2026/chapt 1 (diapos).pdf", "https://drive.google.com/uc?id=1Q5am3zwPUQcY_mnJA6rjs7MKzTg-Tqc7"],
+	["/p/s6/eer/ththerm/cours/2025 - 2026/chapt 2.pdf", "https://drive.google.com/uc?id=1MsUmfIJjtvwKqoxhOzSH3LbZYB4D7xmp"],
+	["/p/s6/eer/ththerm/cours/2025 - 2026/chapt 2 (diapos).pdf", "https://drive.google.com/uc?id=169L1iyp30yZo07hlyekFdycdN_K267ax"],
+	["/p/s6/eer/ththerm/cours/2024 - 2025/transfert de chaleur - cours.pdf", "https://drive.google.com/uc?id=1zhd9VYj-TrFLPlYDETfSpjGNNdMblK_q"],
+	["/p/s6/eer/ththerm/cours/2016/séance 1.pdf", "https://drive.google.com/uc?id=1K35cdOuyXkb3xL2FuwYR-xG6CxWWbBd_"],
+	["/p/s6/eer/ththerm/cours/2016/séance 2.pdf", "https://drive.google.com/uc?id=169BBePqQcqOfMXolt2ORH80QtubthFet"],
+	["/p/s6/eer/ththerm/cours/2016/séance 3.pdf", "https://drive.google.com/uc?id=1zL-AW23fnVmC_Isp9PLDk6zNdT-quytL"],
+	["/p/s6/eer/ththerm/cours/2016/séance 4.pdf", "https://drive.google.com/uc?id=11qs6mOw_vFArTLFLhX2XwWfLihbvgEmj"],
+	["/p/s6/eer/ththerm/cours/2016/séance 5.pdf", "https://drive.google.com/uc?id=1CLO2__MmEHgv42Y5gzVLr_A_QgP9qbzA"],
+	["/p/s6/eer/ththerm/cours/2016/séance 6.pdf", "https://drive.google.com/uc?id=1skhgdwZNATqA2z5yN2hudHlCmfpwvRuM"],
+	["/p/s6/eer/ththerm/cours/2016/séance 7.pdf", "https://drive.google.com/uc?id=1MuhgM2uPZ6XxQF9R3eWUNb1OdiQVk0Id"],
+	["/p/s6/eer/ththerm/cours/2016/séance 8.pdf", "https://drive.google.com/uc?id=1DjdCnxSnphsMfotL8TWsBRSZepmdnsV3"],
+	["/p/s6/eer/ththerm/tps/support des tps.pdf", "https://drive.google.com/uc?id=1CmHy8s9pWeX_gSg6ZxRH4QNmM-TaTDp_"],
 
 	["/p/s6/eer/photoeol/cours/livre energie solaire photovoltaïque.pdf", "https://drive.google.com/uc?id=14qtMpCHH5Yy4kyL7ksXxbafD4yzDhpd8"],
 	["/p/s6/eer/photoeol/cours/ines.pdf", "https://drive.google.com/uc?id=1VYosXGR2N7uUXwosNLq80wiK7tOXFSMA"],
@@ -57,6 +87,16 @@ let aXu_es_s6 = [
 	["/s6-es-lngetr4"	, "https://drive.google.com/drive/folders/1cw5o9JkQMBWea1_J6uPNYCEir_F1JznC?usp=sharing"],
 	["/es-entrepr"		, "https://drive.google.com/drive/folders/12LXN56LK_k2a_t2T4s4KCajJvI0FT3pA?usp=sharing"],
 
+	["/p/s6/es/elncom/cours/introduction aux systèmes des télécommunications.pdf", "https://drive.google.com/uc?id=1Tud5ZW5TO0TMFMGXr9sH8v6VqWPNSZyi"],
+	["/p/s6/es/elncom/cours/chapt 1.pdf", "https://drive.google.com/uc?id=1plT1eruEkDaxX7FrMJjVRrXegQdH0kRN"],
+	["/p/s6/es/elncom/cours/chapt 2.pdf", "https://drive.google.com/uc?id=1Xw6xpTZASyBHSftMO8BKHb4ra0edc1yA"],
+	["/p/s6/es/elncom/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1Jn1bzvlPHmS4sko8ahEeeIfgWBWA0Buk"],
+	["/p/s6/es/elncom/tds/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1jrsXdoMe4C-ZiptQZbYIYHSvkRVu27o2"],
+	["/p/s6/es/elncom/tds/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1NIgkndbuOtcajQkR_WNgfF9shmwRwUcP"],
+	["/p/s6/es/elncom/tds/td2 - corrigé.pdf", "https://drive.google.com/uc?id=1R62VMLyKTpfB77He-vpruM4Nl3InApMa"],
+	["/p/s6/es/elncom/tps/support des tps.pdf", "https://drive.google.com/uc?id=1Q_g6W--zI4EVo32b1K2ukkfnzBu1XlWb"],
+	["/p/s6/es/elncom/tps/tp3.pdf", "https://drive.google.com/uc?id=1VDy1kiGA4yQ-27zTGq_RO2oxyiZRzYLF"],
+	["/p/s6/es/elncom/tps/annexe 2 (simulink).pdf", "https://drive.google.com/uc?id=1RXkOg6RXaSN0Tw1plQ-RLt6sFs32AeOb"],
 
 	["/systp"			, "https://drive.google.com/file/d/1eQBnD2KdOPZUIWUdzXxnBpYphbBWSWgP/view?usp=sharing"],
 	["/syscours"			, "https://drive.google.com/file/d/1EFC7NxIItFFyNBy8apUHMDfn7j8cFV1r/view?usp=sharing"],
@@ -97,10 +137,30 @@ let aXu_s6 = [
 
 	["/p/s6/lngetr4/tds/lngetr4 - unit 1.pdf", "https://drive.google.com/uc?id=1_jEw7yvXb6xpj80J1TBOKYf86P8Wdn8U"],
 
+	["/p/s6/chaquis/cours/chapt 1.pdf", "https://drive.google.com/uc?id=1q5AoRtCqFDFP5qTE_Q8ditM09zQQsMBX"],
+	["/p/s6/chaquis/cours/chapt 1 (suite).pdf", "https://drive.google.com/uc?id=1pnBJPvfeUHW2qKs7g-ovTdy9SRny71jn"],
+	["/p/s6/chaquis/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1z2dYOhTfrrHJ-GfBpTRY-6KhdeMxljvu"],
+	["/p/s6/chaquis/tds/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1akrBGqYhD6KMze3-2cvRDkryDBKLMDq3"],
+	["/p/s6/chaquis/tds/td1 - corrigé (classe).pdf", "https://drive.google.com/uc?id=1fo8hERWjjoLgIzV_oQcIeJ6B7SdZPUeG"],
+	["/p/s6/chaquis/tds/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1pSo1aS4WN2UjtA25EtQubDZerN3vbdEX"],
+	["/p/s6/chaquis/tds/td2 - énoncé (incomplet).pdf", "https://drive.google.com/uc?id=1xaC0XaJBEsZXAB5be4-zE5fYVHRu_l3x"],
+	["/p/s6/chaquis/tds/td2 - corrigé (incomplet) (classe).pdf", "https://drive.google.com/uc?id=1sVLpuhJIeSTLKS9vOXYpV7n5gFctVHJO"],
+
 	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 1).pdf", "https://drive.google.com/uc?id=17i_nOyS88w7SzyJ9_E14YyHK1T4hFIee"],
 	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 1)_compressed.pdf", "https://drive.google.com/uc?id=1B7LQnQRakK62-P_zMoucxh9iEIwNbTgQ"],
 	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 2).pdf", "https://drive.google.com/uc?id=1IKy2lMKz2PuHytBNAn8j7d6lTrhwJ27c"],
 	["/p/s6/automat/cours/2023 - 2024/polycopié (partie 2)_compressed.pdf", "https://drive.google.com/uc?id=14diacO3dv97pPPXaI5erKEGzZSuvIoCd"],
+
+	["/p/s6/automat/tds/2019 - 2020/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1H1VTnyI_elAlOF5sdiaeW91r1go3Ap6u"],
+	["/p/s6/automat/tds/2019 - 2020/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1dsSEoHLMNrbOLBnL_1J8F-gqXElQvvw8"],
+	["/p/s6/automat/tds/2019 - 2020/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1eFgkTMlPdad78zbzJ93JTyhyAhP4eDBh"],
+	["/p/s6/automat/tds/2019 - 2020/td2 - corrigé.pdf", "https://drive.google.com/uc?id=1PVE5Uf7C8yJSbj4Vy65L3v84zDHJ9S4r"],
+	["/p/s6/automat/tds/2019 - 2020/td3 - énoncé.pdf", "https://drive.google.com/uc?id=1EIVYutxt5dieylbZIQQH4nMZ74Y6ygA6"],
+	["/p/s6/automat/tds/2019 - 2020/td3 - corrigé.pdf", "https://drive.google.com/uc?id=1ABzygdliOlqgavMLLe-kTOP_aboyXC-7"],
+	["/p/s6/automat/tds/2019 - 2020/td4 - énoncé.pdf", "https://drive.google.com/uc?id=1LXZSK6MH1n-xeKL7-hM5lhlYiumffM_P"],
+	["/p/s6/automat/tds/2019 - 2020/td4 - corrigé.pdf", "https://drive.google.com/uc?id=1Ou7Xk67NdpYibdQ1kBV4gpai9kiAhTBQ"],
+	["/p/s6/automat/tds/2019 - 2020/td5 - énoncé.pdf", "https://drive.google.com/uc?id=1SvlohU4Z8IIw6ANz7_jGdFqZglk0EOKv"],
+	["/p/s6/automat/tds/2019 - 2020/td5 - corrigé.pdf", "https://drive.google.com/uc?id=1132-iugvyQdNj-xGn7Oeu0_nAlAlD62U"],
 
 	["/p/s6/automat/cours/2024 - 2025/séance 01.pdf", "https://drive.google.com/uc?id=1rzt2Y4qWYCJzMLVbLAL_gCV1jNHdm40X"],
 	["/p/s6/automat/cours/2024 - 2025/séance 02.pdf", "https://drive.google.com/uc?id=10_t4Ll8V_iHWXIfikAyASba18PT_2-er"],
