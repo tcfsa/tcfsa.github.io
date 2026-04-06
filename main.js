@@ -423,7 +423,17 @@ let aXu_s4 = [
 	["/p/s4/ananum/examens/(2023 - 2024) sn corrigé.pdf", "https://drive.google.com/uc?id=1VgfR6Z2eTw4a5XVmBnAFS3w1prL-hnLX"],
 	["/p/s4/ananum/examens/(2023 - 2024) sr corrigé.pdf", "https://drive.google.com/uc?id=1Ts8r5BA5WG7Cv7nMol7_ypGoMPG_aRbJ"],
 	["/p/s4/ananum/examens/(2024 - 2025) sn - énoncé.pdf", "https://drive.google.com/uc?id=1yrKqIY28RCnk6r7V8SKWDdf7NxQIpkfW"],
+	["/p/s4/ananum/examens/(2024 - 2025) sn corrigé.pdf", "https://drive.google.com/uc?id=119Yp4vAb9PzLhjs6b6z8HaWLZfs5nON3"],
+	["/p/s4/ananum/examens/(2024 - 2025) sr - énoncé.pdf", "https://drive.google.com/uc?id=1oHY4bRy_QfuRURNi88wqxE4aFNRtW8BW"],
 
+	["/p/s4/optiq2/cours/cours.pdf", "https://drive.google.com/uc?id=1gO2M82aCwQpYeozao88ziM1JbIPm42ej"],
+	["/p/s4/optiq2/tds/tds corrigés (2023).pdf", "https://drive.google.com/uc?id=19WtDs5MKbsmQgeDe0kK63yTqFQ6Dmp8t"],
+	["/p/s4/optiq2/examens/(2021 - 2022) sn corrigé.pdf", "https://drive.google.com/uc?id=1m0skFpZuQNMFh-pNhebseh0w9Qynd92N"],
+	["/p/s4/optiq2/examens/(2022 - 2023) sn corrigé.pdf", "https://drive.google.com/uc?id=1nKuJUnKkUIJ40iJRQkbBXwH6JcCgxlEh"],
+	["/p/s4/optiq2/examens/(2022 - 2023) sr corrigé.pdf", "https://drive.google.com/uc?id=154LvOKYvgXL6OOJn9UvfDbyPgx9S2Drb"],
+	["/p/s4/optiq2/examens/(2023 - 2024) sn corrigé.pdf", "https://drive.google.com/uc?id=1jSAWiTgsg48sGamzD7gJZMqFoXuWKpuz"],
+	["/p/s4/optiq2/examens/(2024 - 2025) sn corrigé.pdf", "https://drive.google.com/uc?id=14vXKo5i_nVKhSPJ5InF2IUGxs844PL--"],
+	["/p/s4/optiq2/examens/(2024 - 2025) sr - énoncé.pdf", "https://drive.google.com/uc?id=1y1mmOp7i7QRoubdxmBFcnV0OR6eXCJEp"]
 ];
 
 let aXu_s3 = [
