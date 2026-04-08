@@ -621,7 +621,11 @@
     function go(i){
       idx = Math.max(0, Math.min(slides.length-1, i));
       slides.forEach((s,k)=>s.classList.toggle("active", k===idx));
-      $("#btnPrev").disabled = idx===0;
+      // $("#btnPrev").disabled = idx===0;
+      if(i===-1)
+      {
+        window.location.href=window.location.origin+"/p/s6/es/SysMicr/td1/ex2/?f=last";
+      }
       $("#btnNext").disabled = idx===slides.length-1;
       renderDots();
       toast(`Diapo ${idx+1} / ${slides.length}`);
