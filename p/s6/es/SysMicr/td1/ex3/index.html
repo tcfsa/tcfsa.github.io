@@ -621,6 +621,8 @@
     function go(i){
       idx = Math.max(0, Math.min(slides.length-1, i));
       slides.forEach((s,k)=>s.classList.toggle("active", k===idx));
+      const prev = $("#btnPrev");
+      const next = $("#btnNext");
       // $("#btnPrev").disabled = idx===0;
       if(i===-1)
       {
