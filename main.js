@@ -440,6 +440,10 @@ let aXu_s4 = [
 	["/p/s4/ananum/examens/(2024 - 2025) sn corrigé.pdf", "https://drive.google.com/uc?id=119Yp4vAb9PzLhjs6b6z8HaWLZfs5nON3"],
 	["/p/s4/ananum/examens/(2024 - 2025) sr - énoncé.pdf", "https://drive.google.com/uc?id=1oHY4bRy_QfuRURNi88wqxE4aFNRtW8BW"],
 
+	["/p/s4/cristalg/cours/2025 - 2026/polycopié.pdf", "https://drive.google.com/uc?id=10N-aUhy31PhYg7sK5vXVGzQwFhvAPUwZ"],
+	["/p/s4/cristalg/tds/2025 - 2026/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1S9UTuo40nYQNoOJisz-Hpg30MJUm-mHT"],	
+	["/p/s4/cristalg/tds/ancien/tds corrigés (ancien).pdf", "https://drive.google.com/uc?id=1b_5pDl2ygMjD8gaTMTRA0_4JFv3GNGpy"],
+
 	["/p/s4/elnana1/cours/2024 - 2025/chapt 1 partie 1.pdf", "https://drive.google.com/uc?id=1Mvm3wPK_DmRsYYnNb7c1gvocJnQb8li8"],
 	["/p/s4/elnana1/cours/2024 - 2025/chapt 1 partie 2.pdf", "https://drive.google.com/uc?id=1-V3B12o9ore1JeJTJk9SYnbxHQgR9Qut"],
 	["/p/s4/elnana1/cours/2024 - 2025/chapt 2.pdf", "https://drive.google.com/uc?id=1vJpuC_2uglB22yEdYHg-s8Oi8rGpAd3F"],
