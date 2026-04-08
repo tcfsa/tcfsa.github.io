@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZT5VSZS3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-8BZT5VSZS3');
+  </script>
+
+  <title>SysMicr - TD1 - Exercice 3 (IPS / CPI / Temps d’exécution) (Présentation interactive)</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="../../../../../../icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../../../../../icons/apple-touch-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="../../../../../../icons/apple-touch-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../../icons/apple-touch-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="../../../../../../icons/apple-touch-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="../../../../../../icons/apple-touch-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="../../../../../../icons/apple-touch-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="../../../../../../icons/apple-touch-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../icons/apple-touch-icon-180x180.png"> 
+  <link rel="icon" type="image/png" href="../../../../../../icons/favicon-32x32.png" sizes="32x32"> 
+  <link rel="icon" type="image/png" href="../../../../../../icons/android-chrome-192x192.png" sizes="192x192"> 
+  <link rel="icon" type="image/png" href="../../../../../../icons/favicon-96x96.png" sizes="96x96"> 
+  <link rel="icon" type="image/png" href="../../../../../../icons/favicon-16x16.png" sizes="16x16">
+  
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#111827;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --soft:#f9fafb;
+      --accent:#2563eb;
+      --ok:#10b981;
+      --warn:#f59e0b;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:16px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+    }
+
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:0;}
+    .badge{
+      width:34px; height:34px; border-radius:10px;
+      background:linear-gradient(135deg, rgba(37,99,235,.12), rgba(16,185,129,.12));
+      border:1px solid var(--border);
+      display:grid; place-items:center; flex:0 0 auto;
+    }
+    .brand h1{
+      font-size:14px; margin:0; font-weight:900; line-height:1.2;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .brand p{
+      margin:0; font-size:12px; color:var(--muted);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+
+    .controls{display:flex; align-items:center; gap:10px; flex:0 0 auto;}
+    .btn{
+      appearance:none; border:1px solid var(--border);
+      background:var(--bg); color:var(--fg);
+      padding:10px 12px; border-radius:12px;
+      cursor:pointer; font-weight:800; font-size:13px;
+      display:flex; align-items:center; gap:8px;
+      box-shadow:0 1px 0 rgba(0,0,0,.03);
+      transition:transform .08s ease, border-color .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .btn:hover{border-color:#cbd5e1; background:var(--soft)}
+    .btn:active{transform:scale(.98)}
+    .btn.primary{
+      border-color:rgba(37,99,235,.25);
+      background:rgba(37,99,235,.08);
+    }
+    .btn.primary:hover{background:rgba(37,99,235,.12)}
+    .btn:disabled{opacity:.5; cursor:not-allowed}
+
+    main{
+      min-height:calc(100vh - 120px);
+      display:flex;
+      justify-content:center;
+      padding:18px 16px 28px;
+    }
+    .deck{width:100%; max-width:var(--maxw);}
+
+    .slide{
+      display:none;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      background:#fff;
+      overflow:hidden;
+    }
+    .slide.active{display:block}
+
+    .title{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      border-bottom:1px solid var(--border);
+      padding-bottom:12px; margin-bottom:14px;
+    }
+    h2{margin:0; font-size:20px; letter-spacing:-.02em;}
+    .kicker{margin:4px 0 0; color:var(--muted); font-size:13px;}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      background:var(--soft); border:1px solid var(--border);
+      color:var(--muted); font-size:12px; font-weight:900;
+      white-space:nowrap;
+    }
+
+    .grid{display:grid; gap:14px;}
+    @media (min-width: 900px){
+      .grid.cols2{grid-template-columns: 1.05fr .95fr;}
+      .grid.cols3{grid-template-columns: 1fr 1fr 1fr;}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      padding:14px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02);
+    }
+    .card.soft{background:var(--soft)}
+    .card h3{margin:0 0 8px; font-size:14px; letter-spacing:-.01em;}
+    .card p, .card li{color:#374151; font-size:13px; line-height:1.45;}
+    .card ul{margin:8px 0 0; padding-left:18px;}
+    .hint{margin-top:10px; font-size:12px; color:var(--muted);}
+
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+    }
+    th, td{
+      text-align:left;
+      padding:10px 10px;
+      border-bottom:1px solid var(--border);
+      font-size:13px;
+      vertical-align:top;
+    }
+    th{
+      background:var(--soft);
+      font-size:12px;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    tr:last-child td{border-bottom:none}
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:12px;
+      background:var(--soft);
+      border:1px solid var(--border);
+      padding:2px 6px;
+      border-radius:8px;
+      white-space:nowrap;
+    }
+    .big{
+      font-size:18px;
+      font-weight:950;
+      letter-spacing:-.02em;
+    }
+
+    .svgwrap{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      overflow:hidden;
+    }
+    .svgwrap svg{width:100%; height:auto; display:block;}
+
+    .form{
+      display:grid;
+      gap:10px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:8px;
+    }
+    @media (min-width: 720px){
+      .row{grid-template-columns: 1fr 1fr; gap:10px;}
+    }
+    label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+    input{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      font-size:13px;
+      font-weight:800;
+      outline:none;
+      background:#fff;
+    }
+    input:focus{border-color:rgba(37,99,235,.35); box-shadow:0 0 0 4px rgba(37,99,235,.08);}
+
+    .progress{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 16px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .dots{display:flex; gap:8px; flex-wrap:wrap}
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      cursor:pointer;
+    }
+    .dot.active{background:rgba(37,99,235,.6); border-color:rgba(37,99,235,.35)}
+    .footnote{color:var(--muted); font-size:12px;}
+
+    .toast{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:16px;
+      background:rgba(17,24,39,.92);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:12px;
+      display:none;
+      max-width:min(620px, calc(100vw - 24px));
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+    }
+    .toast.show{display:block}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <div class="badge" aria-hidden="true">
+          <!-- speed / cpu icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M4 13a8 8 0 1 0 16 0" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 13l5-5" stroke="#10b981" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M7 3v3M12 2v4M17 3v3" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div style="min-width:0">
+          <h1>Exercice 3 — Performance µp (IPS, cycles, CPI)</h1>
+          <p>Navigation : boutons ou flèches clavier ← → (fond blanc, style présentation)</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="btn" id="btnPrev" title="Précédent (←)">◀︎ Précédent</button>
+        <button class="btn primary" id="btnNext" title="Suivant (→)">Suivant ▶︎</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="deck" id="deck">
+
+      <!-- Slide 0 -->
+      <section class="slide active" data-slide="0">
+        <div class="title">
+          <div>
+            <h2>Énoncé</h2>
+            <p class="kicker">
+              Trois microprocesseurs exécutent le même programme :
+              <span class="mono">µp1: f=2,5 GHz; CPI=1,0</span> —
+              <span class="mono">µp2: f=3 GHz; CPI=1,5</span> —
+              <span class="mono">µp3: f=4 GHz; CPI=2,2</span>.
+            </p>
+          </div>
+          <div class="pill">3 questions : IPS • (10 s) • fréquence requise</div>
+        </div>
+
+        <div class="grid cols2">
+          <div class="card">
+            <h3>Formules à retenir</h3>
+            <ul>
+              <li><strong>IPS</strong> (instructions/s) : <span class="mono">IPS = f / CPI</span></li>
+              <li><strong>Temps</strong> d’exécution : <span class="mono">T = (IC × CPI) / f</span></li>
+              <li><strong>Cycles</strong> en T secondes : <span class="mono">Cycles = f × T</span></li>
+              <li><strong>Instructions</strong> en T secondes : <span class="mono">Instructions = IPS × T</span></li>
+            </ul>
+            <p class="hint">Ici <span class="mono">f</span> est en <strong>Hz</strong> (cycles/s). 1 GHz = 10⁹ Hz.</p>
+          </div>
+
+          <div class="card soft">
+            <h3>Schéma “vitesse” (intuition)</h3>
+            <div class="svgwrap">
+              <svg viewBox="0 0 980 320" role="img" aria-label="Intuition IPS = fréquence / CPI">
+                <rect width="980" height="320" fill="#fff"/>
+                <text x="490" y="55" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">
+                  IPS dépend de 2 choses : fréquence (↑) et CPI (↓)
+                </text>
+
+                <rect x="120" y="105" width="320" height="130" rx="18" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.30)" stroke-width="2"/>
+                <text x="280" y="150" text-anchor="middle" font-size="14" font-weight="900" fill="#0b2a6f">Fréquence f</text>
+                <text x="280" y="175" text-anchor="middle" font-size="12" fill="#374151">cycles par seconde</text>
+                <text x="280" y="205" text-anchor="middle" font-size="12" fill="#6b7280">plus f est grand → plus d’instructions possibles</text>
+
+                <rect x="540" y="105" width="320" height="130" rx="18" fill="rgba(245,158,11,.10)" stroke="rgba(245,158,11,.28)" stroke-width="2"/>
+                <text x="700" y="150" text-anchor="middle" font-size="14" font-weight="900" fill="#92400e">CPI</text>
+                <text x="700" y="175" text-anchor="middle" font-size="12" fill="#374151">cycles par instruction</text>
+                <text x="700" y="205" text-anchor="middle" font-size="12" fill="#6b7280">plus CPI est petit → plus d’instructions/s</text>
+
+                <path d="M440 170 C490 120, 490 120, 540 170" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+                <text x="490" y="270" text-anchor="middle" font-size="14" font-weight="900" fill="#111827">
+                  IPS = f / CPI
+                </text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 1 -->
+      <section class="slide" data-slide="1">
+        <div class="title">
+          <div>
+            <h2>Q1 — Calcul des IPS et processeur le plus performant</h2>
+            <p class="kicker">On applique <span class="mono">IPS = f / CPI</span>.</p>
+          </div>
+          <div class="pill">Résultats + classement</div>
+        </div>
+
+        <div class="grid cols2">
+          <div class="card">
+            <h3>Tableau (réponse)</h3>
+            <table aria-label="IPS des processeurs">
+              <thead>
+                <tr>
+                  <th>µp</th>
+                  <th>f (GHz)</th>
+                  <th>CPI</th>
+                  <th>IPS = f/CPI (instr/s)</th>
+                </tr>
+              </thead>
+              <tbody id="ipsTable"></tbody>
+            </table>
+
+            <div class="card soft" style="margin-top:12px">
+              <h3>Microprocesseur le plus performant</h3>
+              <p class="big" id="bestCpu">—</p>
+              <p class="hint">Le plus performant ici = celui qui a l’IPS maximal.</p>
+            </div>
+          </div>
+
+          <div class="card soft">
+            <h3>Comparaison visuelle (barres)</h3>
+            <div class="svgwrap">
+              <svg id="ipsBars" viewBox="0 0 980 380" role="img" aria-label="Barres IPS">
+                <rect width="980" height="380" fill="#fff"/>
+                <text x="490" y="55" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">
+                  IPS (instructions par seconde)
+                </text>
+                <text x="490" y="80" text-anchor="middle" font-size="12" fill="#6b7280">
+                  Plus la barre est longue → plus d’instructions par seconde.
+                </text>
+
+                <!-- axes -->
+                <line x1="140" y1="320" x2="900" y2="320" stroke="#e5e7eb" stroke-width="2"/>
+                <line x1="140" y1="110" x2="140" y2="320" stroke="#e5e7eb" stroke-width="2"/>
+
+                <!-- bars injected by JS -->
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2 -->
+      <section class="slide" data-slide="2">
+        <div class="title">
+          <div>
+            <h2>Q2 — Cycles et instructions exécutés en 10 s</h2>
+            <p class="kicker">
+              Cycles en 10 s : <span class="mono">Cycles = f × 10</span> —
+              Instructions en 10 s : <span class="mono">Instr = IPS × 10</span>.
+            </p>
+          </div>
+          <div class="pill">Calculs automatiques</div>
+        </div>
+
+        <div class="grid cols2">
+          <div class="card">
+            <h3>Tableau (10 s)</h3>
+            <table aria-label="Cycles et instructions en 10 secondes">
+              <thead>
+                <tr>
+                  <th>µp</th>
+                  <th>Cycles en 10 s</th>
+                  <th>Instructions en 10 s</th>
+                </tr>
+              </thead>
+              <tbody id="tenSecTable"></tbody>
+            </table>
+
+            <p class="hint">
+              Remarque : <span class="mono">Instructions en 10 s</span> peut aussi se déduire par
+              <span class="mono">Instr = (f × 10) / CPI</span>.
+            </p>
+          </div>
+
+          <div class="card soft">
+            <h3>Mini-vérification (intuition)</h3>
+            <div class="svgwrap">
+              <svg viewBox="0 0 980 360" role="img" aria-label="Flux cycles et CPI">
+                <rect width="980" height="360" fill="#fff"/>
+                <text x="490" y="55" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">
+                  Plus de cycles ≠ toujours plus d’instructions (CPI compte !)
+                </text>
+
+                <rect x="120" y="120" width="320" height="170" rx="18" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.25)"/>
+                <text x="280" y="155" text-anchor="middle" font-size="14" font-weight="900" fill="#0b2a6f">Cycles en 10 s</text>
+                <text x="280" y="182" text-anchor="middle" font-size="12" fill="#374151">= f × 10</text>
+                <text x="280" y="220" text-anchor="middle" font-size="12" fill="#6b7280">c’est “l’énergie brute”</text>
+
+                <rect x="540" y="120" width="320" height="170" rx="18" fill="rgba(16,185,129,.08)" stroke="rgba(16,185,129,.25)"/>
+                <text x="700" y="155" text-anchor="middle" font-size="14" font-weight="900" fill="#065f46">Instructions en 10 s</text>
+                <text x="700" y="182" text-anchor="middle" font-size="12" fill="#374151">= (f × 10) / CPI</text>
+                <text x="700" y="220" text-anchor="middle" font-size="12" fill="#6b7280">CPI “mange” des cycles</text>
+
+                <path d="M440 205 C490 150, 490 150, 540 205" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+                <text x="490" y="305" text-anchor="middle" font-size="13" font-weight="900" fill="#111827">
+                  Même si µp3 a 4 GHz, son CPI=2,2 réduit son IPS.
+                </text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3 -->
+      <section class="slide" data-slide="3">
+        <div class="title">
+          <div>
+            <h2>Q3 — µp1 : réduire 10 s de 30% avec +20% CPI → fréquence requise</h2>
+            <p class="kicker">
+              On veut <span class="mono">T' = 0,7×10 = 7 s</span> et <span class="mono">CPI' = 1,2×CPI</span>.
+              Calculer <span class="mono">f'</span>.
+            </p>
+          </div>
+          <div class="pill">Calculateur + solution numérique</div>
+        </div>
+
+        <div class="grid cols2">
+          <div class="card">
+            <h3>Calculateur (modifiable)</h3>
+
+            <div class="form">
+              <div class="row">
+                <div>
+                  <label>Temps initial T (s)</label>
+                  <input id="T0" type="number" step="0.1" value="10"/>
+                </div>
+                <div>
+                  <label>Réduction du temps (%)</label>
+                  <input id="redPct" type="number" step="1" value="30"/>
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label>Fréquence initiale f (GHz)</label>
+                  <input id="f0" type="number" step="0.1" value="2.5"/>
+                </div>
+                <div>
+                  <label>CPI initial</label>
+                  <input id="cpi0" type="number" step="0.1" value="1.0"/>
+                </div>
+              </div>
+
+              <div class="row">
+                <div>
+                  <label>Augmentation CPI (%)</label>
+                  <input id="cpiUpPct" type="number" step="1" value="20"/>
+                </div>
+                <div>
+                  <label>IC (instructions) — déduit de T0,f0,CPI0</label>
+                  <input id="icOut" type="text" readonly value="—"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="card soft" style="margin-top:12px">
+              <h3>Résultat</h3>
+              <p style="margin:0">
+                <span class="mono">T' =</span> <span id="Tp" class="mono">—</span> &nbsp;|&nbsp;
+                <span class="mono">CPI' =</span> <span id="CPIp" class="mono">—</span>
+              </p>
+              <p class="big" id="fpOut" style="margin:10px 0 0">—</p>
+              <p class="hint">On suppose que le programme (IC) est le même : seul CPI et f changent.</p>
+            </div>
+          </div>
+
+          <div class="card soft">
+            <h3>Démonstration (étapes)</h3>
+            <ol style="margin:8px 0 0; padding-left:18px; color:#374151; font-size:13px; line-height:1.5">
+              <li>Formule : <span class="mono">T = (IC × CPI) / f</span></li>
+              <li>Donc <span class="mono">IC = (T0 × f0) / CPI0</span></li>
+              <li>On veut <span class="mono">T' = T0 × (1 - réduction)</span> et <span class="mono">CPI' = CPI0 × (1 + hausse)</span></li>
+              <li>Fréquence requise :
+                <span class="mono">f' = (IC × CPI') / T'</span>
+              </li>
+            </ol>
+
+            <div class="svgwrap" style="margin-top:12px">
+              <svg viewBox="0 0 980 300" role="img" aria-label="Schéma temps CPI fréquence">
+                <rect width="980" height="300" fill="#fff"/>
+                <text x="490" y="55" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">
+                  Pour diminuer T quand CPI augmente → il faut augmenter f
+                </text>
+
+                <rect x="110" y="110" width="250" height="120" rx="18" fill="rgba(245,158,11,.10)" stroke="rgba(245,158,11,.25)"/>
+                <text x="235" y="150" text-anchor="middle" font-size="14" font-weight="900" fill="#92400e">CPI ↑</text>
+                <text x="235" y="178" text-anchor="middle" font-size="12" fill="#374151">plus de cycles / instr</text>
+
+                <rect x="620" y="110" width="250" height="120" rx="18" fill="rgba(37,99,235,.08)" stroke="rgba(37,99,235,.25)"/>
+                <text x="745" y="150" text-anchor="middle" font-size="14" font-weight="900" fill="#0b2a6f">f ↑</text>
+                <text x="745" y="178" text-anchor="middle" font-size="12" fill="#374151">plus de cycles / s</text>
+
+                <path d="M360 170 C450 90, 530 90, 620 170" fill="none" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+                <text x="490" y="260" text-anchor="middle" font-size="13" font-weight="900" fill="#111827">
+                  Compense l’augmentation de CPI par une hausse de fréquence.
+                </text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="progress">
+    <div class="dots" id="dots"></div>
+    <div class="footnote">Navigation : <span class="mono">←</span>/<span class="mono">→</span> • 4 diapos</div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // ---------- helpers ----------
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+    function fmtInt(n){ return new Intl.NumberFormat("fr-FR").format(Math.round(n)); }
+    function fmt(n, d=3){ return new Intl.NumberFormat("fr-FR",{maximumFractionDigits:d}).format(n); }
+    function sci(n, d=3){
+      // scientific formatted like 2.50×10^9
+      if(n === 0) return "0";
+      const exp = Math.floor(Math.log10(Math.abs(n)));
+      const mant = n / Math.pow(10, exp);
+      return `${fmt(mant,d)}×10^${exp}`;
+    }
+    function toast(msg){
+      const t = $("#toast");
+      t.textContent = msg;
+      t.classList.add("show");
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(()=>t.classList.remove("show"), 1400);
+    }
+
+    // ---------- slides ----------
+    const slides = $$(".slide");
+    let idx = 0;
+    function renderDots(){
+      const dots = $("#dots");
+      dots.innerHTML = "";
+      slides.forEach((s,i)=>{
+        const d = document.createElement("button");
+        d.className = "dot" + (i===idx ? " active":"");
+        d.title = `Aller à la diapo ${i+1}`;
+        d.addEventListener("click", ()=>go(i));
+        dots.appendChild(d);
+      });
+    }
+    function go(i){
+      idx = Math.max(0, Math.min(slides.length-1, i));
+      slides.forEach((s,k)=>s.classList.toggle("active", k===idx));
+      $("#btnPrev").disabled = idx===0;
+      $("#btnNext").disabled = idx===slides.length-1;
+      renderDots();
+      toast(`Diapo ${idx+1} / ${slides.length}`);
+    }
+    $("#btnPrev").addEventListener("click", ()=>go(idx-1));
+    $("#btnNext").addEventListener("click", ()=>go(idx+1));
+    window.addEventListener("keydown", (e)=>{
+      if(e.key==="ArrowLeft") go(idx-1);
+      if(e.key==="ArrowRight") go(idx+1);
+    });
+    renderDots();
+    $("#btnPrev").disabled = true;
+
+    // ---------- data (from the statement) ----------
+    const cpus = [
+      {name:"µp1", fGHz:2.5, cpi:1.0},
+      {name:"µp2", fGHz:3.0, cpi:1.5},
+      {name:"µp3", fGHz:4.0, cpi:2.2},
+    ];
+
+    function ips(cpu){
+      const f = cpu.fGHz * 1e9;      // Hz
+      return f / cpu.cpi;           // instr/s
+    }
+
+    // ---------- Q1 table + ranking + bars ----------
+    (function(){
+      const tb = $("#ipsTable");
+      const rows = cpus.map(c=>{
+        const v = ips(c);
+        return {cpu:c.name, f:c.fGHz, cpi:c.cpi, ips:v};
+      });
+
+      // fill table
+      tb.innerHTML = rows.map(r=>`
+        <tr>
+          <td><strong>${r.cpu}</strong></td>
+          <td>${fmt(r.f,1)}</td>
+          <td>${fmt(r.cpi,1)}</td>
+          <td><strong>${sci(r.ips,3)}</strong> <span class="muted">(≈ ${fmt(r.ips/1e9,3)}×10^9)</span></td>
+        </tr>
+      `).join("");
+
+      // best cpu
+      const best = rows.slice().sort((a,b)=>b.ips-a.ips)[0];
+      $("#bestCpu").textContent = `${best.cpu} (IPS max ≈ ${fmt(best.ips/1e9,3)}×10^9 instr/s)`;
+
+      // bars
+      const svg = $("#ipsBars");
+      const max = Math.max(...rows.map(r=>r.ips));
+      const baseX = 170;
+      const baseY = 130;
+      const barH = 44;
+      const gap = 18;
+      const maxW = 660;
+
+      // clear previous dynamic
+      while(svg.lastChild && svg.lastChild.tagName !== "line"){
+        // stop at first line? safer: remove by id group
+        break;
+      }
+      // We'll append a group to avoid deleting static elements
+      const old = svg.querySelector("#barsGroup");
+      if(old) old.remove();
+
+      const g = document.createElementNS("http://www.w3.org/2000/svg","g");
+      g.setAttribute("id","barsGroup");
+      svg.appendChild(g);
+
+      rows.forEach((r,i)=>{
+        const w = (r.ips/max) * maxW;
+        const y = baseY + i*(barH+gap);
+
+        const rect = document.createElementNS(svg.namespaceURI,"rect");
+        rect.setAttribute("x", baseX);
+        rect.setAttribute("y", y);
+        rect.setAttribute("width", w);
+        rect.setAttribute("height", barH);
+        rect.setAttribute("rx", 12);
+        rect.setAttribute("fill", r.cpu===best.cpu ? "rgba(16,185,129,.55)" : "rgba(37,99,235,.45)");
+        rect.setAttribute("stroke", "rgba(203,213,225,1)");
+        g.appendChild(rect);
+
+        const label = document.createElementNS(svg.namespaceURI,"text");
+        label.setAttribute("x", 150);
+        label.setAttribute("y", y + 28);
+        label.setAttribute("text-anchor","end");
+        label.setAttribute("font-size","13");
+        label.setAttribute("font-weight","900");
+        label.setAttribute("fill","#111827");
+        label.textContent = r.cpu;
+        g.appendChild(label);
+
+        const val = document.createElementNS(svg.namespaceURI,"text");
+        val.setAttribute("x", baseX + w + 10);
+        val.setAttribute("y", y + 28);
+        val.setAttribute("font-size","12");
+        val.setAttribute("font-weight","900");
+        val.setAttribute("fill","#374151");
+        val.textContent = `${fmt(r.ips/1e9,3)}×10^9`;
+        g.appendChild(val);
+      });
+    })();
+
+    // ---------- Q2 (10s) ----------
+    (function(){
+      const T = 10; // seconds
+      const tb = $("#tenSecTable");
+      const rows = cpus.map(c=>{
+        const fHz = c.fGHz*1e9;
+        const cycles = fHz * T;
+        const instr = (fHz / c.cpi) * T;
+        return {cpu:c.name, cycles, instr};
+      });
+
+      tb.innerHTML = rows.map(r=>`
+        <tr>
+          <td><strong>${r.cpu}</strong></td>
+          <td><strong>${sci(r.cycles,3)}</strong> <span class="muted">(cycles)</span></td>
+          <td><strong>${sci(r.instr,3)}</strong> <span class="muted">(instructions)</span></td>
+        </tr>
+      `).join("");
+    })();
+
+    // ---------- Q3 calculator ----------
+    function computeQ3(){
+      const T0 = Math.max(0.0001, Number($("#T0").value || 10));
+      const redPct = Number($("#redPct").value || 30);
+      const f0GHz = Math.max(0.0001, Number($("#f0").value || 2.5));
+      const cpi0 = Math.max(0.0001, Number($("#cpi0").value || 1.0));
+      const cpiUpPct = Number($("#cpiUpPct").value || 20);
+
+      const Tp = T0 * (1 - redPct/100);
+      const CPIp = cpi0 * (1 + cpiUpPct/100);
+
+      // IC from baseline: IC = T0 * f0 / CPI0
+      const f0Hz = f0GHz * 1e9;
+      const IC = (T0 * f0Hz) / cpi0;
+
+      // required frequency: f' = IC*CPI' / T'
+      const fpHz = (IC * CPIp) / Tp;
+      const fpGHz = fpHz / 1e9;
+
+      $("#Tp").textContent = fmt(Tp,3) + " s";
+      $("#CPIp").textContent = fmt(CPIp,3);
+      $("#icOut").value = sci(IC,3) + " instructions";
+      $("#fpOut").textContent = `Fréquence requise : ${fmt(fpGHz,3)} GHz (≈ ${sci(fpHz,3)} Hz)`;
+
+      // Also show the exact expected numeric for the default case:
+      // With T0=10, f0=2.5GHz, CPI0=1, Tp=7, CPIp=1.2 -> fp≈4.286GHz.
+    }
+
+    ["T0","redPct","f0","cpi0","cpiUpPct"].forEach(id=>{
+      $("#"+id).addEventListener("input", computeQ3);
+    });
+    computeQ3();
+  </script>
+</body>
+</html>

@@ -982,6 +982,11 @@
       resetAnim();
       toast("Reset animation");
     });
+    c = new URL(window.location.href).search.replace("?f=", "");
+    if(c != ""&&c=="last")
+    {
+      go(idx+3);
+    }
   </script>
 </body>
 </html>
