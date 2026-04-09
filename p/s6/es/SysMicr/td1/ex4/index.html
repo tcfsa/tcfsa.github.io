@@ -715,6 +715,11 @@
   setBit(bits.A13,1);
   setBit(bits.A12,0);
   update();
+  c = new URL(window.location.href).search.replace("?f=", "");
+  if(c != ""&&c=="last")
+  {
+    go(idx+3);
+  }
 </script>
 </body>
 </html>

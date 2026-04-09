@@ -788,6 +788,11 @@
       $("#"+id).addEventListener("input", computeQ3);
     });
     computeQ3();
+    c = new URL(window.location.href).search.replace("?f=", "");
+    if(c != ""&&c=="last")
+    {
+      go(idx+3);
+    }
   </script>
 </body>
 </html>

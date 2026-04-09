@@ -1246,6 +1246,11 @@
     // init
     ids.forEach(id=>setBit($("#"+id),0));
     updateSim();
+    c = new URL(window.location.href).search.replace("?f=", "");
+    if(c != ""&&c=="last")
+    {
+      go(idx+3);
+    }
   })();
 </script>
 </body>
