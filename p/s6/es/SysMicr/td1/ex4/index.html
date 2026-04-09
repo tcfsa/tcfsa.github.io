@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZT5VSZS3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-8BZT5VSZS3');
+  </script>
+
+  <title>SysMicr - TD1 - Exercice 4 (Décodage d’adresse (RAM 4 Ko)) (Présentation interactive)</title>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="../../../../../../icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../../../../../icons/apple-touch-icon-60x60.png"> 
+  <link rel="apple-touch-icon" sizes="72x72" href="../../../../../../icons/apple-touch-icon-72x72.png"> 
+  <link rel="apple-touch-icon" sizes="76x76" href="../../../../../../icons/apple-touch-icon-76x76.png"> 
+  <link rel="apple-touch-icon" sizes="114x114" href="../../../../../../icons/apple-touch-icon-114x114.png"> 
+  <link rel="apple-touch-icon" sizes="120x120" href="../../../../../../icons/apple-touch-icon-120x120.png"> 
+  <link rel="apple-touch-icon" sizes="144x144" href="../../../../../../icons/apple-touch-icon-144x144.png"> 
+  <link rel="apple-touch-icon" sizes="152x152" href="../../../../../../icons/apple-touch-icon-152x152.png"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../../../icons/apple-touch-icon-180x180.png"> 
+  <link rel="icon" type="image/png" href="../../../../../../icons/favicon-32x32.png" sizes="32x32"> 
+  <link rel="icon" type="image/png" href="../../../../../../icons/android-chrome-192x192.png" sizes="192x192"> 
+  <link rel="icon" type="image/png" href="../../../../../../icons/favicon-96x96.png" sizes="96x96"> 
+  <link rel="icon" type="image/png" href="../../../../../../icons/favicon-16x16.png" sizes="16x16">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#111827;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --soft:#f9fafb;
+      --accent:#2563eb;
+      --ok:#10b981;
+      --warn:#f59e0b;
+      --bad:#ef4444;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 16px;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+    }
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:0;}
+    .badge{
+      width:34px; height:34px; border-radius:10px;
+      background:linear-gradient(135deg, rgba(37,99,235,.12), rgba(16,185,129,.12));
+      border:1px solid var(--border);
+      display:grid; place-items:center; flex:0 0 auto;
+    }
+    .brand h1{
+      font-size:14px; margin:0; font-weight:900; line-height:1.2;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .brand p{
+      margin:0; font-size:12px; color:var(--muted);
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .controls{display:flex; align-items:center; gap:10px; flex:0 0 auto;}
+    .btn{
+      appearance:none; border:1px solid var(--border);
+      background:var(--bg); color:var(--fg);
+      padding:10px 12px; border-radius:12px;
+      cursor:pointer; font-weight:800; font-size:13px;
+      display:flex; align-items:center; gap:8px;
+      box-shadow:0 1px 0 rgba(0,0,0,.03);
+      transition:transform .08s ease, border-color .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .btn:hover{border-color:#cbd5e1; background:var(--soft)}
+    .btn:active{transform:scale(.98)}
+    .btn.primary{
+      border-color:rgba(37,99,235,.25);
+      background:rgba(37,99,235,.08);
+    }
+    .btn.primary:hover{background:rgba(37,99,235,.12)}
+    .btn:disabled{opacity:.5; cursor:not-allowed}
+
+    main{
+      min-height:calc(100vh - 120px);
+      display:flex;
+      justify-content:center;
+      padding:18px 16px 28px;
+    }
+    .deck{width:100%; max-width:var(--maxw);}
+
+    .slide{
+      display:none;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      background:#fff;
+      overflow:hidden;
+    }
+    .slide.active{display:block}
+
+    .title{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      border-bottom:1px solid var(--border);
+      padding-bottom:12px; margin-bottom:14px;
+    }
+    h2{margin:0; font-size:20px; letter-spacing:-.02em;}
+    .kicker{margin:4px 0 0; color:var(--muted); font-size:13px;}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      background:var(--soft); border:1px solid var(--border);
+      color:var(--muted); font-size:12px; font-weight:900;
+      white-space:nowrap;
+    }
+
+    .grid{display:grid; gap:14px;}
+    @media (min-width: 900px){
+      .grid.cols2{grid-template-columns: 1.05fr .95fr;}
+      .grid.cols3{grid-template-columns: 1fr 1fr 1fr;}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      padding:14px;
+      box-shadow:0 1px 0 rgba(0,0,0,.02);
+    }
+    .card.soft{background:var(--soft)}
+    .card h3{margin:0 0 8px; font-size:14px; letter-spacing:-.01em;}
+    .card p, .card li{color:#374151; font-size:13px; line-height:1.45;}
+    .card ul{margin:8px 0 0; padding-left:18px;}
+    .hint{margin-top:10px; font-size:12px; color:var(--muted);}
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:12px;
+      background:var(--soft);
+      border:1px solid var(--border);
+      padding:2px 6px;
+      border-radius:8px;
+      white-space:nowrap;
+    }
+    .big{font-size:18px; font-weight:950; letter-spacing:-.02em;}
+    .svgwrap{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      overflow:hidden;
+    }
+    .svgwrap svg{width:100%; height:auto; display:block;}
+
+    .progress{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 16px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .dots{display:flex; gap:8px; flex-wrap:wrap}
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      cursor:pointer;
+    }
+    .dot.active{background:rgba(37,99,235,.6); border-color:rgba(37,99,235,.35)}
+    .footnote{color:var(--muted); font-size:12px;}
+
+    .toast{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:16px;
+      background:rgba(17,24,39,.92);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:12px;
+      display:none;
+      max-width:min(680px, calc(100vw - 24px));
+      box-shadow:0 10px 25px rgba(0,0,0,.18);
+    }
+    .toast.show{display:block}
+
+    /* interactive toggles */
+    .toggles{display:grid; gap:10px;}
+    .toggleRow{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 640px){
+      .toggleRow{grid-template-columns: repeat(2, 1fr);}
+    }
+    .bit{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px;
+      background:#fff;
+      cursor:pointer;
+      user-select:none;
+      transition:transform .08s ease, background .15s ease, border-color .15s ease;
+    }
+    .bit:hover{background:var(--soft); border-color:#cbd5e1}
+    .bit:active{transform:scale(.99)}
+    .bit .lab{font-size:12px; color:var(--muted); font-weight:900; letter-spacing:.02em; text-transform:uppercase;}
+    .bit .val{margin-top:6px; font-size:18px; font-weight:950;}
+    .bit[data-on="1"]{border-color:rgba(37,99,235,.35); background:rgba(37,99,235,.06)}
+    .status{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      margin-top:10px;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-size:12px; font-weight:950;
+    }
+    .chip.ok{border-color:rgba(16,185,129,.35); background:rgba(16,185,129,.10); color:#065f46}
+    .chip.bad{border-color:rgba(239,68,68,.35); background:rgba(239,68,68,.08); color:#991b1b}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="badge" aria-hidden="true">
+        <!-- icon decoding -->
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M4 7h16v10H4z" stroke="#2563eb" stroke-width="2" />
+          <path d="M7 10h10M7 14h6" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+          <path d="M3 12h2M19 12h2" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div style="min-width:0">
+        <h1>Exercice 4 — Décodage d’adresse (RAM 4 Ko)</h1>
+        <p>Objectif : trouver l’état de A15..A12, la fonction de décodage, puis la plage d’adresses</p>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="btnPrev" title="Précédent (←)">◀︎ Précédent</button>
+      <button class="btn primary" id="btnNext" title="Suivant (→)">Suivant ▶︎</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="deck">
+
+    <!-- Slide 0 -->
+    <section class="slide active">
+      <div class="title">
+        <div>
+          <h2>Énoncé + lecture du schéma</h2>
+          <p class="kicker">
+            Une RAM de <span class="mono">4 Ko</span> est connectée : <span class="mono">A0..A11</span> vont à la mémoire.
+            Les bits <span class="mono">A12..A15</span> servent au <strong>décodage</strong> via une porte logique vers <span class="mono">/CS</span>.
+          </p>
+        </div>
+        <div class="pill">RAM 4 Ko ⇒ 12 lignes d’adresse internes</div>
+      </div>
+
+      <div class="grid cols2">
+        <div class="card">
+          <h3>Ce qu’on lit sur le câblage</h3>
+          <ul>
+            <li>La mémoire a <span class="mono">A0..A11</span> → donc <strong>2¹² = 4096 octets = 4 Ko</strong>.</li>
+            <li><span class="mono">/CS</span> est <strong>actif à 0</strong> (barre sur CS).</li>
+            <li>Le décodage utilise <span class="mono">A12..A15</span> avec des inverseurs + une porte <strong>NAND</strong> (bulle en sortie).</li>
+          </ul>
+          <p class="hint">
+            Rappel : une NAND sort <span class="mono">0</span> uniquement si <strong>toutes</strong> ses entrées sont à <span class="mono">1</span>.
+          </p>
+        </div>
+
+        <div class="card soft">
+          <h3>Schéma simplifié (lisible & responsive)</h3>
+          <div class="svgwrap">
+            <svg viewBox="0 0 980 360" role="img" aria-label="Décodage A12..A15 vers /CS">
+              <rect width="980" height="360" fill="#fff"/>
+
+              <!-- CPU -->
+              <rect x="60" y="80" width="250" height="200" rx="18" fill="rgba(37,99,235,.06)" stroke="rgba(37,99,235,.25)" stroke-width="2"/>
+              <text x="185" y="115" text-anchor="middle" font-size="13" font-weight="900" fill="#0b2a6f">Microprocesseur</text>
+              <text x="100" y="155" font-size="12" fill="#374151">A15</text>
+              <text x="100" y="175" font-size="12" fill="#374151">A14</text>
+              <text x="100" y="195" font-size="12" fill="#374151">A13</text>
+              <text x="100" y="215" font-size="12" fill="#374151">A12</text>
+
+              <!-- wires to logic -->
+              <line x1="310" y1="150" x2="410" y2="150" stroke="#94a3b8" stroke-width="3"/>
+              <line x1="310" y1="170" x2="410" y2="170" stroke="#94a3b8" stroke-width="3"/>
+              <line x1="310" y1="190" x2="410" y2="190" stroke="#94a3b8" stroke-width="3"/>
+              <line x1="310" y1="210" x2="410" y2="210" stroke="#94a3b8" stroke-width="3"/>
+
+              <!-- inverters on A15, A14, A12 -->
+              <polygon points="410,142 432,150 410,158" fill="none" stroke="#64748b" stroke-width="2"/>
+              <circle cx="438" cy="150" r="4" fill="#fff" stroke="#64748b" stroke-width="2"/>
+
+              <polygon points="410,162 432,170 410,178" fill="none" stroke="#64748b" stroke-width="2"/>
+              <circle cx="438" cy="170" r="4" fill="#fff" stroke="#64748b" stroke-width="2"/>
+
+              <polygon points="410,202 432,210 410,218" fill="none" stroke="#64748b" stroke-width="2"/>
+              <circle cx="438" cy="210" r="4" fill="#fff" stroke="#64748b" stroke-width="2"/>
+
+              <!-- NAND gate -->
+              <path d="M510 130
+                       C560 130, 580 165, 580 180
+                       C580 195, 560 230, 510 230
+                       L510 130 Z" fill="rgba(245,158,11,.10)" stroke="rgba(245,158,11,.35)" stroke-width="2"/>
+              <!-- output bubble -->
+              <circle cx="594" cy="180" r="7" fill="#fff" stroke="rgba(245,158,11,.6)" stroke-width="2"/>
+              <text x="545" y="120" text-anchor="middle" font-size="12" font-weight="900" fill="#92400e">NAND</text>
+
+              <!-- inputs lines into NAND -->
+              <line x1="442" y1="150" x2="510" y2="150" stroke="#94a3b8" stroke-width="3"/>
+              <line x1="442" y1="170" x2="510" y2="170" stroke="#94a3b8" stroke-width="3"/>
+              <line x1="410" y1="190" x2="510" y2="190" stroke="#94a3b8" stroke-width="3"/>
+              <line x1="442" y1="210" x2="510" y2="210" stroke="#94a3b8" stroke-width="3"/>
+
+              <text x="468" y="146" font-size="11" fill="#374151">¬A15</text>
+              <text x="468" y="166" font-size="11" fill="#374151">¬A14</text>
+              <text x="468" y="186" font-size="11" fill="#374151">A13</text>
+              <text x="468" y="206" font-size="11" fill="#374151">¬A12</text>
+
+              <!-- wire to memory -->
+              <line x1="601" y1="180" x2="730" y2="180" stroke="#94a3b8" stroke-width="3"/>
+              <text x="665" y="168" font-size="11" fill="#374151">→ /CS</text>
+
+              <!-- Memory -->
+              <rect x="730" y="95" width="190" height="170" rx="18" fill="rgba(16,185,129,.06)" stroke="rgba(16,185,129,.25)" stroke-width="2"/>
+              <text x="825" y="125" text-anchor="middle" font-size="13" font-weight="900" fill="#065f46">RAM 4 Ko</text>
+              <text x="825" y="155" text-anchor="middle" font-size="12" fill="#374151">A0..A11</text>
+              <text x="825" y="180" text-anchor="middle" font-size="12" fill="#374151">/CS (actif 0)</text>
+
+              <text x="490" y="320" text-anchor="middle" font-size="12" fill="#6b7280">
+                Pour sélectionner la RAM : /CS doit être à 0 → la NAND doit produire 0.
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 1 -->
+    <section class="slide">
+      <div class="title">
+        <div>
+          <h2>Q1 — État de A12..A15 et fonction de décodage</h2>
+          <p class="kicker">/CS est actif bas : on cherche les bits qui rendent la sortie de la NAND = 0.</p>
+        </div>
+        <div class="pill">Conclusion : A15 A14 A13 A12 = 0 0 1 0</div>
+      </div>
+
+      <div class="grid cols2">
+        <div class="card">
+          <h3>1) Condition de sélection</h3>
+          <p>
+            La porte est une <strong>NAND</strong> (bulle en sortie). Donc la sortie vaut <span class="mono">0</span>
+            seulement si <strong>toutes les entrées</strong> valent <span class="mono">1</span>.
+          </p>
+          <ul>
+            <li>Entrée 1 = <span class="mono">¬A15</span> → pour avoir 1 ⇒ <span class="mono">A15=0</span></li>
+            <li>Entrée 2 = <span class="mono">¬A14</span> → pour avoir 1 ⇒ <span class="mono">A14=0</span></li>
+            <li>Entrée 3 = <span class="mono">A13</span> → pour avoir 1 ⇒ <span class="mono">A13=1</span></li>
+            <li>Entrée 4 = <span class="mono">¬A12</span> → pour avoir 1 ⇒ <span class="mono">A12=0</span></li>
+          </ul>
+
+          <div class="card soft" style="margin-top:12px">
+            <h3>État requis</h3>
+            <p class="big" style="margin:0">
+              <span class="mono">A15 A14 A13 A12 = 0 0 1 0</span>
+              &nbsp;⇒&nbsp; <span class="mono">0010₂ = 2₁₆</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="card soft">
+          <h3>2) Fonction de décodage</h3>
+          <p style="margin-top:0">
+            La sortie de la NAND (connectée à <span class="mono">/CS</span>) vaut :
+          </p>
+          <p class="big" style="margin:10px 0 0">
+            <span class="mono">/CS = ¬( ¬A15 · ¬A14 · A13 · ¬A12 )</span>
+          </p>
+          <p class="hint">
+            Forme “OU” (De Morgan), souvent plus simple à lire :
+          </p>
+          <p class="big" style="margin:0">
+            <span class="mono">/CS = A15 + A14 + ¬A13 + A12</span>
+          </p>
+          <p class="hint">
+            Donc <span class="mono">/CS=0</span> uniquement quand <span class="mono">A15=0, A14=0, A13=1, A12=0</span>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2 -->
+    <section class="slide">
+      <div class="title">
+        <div>
+          <h2>Q2 — Plage d’adresses occupée par la RAM (hex)</h2>
+          <p class="kicker">RAM 4 Ko ⇒ A0..A11 varient (000..FFF). A15..A12 fixés à 0010.</p>
+        </div>
+        <div class="pill">Plage : 0x2000 → 0x2FFF</div>
+      </div>
+
+      <div class="grid cols2">
+        <div class="card">
+          <h3>Étapes rapides</h3>
+          <ul>
+            <li>Taille RAM = <span class="mono">4 Ko = 4096 = 2¹²</span> adresses → <strong>12 bits</strong> internes.</li>
+            <li>Donc <span class="mono">A11..A0</span> parcourent : <span class="mono">0x000</span> → <span class="mono">0xFFF</span>.</li>
+            <li>Et on a trouvé : <span class="mono">A15..A12 = 0010₂</span> (nibble = <span class="mono">0x2</span>).</li>
+          </ul>
+
+          <div class="card soft" style="margin-top:12px">
+            <h3>Plage d’adresses</h3>
+            <p class="big" style="margin:0">
+              Début : <span class="mono">0x2000</span><br/>
+              Fin : <span class="mono">0x2FFF</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="card soft">
+          <h3>Visualisation (nibble haut + offset)</h3>
+          <div class="svgwrap">
+            <svg viewBox="0 0 980 300" role="img" aria-label="Adresse = nibble haut + offset 12 bits">
+              <rect width="980" height="300" fill="#fff"/>
+              <text x="490" y="55" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">
+                Adresse 16 bits = [A15..A12] [A11..A0]
+              </text>
+
+              <rect x="140" y="110" width="700" height="70" rx="16" fill="rgba(37,99,235,.06)" stroke="rgba(203,213,225,1)" stroke-width="2"/>
+              <line x1="310" y1="110" x2="310" y2="180" stroke="#cbd5e1" stroke-width="2"/>
+
+              <text x="225" y="153" text-anchor="middle" font-size="14" font-weight="950" fill="#0b2a6f">A15..A12 = 0x2</text>
+              <text x="575" y="153" text-anchor="middle" font-size="14" font-weight="950" fill="#111827">A11..A0 = offset (0x000 → 0xFFF)</text>
+
+              <text x="490" y="230" text-anchor="middle" font-size="14" font-weight="950" fill="#111827">
+                0x2 000 → 0x2 FFF
+              </text>
+              <text x="490" y="255" text-anchor="middle" font-size="12" fill="#6b7280">
+                Donc la RAM occupe exactement un bloc de 4 Ko.
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide">
+      <div class="title">
+        <div>
+          <h2>Mini-simulateur — Vérifie /CS selon A15..A12</h2>
+          <p class="kicker">Clique sur les bits : la RAM est sélectionnée quand <span class="mono">/CS = 0</span>.</p>
+        </div>
+        <div class="pill">Essaye : 0010 (A15..A12)</div>
+      </div>
+
+      <div class="grid cols2">
+        <div class="card">
+          <h3>Entrées A15..A12</h3>
+          <div class="toggles">
+            <div class="toggleRow">
+              <div class="bit" id="b15" data-on="0"><div class="lab">A15</div><div class="val">0</div></div>
+              <div class="bit" id="b14" data-on="0"><div class="lab">A14</div><div class="val">0</div></div>
+              <div class="bit" id="b13" data-on="1"><div class="lab">A13</div><div class="val">1</div></div>
+              <div class="bit" id="b12" data-on="0"><div class="lab">A12</div><div class="val">0</div></div>
+            </div>
+
+            <div class="status">
+              <span class="chip" id="nibbleChip">Nibble A15..A12 = 0x2</span>
+              <span class="chip ok" id="csChip">/CS = 0 → RAM sélectionnée ✅</span>
+              <span class="chip" id="rangeChip">Plage : 0x2000 → 0x2FFF</span>
+            </div>
+
+            <div class="card soft">
+              <h3>Rappel équation</h3>
+              <p style="margin:0">
+                <span class="mono">/CS = ¬( ¬A15 · ¬A14 · A13 · ¬A12 )</span><br/>
+                équivalent : <span class="mono">/CS = A15 + A14 + ¬A13 + A12</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card soft">
+          <h3>Lecture automatique de la plage d’adresses</h3>
+          <p style="margin-top:0">
+            Avec une RAM <span class="mono">4 Ko</span>, l’offset interne est toujours <span class="mono">0x000 → 0xFFF</span>.
+            Le nibble <span class="mono">A15..A12</span> choisit le bloc de 4 Ko.
+          </p>
+
+          <div class="svgwrap">
+            <svg viewBox="0 0 980 380" role="img" aria-label="Bloc mémoire 4Ko sélectionné">
+              <rect width="980" height="380" fill="#fff"/>
+              <text x="490" y="55" text-anchor="middle" font-size="18" font-weight="900" fill="#0f172a">
+                Mémoire 64 Ko découpée en blocs de 4 Ko (16 blocs)
+              </text>
+
+              <!-- draw 16 blocks -->
+              <g id="blocks" transform="translate(120,95)">
+                <!-- blocks generated by JS by manipulating rect fills -->
+              </g>
+
+              <text x="490" y="350" text-anchor="middle" font-size="12" fill="#6b7280" id="blockLabel">
+                Bloc sélectionné : 0x2xxx (0x2000 → 0x2FFF)
+              </text>
+            </svg>
+          </div>
+
+          <p class="hint">Quand <span class="mono">A15..A12 = 0x2</span>, la RAM répond sur toutes les adresses <span class="mono">0x2xxx</span>.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<div class="progress">
+  <div class="dots" id="dots"></div>
+  <div class="footnote">Navigation : <span class="mono">←</span>/<span class="mono">→</span> • 4 diapos</div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  // helpers
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+  function toast(msg){
+    const t = $("#toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(()=>t.classList.remove("show"), 1400);
+  }
+
+  // slides
+  const slides = $$(".slide");
+  let idx = 0;
+  function renderDots(){
+    const dots = $("#dots");
+    dots.innerHTML = "";
+    slides.forEach((s,i)=>{
+      const d = document.createElement("button");
+      d.className = "dot" + (i===idx ? " active":"");
+      d.title = `Aller à la diapo ${i+1}`;
+      d.addEventListener("click", ()=>go(i));
+      dots.appendChild(d);
+    });
+  }
+  function go(i){
+    idx = Math.max(0, Math.min(slides.length-1, i));
+    slides.forEach((s,k)=>s.classList.toggle("active", k===idx));
+    const prev = $("#btnPrev");
+    const next = $("#btnNext");
+    // $("#btnPrev").disabled = idx===0;
+    if(i===-1)
+    {
+      window.location.href=window.location.origin+"/p/s6/es/SysMicr/td1/ex3/?f=last";
+    }
+    if(next&&i===slides.length)
+    {
+      window.location.href=window.location.origin+"/p/s6/es/SysMicr/td1/ex5";
+    }
+    // $("#btnNext").disabled = idx===slides.length-1;
+    renderDots();
+    toast(`Diapo ${idx+1} / ${slides.length}`);
+  }
+  $("#btnPrev").addEventListener("click", ()=>go(idx-1));
+  $("#btnNext").addEventListener("click", ()=>go(idx+1));
+  window.addEventListener("keydown", (e)=>{
+    if(e.key==="ArrowLeft") go(idx-1);
+    if(e.key==="ArrowRight") go(idx+1);
+  });
+  renderDots();
+  // $("#btnPrev").disabled = true;
+
+  // simulator bits
+  const bits = {
+    A15: $("#b15"),
+    A14: $("#b14"),
+    A13: $("#b13"),
+    A12: $("#b12"),
+  };
+
+  function getBit(el){ return Number(el.dataset.on || "0"); }
+  function setBit(el, v){
+    el.dataset.on = String(v);
+    el.querySelector(".val").textContent = String(v);
+  }
+  function toggle(el){
+    const v = getBit(el);
+    setBit(el, v?0:1);
+    update();
+  }
+
+  Object.values(bits).forEach(el=>{
+    el.addEventListener("click", ()=>toggle(el));
+  });
+
+  // build 16 blocks SVG
+  const blocksG = document.getElementById("blocks");
+  const cols = 4, rows = 4;
+  const bw = 180, bh = 52, gap = 16;
+  const rects = [];
+  for(let r=0;r<rows;r++){
+    for(let c=0;c<cols;c++){
+      const i = r*cols + c; // 0..15
+      const x = c*(bw+gap);
+      const y = r*(bh+gap);
+
+      const rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+      rect.setAttribute("x", x);
+      rect.setAttribute("y", y);
+      rect.setAttribute("width", bw);
+      rect.setAttribute("height", bh);
+      rect.setAttribute("rx", 14);
+      rect.setAttribute("fill", "rgba(148,163,184,.12)");
+      rect.setAttribute("stroke", "rgba(203,213,225,1)");
+      rects.push(rect);
+
+      const t = document.createElementNS("http://www.w3.org/2000/svg","text");
+      t.setAttribute("x", x + 12);
+      t.setAttribute("y", y + 32);
+      t.setAttribute("font-size", "12");
+      t.setAttribute("font-weight", "900");
+      t.setAttribute("fill", "#111827");
+      t.textContent = `Bloc 0x${i.toString(16).toUpperCase()}xxx`;
+
+      blocksG.appendChild(rect);
+      blocksG.appendChild(t);
+    }
+  }
+
+  function update(){
+    const A15 = getBit(bits.A15);
+    const A14 = getBit(bits.A14);
+    const A13 = getBit(bits.A13);
+    const A12 = getBit(bits.A12);
+
+    // /CS = ¬( ¬A15 · ¬A14 · A13 · ¬A12 )
+    const in1 = 1 - A15; // ¬A15
+    const in2 = 1 - A14; // ¬A14
+    const in3 = A13;     // A13
+    const in4 = 1 - A12; // ¬A12
+    const andInputs = in1 & in2 & in3 & in4;
+    const CSbar = 1 - andInputs; // NAND output
+
+    const nibble = (A15<<3) | (A14<<2) | (A13<<1) | (A12<<0);
+    const hexNibble = nibble.toString(16).toUpperCase();
+
+    $("#nibbleChip").textContent = `Nibble A15..A12 = 0x${hexNibble}`;
+    const start = `0x${hexNibble}000`;
+    const end   = `0x${hexNibble}FFF`;
+    $("#rangeChip").textContent = `Plage : ${start} → ${end}`;
+    $("#blockLabel").textContent = `Bloc sélectionné : 0x${hexNibble}xxx (${start} → ${end})`;
+
+    // chip style
+    const csChip = $("#csChip");
+    if(CSbar===0){
+      csChip.className = "chip ok";
+      csChip.textContent = "/CS = 0 → RAM sélectionnée ✅";
+    }else{
+      csChip.className = "chip bad";
+      csChip.textContent = "/CS = 1 → RAM NON sélectionnée ❌";
+    }
+
+    // color blocks
+    rects.forEach((r,i)=>{
+      if(i===nibble){
+        r.setAttribute("fill", CSbar===0 ? "rgba(16,185,129,.22)" : "rgba(37,99,235,.14)");
+        r.setAttribute("stroke", CSbar===0 ? "rgba(16,185,129,.55)" : "rgba(37,99,235,.35)");
+      }else{
+        r.setAttribute("fill", "rgba(148,163,184,.12)");
+        r.setAttribute("stroke", "rgba(203,213,225,1)");
+      }
+    });
+  }
+
+  // initialize to the expected selection: A15..A12 = 0010
+  setBit(bits.A15,0);
+  setBit(bits.A14,0);
+  setBit(bits.A13,1);
+  setBit(bits.A12,0);
+  update();
+</script>
+</body>
+</html>
