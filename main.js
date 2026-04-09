@@ -115,6 +115,10 @@ let aXu_es_s6 = [
 	["/p/s6/es/sysmicr/tps/tp1 - corrigé (version 2).pdf", "https://drive.google.com/uc?id=1CXdFUtqosmOdAkB-lAinXt1AIvsnxAFG"],
 	["/p/s6/es/sysmicr/tps/tp2 - codes.pdf", "https://drive.google.com/uc?id=1AtDhA5tN7kpUK7TwXIppHbN0DtdOMxVn"],
 
+	["/p/s6/es/SysMicr/td1/ex1/", "https://tcfsa.github.io/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
+	["/p/s6/es/SysMicr/td1/", "https://tcfsa.github.io/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
+	["/p/s6/es/SysMicr/td2/", "https://tcfsa.github.io/p/s6/es/SysMicr/td2/correction_v1/ex1/"],
+
 	["/p/s6/es/trasign/cours/2023 - 2024/polycopié.pdf", "https://drive.google.com/uc?id=1B9YEsvoBnakTgfmdDdgLr1z47Aob4nKQ"],
 	["/p/s6/es/trasign/cours/2023 - 2024/polycopié_compressed.pdf", "https://drive.google.com/uc?id=1VQOlIivUGBo3_6uQeTP_hkjlULW_P8W8"],
 
