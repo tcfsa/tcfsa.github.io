@@ -624,7 +624,7 @@ const files = [
 
     // S5
 
-        // ES
+        // ES5
 
             // calcul
 
@@ -725,7 +725,7 @@ const files = [
 
                 // cours
 
-        // EER
+        // EER5
 
             // calcul
 
@@ -824,40 +824,53 @@ const files = [
 
     // S6
 
-        // ES
+        // ES6
 
             // automatique
 
                 // cours
 
-                    // 2023 - 2024
+                    // 2025 - 2026
 
                         {
-                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 1).pdf",
+                            title: "Automatique - Cours - Séance 01 (2025 - 2026).pdf",
                             description: "Automat s6 es",
-                            // href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem11",
-                            href: "file:///C:/Users/bern/Documents/GitHub/tcfsa.github.io/p/s6/es/Automat/index.html?f=elem11",
+                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem151",
                             
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
                         },
                         {
-                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 1)_compressed.pdf",
+                            title: "Automatique - Cours - Séance 02 (2025 - 2026).pdf",
                             description: "Automat s6 es",
-                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem12",
+                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem152",
                             
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
                         },
                         {
-                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 2).pdf",
+                            title: "Automatique - Cours - Séance 03 (2025 - 2026).pdf",
                             description: "Automat s6 es",
-                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem13",
+                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem153",
                             
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
                         },
                         {
-                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 2)_compressed.pdf",
+                            title: "Automatique - Cours - Séance 04 (2025 - 2026).pdf",
                             description: "Automat s6 es",
-                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem14",
+                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem154",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
+                        },
+                        {
+                            title: "Automatique - Cours - Séance 05 (2025 - 2026).pdf",
+                            description: "Automat s6 es",
+                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem155",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
+                        },
+                        {
+                            title: "Automatique - Cours - Séance 06 (2025 - 2026).pdf",
+                            description: "Automat s6 es",
+                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem156",
                             
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
                         },
@@ -942,9 +955,59 @@ const files = [
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
                         },
 
+                    // 2023 - 2024
+
+                        {
+                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 1).pdf",
+                            description: "Automat s6 es",
+                            // href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem11",
+                            href: "file:///C:/Users/bern/Documents/GitHub/tcfsa.github.io/p/s6/es/Automat/index.html?f=elem11",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
+                        },
+                        {
+                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 1)_compressed.pdf",
+                            description: "Automat s6 es",
+                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem12",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
+                        },
+                        {
+                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 2).pdf",
+                            description: "Automat s6 es",
+                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem13",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
+                        },
+                        {
+                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 2)_compressed.pdf",
+                            description: "Automat s6 es",
+                            href: "https://tcfsa.github.io/p/s6/es/Automat/?f=elem14",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
+                        },
+
             // trasig
 
                 // cours
+
+                    // 2025 - 2026
+
+                        {
+                            title: "Traitement du signal - Cours (Polycopié) (2025 - 2026).pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem14",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
+                        },
+
+                        {
+                            title: "Traitement du signal - Cours - Chapitre 1.pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem13",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
+                        },
 
                     // 2023 - 2024
 
@@ -963,39 +1026,125 @@ const files = [
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - ES"
                         },
 
-        // EER
+                // tds
+
+                        {
+                            title: "Traitement du signal - TD1 - Énoncé.pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem21",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "enn_c", titleColor: "white", semester: "S6 - ES"
+                        },
+
+                        {
+                            title: "Traitement du signal - TD1 - Corrigé.pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem22",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "corr_c", titleColor: "white", semester: "S6 - ES"
+                        },
+
+                        {
+                            title: "Traitement du signal - TD2 - Énoncé.pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem23",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "enn_c", titleColor: "white", semester: "S6 - ES"
+                        },
+
+                        {
+                            title: "Traitement du signal - TD2 - Corrigé (Incomplet).pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem24",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "corr_c", titleColor: "white", semester: "S6 - ES"
+                        },
+
+                        {
+                            title: "Traitement du signal - TD3 - Énoncé.pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem25",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "enn_c", titleColor: "white", semester: "S6 - ES"
+                        },
+
+                // tps
+
+
+                        {
+                            title: "Traitement du signal - TP1 - Énoncé.pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem32",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "fiche_c", titleColor: "black", semester: "S6 - ES"
+                        },
+
+                        {
+                            title: "Traitement du signal - TP1 - Corrigé.pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem34",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "corrtp_c", titleColor: "white", semester: "S6 - ES"
+                        },
+
+                        {
+                            title: "Traitement du signal - TP2 - Énoncé.pdf",
+                            description: "TraSign s6 es de",
+                            href: "https://tcfsa.github.io/p/s6/es/TraSign/?f=elem33",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "fiche_c", titleColor: "black", semester: "S6 - ES"
+                        },
+
+
+
+
+        // EER6
 
             // automatique
 
                 // cours
 
-                    // 2023 - 2024
+                    // 2025 - 2026
 
                         {
-                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 1).pdf",
+                            title: "Automatique - Cours - Séance 01 (2025 - 2026).pdf",
                             description: "Automat s6 eer",
-                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem11",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem151",
                             
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
                         },
                         {
-                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 1)_compressed.pdf",
+                            title: "Automatique - Cours - Séance 02 (2025 - 2026).pdf",
                             description: "Automat s6 eer",
-                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem12",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem152",
                             
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
                         },
                         {
-                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 2).pdf",
+                            title: "Automatique - Cours - Séance 03 (2025 - 2026).pdf",
                             description: "Automat s6 eer",
-                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem13",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem153",
                             
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
                         },
                         {
-                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 2)_compressed.pdf",
+                            title: "Automatique - Cours - Séance 04 (2025 - 2026).pdf",
                             description: "Automat s6 eer",
-                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem14",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem154",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
+                        },
+                        {
+                            title: "Automatique - Cours - Séance 05 (2025 - 2026).pdf",
+                            description: "Automat s6 eer",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem155",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
+                        },
+                        {
+                            title: "Automatique - Cours - Séance 06 (2025 - 2026).pdf",
+                            description: "Automat s6 eer",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem156",
                             
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
                         },
@@ -1079,6 +1228,38 @@ const files = [
                             
                             semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
                         },
+
+                    // 2023 - 2024
+
+                        {
+                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 1).pdf",
+                            description: "Automat s6 eer",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem11",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
+                        },
+                        {
+                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 1)_compressed.pdf",
+                            description: "Automat s6 eer",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem12",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
+                        },
+                        {
+                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 2).pdf",
+                            description: "Automat s6 eer",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem13",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
+                        },
+                        {
+                            title: "Automatique - Cours (Polycopié) (2023 - 2024) (Partie 2)_compressed.pdf",
+                            description: "Automat s6 eer",
+                            href: "https://tcfsa.github.io/p/s6/eer/Automat/?f=elem14",
+                            
+                            semesterColor: "white", semTextColor: "black", class: "chapt_c", titleColor: "white", semester: "S6 - EER"
+                        },
+
 ];
 
 const resultsBox = document.getElementById("results");
