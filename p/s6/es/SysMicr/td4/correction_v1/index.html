@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <meta name="viewport" content="interactive-widget=resizes-content" />
+  <title>TD Arduino Uno - Présentation interactive</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg2: #0b1830;
+      --panel: rgba(255,255,255,0.08);
+      --panel-strong: rgba(255,255,255,0.12);
+      --text: #eef4ff;
+      --muted: #b7c7e6;
+      --accent: #5eead4;
+      --accent2: #60a5fa;
+      --gold: #f8d66d;
+      --danger: #fb7185;
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(96,165,250,.18), transparent 35%),
+        radial-gradient(circle at top right, rgba(94,234,212,.14), transparent 30%),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    .app {
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 78px 1fr 90px;
+      padding: 18px;
+      gap: 14px;
+    }
+
+    .topbar, .bottombar {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-badge {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      display: grid;
+      place-items: center;
+      color: #07111f;
+      font-size: 22px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(96,165,250,.35);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.15rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .chip {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .viewer {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+    }
+
+    .slides {
+      height: 100%;
+      display: flex;
+      transition: transform .55s cubic-bezier(.22,.9,.26,1);
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      padding: 34px;
+      display: grid;
+      gap: 22px;
+      position: relative;
+    }
+
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 18%, rgba(94,234,212,.10), transparent 18%);
+      pointer-events: none;
+    }
+
+    .hero {
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(94,234,212,.10);
+      border: 1px solid rgba(94,234,212,.25);
+      color: var(--accent);
+      width: fit-content;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius);
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .title-xl {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.06;
+      max-width: 900px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      max-width: 900px;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .meta-item {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .meta-item strong { color: white; }
+
+    .toc-grid, .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .toc-card, .mini-card, .code-card, .summary-card {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .toc-card h3, .summary-card h3, .code-card h3, .mini-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .toc-card p, .mini-card p, .summary-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+    }
+
+    .section-title .tag {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(96,165,250,.12);
+      color: var(--accent2);
+      border: 1px solid rgba(96,165,250,.24);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      height: 100%;
+    }
+
+    .q-box, .a-box, .statement-box {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .q-box {
+      border-left: 5px solid var(--accent2);
+    }
+
+    .a-box {
+      border-left: 5px solid var(--accent);
+    }
+
+    .q-label, .a-label, .statement-label {
+      font-size: .92rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .q-text {
+      font-size: clamp(1.35rem, 2.6vw, 2.1rem);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    .a-text, .statement-box p, .statement-box li {
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .statement-box ul {
+      margin: 12px 0 0 0;
+      padding-left: 22px;
+      color: var(--muted);
+    }
+
+    .statement-box li { color: var(--muted); }
+
+    .code-card {
+      overflow: auto;
+      padding: 0;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .code-header span {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    pre {
+      margin: 0;
+      padding: 22px;
+      font-size: .96rem;
+      line-height: 1.58;
+      color: #dbeafe;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 16px;
+      padding: 13px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(135deg, rgba(96,165,250,.35), rgba(94,234,212,.28));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, opacity .18s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: translateY(1px); }
+    button.secondary { background: rgba(255,255,255,0.08); }
+
+    .counter {
+      color: var(--muted);
+      font-weight: 700;
+      min-width: 84px;
+      text-align: center;
+    }
+
+    .progress {
+      flex: 1;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      overflow: hidden;
+      margin: 0 18px;
+    }
+
+    .progress > div {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      border-radius: 999px;
+      transition: width .45s ease;
+    }
+
+    .help {
+      color: var(--muted);
+      font-size: .95rem;
+      white-space: nowrap;
+    }
+
+    .jump {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .jump button {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: .88rem;
+    }
+
+    .quote {
+      border-left: 4px solid var(--gold);
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.75;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid, .two-col, .toc-grid, .summary-grid, .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .chip-row { display: none; }
+      .help { display: none; }
+      .app { grid-template-rows: 86px 1fr 104px; }
+    }
+
+    @media (max-width: 720px) {
+      .slide { padding: 20px; }
+      .q-text { font-size: 1.18rem; }
+      .a-text, .statement-box p, .statement-box li { font-size: .98rem; }
+      .brand p { display: none; }
+      .topbar, .bottombar { padding: 0 14px; }
+      .progress { margin: 0 8px; }
+      button { padding: 11px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-badge">µC</div>
+        <div>
+          <h1>TD interactif — ATmega328 / Arduino Uno</h1>
+          <p>Série IV • Systèmes à µp et à µc • Présentation professionnelle</p>
+        </div>
+      </div>
+      <div class="chip-row">
+        <div class="chip">Ex. 1 à 5</div>
+        <div class="chip">Navigation clavier</div>
+        <div class="chip">Mise en page adaptative</div>
+      </div>
+    </header>
+
+    <main class="viewer">
+      <div class="slides" id="slides">
+
+        <section class="slide hero">
+          <div class="eyebrow">Présentation HTML interactive</div>
+          <div class="hero-grid">
+            <div class="panel">
+              <h2 class="title-xl">TD 4 — Microcontrôleur <br>ATmega328 / Arduino Uno</h2>
+              <p class="subtitle">
+                Une version premium, claire et pédagogique du TD, structurée en diapos dynamiques.
+                Les questions courtes sont présentées en format <strong>question à gauche / réponse à droite</strong>,
+                tandis que les exercices plus détaillés sont séparés en <strong>énoncé</strong> puis <strong>solution</strong>.
+              </p>
+              <div class="quote">
+                Objectif : faciliter l’explication en classe, la projection sur écran et la révision autonome des étudiants.
+              </div>
+            </div>
+            <div class="panel">
+              <div class="meta-list">
+                <div class="meta-item"><strong>Filière :</strong> ES6</div>
+                <div class="meta-item"><strong>Année universitaire :</strong> 2025/2026 — Semestre 6</div>
+                <div class="meta-item"><strong>Date :</strong> 20/04/2026</div>
+                <div class="meta-item"><strong>Thème :</strong> Microcontrôleur ATmega328 — Arduino Uno</div>
+              </div>
+            </div>
+          </div>
+          <div class="jump">
+            <button onclick="goTo(1)">Sommaire</button>
+            <button onclick="goTo(2)">Exercice 1</button>
+            <button onclick="goTo(11)">Exercice 2</button>
+            <button onclick="goTo(13)">Exercice 3</button>
+            <button onclick="goTo(15)">Exercice 4</button>
+            <button onclick="goTo(17)">Exercice 5</button>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title">
+            <h2>Sommaire</h2>
+            <div class="tag">Vue d’ensemble</div>
+          </div>
+          <div class="toc-grid">
+            <div class="toc-card"><h3>Exercice 1</h3><p>Généralités sur Arduino Uno : 8 questions rapides avec réponses immédiates.</p></div>
+            <div class="toc-card"><h3>Exercice 2</h3><p>Feux de signalisation avec LEDs : cahier des charges puis programme Arduino.</p></div>
+            <div class="toc-card"><h3>Exercice 3</h3><p>Commande d’une LED par bouton poussoir : lecture d’entrée numérique.</p></div>
+            <div class="toc-card"><h3>Exercice 4</h3><p>Allumage de LEDs selon la position d’un potentiomètre avec clignotement automatique.</p></div>
+            <div class="toc-card"><h3>Exercice 5</h3><p>Détection d’objets avec capteur ultrason HC-SR04 et variation PWM.</p></div>
+            <div class="toc-card"><h3>Fin de présentation</h3><p>Résumé des commandes Arduino essentielles à retenir.</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 1 — Généralités sur Arduino Uno</h2><div class="tag">Q1</div></div>
+          <div class="two-col">
+            <div class="q-box"><div class="q-label">Question</div><p class="q-text">Quelles sont les deux fonctions obligatoires dans tout programme Arduino ?</p></div>
+            <div class="a-box"><div class="a-label">Réponse</div><p class="a-text">Les deux fonctions obligatoires sont <strong>setup()</strong> et <strong>loop()</strong>.</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 1 — Généralités sur Arduino Uno</h2><div class="tag">Q2</div></div>
+          <div class="two-col">
+            <div class="q-box"><div class="q-label">Question</div><p class="q-text">Quelle instruction permet de définir si une broche est une entrée ou une sortie ?</p></div>
+            <div class="a-box"><div class="a-label">Réponse</div><p class="a-text">L’instruction <strong>pinMode(pin, mode);</strong> permet de définir une broche en <strong>entrée</strong> (<strong>INPUT</strong>) ou en <strong>sortie</strong> (<strong>OUTPUT</strong>).</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 1 — Généralités sur Arduino Uno</h2><div class="tag">Q3</div></div>
+          <div class="two-col">
+            <div class="q-box"><div class="q-label">Question</div><p class="q-text">À quoi sert la fonction setup() ? S’exécute-t-elle en boucle ou une seule fois ?</p></div>
+            <div class="a-box"><div class="a-label">Réponse</div><p class="a-text">La fonction <strong>setup()</strong> sert à <strong>initialiser</strong> le programme : configuration des broches, communication série, etc. Elle s’exécute <strong>une seule fois</strong> au démarrage.</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 1 — Généralités sur Arduino Uno</h2><div class="tag">Q4</div></div>
+          <div class="two-col">
+            <div class="q-box"><div class="q-label">Question</div><p class="q-text">Quelle est la différence entre les broches numériques et analogiques d’une carte Arduino ?</p></div>
+            <div class="a-box"><div class="a-label">Réponse</div><p class="a-text">Les broches <strong>numériques</strong> lisent ou écrivent des valeurs binaires <strong>HIGH/LOW</strong>, alors que les broches <strong>analogiques</strong> permettent de lire des valeurs variables, typiquement de <strong>0 à 1023</strong>.</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 1 — Généralités sur Arduino Uno</h2><div class="tag">Q5</div></div>
+          <div class="two-col">
+            <div class="q-box"><div class="q-label">Question</div><p class="q-text">Comment allumer une LED sur la broche 13 ?</p></div>
+            <div class="a-box"><div class="a-label">Réponse</div><p class="a-text">Il faut d’abord configurer la broche avec <strong>pinMode(13, OUTPUT);</strong>, puis envoyer <strong>digitalWrite(13, HIGH);</strong>.</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 1 — Généralités sur Arduino Uno</h2><div class="tag">Q6</div></div>
+          <div class="two-col">
+            <div class="q-box"><div class="q-label">Question</div><p class="q-text">Quelle broche permet de lire la valeur d’un potentiomètre ?</p></div>
+            <div class="a-box"><div class="a-label">Réponse</div><p class="a-text">On utilise une <strong>broche analogique</strong>, par exemple <strong>A0 à A5</strong>.</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 1 — Généralités sur Arduino Uno</h2><div class="tag">Q7</div></div>
+          <div class="two-col">
+            <div class="q-box"><div class="q-label">Question</div><p class="q-text">À quoi servent les broches marquées d’un tilde (~) ?</p></div>
+            <div class="a-box"><div class="a-label">Réponse</div><p class="a-text">Elles permettent d’utiliser la fonction <strong>analogWrite()</strong> afin de générer un signal <strong>PWM</strong> (pseudo-analogique).</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 1 — Généralités sur Arduino Uno</h2><div class="tag">Q8</div></div>
+          <div class="two-col">
+            <div class="q-box"><div class="q-label">Question</div><p class="q-text">Sur quel port branche-t-on un bouton poussoir ?</p></div>
+            <div class="a-box"><div class="a-label">Réponse</div><p class="a-text">Sur une <strong>broche numérique</strong> configurée en <strong>entrée</strong> avec <strong>INPUT</strong>.</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 1 — Synthèse rapide</h2><div class="tag">À retenir</div></div>
+          <div class="summary-grid">
+            <div class="summary-card"><h3>Structure minimale</h3><p>Tout programme Arduino contient <strong>setup()</strong> pour l’initialisation et <strong>loop()</strong> pour l’exécution répétitive.</p></div>
+            <div class="summary-card"><h3>Gestion des broches</h3><p>On configure les broches avec <strong>pinMode()</strong>, puis on agit avec <strong>digitalWrite()</strong> ou on lit avec <strong>digitalRead()</strong>.</p></div>
+            <div class="summary-card"><h3>Entrées analogiques</h3><p>Les capteurs comme le potentiomètre sont généralement raccordés sur <strong>A0…A5</strong>.</p></div>
+            <div class="summary-card"><h3>PWM</h3><p>Les broches marquées <strong>~</strong> servent à la commande pseudo-analogique par <strong>analogWrite()</strong>.</p></div>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 2 — Feux de signalisation avec LEDs</h2><div class="tag">Énoncé</div></div>
+          <div class="statement-box">
+            <div class="statement-label">Cahier des charges</div>
+            <p>Le système doit réaliser un feu de signalisation avec deux feux tricolores composés chacun de trois LEDs : rouge, orange et verte.</p>
+            <ul>
+              <li>Si un feu est <strong>vert</strong>, l’autre doit être <strong>rouge</strong>.</li>
+              <li>Un délai de <strong>3 secondes</strong> doit séparer le feu vert du feu orange.</li>
+              <li>Un délai de <strong>1 seconde</strong> doit séparer le feu orange du feu rouge.</li>
+              <li>Après le rouge, attendre <strong>3 secondes</strong> avant le passage au vert de l’autre feu.</li>
+              <li>Travail demandé : écrire le programme Arduino, puis simuler le montage sous Proteus ou Tinkercad.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 2 — Feux de signalisation avec LEDs</h2><div class="tag">Solution</div></div>
+          <div class="code-card">
+            <div class="code-header"><strong>Programme Arduino</strong><span>Alternance de deux feux tricolores</span></div>
+            <pre>// Définition des broches pour le Feu 1
+int R1 = 2;
+int O1 = 3;
+int V1 = 4;
+
+// Définition des broches pour le Feu 2
+int R2 = 5;
+int O2 = 6;
+int V2 = 7;
+
+void setup() {
+  pinMode(R1, OUTPUT);
+  pinMode(O1, OUTPUT);
+  pinMode(V1, OUTPUT);
+  pinMode(R2, OUTPUT);
+  pinMode(O2, OUTPUT);
+  pinMode(V2, OUTPUT);
+}
+
+void loop() {
+  // Phase 1 : Feu 1 vert, Feu 2 rouge
+  digitalWrite(V1, HIGH);
+  digitalWrite(O1, LOW);
+  digitalWrite(R1, LOW);
+  digitalWrite(R2, HIGH);
+  digitalWrite(O2, LOW);
+  digitalWrite(V2, LOW);
+  delay(3000);
+
+  // Phase 2 : Feu 1 orange, Feu 2 rouge
+  digitalWrite(V1, LOW);
+  digitalWrite(O1, HIGH);
+  delay(1000);
+
+  // Phase 3 : Feu 1 rouge, Feu 2 vert
+  digitalWrite(O1, LOW);
+  digitalWrite(R1, HIGH);
+  digitalWrite(R2, LOW);
+  digitalWrite(V2, HIGH);
+  delay(3000);
+
+  // Phase 4 : Feu 2 orange, Feu 1 rouge
+  digitalWrite(V2, LOW);
+  digitalWrite(O2, HIGH);
+  delay(1000);
+
+  // Fin du cycle
+  digitalWrite(O2, LOW);
+}</pre>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 3 — Contrôle d’une LED par bouton poussoir</h2><div class="tag">Énoncé</div></div>
+          <div class="statement-box">
+            <div class="statement-label">Cahier des charges</div>
+            <p>Le montage permet à l’Arduino de lire l’état du bouton poussoir <strong>SW1</strong>.</p>
+            <ul>
+              <li>La LED est <strong>allumée</strong> si le bouton est <strong>appuyé</strong>.</li>
+              <li>La LED est <strong>éteinte</strong> si le bouton est <strong>relâché</strong>.</li>
+              <li>La LED est branchée sur la <strong>broche 13</strong>.</li>
+              <li>Travail demandé : écrire le programme puis simuler le circuit sous Proteus ou Tinkercad.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 3 — Contrôle d’une LED par bouton poussoir</h2><div class="tag">Solution</div></div>
+          <div class="code-card">
+            <div class="code-header"><strong>Programme Arduino</strong><span>Lecture d’une entrée numérique</span></div>
+            <pre>int bouton = 2;   // Broche du bouton poussoir
+int led = 13;     // Broche de la LED
+
+void setup() {
+  pinMode(bouton, INPUT);
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  int etat = digitalRead(bouton);
+
+  if (etat == HIGH) {
+    digitalWrite(led, HIGH);
+  } else {
+    digitalWrite(led, LOW);
+  }
+}</pre>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 4 — Contrôle de LEDs par potentiomètre</h2><div class="tag">Énoncé</div></div>
+          <div class="statement-box">
+            <div class="statement-label">Cahier des charges</div>
+            <p>Le système commande <strong>quatre LEDs</strong> à partir de la valeur analogique lue sur un potentiomètre.</p>
+            <ul>
+              <li><strong>val ≤ 205</strong> : aucune LED allumée</li>
+              <li><strong>205 &lt; val ≤ 410</strong> : 1 LED allumée</li>
+              <li><strong>410 &lt; val ≤ 615</strong> : 2 LEDs allumées</li>
+              <li><strong>615 &lt; val ≤ 820</strong> : 3 LEDs allumées</li>
+              <li><strong>val &gt; 820</strong> : 4 LEDs allumées</li>
+              <li>Le clignotement est automatique : <strong>1 s allumé / 1 s éteint</strong>.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 4 — Contrôle de LEDs par potentiomètre</h2><div class="tag">Solution</div></div>
+          <div class="code-card">
+            <div class="code-header"><strong>Programme Arduino</strong><span>Lecture analogique et seuils</span></div>
+            <pre>// LEDs sur les broches 10, 11, 12 et 13
+int L1 = 10;
+int L2 = 11;
+int L3 = 12;
+int L4 = 13;
+int pot = A0;
+
+void setup() {
+  pinMode(L1, OUTPUT);
+  pinMode(L2, OUTPUT);
+  pinMode(L3, OUTPUT);
+  pinMode(L4, OUTPUT);
+}
+
+void loop() {
+  int val = analogRead(pot);
+  int n = 0;
+
+  if (val <= 205) n = 0;
+  else if (val <= 410) n = 1;
+  else if (val <= 615) n = 2;
+  else if (val <= 820) n = 3;
+  else n = 4;
+
+  digitalWrite(L1, n >= 1);
+  digitalWrite(L2, n >= 2);
+  digitalWrite(L3, n >= 3);
+  digitalWrite(L4, n >= 4);
+  delay(1000);
+
+  digitalWrite(L1, LOW);
+  digitalWrite(L2, LOW);
+  digitalWrite(L3, LOW);
+  digitalWrite(L4, LOW);
+  delay(1000);
+}</pre>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 5 — Détection d’objets avec HC-SR04</h2><div class="tag">Énoncé</div></div>
+          <div class="statement-box">
+            <div class="statement-label">Cahier des charges</div>
+            <p>Le système détecte la présence d’un objet avec un capteur ultrason <strong>HC-SR04</strong>.</p>
+            <ul>
+              <li><strong>ECHO</strong> sur la broche <strong>8</strong> et <strong>TRIG</strong> sur la broche <strong>9</strong>.</li>
+              <li><strong>LED1</strong> sur la broche <strong>2</strong> et <strong>LED2</strong> sur la broche <strong>3</strong>.</li>
+              <li>Mesurer la distance et l’afficher sur le moniteur série.</li>
+              <li>Allumer LED1 si <strong>d &lt; 100 cm</strong>.</li>
+              <li>Faire varier l’intensité de LED2 : plus l’objet est proche, plus l’intensité augmente.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Exercice 5 — Détection d’objets avec HC-SR04</h2><div class="tag">Solution</div></div>
+          <div class="code-card">
+            <div class="code-header"><strong>Programme Arduino</strong><span>Mesure de distance + PWM</span></div>
+            <pre>// Broches du capteur HC-SR04
+int trig = 9;
+int echo = 8;
+
+// Broches des LEDs
+int LED1 = 2;
+int LED2 = 3;
+
+long duree;
+int distance;
+int pwm;
+
+void setup() {
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+
+  duree = pulseIn(echo, HIGH);
+  distance = duree * 0.034 / 2;
+
+  Serial.print("La distance est : ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  if (distance < 100) digitalWrite(LED1, HIGH);
+  else digitalWrite(LED1, LOW);
+
+  pwm = map(distance, 0, 200, 255, 0);
+  pwm = constrain(pwm, 0, 255);
+  analogWrite(LED2, pwm);
+
+  delay(200);
+}</pre>
+          </div>
+        </section>
+
+        <section class="slide">
+          <div class="section-title"><h2>Commandes Arduino essentielles</h2><div class="tag">Récapitulatif</div></div>
+          <div class="card-grid">
+            <div class="mini-card"><h3>pinMode(pin, mode)</h3><p>Configurer une broche en entrée ou sortie. Exemple : <strong>pinMode(13, OUTPUT);</strong></p></div>
+            <div class="mini-card"><h3>digitalWrite(pin, HIGH/LOW)</h3><p>Fixer l’état logique d’une sortie numérique.</p></div>
+            <div class="mini-card"><h3>analogWrite(pin, val)</h3><p>Générer un signal PWM entre <strong>0</strong> et <strong>255</strong>.</p></div>
+            <div class="mini-card"><h3>analogRead(pin)</h3><p>Lire une valeur analogique entre <strong>0</strong> et <strong>1023</strong>.</p></div>
+            <div class="mini-card"><h3>map(x, a, b, c, d)</h3><p>Transformer une valeur d’un intervalle vers un autre.</p></div>
+            <div class="mini-card"><h3>constrain(x, a, b)</h3><p>Limiter une valeur à un intervalle donné.</p></div>
+            <div class="mini-card"><h3>pulseIn(pin, HIGH)</h3><p>Mesurer la durée d’une impulsion sur une entrée.</p></div>
+            <div class="mini-card"><h3>Serial.begin / print / println</h3><p>Initialiser et utiliser la communication série.</p></div>
+          </div>
+        </section>
+
+        <section class="slide hero">
+          <div class="eyebrow">Fin de la présentation</div>
+          <div class="hero-grid">
+            <div class="panel">
+              <h2 class="title-xl">Merci</h2>
+              <p class="subtitle">
+                Cette présentation peut être projetée directement en classe, utilisée comme support de révision,
+                ou enrichie avec des schémas, animations et simulations supplémentaires.
+              </p>
+              <div class="quote">Astuce : utilisez les flèches du clavier ← → ou les boutons de navigation pour parcourir les diapos.</div>
+            </div>
+            <div class="panel">
+              <div class="meta-list">
+                <div class="meta-item"><strong>Nombre de diapos :</strong> 20</div>
+                <div class="meta-item"><strong>Style :</strong> Premium, interactif, académique</div>
+                <div class="meta-item"><strong>Usage :</strong> Projection, révision, démonstration</div>
+              </div>
+            </div>
+          </div>
+          <div class="jump">
+            <button onclick="goTo(0)">Revenir au début</button>
+            <button onclick="goTo(1)">Sommaire</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="bottombar">
+      <div class="controls">
+        <button class="secondary" onclick="prevSlide()">← Précédent</button>
+        <button onclick="nextSlide()">Suivant →</button>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <div class="counter" id="counter">1 / 20</div>
+      <div class="help">Clavier : ← → • Début : Home • Fin : End</div>
+    </footer>
+  </div>
+
+  <script>
+    const slides = document.getElementById('slides');
+    const total = slides.children.length;
+    const counter = document.getElementById('counter');
+    const progressBar = document.getElementById('progressBar');
+    let index = 0;
+
+    function render() {
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      counter.textContent = `${index + 1} / ${total}`;
+      progressBar.style.width = `${((index + 1) / total) * 100}%`;
+    }
+
+    function nextSlide() {
+      if (index < total - 1) index++;
+      render();
+    }
+
+    function prevSlide() {
+      if (index > 0) index--;
+      render();
+    }
+
+    function goTo(i) {
+      index = Math.max(0, Math.min(total - 1, i));
+      render();
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') nextSlide();
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSlide();
+      if (e.key === 'Home') goTo(0);
+      if (e.key === 'End') goTo(total - 1);
+    });
+
+    render();
+  </script>
+</body>
+</html>
