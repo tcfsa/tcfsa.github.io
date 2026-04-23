@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-  <meta name="viewport" content="interactive-widget=resizes-content" />
+  <meta name="viewport" content="interactive-widget=resizes-content, initial-scale=0.7" />
   <title>TD Arduino Uno - Présentation interactive</title>
   <style>
     :root {
@@ -31,7 +31,8 @@
         radial-gradient(circle at top right, rgba(94,234,212,.14), transparent 30%),
         linear-gradient(135deg, var(--bg), var(--bg2));
       color: var(--text);
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     .app {
@@ -78,7 +79,8 @@
       margin: 0;
       font-size: 1.15rem;
       white-space: nowrap;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       text-overflow: ellipsis;
     }
 
@@ -106,7 +108,8 @@
 
     .viewer {
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       border-radius: 28px;
       box-shadow: var(--shadow);
       border: 1px solid rgba(255,255,255,0.10);
@@ -370,7 +373,8 @@
       height: 10px;
       border-radius: 999px;
       background: rgba(255,255,255,0.10);
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       margin: 0 18px;
     }
 
