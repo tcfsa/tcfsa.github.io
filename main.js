@@ -8,7 +8,8 @@ let aXu_others = [
 	["/a2", "https://drive.google.com/drive/folders/1wnJgrB-ADvwvKkuyk8baLPrEvAbZJCQI"],
 	["/a3", "https://drive.google.com/drive/folders/1nlET-ECxWim0cSlkscXt1Kuvwz1BtjPf"],
 	["/a4", "https://mega.nz/folder/K4500IjB#4OrXSVRCXG2ddZlwVT25FQ"],
-	["/a5", "https://mega.nz/folder/XoQzwbAS#vVfprilIRfbfnxeSGny6Hg"]
+	["/a5", "https://mega.nz/folder/XoQzwbAS#vVfprilIRfbfnxeSGny6Hg"],
+	["/a6", "https://mega.nz/folder/DthSFYgR#iQT3kwnNZZcFurYDAckv5w"]
 
 ];
 
