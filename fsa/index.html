@@ -49,23 +49,47 @@
 
   </body>
 
-  <script type="text/javascript">
-// Upgrade target to HTTPS to prevent protocol blocking
-const targetUrl = 'fsa.ac.ma';
 
-// Switch to the stable Codetabs proxy
-const proxyUrl = 'codetabs.com'; 
+<script>
+const targetUrl = 'http://fsa.ac.ma';
+
+// CodeTabs proxy
+const proxyUrl = 'https://api.codetabs.com/v1/proxy?quest=';
 
 fetch(proxyUrl + encodeURIComponent(targetUrl))
   .then(response => {
-    if (response.ok) return response.text();
-    throw new Error('Network error or site unreachable.');
+    if (!response.ok) {
+      throw new Error('Failed to fetch website');
+    }
+
+    return response.text();
   })
   .then(html => {
-    document.getElementById('external-content').innerHTML = html;
-  })
-  .catch(err => console.error('Failed to fetch proxy content:', err));
 
-  </script>
+    const container = document.getElementById('external-content');
+    container.innerHTML = '';
+
+    const iframe = document.createElement('iframe');
+
+    iframe.style.width = '100%';
+    iframe.style.height = '700px';
+    iframe.style.border = 'none';
+
+    container.appendChild(iframe);
+
+    const doc = iframe.contentWindow.document;
+
+    doc.open();
+    doc.write(html);
+    doc.close();
+
+  })
+  .catch(err => {
+    console.error(err);
+
+    document.getElementById('external-content').innerHTML =
+      '<p>Could not load website.</p>';
+  });
+</script>
 
 </html>
