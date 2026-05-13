@@ -50,24 +50,21 @@
   </body>
 
   <script type="text/javascript">
-// Target HTTP website you want to scrape or read
-const targetUrl = 'http://www.fsa.ac.ma/';
+// Upgrade target to HTTPS to prevent protocol blocking
+const targetUrl = 'fsa.ac.ma';
 
-// Correctly structured AllOrigins endpoint path
-const proxyUrl = 'https://api.allorigins.win/raw?url='; 
+// Switch to the stable Codetabs proxy
+const proxyUrl = 'codetabs.com'; 
 
-// Fetch combining the protocol, path, and encoded URL parameter
 fetch(proxyUrl + encodeURIComponent(targetUrl))
   .then(response => {
     if (response.ok) return response.text();
     throw new Error('Network error or site unreachable.');
   })
   .then(html => {
-    // Successfully injects the fetched webpage source code into your container
     document.getElementById('external-content').innerHTML = html;
   })
   .catch(err => console.error('Failed to fetch proxy content:', err));
-
 
   </script>
 
