@@ -38,11 +38,32 @@
 
   <body>
 
-    <embed
+    <!-- <embed
   src="http://www.fsa.ac.ma"
   style="    width: 100vw;
     height: 100vh;"
-  />
+  /> -->
+
+  <div id="external-content">Loading content securely...</div>
+
 
   </body>
+
+  <script type="text/javascript">
+    const targetUrl = 'http://www.fsa.ac.ma/';
+const proxyUrl = 'allorigins.win'; // Secure proxy wrapper
+
+fetch(proxyUrl + encodeURIComponent(targetUrl))
+  .then(response => {
+    if (response.ok) return response.text();
+    throw new Error('Network error.');
+  })
+  .then(html => {
+    // Injects the fetched HTML code directly into your page container
+    document.getElementById('external-content').innerHTML = html;
+  })
+  .catch(err => console.error('Failed to fetch content:', err));
+
+  </script>
+
 </html>
