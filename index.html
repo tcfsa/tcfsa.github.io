@@ -14,6 +14,144 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f1f5f9;
+        /*font-family: system-ui, sans-serif;*/
+
+        font-family: "Google Sans Flex", sans-serif;
+          font-optical-sizing: auto;
+              font-weight: 500;
+          font-style: normal;
+          font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0;
+      }
+
+      /* Carte */
+      .card {
+        margin-inline: auto;
+            margin-bottom: 50px;
+        /*width: 300px;*/
+        width: 450px;
+        height: 320px;
+        background: #fff;
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Titre */
+      .title {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      /* NEW: totals */
+      .totals {
+        font-size: 12px;
+        margin-top: 6px;
+        color: #0f172a;
+      }
+
+      /* Graph */
+      .chart {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-top: 14px;
+      }
+
+      /* Colonne */
+      .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        flex: 1;
+      }
+
+      /* Groupe */
+      .bar-group {
+        display: flex;
+        gap: 4px;
+        align-items: flex-end;
+        height: 150px;
+      }
+
+      /* Wrapper */
+      .bar-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Valeur */
+      .value {
+        font-size: 9px;
+        margin-bottom: 3px;
+        color: #0f172a;
+      }
+
+      /* Barres */
+      .bar {
+        width: 9px;
+        /*border-radius: 6px;*/
+        border-radius: 2px;
+        transform: scaleY(0);
+        transform-origin: bottom;
+        animation: grow 0.6s ease forwards;
+      }
+
+      .views {
+        background: linear-gradient(180deg, #22c55e, #16a34a);
+      }
+
+      .users {
+        background: linear-gradient(180deg, #3b82f6, #2563eb);
+      }
+
+      /* Mois */
+      .label {
+        font-size: 9px;
+        color: #94a3b8;
+        margin-top: 6px;
+      }
+
+      /* Légende */
+      .legend {
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        font-size: 11px;
+        margin-top: 10px;
+        color: #475569;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .square {
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+      }
+
+      /* Animation */
+      @keyframes grow {
+        to { transform: scaleY(1); }
+      }
+    </style>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="home-styles.css">
     <link rel="stylesheet" href="search-bar.css">
@@ -49,7 +187,7 @@
     padding-top: 40px;
     margin: 0px 20px;">
 
-      <div class="search-container">
+      <!-- <div class="search-container">
 
         <div id="searchBar" class="search-bar">
           <img src="icons/favicon-32x32.png" alt="Search" class="search-icon">
@@ -74,12 +212,12 @@
                 </div>
                 <span class="itemclassg itemclassc"></span>
               </div>
-            </div>
+            </div> -->
 
             <!-- <span class="search-icon">🔍</span> -->
             <!--  aria-label="Rechercher" role="button" -->
 
-            <div class="itemclassf">
+            <!-- <div class="itemclassf">
               <span class="itemclasse">
                 <svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
@@ -92,7 +230,7 @@
         <div class="results hide-scrollbar" id="results">
         </div>
 
-      </div>
+      </div> -->
 
       <div class="course-item" onclick="toggleSec('sec1')">
 
@@ -141,6 +279,23 @@
         <h3>Autres</h3>
 
         <ul id="sec3" class="semester-list">
+
+
+          <a target="_blank" href="https://tcfsa.github.io/a8">
+            <li class="semester-item" onclick="keep('sec3')">
+              DDE APEX 1.0 S2-26
+              <br>
+              (Physique S2)
+            </li>
+          </a>
+
+          <a target="_blank" href="https://tcfsa.github.io/a7">
+            <li class="semester-item" onclick="keep('sec3')">
+              DDE APEX 1.0 S1-26
+              <br>
+              (Physique S1)
+            </li>
+          </a>
 
           <a target="_blank" href="https://tcfsa.github.io/a6">
             <li class="semester-item" onclick="keep('sec3')">
@@ -251,9 +406,9 @@
         </h2>
 
         <h3 class="home-footer-item-2" style="text-box: auto;">
-          Visiteurs uniques (total) : 558
+          Visiteurs uniques (total) : 574
           <br>
-          Visiteurs uniques ce mois : 70
+          Visiteurs uniques ce mois : 83
         </h3>
 
 
@@ -265,6 +420,25 @@
           Dernière mise à jour : 10/02/2026 - Il ya 2 jours
         </h3> -->
 
+        <!-- <div class="card">
+          <div class="title">Croissance mensuelle</div>
+          <div class="totals" id="totals"></div>
+          <div class="chart" id="chart"></div>
+
+          <div class="legend">
+            <div class="legend-item">
+              <div class="square" style="background:#22c55e"></div>
+              Vues
+            </div>
+            <div class="legend-item">
+              <div class="square" style="background:#3b82f6"></div>
+              Visiteurs uniques
+            </div>
+          </div>
+        </div> -->
+
+
+
         <h3 class="home-footer-item-1" style="margin-bottom: 20px;text-box: auto;">
           En cas d’erreur concernant les fichiers de cours ou de TDs affichés sur le site web, ou pour toute question, veuillez nous contacter à cette adresse e-mail.
           <!-- <a target="_blank" style="color: blue;" href="https://mail.google.com/mail/?view=cm&fs=1&to=fsastudentacc@gmail.com">fsastudentacc@gmail.com</a> -->
@@ -275,6 +449,92 @@
     </div>
 
     <script src="search-bar.js"></script>
+    <script>
+      const data = [
+
+        { m: "Oct 25", v: 658, u: 154 },
+        { m: "Nov 25", v: 836, u: 93 },
+        { m: "Déc 25", v: 2300, u: 92 },
+        { m: "Jan 26", v: 1600, u: 51 },
+        { m: "Fév 26", v: 767, u: 15 },
+        { m: "Mar 26", v: 315, u: 10 },
+        { m: "Avr 26", v: 718, u: 78 },
+        { m: "Mai 26", v: 1200, u: 83 }
+        // { m: "Juin", v: 280, u: 190 },
+        // { m: "Juil", v: 350, u: 240 },
+        // { m: "Août", v: 370, u: 260 },
+        // { m: "Sep", v: 330, u: 230 },
+        // { m: "Oct", v: 900, u: 300 },
+        // { m: "Nov", v: 420, u: 320 },
+        // { m: "Déc", v: 480, u: 380 }
+      ];
+
+      const chart = document.getElementById("chart");
+      const totalsBox = document.getElementById("totals");
+      const max = Math.max(...data.flatMap(d => [d.v, d.u]));
+      // const scale = 140 / max;
+      const scaleV = 180 / max;
+      const scaleU = 2500 / max;
+
+      const totalViews = data.reduce((sum, d) => sum + d.v, 0);
+      const totalUsers = data.reduce((sum, d) => sum + d.u, 0);
+
+      totalsBox.innerHTML = `
+        <strong>Total vues:</strong> ${totalViews}
+        &nbsp; | &nbsp;
+        <strong>Total visiteurs:</strong> ${totalUsers}
+      `;
+
+      data.forEach(d => {
+        const col = document.createElement("div");
+        col.className = "col";
+
+        const group = document.createElement("div");
+        group.className = "bar-group";
+
+        // Vues
+        const wrapV = document.createElement("div");
+        wrapV.className = "bar-wrap";
+
+        const valV = document.createElement("div");
+        valV.className = "value";
+        valV.textContent = d.v;
+
+        const barV = document.createElement("div");
+        barV.className = "bar views";
+        barV.style.height = (d.v * scaleV) + "px";
+
+        wrapV.appendChild(valV);
+        wrapV.appendChild(barV);
+
+        // Utilisateurs
+        const wrapU = document.createElement("div");
+        wrapU.className = "bar-wrap";
+
+        const valU = document.createElement("div");
+        valU.className = "value";
+        valU.textContent = d.u;
+
+        const barU = document.createElement("div");
+        barU.className = "bar users";
+        barU.style.height = (d.u * scaleU) + "px";
+
+        wrapU.appendChild(valU);
+        wrapU.appendChild(barU);
+
+        const label = document.createElement("div");
+        label.className = "label";
+        label.textContent = d.m;
+
+        group.appendChild(wrapV);
+        group.appendChild(wrapU);
+
+        col.appendChild(group);
+        col.appendChild(label);
+
+        chart.appendChild(col);
+      });
+  </script>
 
   </body>
 </html>

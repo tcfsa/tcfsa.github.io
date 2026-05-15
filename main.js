@@ -9,7 +9,9 @@ let aXu_others = [
 	["/a3", "https://drive.google.com/drive/folders/1nlET-ECxWim0cSlkscXt1Kuvwz1BtjPf"],
 	["/a4", "https://mega.nz/folder/K4500IjB#4OrXSVRCXG2ddZlwVT25FQ"],
 	["/a5", "https://mega.nz/folder/XoQzwbAS#vVfprilIRfbfnxeSGny6Hg"],
-	["/a6", "https://mega.nz/folder/DthSFYgR#iQT3kwnNZZcFurYDAckv5w"]
+	["/a6", "https://mega.nz/folder/DthSFYgR#iQT3kwnNZZcFurYDAckv5w"],
+	["/a7", "https://mega.nz/folder/6wBHyTwb#bytJk-ZhcEgMcnMee7k2jw"],
+	["/a8", "https://mega.nz/folder/eg5TxJYY#ImOtz3yo_NUwZt80N_177Q"]
 
 ];
 
