@@ -192,6 +192,10 @@ a
   .home-footer-item-1 {
     padding: 0px 60px;
   }
+  .card
+  {
+    transform: scale(0.8);
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -201,5 +205,12 @@ a
   }
   .home-footer-item-3 {
     padding: 0px 60px;
+  }
+  .card
+  {
+    transform: scale(0.6);
+    width: auto;
+    margin-left: -64px;
+    margin-right: -64px;
   }
 }
