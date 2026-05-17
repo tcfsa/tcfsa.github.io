@@ -1,0 +1,392 @@
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QCM Quiz</title>
+
+<style>
+/* ===== CSS INCHANGÉ ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#f4f6f9;padding:20px;color:#222;}
+.container{max-width:700px;margin:auto;}
+h1{text-align:center;margin-bottom:20px;color:#1d3557;}
+.settings,.quiz-box{background:white;padding:20px;border-radius:15px;box-shadow:0 2px 10px rgba(0,0,0,0.08);}
+.settings{margin-bottom:20px;}
+.setting-item{display:flex;align-items:center;gap:10px;margin-bottom:15px;font-size:16px;}
+.start-btn,.next-btn{width:100%;padding:14px;border:none;background:#1d3557;color:white;border-radius:10px;cursor:pointer;font-size:16px;}
+.start-btn:hover,.next-btn:hover{background:#274c77;}
+.quiz-box{display:none;}
+.question{font-size:22px;font-weight:bold;margin-bottom:20px;}
+.choices{display:flex;flex-direction:column;gap:12px;}
+.choice{border:2px solid #ddd;padding:14px;border-radius:10px;cursor:pointer;transition:0.2s;background:#fafafa;}
+.choice:hover{background:#eef4ff;border-color:#457bff;}
+.choice.correct{background:#d4edda;border-color:#28a745;color:#155724;}
+.choice.wrong{background:#f8d7da;border-color:#dc3545;color:#721c24;}
+.choice.selected{background:#dbeafe;border-color:#2563eb;}
+.next-btn{margin-top:10px;}
+#pauseBtn{margin-top:10px;background:#6c757d;}
+#pauseBtn:hover{background:#5a6268;}
+.info-container{margin-top:20px;display:flex;flex-direction:column;gap:12px;}
+.info-box{background:#f1f4f9;padding:14px;border-radius:10px;text-align:center;font-size:15px;border:1px solid #dbe2ea;}
+.result{text-align:center;padding:20px;}
+.result h2{margin-bottom:15px;color:#1d3557;}
+.final-good{color:#28a745;font-weight:bold;}
+.final-bad{color:#dc3545;font-weight:bold;}
+.new-quiz-btn{width:100%;padding:14px;border:none;margin-top:15px;background:#198754;color:white;border-radius:10px;cursor:pointer;font-size:16px;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>QCM Quiz 🚀</h1>
+
+<div class="settings" id="settingsBox">
+
+  <div class="setting-item">
+    <input type="checkbox" id="shuffleQuestions" checked>
+    <label for="shuffleQuestions">Mélanger les questions</label>
+  </div>
+
+  <div class="setting-item">
+    <input type="checkbox" id="mode20Questions" checked>
+    <label for="mode20Questions">20 questions (sinon toutes les 80 questions)</label>
+  </div>
+
+  <div class="setting-item">
+    <input type="checkbox" id="showCorrection" checked>
+    <label for="showCorrection">Afficher les corrections pendant le quiz (elles seront de toute façon visibles à la fin)</label>
+  </div>
+
+  <button class="start-btn" id="startBtn">Commencer 🚀</button>
+
+</div>
+
+<div class="quiz-box" id="quizBox">
+
+  <div class="question" id="questionText"></div>
+  <div class="choices" id="choicesContainer"></div>
+
+  <button class="next-btn" id="nextBtn">Question suivante ➡️</button>
+
+  <div class="info-container">
+    <div class="info-box">❓ Question : <span id="questionCounter">1/1</span></div>
+
+    <div class="info-box" id="scoreBox">
+      ✅ Score :
+      <span id="scoreText">0/0</span> |
+      <span id="percentText">0%</span>
+    </div>
+
+    <div class="info-box">⏱ Temps : <span id="timerText">00:00</span></div>
+  </div>
+
+  <button class="next-btn" id="pauseBtn">⏸ Pause</button>
+  <button class="new-quiz-btn" id="newQuizBtn">🔁 Nouveau quiz</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* ================= CATEGORIES ================= */
+
+const category1 = [
+{question:"Un entrepreneur naît-il ou devient-il ?",choices:["Il naît uniquement","Il devient uniquement","Il peut avoir des prédispositions mais il devient entrepreneur grâce à l’expérience","Aucun des deux"],answer:2},
+{question:"L’approche par les traits signifie :",choices:["L’entrepreneuriat s’apprend uniquement","Les entrepreneurs possèdent des qualités naturelles","L’expérience est la seule chose importante","Le marché crée l’entrepreneur"],answer:1},
+{question:"Quelle qualité suivante est associée à l’entrepreneur ?",choices:["Passivité","Peur du risque","Créativité","Dépendance"],answer:2},
+{question:"L’approche par les faits affirme que :",choices:["L’entrepreneur est né avec ses compétences","L’entrepreneuriat dépend seulement de l’argent","L’entrepreneuriat s’apprend par l’action et l’expérience","Le leadership est inutile"],answer:2},
+{question:"Une invention est :",choices:["La vente d’un produit","Une création scientifique ou technique nouvelle","Une publicité","Une activité commerciale"],answer:1},
+{question:"Une innovation consiste à :",choices:["Copier un produit","Créer une entreprise sans idée","Utiliser une invention pour répondre à un besoin","Déposer un brevet"],answer:2},
+{question:"L’entrepreneuriat correspond à :",choices:["La création de valeur par l’organisation et la commercialisation","L’étude scientifique uniquement","Une découverte sans exploitation","Un brevet seulement"],answer:0},
+{question:"Un chercheur dépose un brevet. Cela représente :",choices:["Innovation","Entrepreneuriat","Invention","Marketing"],answer:2},
+{question:"Une société commercialise un robot inventé. Il s’agit de :",choices:["Invention","Innovation","Théorie scientifique","Recherche fondamentale"],answer:1},
+{question:"L’entrepreneuriat commence généralement par :",choices:["Un brevet","Un problème réel","Une publicité","Un investissement bancaire"],answer:1},
+{question:"Une solution technique a de la valeur lorsque :",choices:["Elle est compliquée","Elle coûte cher","Le client est prêt à payer","Elle est scientifique"],answer:2},
+{question:"Une startup est :",choices:["Une ancienne entreprise publique","Une entreprise agricole classique","Une jeune entreprise innovante à croissance rapide","Une association"],answer:2},
+{question:"Uber est un exemple de :",choices:["Banque","Startup innovante","Université","Industrie lourde"],answer:1},
+{question:"Quelle entreprise permet la location entre particuliers ?",choices:["Chari","Uber","Airbnb","Tesla"],answer:2},
+{question:"Dans le domaine de l’énergie, la solution proposée est :",choices:["Une voiture électrique","Un système solaire intelligent","Une centrale nucléaire","Une batterie chimique"],answer:1},
+{question:"Le principal moteur de croissance des startups est :",choices:["Le hasard","La technologie","La publicité papier","Les taxes"],answer:1},
+];
+
+const category2 = [
+{question:"Selon l’approche par les traits, l’entrepreneur possède :",choices:["Des qualités naturelles","Un diplôme obligatoire","Une expérience uniquement","Un capital uniquement"],answer:0},
+{question:"Selon l’approche par les faits, l’entrepreneur :",choices:["Naît entrepreneur","Se construit par l’action","Dépend du hasard","Refuse l’apprentissage"],answer:1},
+{question:"Quelle caractéristique est liée à l’approche par les traits ?",choices:["Persévérance","Négligence","Paresse","Dépendance"],answer:0},
+{question:"L’innovation consiste à :",choices:["Garder une idée sans utilisation","Introduire un produit avec succès sur le marché","Faire uniquement de la recherche","Eviter les risques"],answer:1},
+{question:"Le chercheur est principalement associé à :",choices:["L’innovation","L’invention","Le marketing","La publicité"],answer:1},
+{question:"L’entrepreneur est principalement associé à :",choices:["L’innovation","La théorie scientifique","L’administration","La fonction publique"],answer:0},
+{question:"Quelle qualité aide à identifier des opportunités ?",choices:["Créativité","Passivité","Routine","Négligence"],answer:0},
+{question:"La gestion du risque est liée à :",choices:["La prise de décision","La publicité","Le sommeil","Le hasard"],answer:0},
+{question:"Le leadership d’équipe est important pour :",choices:["Déléguer","Dormir","Copier les autres","Eviter les responsabilités ´"],answer:0},
+{question:"Quel entrepreneur est cité comme exemple d’entrepreneur “né” ?",choices:["Jack Ma","Sara Blakely","Steve Jobs","Elon Musk"],answer:2},
+{question:"Jack Ma est présenté comme exemple :",choices:["D’entrepreneur devenu","D’inventeur scientifique","De chercheur","De salarié"],answer:0},
+{question:"L’environnement joue un rôle :",choices:["Faible dans l’approche par les faits","Important dans l’approche par les faits","Inutile dans toutes les approches","Nul dans l’entrepreneuriat"],answer:1},
+{question:"Une opportunité est :",choices:["Une occasion favorable","Une difficulté","Une perte financière","Une obligation"],answer:0},
+{question:"Le message pédagogique de l’approche par les faits est :",choices:["Personne ne peut entreprendre","Tout le monde peut apprendre à entreprendre","L’entrepreneuriat dépend uniquement du hasard","L’expérience est inutile"],answer:1},
+];
+
+
+const category3 = [
+{question:"Le profil PIC signifie :",choices:["Pérennité – Innovation – Capital","Pérennité – Indépendance financière – Croissance","Performance – Innovation – Croissance","Projet – Investissement – Capital"],answer:1},
+{question:"Le profil CAP signifie :",choices:["Capital – Action – Projet","Croissance – Autonomie de décision – Pérennité","Création – Analyse – Profit","Contrôle – Activité – Production"],answer:1},
+{question:"Le profil PIC accorde la priorité à :",choices:["La croissance rapide","La stabilité et la pérennité","Le marketing","La publicité"],answer:1},
+{question:"Le profil CAP cherche principalement :",choices:["La croissance","La stabilité uniquement","La réduction des activités","L’arrêt du projet"],answer:0},
+{question:"Le profil PIC présente généralement :",choices:["Une forte prise de risque","Une aversion au risque","Une absence de stratégie","Une dépendance totale"],answer:1},
+{question:"Dans le profil CAP, l’autonomie importante est :",choices:["L’autonomie financière","L’autonomie de décision","L’autonomie scolaire","L’autonomie familiale"],answer:1},
+{question:"Un outil IA utilisé sur le marché représente :",choices:["Une invention uniquement","Une innovation","Une théorie","Une publicité"],answer:1},
+{question:"La valeur d’un outil IA pour étudiants peut être :",choices:["Gain de temps","Augmentation des problèmes","Réduction des connaissances","Absence d’utilité"],answer:0},
+{question:"Quel risque est lié à une startup IA ?",choices:["Concurrence","Absence totale de marché","Aucun risque","Garantie de succès"],answer:0},
+{question:"L’absence de modèle économique signifie :",choices:["L’entreprise sait comment gagner de l’argent","L’entreprise ne sait pas comment générer des revenus","L’entreprise est rentable","L’entreprise n’a pas de clients"],answer:1},
+];
+
+const category4 = [
+{question:"message",choices:["Porto","Lisbonne","Braga","Faro"],answer:1},
+];
+
+const category5 = [
+{question:"message",choices:["Porto","Lisbonne","Braga","Faro"],answer:1},
+];
+
+/* ================= STATE ================= */
+
+let questions=[];
+let currentQuestion=0;
+let score=0;
+let answered=false;
+let timer=0;
+let timerInterval;
+let isPaused=false;
+let userAnswers=[];
+
+/* ================= ELEMENTS ================= */
+
+const questionText=document.getElementById("questionText");
+const choicesContainer=document.getElementById("choicesContainer");
+const questionCounter=document.getElementById("questionCounter");
+const scoreText=document.getElementById("scoreText");
+const percentText=document.getElementById("percentText");
+const timerText=document.getElementById("timerText");
+const scoreBox=document.getElementById("scoreBox");
+const quizBox=document.getElementById("quizBox");
+const settingsBox=document.getElementById("settingsBox");
+
+/* ================= UTILS ================= */
+
+function shuffle(a){
+for(let i=a.length-1;i>0;i--){
+let j=Math.floor(Math.random()*(i+1));
+[a[i],a[j]]=[a[j],a[i]];
+}
+}
+
+function pick(a,n){
+let x=[...a];
+shuffle(x);
+return x.slice(0,n);
+}
+
+/* ================= START (MODIFIÉ) ================= */
+
+document.getElementById("startBtn").onclick = () => {
+
+const mode20 = document.getElementById("mode20Questions").checked;
+const shuffleEnabled = document.getElementById("shuffleQuestions").checked;
+
+/* ORDRE FIXE DES CATÉGORIES */
+let orderedQuestions = [
+  mode20 ? pick(category1,4) : category1,
+  mode20 ? pick(category2,4) : category2,
+  mode20 ? pick(category3,4) : category3,
+  mode20 ? pick(category4,4) : category4,
+  mode20 ? pick(category5,4) : category5
+];
+
+questions = orderedQuestions.flat();
+
+/* MÉLANGE GLOBAL SI ACTIVÉ */
+if(shuffleEnabled){
+  shuffle(questions);
+}
+
+const showCorrection = document.getElementById("showCorrection").checked;
+scoreBox.style.display = showCorrection ? "block" : "none";
+
+settingsBox.style.display = "none";
+quizBox.style.display = "block";
+
+userAnswers = [];
+startTimer();
+loadQuestion();
+updateScore();
+};
+
+/* ================= TIMER ================= */
+
+function startTimer(){
+timerInterval=setInterval(()=>{
+if(isPaused) return;
+timer++;
+timerText.textContent=
+String(Math.floor(timer/60)).padStart(2,"0")+":"+
+String(timer%60).padStart(2,"0");
+},1000);
+}
+
+/* ================= LOAD QUESTION ================= */
+
+function loadQuestion(){
+
+answered=false;
+
+let q=questions[currentQuestion];
+questionText.textContent=q.question;
+questionCounter.textContent=`${currentQuestion+1}/${questions.length}`;
+
+choicesContainer.innerHTML="";
+
+/* mélange des réponses */
+let shuffledChoices=q.choices.map((c,i)=>({text:c,index:i}));
+shuffle(shuffledChoices);
+
+shuffledChoices.forEach(c=>{
+
+let div=document.createElement("div");
+div.className="choice";
+div.innerHTML=c.text;
+
+div.onclick=()=>{
+
+if(answered) return;
+answered=true;
+
+userAnswers[currentQuestion]=c.index;
+
+let all=document.querySelectorAll(".choice");
+const showCorrection=document.getElementById("showCorrection").checked;
+
+if(showCorrection){
+
+if(c.index===q.answer){
+div.classList.add("correct");
+score++;
+}else{
+div.classList.add("wrong");
+
+all.forEach(el=>{
+if(el.innerHTML===q.choices[q.answer]){
+el.classList.add("correct");
+}
+});
+}
+
+updateScore();
+
+}else{
+div.classList.add("selected");
+}
+
+};
+
+choicesContainer.appendChild(div);
+});
+}
+
+/* ================= SCORE ================= */
+
+function updateScore(){
+if(!document.getElementById("showCorrection").checked) return;
+scoreText.textContent=`${score}/${questions.length}`;
+percentText.textContent=`${Math.round(score/questions.length*100)}%`;
+}
+
+/* ================= NEXT ================= */
+
+document.getElementById("nextBtn").onclick=()=>{
+
+if(!answered){
+alert("Choisis une réponse !");
+return;
+}
+
+currentQuestion++;
+
+if(currentQuestion<questions.length){
+loadQuestion();
+}else{
+clearInterval(timerInterval);
+showFinalCorrection();
+}
+};
+
+document.getElementById("newQuizBtn").onclick=()=>{
+location.reload();
+};
+
+/* ================= FINAL ================= */
+
+function showFinalCorrection(){
+
+let html=`<div class="result"><h2>🎉 Correction complète</h2>
+
+
+<div class="info-container">
+
+    <div class="info-box" id="scoreBox">
+      ✅ Score :
+      <span id="scoreText">0/0</span> |
+      <span id="percentText">0%</span>
+    </div>
+
+    <div class="info-box">⏱ Temps : <span id="timerText">00:00</span></div>
+  </div>
+
+</div>`;
+
+
+questions.forEach((q,i)=>{
+
+let user=userAnswers[i];
+let isGood=user===q.answer;
+
+html+=`
+<p><b>Q${i+1}:</b> ${q.question}</p>
+<p>✔ Bonne réponse : ${q.choices[q.answer]}</p>
+<p>✏ Ta réponse : <span class="${isGood?'final-good':'final-bad'}">
+${q.choices[user] ?? "Aucune"}
+</span></p>
+<hr>
+`;
+});
+
+html+=`<button class="new-quiz-btn" id="newQuizBtn">🔁 Nouveau quiz</button></div>`;
+
+quizBox.innerHTML=html;
+
+document.getElementById("scoreText").textContent=`${score}/${questions.length}`;
+document.getElementById("percentText").textContent=`${Math.round(score/questions.length*100)}%`;
+document.getElementById("timerText").textContent=
+String(Math.floor(timer/60)).padStart(2,"0")+":"+
+String(timer%60).padStart(2,"0");
+
+document.getElementById("newQuizBtn").onclick=()=>{
+location.reload();
+};
+}
+
+/* ================= PAUSE ================= */
+
+document.getElementById("pauseBtn").onclick=()=>{
+
+isPaused=!isPaused;
+document.getElementById("pauseBtn").textContent=
+isPaused?"▶ Reprendre":"⏸ Pause";
+};
+
+</script>
+
+</body>
+</html>

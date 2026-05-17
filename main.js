@@ -7,11 +7,11 @@ let aXu_others = [
 	["/a1", "https://drive.google.com/drive/folders/1FmS3pFvWcfHvP_aLFMY6Icfe6nV-5_qg"],
 	["/a2", "https://drive.google.com/drive/folders/1wnJgrB-ADvwvKkuyk8baLPrEvAbZJCQI"],
 	["/a3", "https://drive.google.com/drive/folders/1nlET-ECxWim0cSlkscXt1Kuvwz1BtjPf"],
-	["/a4", "https://mega.nz/folder/K4500IjB#4OrXSVRCXG2ddZlwVT25FQ"],
-	["/a5", "https://mega.nz/folder/XoQzwbAS#vVfprilIRfbfnxeSGny6Hg"],
-	["/a6", "https://mega.nz/folder/DthSFYgR#iQT3kwnNZZcFurYDAckv5w"],
-	["/a7", "https://mega.nz/folder/6wBHyTwb#bytJk-ZhcEgMcnMee7k2jw"],
-	["/a8", "https://mega.nz/folder/eg5TxJYY#ImOtz3yo_NUwZt80N_177Q"]
+	["/s3apex", "https://mega.nz/folder/K4500IjB#4OrXSVRCXG2ddZlwVT25FQ"],
+	["/s4apexv1", "https://mega.nz/folder/XoQzwbAS#vVfprilIRfbfnxeSGny6Hg"],
+	["/s4apexv2", "https://mega.nz/folder/DthSFYgR#iQT3kwnNZZcFurYDAckv5w"],
+	["/s1apex", "https://mega.nz/folder/6wBHyTwb#bytJk-ZhcEgMcnMee7k2jw"],
+	["/s2apex", "https://mega.nz/folder/eg5TxJYY#ImOtz3yo_NUwZt80N_177Q"]
 
 ];
 
