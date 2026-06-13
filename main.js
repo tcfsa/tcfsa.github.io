@@ -12,7 +12,8 @@ let aXu_others = [
 	["/s4apexv2", "https://mega.nz/folder/DthSFYgR#iQT3kwnNZZcFurYDAckv5w"],
 	["/s1apex", "https://mega.nz/folder/6wBHyTwb#bytJk-ZhcEgMcnMee7k2jw"],
 	["/s2apex", "https://mega.nz/folder/eg5TxJYY#ImOtz3yo_NUwZt80N_177Q"],
-	["/fiche-modules.pdf", "https://drive.google.com/uc?id=1hs2aq45K9FdrkSC8nAlC02MNGyM-ZnvS"]
+	["/fiche-modules.pdf", "https://drive.google.com/uc?id=1hs2aq45K9FdrkSC8nAlC02MNGyM-ZnvS"],
+	["/s1", "https://drive.google.com/drive/folders/1_EU_LcD3xSHl07lof6kYE9PtBiuume35?usp=sharing"],
 
 ];
 
