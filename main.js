@@ -514,7 +514,8 @@ let aXu_s3 = [
 	["/algprg", "https://drive.google.com/drive/folders/1qun8Yp-D7Pb9P4O-cvak20wifhnD5t9U?usp=sharing"],
 
 
-	["/s3", "https://drive.google.com/drive/folders/1qun8Yp-D7Pb9P4O-cvak20wifhnD5t9U?usp=sharing"],
+	["/s2", "https://drive.google.com/drive/folders/1Pz1jtjLOz6vBs0u9_FWfSFOknA7sRWR2?usp=sharing"],
+	["/s3", "https://drive.google.com/drive/folders/1NjOFOxB3h9IiCcmfrufZS9QlFTz9Okjw?usp=sharing"],
 	
 	["/p/s3/circelc/cours/chapt 1 à 4.pdf", "https://drive.google.com/uc?id="],
 	["/p/s3/circelc/cours/chapt 1.pdf", "https://drive.google.com/uc?id=1rGApLd16VnxlNX-VbhZAqEaNie2z0Oh9"],
