@@ -288,6 +288,7 @@ let aXu_es_s5 = [
 	["/es-option"     , "https://drive.google.com/drive/folders/1evDjl_6qcx1ybJmAsVy0XbeRy3-u7QYD"],
 
 	["/p/s5/es/mecqua2/cours/cours (2020 - 2021).pdf", "https://drive.google.com/uc?id=1_gynDz4bZA1CN8KOd-YYVx4T0IDjIvc1"],
+	["/p/s5/es/mecqua2/cours/cours (2025 - 2026).pdf", "https://drive.google.com/uc?id=19kRmCkQKHqD17LKZPwqoEsfdh2gDBEec"],
 	["/p/s5/es/mecqua2/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1lViRoX8-KDO4cMVT_0J3YMAg7hhWVnWN"],
 	["/p/s5/es/mecqua2/tds/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1PEkPvmlbhp-yRBzzcGywOX3Tgl1rKqIm"],
 	["/p/s5/es/mecqua2/tds/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1DgHq0R5mI9Hm0XhyncjvxfemFDC_NtGl"],
