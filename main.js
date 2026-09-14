@@ -578,6 +578,7 @@ function red(x) {
 }
 
 function direct_red(x) {
+	console.log(x);
   window.location.href = x;
 }
 
