@@ -44,7 +44,7 @@
         margin-bottom: 40px;
         width: 450px;
         /*height: 320px;*/
-        height: 360px;
+        height: 392px;
         background: #fff;
         border-radius: 18px;
         padding: 16px;
@@ -55,12 +55,14 @@
       }
 
       .title {
-        font-size: 14px;
+        /*font-size: 14px;*/
+        font-size: 19px;
         font-weight: 600;
       }
 
       .totals {
-        font-size: 12px;
+        /*font-size: 12px;*/
+        font-size: 17px;
         margin-top: 6px;
         color: #0f172a;
       }
@@ -94,7 +96,8 @@
 
       /* Chaque mois garde une largeur fixe */
       .col {
-        width: 55px;
+        /*width: 55px;*/
+        width: 80px;
         min-width: 55px;
 
         display: flex;
@@ -120,7 +123,8 @@
 
       /* Valeur */
       .value {
-        font-size: 9px;
+        /*font-size: 9px;*/
+        font-size: 16px;
         margin-bottom: 3px;
         color: #0f172a;
       }
@@ -144,7 +148,8 @@
 
       /* Mois */
       .label {
-        font-size: 9px;
+        /*font-size: 9px;*/
+        font-size: 16px;
         color: #94a3b8;
         margin-top: 6px;
         white-space: nowrap;
@@ -155,7 +160,8 @@
         display: flex;
         justify-content: center;
         gap: 18px;
-        font-size: 11px;
+        /*font-size: 11px;*/
+        font-size: 18px;
         margin-top: 10px;
         color: #475569;
         flex-shrink: 0;
@@ -168,8 +174,11 @@
       }
 
       .square {
-        width: 8px;
-        height: 8px;
+        /*width: 8px;
+        height: 8px;*/
+        width: 12px;
+        height: 12px;
+
         border-radius: 2px;
       }
 
@@ -685,7 +694,7 @@
       });
 
 
-      
+
       const totalsBox = document.getElementById("totals");
       const max = Math.max(...data.flatMap(d => [d.v, d.u]));
       // const scale = 140 / max;
