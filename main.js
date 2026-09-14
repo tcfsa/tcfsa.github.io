@@ -122,14 +122,14 @@ let aXu_es_s6 = [
 	["/p/s6/es/sysmicr/tps/tp1 - corrigé (version 2).pdf", "https://drive.google.com/uc?id=1CXdFUtqosmOdAkB-lAinXt1AIvsnxAFG"],
 	["/p/s6/es/sysmicr/tps/tp2 - codes.pdf", "https://drive.google.com/uc?id=1AtDhA5tN7kpUK7TwXIppHbN0DtdOMxVn"],
 
-	["/p/s6/es/sysmicr/td1/ex1/", "https://smpfsa.com/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
-	["/p/s6/es/sysmicr/td1/ex1", "https://smpfsa.com/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
-	["/p/s6/es/sysmicr/td1/", "https://smpfsa.com/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
-	["/p/s6/es/sysmicr/td1", "https://smpfsa.com/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
-	["/p/s6/es/sysmicr/td1/correction_v1/", "https://smpfsa.com/p/s6/es/SysMicr/td2/correction_v1/ex1/"],
-	["/p/s6/es/sysmicr/td1/correction_v1", "https://smpfsa.com/p/s6/es/SysMicr/td2/correction_v1/ex1/"],
+	["/p/s6/es/sysmicr/td1/ex1/", "https://www.smpfsa.com/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
+	["/p/s6/es/sysmicr/td1/ex1", "https://www.smpfsa.com/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
+	["/p/s6/es/sysmicr/td1/", "https://www.smpfsa.com/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
+	["/p/s6/es/sysmicr/td1", "https://www.smpfsa.com/p/s6/es/SysMicr/td1/correction_v1/ex1/"],
+	["/p/s6/es/sysmicr/td1/correction_v1/", "https://www.smpfsa.com/p/s6/es/SysMicr/td2/correction_v1/ex1/"],
+	["/p/s6/es/sysmicr/td1/correction_v1", "https://www.smpfsa.com/p/s6/es/SysMicr/td2/correction_v1/ex1/"],
 
-	["/p/s6/es/sysmicr/td2/", "https://smpfsa.com/p/s6/es/SysMicr/td2/correction_v1/ex1/"],
+	["/p/s6/es/sysmicr/td2/", "https://www.smpfsa.com/p/s6/es/SysMicr/td2/correction_v1/ex1/"],
 
 	["/p/s6/es/trasign/cours/2023 - 2024/polycopié.pdf", "https://drive.google.com/uc?id=1B9YEsvoBnakTgfmdDdgLr1z47Aob4nKQ"],
 	["/p/s6/es/trasign/cours/2023 - 2024/polycopié_compressed.pdf", "https://drive.google.com/uc?id=1VQOlIivUGBo3_6uQeTP_hkjlULW_P8W8"],
@@ -567,14 +567,14 @@ function getURL(x) {
     }
     if(index==addressesXurls.length-1 &&e==0)
     {
-      _url = "https://smpfsa.com";
+      _url = "https://www.smpfsa.com";
     }
   });
   return _url;
 }
 
 function red(x) {
-  direct_red(getURL(x.replace("https://smpfsa.com", "").toLowerCase()));
+  direct_red(getURL(x.replace("https://www.smpfsa.com", "").toLowerCase()));
 }
 
 function direct_red(x) {
@@ -586,11 +586,11 @@ function newtab_red(x) {
 }
 
 function downf(u){
-    var y=u.replace("https://smpfsa.com", "").toLowerCase();
+    var y=u.replace("https://www.smpfsa.com", "").toLowerCase();
     red(y);
 }
 
 function viewf(u){
-    d_url = getURL(u.replace("https://smpfsa.com", "").toLowerCase());
+    d_url = getURL(u.replace("https://www.smpfsa.com", "").toLowerCase());
     newtab_red(d_url.replace("https://drive.google.com/uc?id=", "https://drive.google.com/file/d/")+"/view?usp=sharing");
 }
