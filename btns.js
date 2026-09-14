@@ -27,7 +27,7 @@ function toggleSec(courseName) {
     }
   }
 
-  var def_color = (window.location.href=="https://tcfsa.github.io/") ? '#8A8A8A' : '#575757';
+  var def_color = (window.location.href=="https://www.smpfsa.com/") ? '#8A8A8A' : '#575757';
 
   // Toggle the visibility of the semester list
   if (semesterList.style.display === "none" || semesterList.style.display === "") {
