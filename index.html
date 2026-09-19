@@ -699,8 +699,8 @@
       const totalsBox = document.getElementById("totals");
       const max = Math.max(...data.flatMap(d => [d.v, d.u]));
       // const scale = 140 / max;
-      const scaleV = 250 / max;
-      const scaleU = 2500 / max;
+      const scaleV = 180 / max;
+      const scaleU = 1700 / max;
 
       const totalViews = data.reduce((sum, d) => sum + d.v, 0);
       const totalUsers = data.reduce((sum, d) => sum + d.u, 0);
