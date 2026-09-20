@@ -26,7 +26,7 @@
       body {
         margin: 0;
         height: 100vh;
-        display: flex;
+        /*display: flex;*/
         justify-content: center;
         align-items: center;
         background: #f1f5f9;
@@ -57,7 +57,7 @@
       .title {
         /*font-size: 14px;*/
         font-size: 19px;
-        font-weight: 600;
+        font-weight: 600 !important;
       }
 
       .totals {
@@ -214,6 +214,1289 @@
         scrollbar-color: #cbd5e1 #f1f5f9;
       }
 
+
+      /* ad styles */
+
+
+    /* ==================================================
+       RESET
+    ================================================== */
+
+    /** {
+      box-sizing: border-box;
+    }*/
+
+
+    /* ==================================================
+       DEMO PAGE
+    ================================================== */
+
+    body {
+
+      margin: 0;
+
+      padding: 20px;
+
+      background: #f5f5f5;
+
+    }
+
+
+    /* ==================================================
+       MAIN AD
+    ================================================== */
+
+    .domain-ad {
+
+
+      position: relative;
+
+      width: 100%;
+
+      /*max-width: 1100px;*/
+      max-width: 683px;
+
+      min-height: 76px;
+
+      /*margin: 0 auto;*/
+      margin-top: 20px;
+
+      padding: 18px 22px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 20px;
+
+      overflow: hidden;
+
+      text-decoration: none;
+
+      color: #ffffff;
+
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      border-radius: 9px;
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      /*
+        Default background.
+        JavaScript replaces it with
+        a random palette.
+      */
+
+      background:
+        linear-gradient(
+          110deg,
+          #4c1d95,
+          #7c3aed 48%,
+          #2563eb
+        );
+
+      box-shadow:
+
+        0 4px 10px
+        rgba(24,18,45,.12),
+
+        0 14px 28px
+        rgba(24,18,45,.10);
+
+      isolation: isolate;
+
+      animation:
+        bannerEnter .6s ease-out both;
+
+    }
+
+
+    /* ==================================================
+       BACKGROUND GLOW
+    ================================================== */
+
+    .domain-ad::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 280px;
+
+      height: 280px;
+
+      right: -115px;
+
+      top: -125px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.08);
+
+      filter: blur(5px);
+
+      z-index: -2;
+
+      animation:
+        glowMove 7s ease-in-out infinite;
+
+    }
+
+
+    /* ==================================================
+       MOVING SHINE
+    ================================================== */
+
+    .domain-ad::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 55px;
+
+      height: 190%;
+
+      top: -45%;
+
+      left: -120px;
+
+      background:
+
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,255,255,.17),
+          transparent
+        );
+
+      transform: rotate(18deg);
+
+      animation:
+        shine 5.5s ease-in-out infinite;
+
+      pointer-events: none;
+
+      z-index: 30;
+
+    }
+
+
+    /* ==================================================
+       CONTENT
+    ================================================== */
+
+    .ad-content {
+
+      position: relative;
+
+      z-index: 10;
+
+      flex: 1;
+
+      min-width: 0;
+
+    }
+
+
+    /* ==================================================
+       LABEL
+    ================================================== */
+
+    .ad-label {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      margin-bottom: 5px;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: .7px;
+
+      text-transform: uppercase;
+
+      color:
+        rgba(255,255,255,.70);
+
+    }
+
+
+    .green-dot {
+
+      width: 6px;
+
+      height: 6px;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      background: #86efac;
+
+      box-shadow:
+        0 0 7px rgba(134,239,172,.65);
+
+      animation:
+        dotPulse 2s ease-in-out infinite;
+
+    }
+
+
+    /* ==================================================
+       MAIN DOMAIN
+    ================================================== */
+
+    .domain {
+
+      display: flex;
+
+      align-items: baseline;
+
+      width: fit-content;
+
+      height: 44px;
+
+      overflow: hidden;
+
+      perspective: 600px;
+
+      font-family:
+        "Sora",
+        sans-serif;
+
+      font-size:
+        clamp(28px, 5vw, 43px);
+
+      line-height: 1;
+
+      font-weight: 800;
+
+      letter-spacing: -1.8px;
+
+      white-space: nowrap;
+
+    }
+
+
+    .domain-name {
+
+      display: inline-block;
+
+      color: #ffffff;
+
+      text-shadow:
+        0 2px 8px rgba(0,0,0,.10);
+
+    }
+
+
+    .domain-extension {
+
+      display: inline-block;
+
+      margin-left: 1px;
+
+      color: #fde68a;
+
+      text-shadow:
+        0 1px 6px rgba(253,230,138,.15);
+
+    }
+
+
+    /* ==================================================
+       NAME ANIMATIONS
+    ================================================== */
+
+    .name-out {
+
+      animation:
+        nameOut .38s
+        cubic-bezier(.65,0,.35,1)
+        forwards;
+
+    }
+
+
+    .name-in {
+
+      animation:
+        nameIn .48s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
+
+    }
+
+
+    /* ==================================================
+       EXTENSION ANIMATIONS
+    ================================================== */
+
+    .extension-out {
+
+      animation:
+        extensionOut .30s ease forwards;
+
+    }
+
+
+    .extension-in {
+
+      animation:
+        extensionIn .45s
+        cubic-bezier(.22,1,.36,1)
+        forwards;
+
+    }
+
+
+    /* ==================================================
+       DESCRIPTION
+    ================================================== */
+
+    .description {
+
+      margin-top: 6px;
+
+      /*font-size: 13px;*/
+
+        font-size: 18px;
+
+      line-height: 1.4;
+
+      font-weight: 600;
+
+      color:
+        rgba(255,255,255,.91);
+
+    }
+
+
+    .description strong {
+
+      color: #ffffff;
+
+      font-weight: 800;
+
+    }
+
+
+    .darija {
+
+      color: #fde68a;
+
+      font-weight: 800;
+
+    }
+
+
+    /* ==================================================
+       USE CASES
+    ================================================== */
+
+    .use-cases {
+
+      display: flex;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 6px;
+
+      margin-top: 8px;
+
+    }
+
+
+    .use-case {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 5px;
+
+      padding: 4px 8px;
+
+      border-radius: 5px;
+
+      background:
+        rgba(255,255,255,.075);
+
+      border:
+        1px solid rgba(255,255,255,.10);
+
+      /*font-size: 9px;*/
+      font-size: 12px;
+
+      font-weight: 700;
+
+      color:
+        rgba(255,255,255,.92);
+
+      backdrop-filter:
+        blur(4px);
+
+    }
+
+
+    /* ==================================================
+       CTA
+    ================================================== */
+
+    .cta {
+
+      position: relative;
+
+      z-index: 40;
+
+      flex-shrink: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 44px;
+
+      padding: 10px 15px;
+
+      border-radius: 7px;
+
+      background: #ffffff;
+
+      color: #5520a7;
+
+      /*font-size: 11px;*/
+      font-size: 15px;
+
+      font-weight: 800;
+
+      white-space: nowrap;
+
+      box-shadow:
+
+        0 4px 9px
+        rgba(24,18,45,.15),
+
+        0 8px 16px
+        rgba(24,18,45,.08);
+
+      transition:
+
+        transform .2s ease,
+
+        background .2s ease;
+
+    }
+
+
+    .arrow {
+
+      margin-left: 7px;
+
+      font-size: 16px;
+
+      transition:
+        transform .2s ease;
+
+    }
+
+
+    .domain-ad:hover .cta {
+
+      transform:
+        translateY(-2px);
+
+      background:
+        #fef3c7;
+
+    }
+
+
+    .domain-ad:hover .arrow {
+
+      transform:
+        translateX(4px);
+
+    }
+
+
+    /* ==================================================
+       FLOATING BACKGROUND DOMAINS
+    ================================================== */
+
+    .floating-domain {
+
+      position: absolute;
+
+      z-index: 2;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 8px 12px;
+
+      border-radius: 6px;
+
+      background:
+        rgba(255,255,255,.055);
+
+      border:
+        1px solid rgba(255,255,255,.10);
+
+      backdrop-filter:
+        blur(5px);
+
+      font-family:
+        "Sora",
+        sans-serif;
+
+      /*font-size: 13px;*/
+      font-size: 18px;
+
+      font-weight: 700;
+
+      color:
+        rgba(255,255,255,.36);
+
+      pointer-events: none;
+
+      white-space: nowrap;
+
+      transition:
+
+        opacity .3s ease,
+
+        transform .3s ease;
+
+    }
+
+
+    .floating-one {
+
+      right: 160px;
+
+      top: 10px;
+
+      animation:
+        floatDomainOne 6s ease-in-out infinite;
+
+    }
+
+
+    .floating-two {
+
+      right: 80px;
+
+      bottom: 8px;
+
+      animation:
+        floatDomainTwo 7s ease-in-out infinite;
+
+    }
+
+
+    .floating-three {
+
+      right: 315px;
+
+      bottom: 10px;
+
+      animation:
+        floatDomainThree 8s ease-in-out infinite;
+
+    }
+
+
+    .floating-four {
+
+      right: 430px;
+
+      top: 10px;
+
+      animation:
+        floatDomainFour 9s ease-in-out infinite;
+
+    }
+
+
+    /* ==================================================
+       GENERAL ANIMATIONS
+    ================================================== */
+
+    @keyframes bannerEnter {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(-7px)
+          scale(.995);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+
+      }
+
+    }
+
+
+    @keyframes shine {
+
+      0%, 55% {
+        left: -120px;
+      }
+
+      75%, 100% {
+        left: 120%;
+      }
+
+    }
+
+
+    @keyframes glowMove {
+
+      0%, 100% {
+
+        transform:
+          translate(0,0)
+          scale(1);
+
+      }
+
+      50% {
+
+        transform:
+          translate(-40px,25px)
+          scale(1.2);
+
+      }
+
+    }
+
+
+    @keyframes dotPulse {
+
+      0%, 100% {
+
+        transform:
+          scale(1);
+
+        opacity: .75;
+
+      }
+
+      50% {
+
+        transform:
+          scale(1.3);
+
+        opacity: 1;
+
+      }
+
+    }
+
+
+    /* ==================================================
+       NAME OUT
+    ================================================== */
+
+    @keyframes nameOut {
+
+      0% {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          rotateX(0)
+          scale(1);
+
+      }
+
+      100% {
+
+        opacity: 0;
+
+        transform:
+          translateY(-25px)
+          rotateX(30deg)
+          scale(.94);
+
+      }
+
+    }
+
+
+    /* ==================================================
+       NAME IN
+    ================================================== */
+
+    @keyframes nameIn {
+
+      0% {
+
+        opacity: 0;
+
+        transform:
+          translateY(25px)
+          rotateX(-30deg)
+          scale(.95);
+
+      }
+
+      70% {
+
+        opacity: 1;
+
+        transform:
+          translateY(-2px)
+          rotateX(2deg)
+          scale(1.02);
+
+      }
+
+      100% {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          rotateX(0)
+          scale(1);
+
+      }
+
+    }
+
+
+    /* ==================================================
+       EXTENSION OUT
+    ================================================== */
+
+    @keyframes extensionOut {
+
+      from {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+
+      }
+
+      to {
+
+        opacity: 0;
+
+        transform:
+          translateY(-12px)
+          scale(.90);
+
+      }
+
+    }
+
+
+    /* ==================================================
+       EXTENSION IN
+    ================================================== */
+
+    @keyframes extensionIn {
+
+      0% {
+
+        opacity: 0;
+
+        transform:
+          translateY(12px)
+          scale(.85);
+
+      }
+
+      65% {
+
+        opacity: 1;
+
+        transform:
+          translateY(-2px)
+          scale(1.08);
+
+      }
+
+      100% {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+
+      }
+
+    }
+
+
+    /* ==================================================
+       FLOATING DOMAIN 1
+    ================================================== */
+
+    @keyframes floatDomainOne {
+
+      0% {
+
+        transform:
+          translate(0,0)
+          rotate(5deg)
+          scale(1);
+
+      }
+
+      25% {
+
+        transform:
+          translate(-35px,18px)
+          rotate(-4deg)
+          scale(1.10);
+
+      }
+
+      50% {
+
+        transform:
+          translate(-10px,48px)
+          rotate(7deg)
+          scale(.95);
+
+      }
+
+      75% {
+
+        transform:
+          translate(35px,20px)
+          rotate(-6deg)
+          scale(1.07);
+
+      }
+
+      100% {
+
+        transform:
+          translate(0,0)
+          rotate(5deg)
+          scale(1);
+
+      }
+
+    }
+
+
+    /* ==================================================
+       FLOATING DOMAIN 2
+    ================================================== */
+
+    @keyframes floatDomainTwo {
+
+      0% {
+
+        transform:
+          translate(0,0)
+          rotate(-5deg)
+          scale(1);
+
+      }
+
+      25% {
+
+        transform:
+          translate(35px,-18px)
+          rotate(5deg)
+          scale(1.10);
+
+      }
+
+      50% {
+
+        transform:
+          translate(5px,-45px)
+          rotate(-7deg)
+          scale(.94);
+
+      }
+
+      75% {
+
+        transform:
+          translate(-35px,-15px)
+          rotate(5deg)
+          scale(1.07);
+
+      }
+
+      100% {
+
+        transform:
+          translate(0,0)
+          rotate(-5deg)
+          scale(1);
+
+      }
+
+    }
+
+
+    /* ==================================================
+       FLOATING DOMAIN 3
+    ================================================== */
+
+    @keyframes floatDomainThree {
+
+      0% {
+
+        transform:
+          translate(0,0)
+          rotate(2deg);
+
+      }
+
+      30% {
+
+        transform:
+          translate(30px,-30px)
+          rotate(-7deg);
+
+      }
+
+      60% {
+
+        transform:
+          translate(-35px,-10px)
+          rotate(6deg);
+
+      }
+
+      100% {
+
+        transform:
+          translate(0,0)
+          rotate(2deg);
+
+      }
+
+    }
+
+
+    /* ==================================================
+       FLOATING DOMAIN 4
+    ================================================== */
+
+    @keyframes floatDomainFour {
+
+      0% {
+
+        transform:
+          translate(0,0)
+          rotate(-3deg)
+          scale(1);
+
+      }
+
+      30% {
+
+        transform:
+          translate(-35px,28px)
+          rotate(7deg)
+          scale(1.10);
+
+      }
+
+      65% {
+
+        transform:
+          translate(25px,42px)
+          rotate(-5deg)
+          scale(.95);
+
+      }
+
+      100% {
+
+        transform:
+          translate(0,0)
+          rotate(-3deg)
+          scale(1);
+
+      }
+
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media (max-width: 600px) {
+
+      body {
+
+        padding: 10px;
+
+      }
+
+
+      .domain-ad {
+
+        min-height: 132px;
+
+        padding: 14px;
+
+        gap: 9px;
+
+        border-radius: 7px;
+
+      }
+
+
+      .ad-label {
+
+        font-size: 8px;
+
+      }
+
+
+      .domain {
+
+        font-size:
+          clamp(24px, 7.5vw, 31px);
+
+        height: 32px;
+
+        letter-spacing:
+          -1.2px;
+
+      }
+
+
+      .description {
+
+        /*font-size: 10px;*/
+        font-size: 18px;
+
+        line-height: 1.35;
+
+      }
+
+
+      .darija {
+
+        display: block;
+
+        margin-top: 2px;
+
+      }
+
+
+      .use-cases {
+
+        margin-top: 7px;
+
+        gap: 4px;
+
+      }
+
+
+      .use-case {
+
+        padding: 4px 6px;
+
+        /*font-size: 7.5px;*/
+        font-size: 12px;
+
+      }
+
+
+      .cta {
+
+        min-height: 40px;
+
+        padding: 9px 10px;
+
+        font-size: 9px;
+
+        border-radius: 6px;
+
+      }
+
+
+      .arrow {
+
+        font-size: 13px;
+
+        margin-left: 5px;
+
+      }
+
+
+      .floating-domain {
+
+        padding: 6px 9px;
+
+        /*font-size: 9px;*/
+        font-size: 18px;
+
+        opacity: .62;
+
+      }
+
+
+      .floating-one {
+
+        right: 65px;
+
+        top: 7px;
+
+      }
+
+
+      .floating-two {
+
+        right: 25px;
+
+        bottom: 7px;
+
+      }
+
+
+      .floating-three {
+
+        right: 155px;
+
+        bottom: 7px;
+
+      }
+
+
+      .floating-four {
+
+        right: 190px;
+
+        top: 7px;
+
+      }
+
+    }
+
+
+    /* ==================================================
+       VERY SMALL PHONES
+    ================================================== */
+
+    @media (max-width: 380px) {
+
+      .domain-ad {
+
+        min-height: 124px;
+
+        padding: 12px;
+
+      }
+
+
+      .domain {
+
+        font-size: 21px;
+
+        height: 23px;
+
+      }
+
+
+      .description {
+
+        /*font-size: 8.5px;*/
+
+        font-size: 18px;
+
+      }
+
+
+      .use-case {
+
+        /*font-size: 7px;*/
+        font-size: 12px;
+
+        padding: 3px 5px;
+
+      }
+
+
+      .cta {
+
+        padding: 7px 8px;
+
+        font-size: 8px;
+
+      }
+
+
+      .floating-domain {
+
+        /*font-size: 8px;*/
+        font-size: 18px;
+
+        padding: 5px 7px;
+
+      }
+
+    }
+
+
+    /* ==================================================
+       REDUCED MOTION
+    ================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .domain-ad,
+      .domain-ad *,
+      .domain-ad::before,
+      .domain-ad::after {
+
+        animation: none !important;
+
+        transition: none !important;
+
+      }
+
+    }
+
+
     </style>
 
     <link rel="stylesheet" href="styles.css">
@@ -225,6 +1508,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+
+    <!-- Fonts of the ad -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
     <title>PC-P Nouvelle Réforme | FSA Agadir (2023-2026)</title>
 
@@ -281,18 +1573,179 @@
     </script>
   </head>
 
-  <body style="padding-top: 0px;">
+  <body>
+   <!-- style="padding-top: 0px;"> -->
 
     <!-- Google Tag Manager (noscript) -->
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMRR2PSP"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- ==================================================
+       AD
+  ================================================== -->
+
+  <div style="    margin: 0 30px;
+    place-items: center;">
+    <a
+    href="https://example.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="domain-ad"
+  >
+
+
+    <!-- ==================================================
+         FLOATING BACKGROUND DOMAINS
+    ================================================== -->
+
+    <span
+      class="floating-domain floating-one"
+      id="floatingOne"
+    >
+      monnom.ma
+    </span>
+
+
+    <span
+      class="floating-domain floating-two"
+      id="floatingTwo"
+    >
+      monpro.com
+    </span>
+
+
+    <span
+      class="floating-domain floating-three"
+      id="floatingThree"
+    >
+      monsite.ma
+    </span>
+
+
+    <span
+      class="floating-domain floating-four"
+      id="floatingFour"
+    >
+      prenom.com
+    </span>
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <div class="ad-content">
+
+
+      <div class="ad-label">
+
+        <span class="green-dot"></span>
+
+        DOMAINES DISPONIBLES
+
+      </div>
+
+
+      <!-- ==================================================
+           MAIN ANIMATED DOMAIN
+      ================================================== -->
+
+      <div
+        class="domain"
+        id="animatedDomain"
+      >
+
+        <span
+          class="domain-name"
+          id="domainName"
+        >
+          atlas
+        </span>
+
+
+        <span
+          class="domain-extension"
+          id="domainExtension"
+        >
+          .ma
+        </span>
+
+      </div>
+
+
+      <!-- ==================================================
+           DESCRIPTION
+      ================================================== -->
+
+      <div class="description">
+
+        <strong>
+          Achetez votre nom de domaine.
+        </strong>
+
+        Personnel, portfolio ou business.
+
+        <span class="darija">
+          Bghiti domaine b smiytek ? Khodo daba.
+        </span>
+
+      </div>
+
+
+      <!-- ==================================================
+           USE CASES
+      ================================================== -->
+
+      <div class="use-cases">
+
+        <span class="use-case">
+          👤 Personnel
+        </span>
+
+        <span class="use-case">
+          💼 Business
+        </span>
+
+        <span class="use-case">
+          🎨 Portfolio
+        </span>
+
+        <span class="use-case">
+          🚀 Projet
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- ==================================================
+         CTA
+    ================================================== -->
+
+    <div class="cta">
+
+      Trouver mon domaine
+
+      <span class="arrow">
+        →
+      </span>
+
+    </div>
+
+
+  </a>
+  </div>
+
     <!-- Main Course List -->
     <div class="course-container" id="frst-course-container" style="
     padding: 20px 0px;
     padding-top: 40px;
-    margin: 0px 20px;">
+    /*margin: 0px 20px;*/
+    margin: 0px auto;
+    ">
 
       <!-- <div class="search-container">
 
@@ -761,6 +2214,715 @@
         chart.appendChild(col);
       });
       chartScroll.scrollLeft = chartScroll.scrollWidth;
+
+
+
+
+
+    /* ==================================================
+       RANDOM SHUFFLE
+    ================================================== */
+
+    function shuffle(array) {
+
+      const shuffled = [...array];
+
+
+      for (
+        let i = shuffled.length - 1;
+        i > 0;
+        i--
+      ) {
+
+        const j =
+          Math.floor(
+            Math.random() * (i + 1)
+          );
+
+
+        [
+          shuffled[i],
+          shuffled[j]
+        ] = [
+          shuffled[j],
+          shuffled[i]
+        ];
+
+      }
+
+
+      return shuffled;
+
+    }
+
+
+    /* ==================================================
+       RANDOM BACKGROUND
+    ================================================== */
+
+    const ad =
+      document.querySelector(
+        ".domain-ad"
+      );
+
+
+    const colorPalettes = [
+
+      {
+        a: "#4c1d95",
+        b: "#7c3aed",
+        c: "#2563eb"
+      },
+
+      {
+        a: "#312e81",
+        b: "#6366f1",
+        c: "#8b5cf6"
+      },
+
+      {
+        a: "#1e3a8a",
+        b: "#2563eb",
+        c: "#0891b2"
+      },
+
+      {
+        a: "#701a75",
+        b: "#a21caf",
+        c: "#7c3aed"
+      },
+
+      {
+        a: "#172554",
+        b: "#1d4ed8",
+        c: "#4f46e5"
+      },
+
+      {
+        a: "#064e3b",
+        b: "#047857",
+        c: "#2563eb"
+      },
+
+      {
+        a: "#2e1065",
+        b: "#581c87",
+        c: "#9333ea"
+      },
+
+      {
+        a: "#4a044e",
+        b: "#86198f",
+        c: "#6d28d9"
+      },
+
+      {
+        a: "#134e4a",
+        b: "#0f766e",
+        c: "#2563eb"
+      },
+
+      {
+        a: "#581c87",
+        b: "#c2410c",
+        c: "#ea580c"
+      }
+
+    ];
+
+
+    const randomPalette =
+      colorPalettes[
+        Math.floor(
+          Math.random() *
+          colorPalettes.length
+        )
+      ];
+
+
+    ad.style.background = `
+
+      radial-gradient(
+        circle at 90% 10%,
+        rgba(255,255,255,.16),
+        transparent 26%
+      ),
+
+      linear-gradient(
+        110deg,
+        ${randomPalette.a},
+        ${randomPalette.b} 48%,
+        ${randomPalette.c} 100%
+      )
+
+    `;
+
+
+    /* ==================================================
+       DOMAIN NAMES
+    ================================================== */
+
+    const domainNames = shuffle([
+
+      "atlas",
+      "noura",
+      "zayna",
+      "yassine",
+      "amine",
+      "salma",
+      "imane",
+      "rayane",
+      "adam",
+      "aya",
+      "sara",
+      "mehdi",
+      "omar",
+      "soufiane",
+      "walid",
+      "meryem",
+      "nabil",
+      "hamza",
+
+      "riad",
+      "studio",
+      "creative",
+      "digital",
+      "pixel",
+      "design",
+      "media",
+      "market",
+      "agency",
+      "online",
+      "vision",
+      "connect",
+      "smart",
+      "nova",
+      "urban",
+      "future",
+      "space",
+      "labs",
+      "works",
+      "hub",
+      "zone",
+
+      "casablanca",
+      "marrakech",
+      "agadir",
+      "tanger",
+      "rabat",
+      "fes",
+      "essaouira",
+
+      "maison",
+      "boutique",
+      "artisan",
+      "voyage",
+      "photo",
+      "coach",
+      "consult",
+      "projet",
+      "startup",
+      "shop",
+      "marketplace",
+
+      "creator",
+      "digitalhub",
+      "webstudio",
+      "monprojet",
+      "mabusiness",
+      "maboutique",
+      "monportfolio",
+      "monblog",
+      "monstudio",
+      "monshop",
+      "myspace",
+      "mybrand",
+      "myname",
+      "hello",
+      "bonjour",
+      "salut",
+      "darija",
+      "maroc",
+      "maghreb"
+
+    ]);
+
+
+    /* ==================================================
+       EXTENSIONS
+    ================================================== */
+
+    const extensions = shuffle([
+
+      ".ma",
+      ".com",
+      ".net",
+      ".shop",
+      ".online",
+      ".site",
+      ".store",
+      ".co",
+      ".io",
+      ".pro",
+      ".me",
+      ".dev",
+      ".tech",
+      ".digital"
+
+    ]);
+
+
+    /* ==================================================
+       FLOATING DOMAINS
+    ================================================== */
+
+    const floatingDomains = shuffle([
+
+      "noura.ma",
+      "atlas.com",
+      "zayna.ma",
+      "riad.com",
+      "amine.ma",
+      "salma.com",
+      "casablanca.ma",
+      "marrakech.com",
+      "agadir.ma",
+      "rabat.com",
+      "tanger.ma",
+      "essaouira.com",
+
+      "studio.ma",
+      "creative.com",
+      "pixel.ma",
+      "digital.com",
+      "maison.ma",
+      "boutique.com",
+      "photo.ma",
+      "voyage.com",
+
+      "portfolio.ma",
+      "myname.com",
+      "monsite.ma",
+      "monpro.com",
+      "monblog.ma",
+      "monstudio.com",
+      "maboutique.ma",
+      "monprojet.com",
+
+      "vision.ma",
+      "nova.com",
+      "urban.ma",
+      "smart.com",
+      "connect.ma",
+      "future.com",
+      "design.ma",
+      "media.com",
+      "online.ma",
+      "shop.com",
+      "startup.com",
+      "creator.ma",
+
+      "yassine.ma",
+      "amine.com",
+      "sara.ma",
+      "mehdi.com",
+      "meryem.ma",
+      "hamza.com",
+      "aya.ma",
+      "nabil.com",
+
+      "webstudio.ma",
+      "digitalhub.com",
+      "myportfolio.ma",
+      "mybrand.com",
+      "monshop.ma",
+      "monblog.com",
+      "maboutique.ma",
+      "monprojet.com"
+
+    ]);
+
+
+    /* ==================================================
+       ELEMENTS
+    ================================================== */
+
+    const domainName =
+      document.getElementById(
+        "domainName"
+      );
+
+
+    const domainExtension =
+      document.getElementById(
+        "domainExtension"
+      );
+
+
+    const floatingElements = [
+
+      document.getElementById(
+        "floatingOne"
+      ),
+
+      document.getElementById(
+        "floatingTwo"
+      ),
+
+      document.getElementById(
+        "floatingThree"
+      ),
+
+      document.getElementById(
+        "floatingFour"
+      )
+
+    ];
+
+
+    /* ==================================================
+       RANDOM STARTING POSITION
+    ================================================== */
+
+    let currentName =
+      Math.floor(
+        Math.random() *
+        domainNames.length
+      );
+
+
+    let currentExtension =
+      Math.floor(
+        Math.random() *
+        extensions.length
+      );
+
+
+    let floatingIndex =
+      Math.floor(
+        Math.random() *
+        floatingDomains.length
+      );
+
+
+    /* ==================================================
+       RANDOM INITIAL DOMAIN
+    ================================================== */
+
+    domainName.textContent =
+      domainNames[currentName];
+
+
+    domainExtension.textContent =
+      extensions[currentExtension];
+
+
+    /* ==================================================
+       RANDOM INITIAL FLOATING DOMAINS
+    ================================================== */
+
+    floatingElements.forEach(
+      (element, index) => {
+
+        let randomIndex =
+          (
+            floatingIndex +
+            index +
+            Math.floor(
+              Math.random() *
+              8
+            )
+          )
+          % floatingDomains.length;
+
+
+        element.textContent =
+          floatingDomains[randomIndex];
+
+      }
+    );
+
+
+    /* ==================================================
+       NEXT NAME
+    ================================================== */
+
+    function getNextName() {
+
+      currentName++;
+
+      if (
+        currentName >=
+        domainNames.length
+      ) {
+
+        currentName = 0;
+
+      }
+
+
+      return domainNames[
+        currentName
+      ];
+
+    }
+
+
+    /* ==================================================
+       NEXT EXTENSION
+    ================================================== */
+
+    function getNextExtension() {
+
+      currentExtension++;
+
+      if (
+        currentExtension >=
+        extensions.length
+      ) {
+
+        currentExtension = 0;
+
+      }
+
+
+      return extensions[
+        currentExtension
+      ];
+
+    }
+
+
+    /* ==================================================
+       NEXT FLOATING DOMAIN
+    ================================================== */
+
+    function getNextFloatingDomain() {
+
+      floatingIndex++;
+
+      if (
+        floatingIndex >=
+        floatingDomains.length
+      ) {
+
+        floatingIndex = 0;
+
+      }
+
+
+      return floatingDomains[
+        floatingIndex
+      ];
+
+    }
+
+
+    /* ==================================================
+       CHANGE MAIN DOMAIN
+    ================================================== */
+
+    function changeDomain() {
+
+
+      /*
+       * NAME LEAVES
+       */
+
+      domainName.classList.remove(
+        "name-in"
+      );
+
+
+      domainName.classList.add(
+        "name-out"
+      );
+
+
+      /*
+       * NEW NAME
+       */
+
+      setTimeout(() => {
+
+
+        domainName.textContent =
+          getNextName();
+
+
+        domainName.classList.remove(
+          "name-out"
+        );
+
+
+        void domainName.offsetWidth;
+
+
+        domainName.classList.add(
+          "name-in"
+        );
+
+
+      }, 380);
+
+
+      /*
+       * EXTENSION LEAVES
+       *
+       * Slight delay so that the
+       * name changes first.
+       */
+
+      setTimeout(() => {
+
+
+        domainExtension.classList.remove(
+          "extension-in"
+        );
+
+
+        domainExtension.classList.add(
+          "extension-out"
+        );
+
+
+      }, 650);
+
+
+      /*
+       * NEW EXTENSION
+       */
+
+      setTimeout(() => {
+
+
+        domainExtension.textContent =
+          getNextExtension();
+
+
+        domainExtension.classList.remove(
+          "extension-out"
+        );
+
+
+        void domainExtension.offsetWidth;
+
+
+        domainExtension.classList.add(
+          "extension-in"
+        );
+
+
+      }, 930);
+
+    }
+
+
+    /* ==================================================
+       MAIN DOMAIN TIMER
+    ================================================== */
+
+    setInterval(
+      changeDomain,
+      3600
+    );
+
+
+    /* ==================================================
+       CHANGE FLOATING DOMAIN
+    ================================================== */
+
+    function changeFloatingDomain(
+      element
+    ) {
+
+      if (!element) return;
+
+
+      /*
+       * Fade out
+       */
+
+      element.style.opacity =
+        "0";
+
+
+      element.style.transform =
+        "scale(.82) translateY(-8px)";
+
+
+      setTimeout(() => {
+
+
+        /*
+         * New random domain
+         */
+
+        element.textContent =
+          getNextFloatingDomain();
+
+
+        /*
+         * Fade back in
+         */
+
+        element.style.opacity =
+          "1";
+
+
+        element.style.transform =
+          "scale(1) translateY(0)";
+
+
+      }, 320);
+
+    }
+
+
+    /* ==================================================
+       ROTATE FLOATING DOMAINS
+    ================================================== */
+
+    function rotateFloatingDomains() {
+
+
+      /*
+       * Change them one after another
+       * instead of all at once.
+       */
+
+      floatingElements.forEach(
+        (element, index) => {
+
+
+          setTimeout(() => {
+
+
+            changeFloatingDomain(
+              element
+            );
+
+
+          }, index * 650);
+
+        }
+      );
+
+    }
+
+
+    /* ==================================================
+       FLOATING DOMAIN TIMER
+    ================================================== */
+
+    setInterval(
+      rotateFloatingDomains,
+      4800
+    );
+
+
+
+
   </script>
 
   </body>

@@ -7,15 +7,25 @@ body {
   font-family: Arial, sans-serif;
   /*background-color: #f4f4f4;*/
   background-color: #f9f9f9;
-  display: flex;
+  /*display: flex;*/
   justify-content: center; /* Center horizontally */
   align-items: flex-start; /* Align to the top */
   height: 100vh; /* Full height of the viewport */
-  padding-top: 40px; /* Space from the top */
+   /* Space from the top */
+  /*padding-top: 40px;*/
   flex-wrap: wrap;
 }
 
-* {
+.domain-ad * {
+  text-decoration: none;
+  /*box-sizing: border-box;*/
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Standard syntax */
+  box-sizing: border-box;
+}
+
+.course-container *, .home-footer * {
   text-decoration: none;
   /*box-sizing: border-box;*/
   -webkit-user-select: none; /* Safari */
@@ -50,7 +60,8 @@ h3 {
   /*background: #ffffff;*/
   background: #8A8A8A;
   padding: 15px;
-  margin: 0px 0px 20px 0;
+  margin: 0 20px 20px 20px;
+  /*margin: 0px 0px 20px 0;*/
   /*border-radius: 8px;*/
   border-radius: 20px;
   cursor: pointer;
@@ -197,7 +208,7 @@ a
   {
     /*transform: scale(0.8);*/
     width: 82vw;
-    
+
   }
 }
 
