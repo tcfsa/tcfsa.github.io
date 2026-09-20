@@ -1321,8 +1321,8 @@
 
       .domain {
 
-        font-size:
-          clamp(24px, 7.5vw, 31px);
+        /*font-size:*/
+          /*clamp(24px, 7.5vw, 31px);*/
 
         height: 32px;
 
@@ -1446,7 +1446,7 @@
        VERY SMALL PHONES
     ================================================== */
 
-    @media (max-width: 380px) {
+    @media (max-width: 380px) or (max-width: 600px) {
 
       .domain-banner {
 
@@ -1454,14 +1454,18 @@
 
         padding: 12px;
 
+         flex-direction: column;
+    align-items: stretch !important;
+
       }
 
 
       .domain {
 
-        font-size: 21px;
+        /*font-size: 21px;*/
 
-        height: 23px;
+        /*height: 23px;*/
+        height: 28px;
 
       }
 
@@ -1470,7 +1474,7 @@
 
         /*font-size: 8.5px;*/
 
-        font-size: 18px;
+        font-size: 14px;
 
       }
 
@@ -1487,11 +1491,21 @@
 
       .cta {
 
-        padding: 7px 8px;
+        /*padding: 7px 8px;*/
+        padding: 0 12px;
 
-        font-size: 8px;
+        /*font-size: 8px;*/
+        font-size: 13px;
 
+ align-self: center;
+    width: auto;
+    margin-top: 8px;
       }
+
+      .banner-content {
+    width: 100%;
+  }
+
 
 
       .floating-domain {
