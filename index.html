@@ -246,7 +246,7 @@
        MAIN AD
     ================================================== */
 
-    .domain-ad {
+    .domain-banner {
 
 
       position: relative;
@@ -318,7 +318,7 @@
        BACKGROUND GLOW
     ================================================== */
 
-    .domain-ad::before {
+    .domain-banner::before {
 
       content: "";
 
@@ -351,7 +351,7 @@
        MOVING SHINE
     ================================================== */
 
-    .domain-ad::after {
+    .domain-banner::after {
 
       content: "";
 
@@ -390,7 +390,7 @@
        CONTENT
     ================================================== */
 
-    .ad-content {
+    .banner-content {
 
       position: relative;
 
@@ -407,7 +407,7 @@
        LABEL
     ================================================== */
 
-    .ad-label {
+    .banner-label {
 
       display: flex;
 
@@ -715,7 +715,7 @@
     }
 
 
-    .domain-ad:hover .cta {
+    .domain-banner:hover .cta {
 
       transform:
         translateY(-2px);
@@ -726,7 +726,7 @@
     }
 
 
-    .domain-ad:hover .arrow {
+    .domain-banner:hover .arrow {
 
       transform:
         translateX(4px);
@@ -1270,7 +1270,7 @@
       }
 
 
-      .domain-ad {
+      .domain-banner {
 
     min-height: 145px !important;
     height: auto !important;
@@ -1283,7 +1283,7 @@
 
       }
 
-      .ad-content {
+      .banner-content {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -1293,7 +1293,7 @@
   min-width: 0 !important;
 }
 
-.ad-label,
+.banner-label,
 .domain,
 .description,
 .use-cases {
@@ -1312,7 +1312,7 @@
 }
 
 
-      .ad-label {
+      .banner-label {
 
         font-size: 8px;
 
@@ -1448,7 +1448,7 @@
 
     @media (max-width: 380px) {
 
-      .domain-ad {
+      .domain-banner {
 
         min-height: 124px;
 
@@ -1512,10 +1512,10 @@
 
     @media (prefers-reduced-motion: reduce) {
 
-      .domain-ad,
-      .domain-ad *,
-      .domain-ad::before,
-      .domain-ad::after {
+      .domain-banner,
+      .domain-banner *,
+      .domain-banner::before,
+      .domain-banner::after {
 
         animation: none !important;
 
@@ -1620,7 +1620,7 @@
     href="https://instagram.com/smpfsa"
     target="_blank"
     rel="noopener noreferrer"
-    class="domain-ad"
+    class="domain-banner"
   >
 
 
@@ -1664,10 +1664,10 @@
          MAIN CONTENT
     ================================================== -->
 
-    <div class="ad-content">
+    <div class="banner-content">
 
 
-      <div class="ad-label">
+      <div class="banner-label">
 
         <span class="green-dot"></span>
 
@@ -2121,7 +2121,7 @@
       </div>
     </div>
 
-    <script src="search-bar.js"></script>
+    <!-- <script src="search-bar.js"></script> -->
     <script>
       const data = [
 
@@ -2291,7 +2291,7 @@
 
     const ad =
       document.querySelector(
-        ".domain-ad"
+        ".domain-banner"
       );
 
 
