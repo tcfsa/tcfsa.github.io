@@ -3,7 +3,7 @@
   src: url(font.ttf);
 }*/
 
-.course-container *, .home-footer *  {
+.course-container *, .home-footer *, .container *  {
     box-sizing: border-box;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none;     /* IE 10+ */
