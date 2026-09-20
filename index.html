@@ -217,6 +217,12 @@
 
       /* ad styles */
 
+      *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
     /* ==================================================
        RESET
@@ -1628,8 +1634,12 @@
        AD
   ================================================== -->
 
-  <div style="    margin: 0 30px;
-    place-items: center;">
+  <div style="
+    place-items: center; width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;">
     <a
     href="https://instagram.com/smpfsa"
     target="_blank"
