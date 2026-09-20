@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     /*background: #f4f4f4;*/
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     /*padding-top: 80px;*/
 }
@@ -11,7 +11,7 @@ body {
   margin-bottom: 40px;
   position: relative;
   
-    display: none;
+    /*display: none;*/
 }
 
 .search-bar {
