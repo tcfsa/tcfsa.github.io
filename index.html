@@ -2101,9 +2101,9 @@
         </h2>
 
         <h3 class="home-footer-item-2" style="text-box: auto;">
-          Visiteurs uniques (total) : 946
+          Visiteurs uniques (total) : 956
           <br>
-          Visiteurs uniques ce mois : 222
+          Visiteurs uniques ce mois : 232
         </h3>
 
 
@@ -2165,7 +2165,7 @@
         { m: "Juin 26", v: 960, u: 45 },
         { m: "Juil 26", v: 183, u: 14 },
         { m: "Août 26", v: 253, u: 52 },
-        { m: "Sep 26", v: 988, u: 222 }
+        { m: "Sep 26", v: 1037, u: 232 }
         // { m: "Oct", v: 900, u: 300 },
         // { m: "Nov", v: 420, u: 320 },
         // { m: "Déc", v: 480, u: 380 }
@@ -2210,7 +2210,7 @@
       const totalsBox = document.getElementById("totals");
       const max = Math.max(...data.flatMap(d => [d.v, d.u]));
       // const scale = 140 / max;
-      const scaleV = 180 / max;
+      const scaleV = 250 / max;
       const scaleU = 1700 / max;
 
       const totalViews = data.reduce((sum, d) => sum + d.v, 0);
