@@ -14,8 +14,7 @@ let aXu_others = [
 	["/s2apex", "https://mega.nz/folder/eg5TxJYY#ImOtz3yo_NUwZt80N_177Q"],
 	["/fiche-modules-pc.pdf", "https://drive.google.com/uc?id=1hs2aq45K9FdrkSC8nAlC02MNGyM-ZnvS"],
 	["/fiche-modules.pdf", "https://drive.google.com/uc?id=1Z5p4ThPnXQ6dgHv0hxRg6NMvcARs39SH"],
-	["/fiche-modules", "https://drive.google.com/drive/folders/1_WGyBOhGGNwhghoVoCp3l3Z_f-lYTnOo?usp=sharing"],
-	["/s1", "https://drive.google.com/drive/folders/1_EU_LcD3xSHl07lof6kYE9PtBiuume35?usp=sharing"],
+	["/fiche-modules", "https://drive.google.com/drive/folders/1_WGyBOhGGNwhghoVoCp3l3Z_f-lYTnOo?usp=sharing"]
 
 ];
 
@@ -552,12 +551,58 @@ let aXu_s3 = [
 	["/pc_p5_newcolors", "https://drive.google.com/file/d/1RjU1AfyoxrMiyMbYTk3WUvvH0Du3kZSj/view?usp=sharing"]
 ];
 
-addressesXurls = aXu_others.concat(aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5, aXu_s6, aXu_es_s6, aXu_eer_s6);
+let aXu_s1 = [
+
+	["/algprg", ""],
+	["/algprg", ""],
+	["/algprg", ""],
+	["/algprg", ""],
+	["/algprg", ""],
+	["/algprg", ""],
+	["/algprg", ""],
+
+	["/s1", "https://drive.google.com/drive/folders/1_EU_LcD3xSHl07lof6kYE9PtBiuume35?usp=sharing"],
+	
+	["/p/s1/analy/cours/chapitre 1.pdf", "https://drive.google.com/uc?id=1uVqGsxelY-MzmOXCMcT5Fz9zBHhgRiQ6"],
+	["/p/s1/analy/cours/chapitre 2.pdf", "https://drive.google.com/uc?id=1vTETB-sLo7cHx0OWHUeEEM8hr-RF8CyH"],
+	["/p/s1/analy/cours/chapitre 3.pdf", "https://drive.google.com/uc?id=19pG1hDsMtWpPjEbR1jz-DSc6e-pJ01ZS"],
+	["/p/s1/analy/cours/chapitre 4.pdf", "https://drive.google.com/uc?id=1laWDQHywF9IN96qNn9YT5BxtFil4qygf"],
+	["/p/s1/analy/cours/reste des chapitres.pdf", "https://drive.google.com/uc?id=1gxT3SxlHIb4Dx5tlGxL2144rOnDWGMC5"],
+
+	["/p/s1/analy/tds/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1IuZemgTEvgDWd5mRs66ng8zzX7mvtnk0"],
+	["/p/s1/analy/tds/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1JgY-4oPkDQczcYqxlMqyOzObv2Gm02ia"],
+	["/p/s1/analy/tds/td3 - énoncé.pdf", "https://drive.google.com/uc?id=1C-ohzkCxSd8I8eugH7VWurXg10wYQDZf"],
+	["/p/s1/analy/tds/td4 - énoncé.pdf", "https://drive.google.com/uc?id=1I9ZzyBZYIkBDUXszPOJPN6OyLHDOaEmd"],
+
+	["/p/s1/analy/tds/(2024 - 2025)/td1 - énoncé.pdf", "https://drive.google.com/uc?id=1AxP5qo9HCQTxkg6lc5LqHd78PGcHIq6w"],
+	["/p/s1/analy/tds/(2024 - 2025)/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1nng4rgE6FtQ9jjsVSITZn66mS3j_b_u8"],
+	["/p/s1/analy/tds/(2024 - 2025)/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1rAzfuZTwhJ7Mj-IlW9avbHTa7kFP3-uJ"],
+	["/p/s1/analy/tds/(2024 - 2025)/td3 - énoncé.pdf", "https://drive.google.com/uc?id=1-LRWvtbSEW5wMzVCT_-1kFt23Ym8EfqU"],
+
+	["/p/s1/analy/tds/(2025 - 2026)/td1 - énoncé.pdf", "https://drive.google.com/uc?id=10gv0TztYZ1P1AiGZbczYMtVg63pa2aVY"],
+	["/p/s1/analy/tds/(2025 - 2026)/td1 - corrigé.pdf", "https://drive.google.com/uc?id=1Tkm9yNFfiO-40pBiFpFH-CyWzUBZ8GB8"],
+	["/p/s1/analy/tds/(2025 - 2026)/td2 - énoncé.pdf", "https://drive.google.com/uc?id=1-JJsNz5Yz2BSlYtMMsIi3HS-VX6lm-bF"],
+	["/p/s1/analy/tds/(2025 - 2026)/td3 - énoncé.pdf", "https://drive.google.com/uc?id=1FCywJrbsr3sKBNysnAQL3AbvhDVGy4cv"],
+	["/p/s1/analy/tds/(2025 - 2026)/td4 - énoncé.pdf", "https://drive.google.com/uc?id=1tBjqIHesZep0XLIAhz7m3DxqFdJHO2XN"],
+
+	["/p/s1/analy/examens/examen (2023 - 2024) sn - énoncé.pdf", "https://drive.google.com/uc?id=1I1lhfjOfAMW-8O5I1bugG3yErYGjyVlW"],
+	["/p/s1/analy/examens/examen (2023 - 2024) sr - énoncé.pdf", "https://drive.google.com/uc?id=1TNCDeMht_xwQ7FEYcvk8PubNp9ZJ_muj"],
+	["/p/s1/analy/examens/examen (2024 - 2025) sn - énoncé.pdf", "https://drive.google.com/uc?id=1r91_K8ba-WvuBbZ3jBhvjPar48q511Vf"],
+	["/p/s1/analy/examens/examen (2024 - 2025) sn - corrigé.pdf", "https://drive.google.com/uc?id=1xfntv1L_jICoNNXRHrsv0lB4SI3WxLlV"],
+	["/p/s1/analy/examens/examen (2024 - 2025) sr - énoncé.pdf", "https://drive.google.com/uc?id=1FSj1ynrXXLLLS5eWQCcCSD7j14mIviTv"],
+	["/p/s1/analy/examens/examen (2024 - 2025) sr - corrigé.pdf", "https://drive.google.com/uc?id=1wwZdAoNUBzDHMCMHLKX7G7q9I3wVTcZ4"],
+	["/p/s1/analy/examens/examen (2025 - 2026) sn - énoncé.pdf", "https://drive.google.com/uc?id=1Uz3gaG3Z6uzT3w-7f2-ar5OkYv0br8zT"],
+	["/p/s1/analy/examens/examen (2025 - 2026) sn - corrigé.pdf", "https://drive.google.com/uc?id=1Oaje9M7sMAiv8gH-Yfla0KU0DfBIgXWt"],
+
+	// ["/pc_p5_newcolors", "https://drive.google.com/file/d/1RjU1AfyoxrMiyMbYTk3WUvvH0Du3kZSj/view?usp=sharing"]
+];
+
+addressesXurls = aXu_others.concat(aXu_s1, aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5, aXu_s6, aXu_es_s6, aXu_eer_s6);
 
 function getURL(x) {
   var e = 0;
   var _url="";
-	addressesXurls = aXu_others.concat(aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5, aXu_s6, aXu_es_s6, aXu_eer_s6);
+	addressesXurls = aXu_others.concat(aXu_s1, aXu_s3, aXu_s4, aXu_s5, aXu_es_s5, aXu_eer_s5, aXu_s6, aXu_es_s6, aXu_eer_s6);
 
   addressesXurls.forEach((elem, index) => {
     if(decodeURI(x) == decodeURI(elem[0]) || decodeURI(x) == decodeURI(elem[0])+"/")
