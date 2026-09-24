@@ -553,13 +553,13 @@ let aXu_s3 = [
 
 let aXu_s1 = [
 
-	["/algprg", ""],
-	["/algprg", ""],
-	["/algprg", ""],
-	["/algprg", ""],
-	["/algprg", ""],
-	["/algprg", ""],
-	["/algprg", ""],
+	// ["/algprg", ""],
+	// ["/algprg", ""],
+	// ["/algprg", ""],
+	// ["/algprg", ""],
+	// ["/algprg", ""],
+	// ["/algprg", ""],
+	// ["/algprg", ""],
 
 	["/s1", "https://drive.google.com/drive/folders/1_EU_LcD3xSHl07lof6kYE9PtBiuume35?usp=sharing"],
 	

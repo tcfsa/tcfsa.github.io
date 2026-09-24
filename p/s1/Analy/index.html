@@ -60,7 +60,7 @@
 
               <ul id="subsec11" class="semester-list">
 
-                <a target="_blank" onclick="viewf('https://www.smpfsa.com/p/s1/Analy/Cours/Chapitre 1.pdf')">
+                <a target="_blank" onclick="betterviewf('https://files.smpfsa.com/p/s1/Analy/Cours/Chapitre 1.pdf')">
                   <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
                 </a>
 
@@ -362,11 +362,11 @@
 
               <ul id="subsec28" class="semester-list">
 
-                <a target="_blank" onclick="viewf('https://www.smpfsa.com/p/s1/Analy/TDs/TD1 - Énoncé.pdf')">
+                <a target="_blank" onclick="viewf('https://www.smpfsa.com/p/s1/Analy/TDs/(2024 - 2025)/TD1 - Énoncé.pdf')">
                   <li class="semester-item chapt_" style="margin: 0px 0px 7px 0;">Voir</li>
                 </a>
 
-                <a target="_blank" onclick="downf('https://www.smpfsa.com/p/s1/Analy/TDs/TD1 - Énoncé.pdf')">
+                <a target="_blank" onclick="downf('https://www.smpfsa.com/p/s1/Analy/TDs/(2024 - 2025)/TD1 - Énoncé.pdf')">
                   <li class="semester-item corr_">Télécharger</li>
                 </a>
 
@@ -861,7 +861,7 @@
 
             <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem43'); toggleSec('subsec43')">Examen (2024 - 2025) SN - Énoncé.pdf</li>
 
-            <div class="course-item list-folder" id ="elem43" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+            <div class="course-item list-folder" id ="elem43" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
 
               <ul id="subsec43" class="semester-list">
 
@@ -880,7 +880,7 @@
 
             <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem44'); toggleSec('subsec44')">Examen (2024 - 2025) SN - Corrigé.pdf</li>
 
-            <div class="course-item list-folder" id ="elem44" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+            <div class="course-item list-folder" id ="elem44" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
 
               <ul id="subsec44" class="semester-list">
 
@@ -899,7 +899,7 @@
 
             <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem45'); toggleSec('subsec45')">Examen (2024 - 2025) SR - Énoncé.pdf</li>
 
-            <div class="course-item list-folder" id ="elem45" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+            <div class="course-item list-folder" id ="elem45" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
 
               <ul id="subsec45" class="semester-list">
 
@@ -918,7 +918,7 @@
 
             <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem46'); toggleSec('subsec46')">Examen (2024 - 2025) SR - Corrigé.pdf</li>
 
-            <div class="course-item list-folder" id ="elem46" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+            <div class="course-item list-folder" id ="elem46" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
 
               <ul id="subsec46" class="semester-list">
 
@@ -937,7 +937,7 @@
 
             <li class="semester-item exam_" onclick="keep('sec4'); toggleThing('elem47'); toggleSec('subsec47')">Examen (2025 - 2026) SN - Énoncé.pdf</li>
 
-            <div class="course-item list-folder" id ="elem47" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 0px 0px;">
+            <div class="course-item list-folder" id ="elem47" onclick="toggleSec('sec4');" style="display: none; background: #2d2d2d!important;margin: 20px 0px 100px 0px;">
 
               <ul id="subsec47" class="semester-list">
 
@@ -994,5 +994,486 @@
           <button>Accueil</button>
       </a>
     </div>
+
+
+    <!-- PDF Viewer Window --> <div id="pdfViewer" class="pdf-window" aria-hidden="true"> <div class="pdf-window-header"> <span id="pdfTitle">PDF Viewer</span> <div class="pdf-window-controls"> <button type="button" id="pdfMinimize" aria-label="Minimize">−</button> <button type="button" id="pdfClose" aria-label="Close">×</button> </div> </div> <div class="pdf-window-content"> <iframe id="pdfFrame" src="" title="PDF Viewer" frameborder="0"> </iframe> </div> </div> <!-- Dark background behind the PDF window --> <div id="pdfBackdrop"></div>
+    <style type="text/css">
+      /* =========================================
+         PDF POPUP
+         ========================================= */
+
+      #pdfBackdrop {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.35);
+
+          opacity: 0;
+          visibility: hidden;
+
+          transition:
+              opacity 0.25s ease,
+              visibility 0.25s ease;
+
+          z-index: 9998;
+      }
+
+      #pdfBackdrop.active {
+          opacity: 1;
+          visibility: visible;
+      }
+
+
+      /* PDF WINDOW */
+
+      .pdf-window {
+          position: fixed;
+
+          /* Initial position */
+          left: 50%;
+          top: 50%;
+
+          width: min(1100px, 90vw);
+          height: min(800px, 88vh);
+
+          background: #202020;
+          border-radius: 14px;
+
+          overflow: hidden;
+
+          box-shadow:
+              0 25px 80px rgba(0, 0, 0, 0.55),
+              0 5px 20px rgba(0, 0, 0, 0.3);
+
+          z-index: 9999;
+
+          /*
+             The window starts as a tiny point.
+             JS changes the transform-origin to the
+             position of the clicked "Voir" button.
+          */
+          opacity: 0;
+          visibility: hidden;
+
+          transform:
+              translate(-50%, -50%)
+              scale(0.01);
+
+          transform-origin: center center;
+
+          transition:
+              transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease,
+              visibility 0s linear 0.42s;
+      }
+
+
+      /* OPEN */
+
+      .pdf-window.open {
+          opacity: 1;
+          visibility: visible;
+
+          transform:
+              translate(-50%, -50%)
+              scale(1);
+
+          transition:
+              transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease,
+              visibility 0s linear 0s;
+      }
+
+
+      /* MINIMIZED */
+
+      .pdf-window.minimizing {
+          opacity: 0;
+
+          transform:
+              translate(-50%, -50%)
+              scale(0.01);
+
+          transition:
+              transform 0.35s cubic-bezier(0.4, 0, 1, 1),
+              opacity 0.25s ease;
+      }
+
+
+      /* HEADER */
+
+      .pdf-window-header {
+          height: 48px;
+
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          padding: 0 10px 0 18px;
+
+          background: #292929;
+          color: white;
+
+          user-select: none;
+      }
+
+
+      /* PDF TITLE */
+
+      #pdfTitle {
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+      }
+
+
+      /* WINDOW BUTTONS */
+
+      .pdf-window-controls {
+          display: flex;
+          gap: 5px;
+      }
+
+      .pdf-window-controls button {
+          width: 36px;
+          height: 32px;
+
+          border: none;
+          border-radius: 7px;
+
+          background: transparent;
+          color: #ddd;
+
+          font-size: 21px;
+          line-height: 1;
+
+          cursor: pointer;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          transition:
+              background 0.15s ease,
+              color 0.15s ease;
+      }
+
+      .pdf-window-controls button:hover {
+          background: #3d3d3d;
+          color: white;
+      }
+
+      #pdfClose:hover {
+          background: #e81123;
+          color: white;
+      }
+
+
+      /* PDF CONTENT */
+
+      .pdf-window-content {
+          width: 100%;
+          height: calc(100% - 48px);
+
+          background: #525252;
+      }
+
+      #pdfFrame {
+          display: block;
+
+          width: 100%;
+          height: 100%;
+
+          border: none;
+      }
+
+
+      /* MOBILE */
+
+      @media (max-width: 700px) {
+
+          .pdf-window {
+              width: 96vw;
+              height: 90vh;
+
+              border-radius: 10px;
+          }
+
+          .pdf-window-header {
+              height: 44px;
+          }
+
+          .pdf-window-content {
+              height: calc(100% - 44px);
+          }
+      }
+
+
+      /* REDUCE MOTION */
+
+      @media (prefers-reduced-motion: reduce) {
+
+          .pdf-window,
+          #pdfBackdrop {
+              transition: none !important;
+          }
+      }
+
+    </style>
+
+    <script type="text/javascript">
+      /* =========================================
+         PDF POPUP VIEWER
+         ========================================= */
+
+      (function () {
+
+          const viewer = document.getElementById("pdfViewer");
+          const frame = document.getElementById("pdfFrame");
+          const title = document.getElementById("pdfTitle");
+
+          const minimizeBtn = document.getElementById("pdfMinimize");
+          const closeBtn = document.getElementById("pdfClose");
+          const backdrop = document.getElementById("pdfBackdrop");
+
+          if (!viewer || !frame) {
+              console.error("PDF viewer elements not found.");
+              return;
+          }
+
+
+          /*
+           * Get the filename from the PDF URL.
+           *
+           * Example:
+           * https://example.com/Cours/Chapitre%201.pdf
+           *
+           * becomes:
+           * Chapitre 1.pdf
+           */
+          function getPDFName(url) {
+
+              try {
+
+                  const pathname = new URL(url).pathname;
+
+                  const filename = decodeURIComponent(
+                      pathname.substring(pathname.lastIndexOf("/") + 1)
+                  );
+
+                  return filename || "PDF Viewer";
+
+              } catch (error) {
+
+                  return "PDF Viewer";
+              }
+          }
+
+
+          /*
+           * Find the element that was clicked.
+           *
+           * Your existing HTML uses:
+           *
+           * <a onclick="viewf('...')">
+           *     <li>Voir</li>
+           * </a>
+           *
+           * Therefore we look for the clicked element
+           * and use it as the animation origin.
+           */
+          function getAnimationOrigin() {
+
+              const active = document.activeElement;
+
+              if (active && active !== document.body) {
+
+                  const rect = active.getBoundingClientRect();
+
+                  if (rect.width && rect.height) {
+                      return rect;
+                  }
+              }
+
+              return {
+                  left: window.innerWidth / 2,
+                  top: window.innerHeight / 2,
+                  width: 0,
+                  height: 0
+              };
+          }
+
+
+          /*
+           * Open PDF viewer
+           */
+          window.betterviewf = function (url) {
+
+              if (!url) return;
+
+
+              const origin = getAnimationOrigin();
+
+              /*
+               * Calculate the origin relative to
+               * the center of the PDF window.
+               */
+              const windowRect = viewer.getBoundingClientRect();
+
+              const originX =
+                  origin.left + origin.width / 2;
+
+              const originY =
+                  origin.top + origin.height / 2;
+
+              const centerX = window.innerWidth / 2;
+              const centerY = window.innerHeight / 2;
+
+
+              const x =
+                  originX - centerX;
+
+              const y =
+                  originY - centerY;
+
+
+              /*
+               * transform-origin accepts percentages.
+               *
+               * Using the clicked button's position gives
+               * the impression that the window grows FROM
+               * that button.
+               */
+              const originPercentX =
+                  50 + (x / windowRect.width) * 100;
+
+              const originPercentY =
+                  50 + (y / windowRect.height) * 100;
+
+
+              viewer.style.transformOrigin =
+                  `${originPercentX}% ${originPercentY}%`;
+
+
+              /*
+               * Set PDF
+               */
+              frame.src = url;
+
+              title.textContent = getPDFName(url);
+
+
+              /*
+               * Reset animation state
+               */
+              viewer.classList.remove("minimizing");
+
+              /*
+               * Force browser to process the new transform origin
+               * before starting the animation.
+               */
+              void viewer.offsetWidth;
+
+
+              /*
+               * Open
+               */
+              viewer.classList.add("open");
+
+              backdrop.classList.add("active");
+
+              viewer.setAttribute("aria-hidden", "false");
+
+              document.body.style.overflow = "hidden";
+          };
+
+
+          /*
+           * Minimize PDF viewer
+           */
+          function minimizeViewer() {
+
+              viewer.classList.remove("open");
+
+              viewer.classList.add("minimizing");
+
+              backdrop.classList.remove("active");
+
+              viewer.setAttribute("aria-hidden", "true");
+
+              document.body.style.overflow = "";
+
+
+              /*
+               * Wait for the shrinking animation to finish
+               * before removing the PDF.
+               */
+              setTimeout(function () {
+
+                  if (!viewer.classList.contains("open")) {
+
+                      viewer.classList.remove("minimizing");
+
+                      frame.src = "";
+                  }
+
+              }, 400);
+          }
+
+
+          /*
+           * Close button
+           */
+          function closeViewer() {
+              minimizeViewer();
+          }
+
+
+          /*
+           * Button events
+           */
+          minimizeBtn.addEventListener(
+              "click",
+              minimizeViewer
+          );
+
+          closeBtn.addEventListener(
+              "click",
+              closeViewer
+          );
+
+
+          /*
+           * Clicking the dark background also minimizes
+           */
+          backdrop.addEventListener(
+              "click",
+              minimizeViewer
+          );
+
+
+          /*
+           * ESC = minimize
+           */
+          document.addEventListener(
+              "keydown",
+              function (event) {
+
+                  if (
+                      event.key === "Escape" &&
+                      viewer.classList.contains("open")
+                  ) {
+                      minimizeViewer();
+                  }
+
+              }
+          );
+
+      })();
+    </script>
+
+
   </body>
 </html>
