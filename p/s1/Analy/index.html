@@ -39,177 +39,7 @@
     <link rel="icon" type="image/png" href="../../../icons/favicon-96x96.png" sizes="96x96"> 
     <link rel="icon" type="image/png" href="../../../icons/favicon-16x16.png" sizes="16x16">
 
-    <style>
-#pdfPopup {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-    box-sizing: border-box;
-
-    background: rgba(0, 0, 0, 0.65);
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transition: opacity .25s ease, visibility .25s ease;
-}
-
-#pdfPopup.open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-#pdfWindow {
-    width: min(1100px, 95vw);
-    height: min(90vh, 850px);
-
-    background: #202124;
-    border-radius: 14px;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-
-    box-shadow: 0 20px 70px rgba(0,0,0,.5);
-
-    transform: scale(.05);
-    opacity: 0;
-
-    transition:
-        transform .4s cubic-bezier(.2,.8,.2,1),
-        opacity .25s ease,
-        width .3s ease,
-        height .3s ease,
-        border-radius .3s ease;
-}
-
-#pdfPopup.open #pdfWindow {
-    transform: scale(1);
-    opacity: 1;
-}
-
-
-/* Toolbar */
-
-#pdfToolbar {
-    height: 52px;
-    min-height: 52px;
-
-    background: #292929;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 10px 0 16px;
-    box-sizing: border-box;
-}
-
-#pdfTitle {
-    color: white;
-
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-#pdfControls {
-    display: flex;
-    gap: 6px;
-}
-
-#pdfControls button {
-    width: 38px;
-    height: 36px;
-
-    border: 0;
-    border-radius: 8px;
-
-    background: #3a3a3a;
-    color: white;
-
-    cursor: pointer;
-
-    font-size: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-#pdfControls button:hover {
-    background: #505050;
-}
-
-
-/* PDF */
-
-#pdfViewer {
-    width: 100%;
-    height: calc(100% - 52px);
-
-    border: 0;
-    display: block;
-
-    background: white;
-}
-
-
-/* Fake fullscreen */
-
-#pdfWindow.pdf-expanded {
-    width: 100vw;
-    height: 100vh;
-
-    max-width: none;
-    max-height: none;
-
-    border-radius: 0;
-}
-
-
-/* Mobile */
-
-@media (max-width: 600px) {
-
-    #pdfPopup {
-        padding: 0;
-    }
-
-    #pdfWindow {
-        width: 95vw;
-        height: 90dvh;
-
-        border-radius: 12px;
-    }
-
-    #pdfWindow.pdf-expanded {
-        width: 100vw;
-        height: 100dvh;
-
-        border-radius: 0;
-    }
-
-    #pdfToolbar {
-        height: 50px;
-        min-height: 50px;
-    }
-
-    #pdfViewer {
-        height: calc(100% - 50px);
-    }
-}
-</style>
-
+    
   </head>
   <body style="padding: 0px">
     <div class="container">
@@ -1168,19 +998,236 @@
     </div>
 
 
+    <div id="pdfPopup" onclick="closePdfFromBackground(event)">
+  <div id="pdfWindow">
+
+    <div id="pdfToolbar">
+      <div id="pdfTitle">PDF</div>
+
+      <div id="pdfControls">
+        <button type="button" onclick="minimizePDF()" title="Minimiser">
+          −
+        </button>
+
+        <button
+    type="button"
+    onclick="togglePdfSize()"
+    id="pdfExpandButton"
+    title="Agrandir">
+    ⛶
+</button>
+
+        <button type="button" onclick="closePDF()" title="Fermer">
+          ×
+        </button>
+      </div>
+    </div>
+
+    <iframe
+      id="pdfViewer"
+      title="PDF Viewer"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+</div>
     
+    <style>
+#pdfPopup {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+#pdfPopup.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#pdfWindow {
+    width: min(1100px, 95vw);
+    height: min(90vh, 850px);
+
+    background: #202124;
+    border-radius: 14px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 20px 70px rgba(0,0,0,.5);
+
+    transform: scale(.05);
+    opacity: 0;
+
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        opacity .25s ease,
+        width .3s ease,
+        height .3s ease,
+        border-radius .3s ease;
+}
+
+#pdfPopup.open #pdfWindow {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+/* Toolbar */
+
+#pdfToolbar {
+    height: 52px;
+    min-height: 52px;
+
+    background: #292929;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 10px 0 16px;
+    box-sizing: border-box;
+}
+
+#pdfTitle {
+    color: white;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#pdfControls {
+    display: flex;
+    gap: 6px;
+}
+
+#pdfControls button {
+    width: 38px;
+    height: 36px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #3a3a3a;
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#pdfControls button:hover {
+    background: #505050;
+}
+
+
+/* PDF */
+
+#pdfViewer {
+    width: 100%;
+    height: calc(100% - 52px);
+
+    border: 0;
+    display: block;
+
+    background: white;
+}
+
+
+/* Fake fullscreen */
+
+#pdfWindow.pdf-expanded {
+    width: 100vw;
+    height: 100vh;
+
+    max-width: none;
+    max-height: none;
+
+    border-radius: 0;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    #pdfPopup {
+        padding: 0;
+    }
+
+    #pdfWindow {
+        width: 95vw;
+        height: 90dvh;
+
+        border-radius: 12px;
+    }
+
+    #pdfWindow.pdf-expanded {
+        width: 100vw;
+        height: 100dvh;
+
+        border-radius: 0;
+    }
+
+    #pdfToolbar {
+        height: 50px;
+        min-height: 50px;
+    }
+
+    #pdfViewer {
+        height: calc(100% - 50px);
+    }
+}
+</style>
+
 
     <script type="text/javascript">
-        function betterviewf(pdfUrl) {
+function betterviewf(pdfUrl) {
+
+    // On mobile, let the browser open the PDF directly.
+    // This uses the phone's native PDF viewer and avoids iframe problems.
+    if (window.innerWidth <= 600) {
+        window.open(pdfUrl, "_blank");
+        return;
+    }
+
     const popup = document.getElementById("pdfPopup");
     const viewer = document.getElementById("pdfViewer");
     const title = document.getElementById("pdfTitle");
     const windowElement = document.getElementById("pdfWindow");
 
-    // Reset size every time a new PDF is opened
+    // Reset size
     windowElement.classList.remove("pdf-expanded");
 
-    document.getElementById("pdfExpandButton").textContent = "⛶";
+    const expandButton = document.getElementById("pdfExpandButton");
+
+    if (expandButton) {
+        expandButton.textContent = "⛶";
+        expandButton.title = "Agrandir";
+    }
 
     // Get filename
     let filename = pdfUrl.substring(
@@ -1194,10 +1241,10 @@
     // Open PDF
     viewer.src = pdfUrl;
 
-    // Open popup
+    // Show popup
     popup.classList.add("open");
 
-    // Prevent page scrolling behind popup
+    // Prevent background scrolling
     document.body.style.overflow = "hidden";
 }
 
@@ -1209,15 +1256,13 @@ function closePDF() {
     const windowElement = document.getElementById("pdfWindow");
 
     popup.classList.remove("open");
-
     windowElement.classList.remove("pdf-expanded");
 
     document.body.style.overflow = "";
 
-    // Wait for shrink animation
     setTimeout(() => {
         viewer.src = "";
-    }, 400);
+    }, 300);
 }
 
 
@@ -1228,7 +1273,6 @@ function minimizePDF() {
 
 function closePdfFromBackground(event) {
 
-    // Only close when clicking the dark background
     if (event.target === event.currentTarget) {
         closePDF();
     }
@@ -1244,63 +1288,16 @@ function togglePdfSize() {
         windowElement.classList.toggle("pdf-expanded");
 
     if (expanded) {
-        button.textContent = "⛶";
+        button.textContent = "↙";
         button.title = "Réduire";
     } else {
         button.textContent = "⛶";
         button.title = "Agrandir";
     }
 }
+
     </script>
 
-<div id="pdfPopup" onclick="closePdfFromBackground(event)">
 
-    <div id="pdfWindow">
-
-        <div id="pdfToolbar">
-
-            <div id="pdfTitle">
-                PDF
-            </div>
-
-            <div id="pdfControls">
-
-                <!-- Minimize -->
-                <button
-                    type="button"
-                    onclick="minimizePDF()"
-                    title="Minimiser">
-                    −
-                </button>
-
-                <!-- Expand window -->
-                <button
-                    type="button"
-                    onclick="togglePdfSize()"
-                    id="pdfExpandButton"
-                    title="Agrandir">
-                    ⛶
-                </button>
-
-                <!-- Close -->
-                <button
-                    type="button"
-                    onclick="closePDF()"
-                    title="Fermer">
-                    ×
-                </button>
-
-            </div>
-
-        </div>
-
-        <iframe
-            id="pdfViewer"
-            title="PDF Viewer">
-        </iframe>
-
-    </div>
-
-</div>
   </body>
 </html>
