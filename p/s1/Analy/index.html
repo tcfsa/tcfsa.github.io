@@ -1207,19 +1207,12 @@
     <script type="text/javascript">
 function betterviewf(pdfUrl) {
 
-    // On mobile, let the browser open the PDF directly.
-    // This uses the phone's native PDF viewer and avoids iframe problems.
-    if (window.innerWidth <= 600) {
-        window.open(pdfUrl, "_blank");
-        return;
-    }
-
     const popup = document.getElementById("pdfPopup");
     const viewer = document.getElementById("pdfViewer");
     const title = document.getElementById("pdfTitle");
     const windowElement = document.getElementById("pdfWindow");
 
-    // Reset size
+    // Reset window size
     windowElement.classList.remove("pdf-expanded");
 
     const expandButton = document.getElementById("pdfExpandButton");
@@ -1229,7 +1222,7 @@ function betterviewf(pdfUrl) {
         expandButton.title = "Agrandir";
     }
 
-    // Get filename
+    // Get PDF filename
     let filename = pdfUrl.substring(
         pdfUrl.lastIndexOf("/") + 1
     );
@@ -1238,8 +1231,10 @@ function betterviewf(pdfUrl) {
 
     title.textContent = filename;
 
-    // Open PDF
-    viewer.src = pdfUrl;
+    // Google PDF Viewer
+    viewer.src =
+        "https://docs.google.com/gview?embedded=true&url=" +
+        encodeURIComponent(pdfUrl);
 
     // Show popup
     popup.classList.add("open");
@@ -1247,6 +1242,7 @@ function betterviewf(pdfUrl) {
     // Prevent background scrolling
     document.body.style.overflow = "hidden";
 }
+
 
 
 function closePDF() {
@@ -1272,7 +1268,6 @@ function minimizePDF() {
 
 
 function closePdfFromBackground(event) {
-
     if (event.target === event.currentTarget) {
         closePDF();
     }
@@ -1287,13 +1282,8 @@ function togglePdfSize() {
     const expanded =
         windowElement.classList.toggle("pdf-expanded");
 
-    if (expanded) {
-        button.textContent = "↙";
-        button.title = "Réduire";
-    } else {
-        button.textContent = "⛶";
-        button.title = "Agrandir";
-    }
+    button.textContent = expanded ? "↙" : "⛶";
+    button.title = expanded ? "Réduire" : "Agrandir";
 }
 
     </script>
