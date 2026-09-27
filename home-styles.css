@@ -107,10 +107,10 @@ h3 {
   transform: translateY(-3px);
 }
 
-.cicada-course-item:hover
+/*.cicada-course-item:hover
 {
   background-color: #eb1545;
-}
+}*/
 
 .course-item p {
   margin: 10px 0 0;
