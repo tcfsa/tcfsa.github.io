@@ -33,7 +33,7 @@ function toggleSec(courseName) {
 
   // if(semesterList.previousElementSibling.textContent=="Recources by CiCADA")
   // {
-  //   def_color = (window.location.href=="https://www.smpfsa.com/") ? '#2d2d2d' : '#eb1545';
+  //   def_color = (window.location.href=="https://www.smpfsa.com/") ? '#131313' : '#fe0044';
 
   // }
   // else
@@ -112,9 +112,9 @@ const loop = setInterval(() => {
     // Vérifie si l'élément est actuellement survolé (renvoie true ou false)
     if (element.matches(':hover')&&opcicada==0) {
       // console.log("L'élément est survolé !");
-         document.documentElement.style.setProperty('--cicada-hover-clr', '#eb1545');
+         document.documentElement.style.setProperty('--cicada-hover-clr', '#fe0044');
     } else {
-         document.documentElement.style.setProperty('--cicada-hover-clr', '#2d2d2d');
+         document.documentElement.style.setProperty('--cicada-hover-clr', '#131313');
     }
 
 }, 100);

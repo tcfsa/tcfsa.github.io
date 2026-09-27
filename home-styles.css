@@ -1,6 +1,6 @@
 :root {
   --course-item-hover-clr: #3890f5;
-  --cicada-hover-clr: #2d2d2d;
+  --cicada-hover-clr: #131313;
 }
 
 body {
@@ -74,18 +74,18 @@ h3 {
 
 .cicada-course-item
 {
-  background: #2d2d2d;
+  background: #131313;
 }
 
 .up-cicada
 {
-  background: linear-gradient(180deg, rgb(138 138 138) 14%, rgb(45 45 45) 87%);
+  background: linear-gradient(180deg, rgb(138 138 138) 14%, #131313 87%);
 }
 
 .down-cicada
 {
 
-    background: linear-gradient(180deg, rgb(45 45 45) 14%, rgb(138 138 138) 87%);
+    background: linear-gradient(180deg, #131313 14%, rgb(138 138 138) 87%);
 }
 
 .course-item:hover {
@@ -133,7 +133,7 @@ h3 {
 }
 
 .cicada-course-item:has(.semester-list:hover) {
-  background: #2d2d2d;
+  background: #131313;
   /*transform: translateY(3px);*/
 }
 
@@ -156,7 +156,7 @@ h3 {
 
 .cicada
 {
-  background-color: #eb1545;
+  background-color: #fe0044;
 }
 
 a
