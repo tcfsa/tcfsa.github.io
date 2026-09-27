@@ -1,5 +1,6 @@
 :root {
   --course-item-hover-clr: #3890f5;
+  --cicada-hover-clr: #2d2d2d;
 }
 
 body {
@@ -109,7 +110,7 @@ h3 {
 
 .cicada-course-item:hover
 {
-  background-color: #2d2d2d;
+  background-color: var(--cicada-hover-clr);
 }
 
 .course-item p {
