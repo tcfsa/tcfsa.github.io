@@ -1916,7 +1916,7 @@
         </a>
       </div>
 
-      <div class="course-item h-c-i">
+      <div class="course-item h-c-i up-cicada">
         <a href="https://www.smpfsa.com/p">
           <h3>PC-P Nouvelle Réforme - FSA Agadir
               </br>
@@ -1924,52 +1924,77 @@
         </a>
       </div>
 
-      <div class="course-item h-c-i" onclick="toggleSec('sec3')">
+      <div class="course-item h-c-i cicada-course-item" onclick="toggleSec('sec5')" style="    padding: 22px;">
 
-        <h3>Autres</h3>
+        <h3 style="font-size: 23px;">Recources by CiCADA</h3>
 
-        <ul id="sec3" class="semester-list">
+        <ul id="sec5" class="semester-list">
 
 
-          <a target="_blank" href="https://www.smpfsa.com/s2apex">
-            <li class="semester-item" onclick="keep('sec3')">
-              DDE APEX 1.0 S2-26
+          <a target="_blank" href="https://pcpapex.vercel.app/">
+            <li class="semester-item cicada" onclick="keep('sec5')">
+              Siteweb
+            </li>
+          </a>
+
+
+          <a target="_blank" href="https://drive.google.com/drive/folders/11LTu06XaKbjNzCQcEJyGR5D39ZFfxeyI">
+            <li class="semester-item cicada" onclick="keep('sec5')">
+              Drive PCP APEX
               <br>
-              (Physique S2)
+              (From S1 to S6)
             </li>
           </a>
 
           <a target="_blank" href="https://www.smpfsa.com/s1apex">
-            <li class="semester-item" onclick="keep('sec3')">
+            <li class="semester-item cicada" onclick="keep('sec5')">
               DDE APEX 1.0 S1-26
               <br>
               (Physique S1)
             </li>
           </a>
 
+          <a target="_blank" href="https://www.smpfsa.com/s2apex">
+            <li class="semester-item cicada" onclick="keep('sec5')">
+              DDE APEX 1.0 S2-26
+              <br>
+              (Physique S2)
+            </li>
+          </a>
+
+
           <a target="_blank" href="https://www.smpfsa.com/s4apexv2">
-            <li class="semester-item" onclick="keep('sec3')">
+            <li class="semester-item cicada" onclick="keep('sec5')">
               DDE APEX 2.0 S4-26
               <br>
               (Physique S4) (version 2)
             </li>
           </a>
 
+          <a target="_blank" href="https://www.smpfsa.com/s3apex">
+            <li class="semester-item cicada" onclick="keep('sec5')">
+              DDE APEX 2.0
+              <br>
+              (Physique S3)
+            </li>
+          </a>
+
           <a target="_blank" href="https://www.smpfsa.com/s4apexv1">
-            <li class="semester-item" onclick="keep('sec3')">
+            <li class="semester-item cicada" onclick="keep('sec5')">
               DDE APEX Archives - S4
               <br>
               (Physique S4) (version 1)
             </li>
           </a>
 
-          <a target="_blank" href="https://www.smpfsa.com/s3apex">
-            <li class="semester-item" onclick="keep('sec3')">
-              DDE APEX 2.0
-              <br>
-              (Physique S3)
-            </li>
-          </a>
+        </ul>
+      </div>
+
+      <div class="course-item h-c-i down-cicada" onclick="toggleSec('sec3')" style="padding: 22px;">
+
+        <h3>Autres</h3>
+
+        <ul id="sec3" class="semester-list">
 
           <!-- <a target="_blank" href="https://www.smpfsa.com/a1">
             <li class="semester-item" onclick="keep('sec3')">
@@ -2101,9 +2126,9 @@
         </h2>
 
         <h3 class="home-footer-item-2" style="text-box: auto;">
-          Visiteurs uniques (total) : 1015
+          Visiteurs uniques (total) : 1133
           <br>
-          Visiteurs uniques ce mois : 291
+          Visiteurs uniques ce mois : 409
         </h3>
 
 
@@ -2165,7 +2190,7 @@
         { m: "Juin 26", v: 960, u: 45 },
         { m: "Juil 26", v: 183, u: 14 },
         { m: "Août 26", v: 253, u: 52 },
-        { m: "Sep 26", v: 1347, u: 291 }
+        { m: "Sep 26", v: 1526, u: 431 }
         // { m: "Oct", v: 900, u: 300 },
         // { m: "Nov", v: 420, u: 320 },
         // { m: "Déc", v: 480, u: 380 }
@@ -2211,7 +2236,7 @@
       const max = Math.max(...data.flatMap(d => [d.v, d.u]));
       // const scale = 140 / max;
       const scaleV = 180 / max;
-      const scaleU = 1300 / max;
+      const scaleU = 1050 / max;
 
       const totalViews = data.reduce((sum, d) => sum + d.v, 0);
       const totalUsers = data.reduce((sum, d) => sum + d.u, 0);

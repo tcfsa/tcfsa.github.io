@@ -372,6 +372,8 @@ let aXu_s5 = [
 	["/p/s5/calcsci/tps/tp 2", "https://drive.google.com/drive/folders/10X96JfmqiXVkD5rz1YbLrjGpNItsfrSS?usp=drive_link"],
 	["/p/s5/calcsci/tps/tp 3", "https://drive.google.com/drive/folders/1_R-yVJZKyJD9qiGpcN6lZGmgj34fVtxO?usp=drive_link"],
 	["/p/s5/calcsci/tps/dossier des tps", "https://drive.google.com/drive/folders/1ajM_1ix9cfr1aANyJckjEmWwyf1eVT7p?usp=drive_link"],
+	["/p/s5/calcsci/examens/examen (2025 - 2026) sn - énoncé.pdf", "https://drive.google.com/uc?id=1W4mglVqmCJokYxKXhGVD07j6wNK9CL7c"],
+	["/p/s5/calcsci/examens/examen (2025 - 2026) sr - énoncé.pdf", "https://drive.google.com/uc?id=1fPycwyom6gq9R4m1PfPSDqkOfoVJZBqb"],
 
 	["/p/s5/lngetr3/tds/lngetr3 - unit 1 to 6.pdf", "https://drive.google.com/uc?id=1K19ft5BwCHbKxMjRKR_z9QyJFVRfln20"],
 	["/p/s5/lngetr3/tds/lngetr3 - week 1.pdf", "https://drive.google.com/uc?id=1bC2UcPgLja9oiiflRj7OW54ypMBsWiuA"],
@@ -553,15 +555,15 @@ let aXu_s3 = [
 
 let aXu_s1 = [
 
-	// ["/algprg", ""],
-	// ["/algprg", ""],
-	// ["/algprg", ""],
-	// ["/algprg", ""],
-	// ["/algprg", ""],
-	// ["/algprg", ""],
-	// ["/algprg", ""],
-
 	["/s1", "https://drive.google.com/drive/folders/1_EU_LcD3xSHl07lof6kYE9PtBiuume35?usp=sharing"],
+
+	["/analy", "https://drive.google.com/drive/folders/1pu1fCCuPDsHfT0Xggyx7aWXyKHzKmza0?usp=sharing"],
+	["/atomlch", "https://drive.google.com/drive/folders/1ezTrQaLzcztGCqJU7UB1O1g3jVmGXipM?usp=sharing"],
+	["/lngetr1", "https://drive.google.com/drive/folders/1DEc7AbiV2ffmC9NmOcK3vBsxqP2slUuT?usp=sharing"],
+	["/meca1", "https://drive.google.com/drive/folders/1Y_LC65fJBZTombuqjIleHIfMv-R8ht6x?usp=sharing"],
+	["/mtu", "https://drive.google.com/drive/folders/1Mc9N2BUWddubCFBnPulS2L_zIdvOg81P?usp=sharing"],
+	["/thchim", "https://drive.google.com/drive/folders/1Bwl78j6hMoCXn2ctFJgFa9pFsXTVFqgu?usp=sharing"],
+	["/thermo1", "https://drive.google.com/drive/folders/1RrmiI6k3JWAC7lrpK_-I9xfoknehhkj4?usp=sharing"],
 	
 	["/p/s1/analy/cours/chapitre 1.pdf", "https://drive.google.com/uc?id=1uVqGsxelY-MzmOXCMcT5Fz9zBHhgRiQ6"],
 	["/p/s1/analy/cours/chapitre 2.pdf", "https://drive.google.com/uc?id=1vTETB-sLo7cHx0OWHUeEEM8hr-RF8CyH"],
