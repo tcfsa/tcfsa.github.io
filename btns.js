@@ -30,16 +30,16 @@ function toggleSec(courseName) {
   var def_color = null;
 
 
-  if(semesterList.previousElementSibling.textContent=="Recources by CiCADA")
-  {
-    def_color = (window.location.href=="https://www.smpfsa.com/") ? '#2d2d2d' : '#eb1545';
+  // if(semesterList.previousElementSibling.textContent=="Recources by CiCADA")
+  // {
+  //   def_color = (window.location.href=="https://www.smpfsa.com/") ? '#2d2d2d' : '#eb1545';
 
-  }
-  else
-  {
+  // }
+  // else
+  // {
   def_color = (window.location.href=="https://www.smpfsa.com/") ? '#8A8A8A' : '#575757';
 
-  }
+  // }
 
 
 
