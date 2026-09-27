@@ -29,6 +29,8 @@ function toggleSec(courseName) {
 
   var def_color = (window.location.href=="https://www.smpfsa.com/") ? '#8A8A8A' : '#575757';
 
+  var def_color = (window.location.href=="https://www.smpfsa.com/") ? '#2d2d2d' : '#eb1545';
+
   // Toggle the visibility of the semester list
   if (semesterList.style.display === "none" || semesterList.style.display === "") {
     semesterList.style.display = "block"; // Show the semesters
