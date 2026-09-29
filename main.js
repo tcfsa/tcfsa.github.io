@@ -516,6 +516,14 @@ let aXu_s4 = [
 let aXu_s3 = [
 
 	["/algprg", "https://drive.google.com/drive/folders/1qun8Yp-D7Pb9P4O-cvak20wifhnD5t9U?usp=sharing"],
+	["/chiorgg", "https://drive.google.com/drive/folders/1cp0zDkmHop99YDXADA0p92H4iL9eO2Fg?usp=sharing"],
+	["/circelc", "https://drive.google.com/drive/folders/1G2pnJIpmM-RpLjLiKwZ7bMZdeX_vOBYd?usp=sharing"],
+	["/cultart", "https://drive.google.com/drive/folders/1Ex-pPwDFoD7-23ndcdnCIaQ9aD9fJXd_?usp=sharing"],
+	["/elecmag", "https://drive.google.com/drive/folders/1R0Lsmz5BR1fzAekcph-jbYUIT9MWh_05?usp=sharing"],
+	["/lngetr3", "https://drive.google.com/drive/folders/1hrYgjJVdqOuortKMvfevqSa_jUJ-WJk0?usp=sharing"],
+	["/thermo2", "https://drive.google.com/drive/folders/1XHqEA5zS_kRLglqdO9t12qQkXYhgTvJM?usp=sharing"],
+	["/mathphy", "https://drive.google.com/drive/folders/1UvCRTe18PVe6M0JHMESXTjuC1pveA2qR?usp=sharing"],
+	["/meca2", "https://drive.google.com/drive/folders/1FA871RBc2K5djwuIbkhhS5jnbjCJfu-r?usp=sharing"],
 
 
 	["/s2", "https://drive.google.com/drive/folders/1Pz1jtjLOz6vBs0u9_FWfSFOknA7sRWR2?usp=sharing"],
