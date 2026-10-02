@@ -15,7 +15,7 @@ let aXu_others = [
 	["/fiche-modules-pc.pdf", "https://drive.google.com/uc?id=1hs2aq45K9FdrkSC8nAlC02MNGyM-ZnvS"],
 	["/fiche-modules.pdf", "https://drive.google.com/uc?id=1Z5p4ThPnXQ6dgHv0hxRg6NMvcARs39SH"],
 	["/fiche-modules", "https://drive.google.com/drive/folders/1_WGyBOhGGNwhghoVoCp3l3Z_f-lYTnOo?usp=sharing"],
-	["/multisimapex", "https://drive.google.com/drive/folders/1Q1xPgKJpA5Mm5Lj__YYDH-NNYXyL522P"]
+	["/multisimcicada", "https://drive.google.com/drive/folders/1Q1xPgKJpA5Mm5Lj__YYDH-NNYXyL522P"]
 
 
 ];
