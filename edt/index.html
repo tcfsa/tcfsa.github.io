@@ -1,0 +1,3772 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+
+
+    <title>Documents universitaires</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            font-family: "Google Sans Flex", sans-serif;
+          font-optical-sizing: auto;
+          font-style: normal;
+          font-variation-settings: "slnt" 0, "wdth" 100, "GRAD" 0, "ROND" 0;
+        }
+
+        body {
+            margin: 0;
+            /*font-family: Arial, sans-serif;*/
+            background: #f4f5f7;
+            color: #222;
+
+              font-weight: 500;
+
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,.08);
+        }
+
+
+        /* =====================================
+           CODE
+        ===================================== */
+
+        .code-area {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .code-label {
+            display: block;
+            margin-bottom: 12px;
+            color: #666;
+        }
+
+        /*
+            Aperçu du code.
+
+            Les parties choisies sont noires.
+            Les parties restantes sont grises.
+        */
+
+        .code-preview {
+            min-height: 55px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 30px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 15px;
+        }
+
+        .code-black {
+            color: #111;
+        }
+
+        .code-gray {
+            color: #b8b8b8;
+        }
+
+
+        /*
+            Champ permettant d'écrire
+            manuellement le code.
+        */
+
+        #codeInput {
+            width: 300px;
+            max-width: 100%;
+
+            padding: 11px 14px;
+
+            font-size: 18px;
+
+            text-align: center;
+
+            border: 2px solid #ccc;
+            border-radius: 8px;
+
+            outline: none;
+        }
+
+        #codeInput:focus {
+            border-color: #555;
+        }
+
+
+        /* =====================================
+           CHOIX
+        ===================================== */
+
+        .choice {
+            margin-bottom: 20px;
+        }
+
+        .choice.hidden {
+            display: none;
+        }
+
+        .choice label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+
+            padding: 12px;
+
+            font-size: 16px;
+
+            background: white;
+
+            border: 1px solid #ccc;
+            border-radius: 7px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================
+           STATUS
+        ===================================== */
+
+        #status {
+            text-align: center;
+            margin-top: 15px;
+            color: #777;
+        }
+
+
+        /* =====================================
+           PDF
+        ===================================== */
+
+        .pdf-viewer {
+            height: 500px;
+
+            margin-top: 30px;
+
+            border: 2px dashed #aaa;
+            border-radius: 10px;
+
+            background: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #aaa;
+        }
+
+        /* =================================
+           RECHERCHE ÉTUDIANT
+        ================================= */
+
+        .student-search {
+            margin-bottom: 20px;
+        }
+
+        .student-search label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .student-search input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .student-search input:focus {
+            border-color: #777;
+        }
+
+
+        /* =================================
+           STATUS RECHERCHE
+        ================================= */
+
+        #studentSearchStatus {
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+
+        /* =================================
+           RÉSULTATS
+        ================================= */
+
+        #studentResults {
+            margin-top: 20px;
+        }
+
+
+        .student-result {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, .08);
+        }
+
+
+        .student-result-info {
+            margin-bottom: 15px;
+        }
+
+
+        .student-result-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+
+        .student-result-line {
+            margin: 4px 0;
+            color: #555;
+        }
+
+
+        .student-result-group {
+            font-weight: 700;
+            color: #111;
+        }
+
+
+        /* =================================
+           PDF
+        ================================= */
+
+        .student-pdf-viewer {
+    width: 100%;
+    height: 700px;
+
+    background: #202124;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, .15);
+}
+
+
+.student-pdf-toolbar {
+    height: 52px;
+    min-height: 52px;
+
+    background: #292929;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 10px 0 16px;
+}
+
+
+.student-pdf-title {
+    color: white;
+
+    font-size: 14px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    max-width: 45%;
+}
+
+
+.student-pdf-controls {
+    display: flex;
+    gap: 6px;
+}
+
+
+.student-pdf-controls button {
+    height: 36px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #3a3a3a;
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    padding: 0 14px;
+}
+
+
+.student-pdf-controls button:hover {
+    background: #505050;
+}
+
+
+.student-pdf-frame {
+    width: 100%;
+    height: calc(100% - 52px);
+
+    border: 0;
+
+    display: block;
+
+    background: white;
+}
+
+
+@media (max-width: 600px) {
+
+    .student-pdf-viewer {
+        height: 600px;
+    }
+
+    .student-pdf-toolbar {
+        height: 50px;
+        min-height: 50px;
+    }
+
+    .student-pdf-title {
+        max-width: 40%;
+        font-size: 12px;
+    }
+
+    .student-pdf-controls button {
+        padding: 0 8px;
+        font-size: 12px;
+    }
+
+}
+
+
+        .student-result-error {
+            color: #c0392b;
+            padding: 10px;
+        }
+
+
+
+        .student-search-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.student-search-row button {
+    flex: 0 0 auto;
+
+    padding: 0 22px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: #222;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .1s ease;
+}
+
+.student-search-row button:hover {
+    background: #444;
+}
+
+.student-search-row button:active {
+    transform: scale(.97);
+}
+
+.student-search-row input {
+    flex: 1;
+    min-width: 0;
+}
+
+
+@media (max-width: 600px) {
+
+    .student-search-row {
+        flex-direction: column;
+    }
+
+    .student-search-row button {
+        width: 100%;
+        height: 46px;
+    }
+
+    .student-search-row input {
+        width: 100%;
+    }
+
+}
+
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+    <div style="display: flex; align-items: center; gap: 15px; justify-self: anchor-center;">
+        <img src="calen.png" width="70px" height="70px" style="margin-bottom: 20px; display: inline-block; box-shadow: 0 4px 20px rgba(0, 0, 0, .08);">
+        <h1 style="display: inline-block;">Emplois du temps des TPs</h1>
+    </div>
+
+    <h1 style="font-weight: 700;font-size: 20px;color: red;">les TPs de S5 electronique sont les seules disponibles pour le moment :)</h1>
+
+
+    <!-- =================================
+     RECHERCHE ÉTUDIANT
+    ================================== -->
+
+    <div class="student-search">
+
+    <!-- <label for="studentSearch">
+        Code Massar ou nom et prénom
+    </label> -->
+
+    <label for="studentSearch">
+        Nom et prénom
+    </label>
+
+    <div class="student-search-row">
+
+        <!-- <input
+            id="studentSearch"
+            type="text"
+            placeholder="Entrer votre Code Massar ou votre nom et prénom"
+            autocomplete="off"
+        > -->
+        <input
+            id="studentSearch"
+            type="text"
+            placeholder="Entrer votre nom et prénom"
+            autocomplete="off"
+        >
+
+        <button id="studentSearchButton" type="button">Chercher</button>
+
+    </div>
+
+    <div id="studentSearchStatus"></div>
+
+</div>
+
+
+    <!-- =================================
+         RÉSULTATS MULTIPLES
+    ================================== -->
+
+    <div id="studentResults"></div>
+
+
+
+    <div class="box">
+
+
+        <!-- =================================
+             CODE
+        ================================== -->
+
+        <div class="code-area">
+
+            <span class="code-label">
+                Code du groupe
+            </span>
+
+
+            <!--
+                C'est ici que le code progressif
+                est affiché.
+            -->
+
+            <div id="codePreview"
+                 class="code-preview">
+            </div>
+
+
+            <!--
+                Champ pour écrire manuellement
+                le code.
+            -->
+
+            <input
+                id="codeInput"
+                type="text"
+                placeholder="Écrire le code..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+
+        <!-- =================================
+             SEMESTRE
+        ================================== -->
+
+        <div class="choice">
+
+            <label for="semester">
+                Semestre
+            </label>
+
+            <select id="semester">
+
+                <option value="">
+                    -- Choisir --
+                </option>
+
+                <!-- <option value="S1">
+                    S1
+                </option>
+
+                <option value="S3">
+                    S3
+                </option> -->
+
+                <option value="S5">
+                    S5
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- =================================
+             SECTION S1
+        ================================== -->
+
+        <div
+            id="sectionBox"
+            class="choice hidden"
+        >
+
+            <label for="section">
+                Section
+            </label>
+
+            <select id="section">
+
+                <option value="">
+                    -- Choisir --
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- =================================
+             FILIERE S5
+        ================================== -->
+
+        <div id="filiereBox" class="choice hidden">
+            <label for="filiere"> Filière </label>
+            <select id="filiere">
+                <option value=""> -- Choisir -- </option>
+            </select>
+        </div>
+
+        <!-- =================================
+             TD
+        ================================== -->
+
+        <div id="tdBox" class="choice hidden">
+            <label for="td"> Groupe TD </label>
+            <select id="td">
+                <option value=""> -- Choisir -- </option>
+            </select>
+        </div>
+
+
+
+        <!-- =================================
+             TP
+        ================================== -->
+
+        <div
+            id="tpBox"
+            class="choice hidden"
+        >
+
+            <label for="tp">
+                Groupe TP
+            </label>
+
+            <select id="tp">
+
+                <option value="">
+                    -- Choisir --
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <div id="status"></div>
+
+    </div>
+
+</div>
+
+
+
+    <script>
+
+        /* =====================================================
+           ÉTUDIANTS
+        ===================================================== */
+
+        const students = [
+
+            /* EXEMPLE IMPORTANT : Même Massar + même nom mais deux groupes différents. */
+            // { massar: "XYZ999", name: "Mohamed Alaoui", group: "P1A G2a" },
+            // { massar: "XYZ999", name: "Mohamed Alaoui", group: "P1A G3b" }
+
+            // { massar: "23-D136044566", name: "ABDELMOULA Adnane", group: "G1b" },
+
+            { name: "AABAD Amir", group: "ES G1" },
+            { name: "ABAAMRAN Fatiha", group: "ES G1" },
+            { name: "ABDOU Samya", group: "ES G1" },
+            { name: "ABEYOUD Hamza", group: "ES G1" },
+            { name: "ABIGANE Amine", group: "ES G1" },
+            { name: "ABOU-ENNASSR Ahmed", group: "ES G1" },
+            { name: "ABOUNACEUR Yassine", group: "ES G1" },
+            { name: "ABOUZZI Abderrahim", group: "ES G1" },
+            { name: "AFERDI Yassine", group: "ES G1" },
+            { name: "AHBOUCH Chaima", group: "ES G1" },
+            { name: "AIT ADDI Hicham", group: "ES G1" },
+            { name: "AIT ALLA Mohsin", group: "ES G1" },
+            { name: "AIT CHEIKH Marouane", group: "ES G1" },
+            { name: "AIT EL HACHMI Zeineb", group: "ES G1" },
+            { name: "AIT EL MKADEM Yassine", group: "ES G1" },
+            { name: "AIT KHLIFA Abdelbasset", group: "ES G1" },
+            { name: "AIT LAHROUR Fatima Zohra", group: "ES G1" },
+            { name: "AIT MOUHOUCHT Soufiane", group: "ES G1" },
+            { name: "AIT OUFKIR Hiba", group: "ES G2" },
+            { name: "AIT OUMGHAR Yassine", group: "ES G2" },
+            { name: "AIT TALEB Elmehdi", group: "ES G2" },
+            { name: "AIT-ELASRI Abderrazak", group: "ES G2" },
+            { name: "AJERMOUNE Lahoucine", group: "ES G2" },
+            { name: "ALHIANE Hanane", group: "ES G2" },
+            { name: "AMEJJOUD Iliass", group: "ES G2" },
+            { name: "AMEZOUG Assmae", group: "ES G2" },
+            { name: "AMEZOUG Siham", group: "ES G2" },
+            { name: "AMHOUN Yassine", group: "ES G2" },
+            { name: "ASKOUK Mohamed", group: "ES G2" },
+            { name: "AZBADI Hasnae", group: "ES G2" },
+            { name: "AZIGUI Khadija", group: "ES G2" },
+            { name: "BAALLA Mohamed", group: "ES G2" },
+            { name: "BAHBA Mohamed", group: "ES G2" },
+            { name: "BAHID Ikram", group: "ES G2" },
+            { name: "BAHKOUK Mohamed", group: "ES G2" },
+            { name: "BALLA Bouchra", group: "ES G2" },
+            { name: "BANAOUI Mohamed Othmane", group: "ES G2" },
+            { name: "BANDA Dumisani Kamuzyu", group: "ES G3" },
+            { name: "BASSAINE Aissam", group: "ES G3" },
+            { name: "BATAHAR Yasyn", group: "ES G3" },
+            { name: "BAYZOU Soufyane", group: "ES G3" },
+            { name: "BEN BELKACEM Hicham", group: "ES G3" },
+            { name: "BENZOURA Hiba", group: "ES G3" },
+            { name: "BIAD Omar", group: "ES G3" },
+            { name: "BIRIG Sara", group: "ES G3" },
+            { name: "BOUBIH Adam", group: "ES G3" },
+            { name: "BOUDOUNIT Hanane", group: "ES G3" },
+            { name: "BOUHAL Bouchra", group: "ES G3" },
+            { name: "BOUKARIANE Madiha", group: "ES G3" },
+            { name: "BOUMAZZOURH Mohammed", group: "ES G3" },
+            { name: "BOUMLIK Ikram", group: "ES G3" },
+            { name: "BOUNHAR Ilyas", group: "ES G3" },
+            { name: "BOUTZAT Mouloud", group: "ES G4" },
+            { name: "BOUYIH Sabah", group: "ES G4" },
+            { name: "CHEGA Brahim", group: "ES G4" },
+            { name: "DAMOUN Marouane", group: "ES G4" },
+            { name: "DAOUDI Abdelaziz", group: "ES G4" },
+            { name: "DGAIGUI Abdessamad", group: "ES G4" },
+            { name: "DRAIF Kaouthar", group: "ES G4" },
+            { name: "EL ALAMI Houssam", group: "ES G4" },
+            { name: "EL ALAOUI Ismail", group: "ES G4" },
+            { name: "EL ALAOUI Zainab", group: "ES G4" },
+            { name: "EL BEHJA Abdeladim", group: "ES G4" },
+            { name: "EL FAKIR Mohamed", group: "ES G4" },
+            { name: "EL GHARIB Mohamed", group: "ES G4" },
+            { name: "EL GOUCH Ihssan", group: "ES G4" },
+            { name: "EL HARTI Imane", group: "ES G4" },
+            { name: "EL HASSANI Mohamed Amine", group: "ES G4" },
+            { name: "EL HEMMOURI Ahmed", group: "ES G4" },
+            { name: "EL MOURABIT Meryam", group: "ES G5" },
+            { name: "EL MZARI Essaadia", group: "ES G5" },
+            { name: "EL OMARI Asmae", group: "ES G5" },
+            { name: "EL OMARI Haiba", group: "ES G5" },
+            { name: "EL YOUSSOUFI Hanan", group: "ES G5" },
+            { name: "ELMABROUKI Morad", group: "ES G5" },
+            { name: "ELMAILOUDI Hajer", group: "ES G5" },
+            { name: "ELMOUDARDAB Abdessamad", group: "ES G5" },
+            { name: "ELMÇABENI Mohammed", group: "ES G5" },
+            { name: "EN-NASIRY Abdellah", group: "ES G5" },
+            { name: "ENATFIOUI Youness", group: "ES G5" },
+            { name: "ER-RAMI Mohammed", group: "ES G5" },
+            { name: "ERRAKIK Hicham", group: "ES G5" },
+            { name: "ESSAIOUAD Zainab", group: "ES G5" },
+            { name: "ETTAGYNE Maryam", group: "ES G5" },
+            { name: "ETTAHIRY Hicham", group: "ES G5" },
+            { name: "ETTAQI Brahim", group: "ES G6" },
+            { name: "EZZOBAYDY Abdessamad", group: "ES G6" },
+            { name: "FAROUQI Youssef", group: "G6" },
+            { name: "GUENANA Mohamed", group: "ES G6" },
+            { name: "HAGOU Radouane", group: "ES G6" },
+            { name: "HAIDDA Imane", group: "ES G6" },
+            { name: "HANINE Yahya", group: "ES G6" },
+            { name: "IBNOUSAIH Adam", group: "ES G6" },
+            { name: "ID ABID Yassine", group: "ES G6" },
+            { name: "IDBOULAHCEN Hasna", group: "ES G6" },
+            { name: "IDIR Ayoub", group: "ES G6" },
+            { name: "IGHRI Mohamed", group: "ES G6" },
+            { name: "IHIRI Souad", group: "ES G6" },
+            { name: "IZEM Wissam", group: "ES G6" },
+            { name: "JANDOUZI Maroua", group: "ES G6" },
+            { name: "JARKOUK Adel", group: "ES G6" },
+            { name: "JOUIGA Younes", group: "ES G6" },
+            { name: "KHOUAIRI Mohamed", group: "ES G6" },
+            { name: "LACHGUER Abdelghafour", group: "ES G6" },
+            { name: "LAMIRI Mohamed Amine", group: "ES G7" },
+            { name: "MADIANI Nissrine", group: "ES G7" },
+            { name: "MAHER Ahmed", group: "ES G7" },
+            { name: "MAIMOUNI Salma", group: "ES G7" },
+            { name: "MARHOUM Safia", group: "ES G7" },
+            { name: "MAZOUZ Abdelbasste", group: "ES G7" },
+            { name: "MOUFARIJ Lahcen", group: "ES G7" },
+            { name: "MOUNSIF Abdelmounim", group: "ES G7" },
+            { name: "NABLI Touriya", group: "ES G7" },
+            { name: "NACHIT Marwa", group: "ES G7" },
+            { name: "NAIT AZAOUIT Fahd", group: "ES G7" },
+            { name: "NASSER Maryam", group: "ES G7" },
+            { name: "NATAH Aya", group: "ES G7" },
+            { name: "NAYB Maryame", group: "ES G7" },
+            { name: "OUBAMMA Ezzahra", group: "ES G7" },
+            { name: "OUBRIK El Houcine", group: "ES G7" },
+            { name: "OUCHEN Latifa", group: "ES G7" },
+            { name: "OUCHICHA Amina", group: "ES G7" },
+            { name: "OUFARY Farid", group: "ES G8" },
+            { name: "OUTMANI Adam", group: "ES G8" },
+            { name: "QAIDI Ayoub", group: "ES G8" },
+            { name: "RAAICH Salma", group: "ES G8" },
+            { name: "SABRI Redouane", group: "ES G8" },
+            { name: "SALLAHI Houria", group: "ES G8" },
+            { name: "SBAAI Said", group: "ES G8" },
+            { name: "SBISSI Hajar", group: "ES G8" },
+            { name: "SEMLALI Abdellah", group: "ES G8" },
+            { name: "SOUIHLA Sabah", group: "ES G8" },
+            { name: "STITEL Laila", group: "ES G8" },
+            { name: "TAALAOUATE Naima", group: "ES G8" },
+            { name: "TABAA Zahira", group: "ES G8" },
+            { name: "TAHI Wiam", group: "ES G8" },
+            { name: "TJIOU Hassan", group: "ES G8" },
+            { name: "ZAHRAOUI Hatim", group: "ES G8" },
+            { name: "ZAKA Ismail", group: "ES G8" },
+            { name: "ZARROUK Achraf", group: "ES G8" },
+
+        ];
+
+        const studentSearch =
+        document.getElementById("studentSearch");
+
+        const studentSearchStatus =
+            document.getElementById("studentSearchStatus");
+
+        const studentResults =
+            document.getElementById("studentResults");
+
+        /* =====================================================
+           OBTENIR L'URL PDF À PARTIR D'UN CODE DE GROUPE
+        ===================================================== */
+
+        function getPDFUrlFromGroupCode(groupCode) {
+
+            const value =
+                groupCode
+                    .trim()
+                    .toUpperCase();
+
+
+            /* =====================================
+                            S1
+                       P1A G1a
+            ===================================== */
+
+            const s1Match =
+                value.match(
+                    /^P1([ABC])\s*G(\d+)([ABC])$/
+                );
+
+
+            if (s1Match) {
+
+                const sectionValue =
+                    s1Match[1];
+
+                const tdValue =
+                    s1Match[2];
+
+                const tpValue =
+                    s1Match[3].toLowerCase();
+
+
+                return documents
+                    ?.S1
+                    ?. [sectionValue]
+                    ?. [tdValue]
+                    ?. [tpValue]
+                    || null;
+            }
+
+
+            /* =====================================
+                            S3
+                           G1a
+            ===================================== */
+
+            const s3Match =
+                value.match(
+                    /^G(\d+)([ABC])$/
+                );
+
+
+            if (s3Match) {
+
+                const tdValue =
+                    s3Match[1];
+
+                const tpValue =
+                    s3Match[2].toLowerCase();
+
+
+                return documents
+                    ?.S3
+                    ?. [tdValue]
+                    ?. [tpValue]
+                    || null;
+            }
+
+
+            /* =====================================
+                            S5
+                           G1
+            ===================================== */
+
+            // const s5Match =
+            //     value.match(
+            //         /^G(\d+)$/
+            //     );
+
+
+            // if (s5Match) {
+
+            //     const tpValue =
+            //         s5Match[1];
+
+
+                /*
+                    Pour S5, le groupe seul ne permet
+                    pas de savoir si c'est ES ou EER.
+
+                    On utilise donc ES par défaut ici.
+                */
+
+            //     return documents
+            //         ?.S5
+            //         ?.ES
+            //         ?. [tpValue]
+            //         || null;
+            // }
+
+            const s5Match =
+                value.match(
+                    /^(ES|EER)\s+G(\d+)$/
+                );
+
+            if (s5Match) {
+
+                const type =
+                    s5Match[1];
+
+                const tpValue =
+                    s5Match[2];
+
+                return documents
+                    ?.S5
+                    ?. [type]
+                    ?. [tpValue]
+                    || null;
+            }
+
+
+
+            return null;
+        }
+
+        /* =====================================================
+           AFFICHER LES RÉSULTATS ÉTUDIANTS
+        ===================================================== */
+
+        function displayStudentResults(results) {
+
+            studentResults.innerHTML = "";
+
+            results.forEach(function(student) {
+
+                const result = document.createElement("div");
+                result.className = "student-result";
+
+
+                /* =====================================
+                   INFORMATIONS
+                ===================================== */
+
+                const info = document.createElement("div");
+                info.className = "student-result-info";
+
+
+                const name = document.createElement("div");
+                name.className = "student-result-name";
+                name.textContent = student.name;
+
+
+                // const massar = document.createElement("div");
+                // massar.className = "student-result-line";
+                // massar.textContent =
+                //     "Code Massar : " + student.massar;
+
+
+                const group = document.createElement("div");
+                group.className =
+                    "student-result-line student-result-group";
+                group.textContent =
+                    "Code groupe : " + student.group;
+
+
+                info.appendChild(name);
+                // info.appendChild(massar);
+                info.appendChild(group);
+
+                result.appendChild(info);
+
+
+                /* =====================================
+                   PDF URL
+                ===================================== */
+
+                const pdfUrl =
+                    getPDFUrlFromGroupCode(student.group);
+
+
+                if (!pdfUrl) {
+
+                    const error = document.createElement("div");
+
+                    error.className =
+                        "student-result-error";
+
+                    error.textContent =
+                        "Aucun PDF trouvé pour le groupe " +
+                        student.group;
+
+                    result.appendChild(error);
+
+                    studentResults.appendChild(result);
+
+                    return;
+                }
+
+
+                /* =====================================
+                   PDF VIEWER
+                ===================================== */
+
+                const viewerBox =
+                    document.createElement("div");
+
+                viewerBox.className =
+                    "student-pdf-viewer";
+
+
+                /* =====================================
+                   TOOLBAR
+                ===================================== */
+
+                const toolbar =
+                    document.createElement("div");
+
+                toolbar.className =
+                    "student-pdf-toolbar";
+
+
+                const title =
+                    document.createElement("div");
+
+                title.className =
+                    "student-pdf-title";
+
+                let filename =
+                    pdfUrl.substring(
+                        pdfUrl.lastIndexOf("/") + 1
+                    );
+
+                try {
+                    filename =
+                        decodeURIComponent(filename);
+                }
+                catch (error) {}
+
+                title.textContent = filename;
+
+
+                const controls =
+                    document.createElement("div");
+
+                controls.className =
+                    "student-pdf-controls";
+
+
+                /* =====================================
+                   DOWNLOAD
+                ===================================== */
+
+                const downloadButton =
+                    document.createElement("button");
+
+                downloadButton.textContent =
+                    "Télécharger ↓";
+
+                downloadButton.title =
+                    "Télécharger";
+
+
+                downloadButton.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.stopPropagation();
+
+                        const link =
+                            document.createElement("a");
+
+                        link.href = pdfUrl;
+                        link.download = filename;
+                        link.target = "_blank";
+
+                        document.body.appendChild(link);
+
+                        link.click();
+
+                        document.body.removeChild(link);
+
+                    }
+                );
+
+
+                /* =====================================
+                   FULLSCREEN
+                ===================================== */
+
+                const fullscreenButton =
+                    document.createElement("button");
+
+                fullscreenButton.textContent = "⛶";
+
+                fullscreenButton.title =
+                    "Agrandir";
+
+
+                fullscreenButton.addEventListener(
+                    "click",
+                    function(event) {
+
+                        event.stopPropagation();
+
+                        if (
+                            !document.fullscreenElement
+                        ) {
+
+                            viewerBox.requestFullscreen();
+
+                            fullscreenButton.textContent =
+                                "↙";
+
+                            fullscreenButton.title =
+                                "Réduire";
+
+                        }
+                        else {
+
+                            document.exitFullscreen();
+
+                            fullscreenButton.textContent =
+                                "⛶";
+
+                            fullscreenButton.title =
+                                "Agrandir";
+                        }
+
+                    }
+                );
+
+
+                controls.appendChild(downloadButton);
+                controls.appendChild(fullscreenButton);
+
+
+                toolbar.appendChild(title);
+                toolbar.appendChild(controls);
+
+
+                /* =====================================
+                   PDF IFRAME
+                ===================================== */
+
+                const iframe =
+                    document.createElement("iframe");
+
+                iframe.className =
+                    "student-pdf-frame";
+
+                iframe.title =
+                    "Emploi du temps - " +
+                    student.group;
+
+                iframe.allowFullscreen = true;
+
+
+                iframe.src =
+                    "https://docs.google.com/gview?embedded=true&url=" +
+                    encodeURIComponent(pdfUrl);
+
+
+                /* =====================================
+                   ASSEMBLER
+                ===================================== */
+
+                viewerBox.appendChild(toolbar);
+                viewerBox.appendChild(iframe);
+
+                result.appendChild(viewerBox);
+
+                studentResults.appendChild(result);
+
+            });
+
+        }
+
+        /* =====================================================
+           RECHERCHE CODE MASSAR / NOM
+        ===================================================== */
+
+        const studentSearchButton =
+    document.getElementById("studentSearchButton");
+
+
+/* =====================================================
+   RECHERCHE CODE MASSAR / NOM
+===================================================== */
+
+function searchStudent() {
+
+    const search =
+        studentSearch.value
+            .trim()
+            .toLowerCase();
+
+
+    /*
+        Recherche vide
+    */
+
+    if (!search) {
+
+        studentSearchStatus.textContent =
+            // "Veuillez entrer un Code Massar ou un nom.";
+            "Veuillez entrer un nom.";
+
+        studentResults.innerHTML = "";
+
+        return;
+
+    }
+
+
+    /*
+        Recherche dans Massar OU nom
+    */
+
+    // const results =
+    //     students.filter(function(student) {
+
+    //         // const massar =
+    //         //     student.massar
+    //         //         .toLowerCase();
+
+    //         // const massarWithoutPrefix =
+    //         //     student.massar
+    //         //         .slice(3)
+    //         //         .toLowerCase();
+
+    //         const name =
+    //             student.name
+    //                 .toLowerCase();
+
+
+    //         return name.includes(search);
+    //         // (
+    //             // massar.includes(search) ||
+    //             // massarWithoutPrefix.includes(search) ||
+    //             // name.includes(search)
+    //         // );
+
+    //     });
+
+    const results =
+    students.filter(function(student) {
+
+        const name =
+            student.name
+                .toLowerCase()
+                .trim();
+
+        // Normal order: "AABAD Amir"
+        if (name.includes(search)) {
+            return true;
+        }
+
+        // Reversed order: "Amir AABAD"
+        const parts = name.split(/\s+/);
+
+        if (parts.length >= 2) {
+
+            const reversedName =
+                parts.slice(1).join(" ") +
+                " " +
+                parts[0];
+
+            if (reversedName.includes(search)) {
+                return true;
+            }
+        }
+
+        return false;
+
+    });
+
+
+    /*
+        Aucun résultat
+    */
+
+    if (results.length === 0) {
+
+        studentSearchStatus.textContent =
+            "Aucun étudiant trouvé.";
+
+        studentResults.innerHTML = "";
+
+        return;
+
+    }
+
+
+    /*
+        UN SEUL RÉSULTAT
+    */
+
+    if (results.length === 1) {
+
+        const student =
+            results[0];
+
+        studentSearchStatus.textContent =
+            "Étudiant trouvé.";
+
+
+        /*
+            Afficher les informations
+            de l'étudiant.
+        */
+
+        displayStudentResults(results);
+
+
+        /*
+            Utiliser automatiquement
+            le code du groupe.
+        */
+
+        codeInput.value =
+            student.group;
+
+        codeInput.dispatchEvent(
+            new Event("input")
+        );
+
+        return;
+
+    }
+
+
+    /*
+        PLUSIEURS RÉSULTATS
+    */
+
+    studentSearchStatus.textContent =
+        results.length +
+        " résultats trouvés.";
+
+
+    /*
+        Ne pas choisir automatiquement
+        un groupe.
+    */
+
+    displayStudentResults(results);
+
+}
+
+
+/* =====================================================
+   BOUTON CHERCHER
+===================================================== */
+
+studentSearchButton.addEventListener(
+    "click",
+    function() {
+
+        searchStudent();
+
+    }
+);
+
+
+/* =====================================================
+   ENTRÉE CLAVIER
+===================================================== */
+
+studentSearch.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            searchStudent();
+
+        }
+
+    }
+);
+
+
+
+
+
+
+
+        /* =====================================================
+           CONFIGURATION
+        ===================================================== */
+
+        const NOMBRE_TD_S1 = 5;
+        const NOMBRE_TD_S3 = 6;
+        const NOMBRE_TP_S5 = 8;
+
+
+        /* TP S1 */
+        const GROUPES_TP_S1 = [
+            "a",
+            "b",
+            "c"
+        ];
+
+
+        /* TP S3 */
+        const GROUPES_TP_S3 = [
+            "a",
+            "b",
+            "c"
+        ];
+
+
+        /* =====================================================
+           DOCUMENTS
+        ===================================================== */
+
+        const documents = {
+
+            S1: {
+
+                A: {
+                    1: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1AG1a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1AG1b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1AG1c.pdf"
+                    },
+
+                    2: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1AG2a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1AG2b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1AG2c.pdf"
+                    },
+
+                    3: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1AG3a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1AG3b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1AG3c.pdf"
+                    },
+
+                    4: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1AG4a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1AG4b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1AG4c.pdf"
+                    },
+
+                    5: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1AG5a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1AG5b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1AG5c.pdf"
+                    }
+                },
+
+                B: {
+                    1: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1BG1a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1BG1b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1BG1c.pdf"
+                    },
+
+                    2: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1BG2a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1BG2b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1BG2c.pdf"
+                    },
+
+                    3: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1BG3a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1BG3b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1BG3c.pdf"
+                    },
+
+                    4: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1BG4a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1BG4b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1BG4c.pdf"
+                    },
+
+                    5: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1BG5a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1BG5b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1BG5c.pdf"
+                    }
+                },
+
+                C: {
+
+                    1: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1CG1a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1CG1b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1CG1c.pdf"
+                    },
+
+                    2: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1CG2a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1CG2b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1CG2c.pdf"
+                    },
+
+                    3: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1CG3a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1CG3b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1CG3c.pdf"
+                    },
+
+                    4: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1CG4a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1CG4b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1CG4c.pdf"
+                    },
+
+                    5: {
+                        a: "https://files.smpfsa.com/edt/TPs/P1CG5a.pdf",
+                        b: "https://files.smpfsa.com/edt/TPs/P1CG5b.pdf",
+                        c: "https://files.smpfsa.com/edt/TPs/P1CG5c.pdf"
+                    }
+                }
+
+            },
+
+
+            S3: {
+
+                1: {
+                    a: "https://files.smpfsa.com/edt/TPs/P3-G1a.pdf",
+                    b: "https://files.smpfsa.com/edt/TPs/P3-G1b.pdf",
+                    c: "https://files.smpfsa.com/edt/TPs/P3-G1c.pdf"
+                },
+
+                2: {
+                    a: "https://files.smpfsa.com/edt/TPs/P3-G2a.pdf",
+                    b: "https://files.smpfsa.com/edt/TPs/P3-G2b.pdf",
+                    c: "https://files.smpfsa.com/edt/TPs/P3-G2c.pdf"
+                },
+
+                3: {
+                    a: "https://files.smpfsa.com/edt/TPs/P3-G3a.pdf",
+                    b: "https://files.smpfsa.com/edt/TPs/P3-G3b.pdf",
+                    c: "https://files.smpfsa.com/edt/TPs/P3-G3c.pdf"
+                },
+
+                4: {
+                    a: "https://files.smpfsa.com/edt/TPs/P3-G4a.pdf",
+                    b: "https://files.smpfsa.com/edt/TPs/P3-G4b.pdf",
+                    c: "https://files.smpfsa.com/edt/TPs/P3-G4c.pdf"
+                },
+
+                5: {
+                    a: "https://files.smpfsa.com/edt/TPs/P3-G5a.pdf",
+                    b: "https://files.smpfsa.com/edt/TPs/P3-G5b.pdf",
+                    c: "https://files.smpfsa.com/edt/TPs/P3-G5c.pdf"
+                },
+
+                6: {
+                    a: "https://files.smpfsa.com/edt/TPs/P3-G6a.pdf",
+                    b: "https://files.smpfsa.com/edt/TPs/P3-G6b.pdf",
+                    c: "https://files.smpfsa.com/edt/TPs/P3-G6c.pdf"
+                }
+
+            },
+
+
+            S5: {
+
+                ES: {
+                    1: "https://files.smpfsa.com/edt/TPs/ES5G1.pdf",
+                    2: "https://files.smpfsa.com/edt/TPs/ES5G2.pdf",
+                    3: "https://files.smpfsa.com/edt/TPs/ES5G3.pdf",
+                    4: "https://files.smpfsa.com/edt/TPs/ES5G4.pdf",
+                    5: "https://files.smpfsa.com/edt/TPs/ES5G5.pdf",
+                    6: "https://files.smpfsa.com/edt/TPs/ES5G6.pdf",
+                    7: "https://files.smpfsa.com/edt/TPs/ES5G7.pdf",
+                    8: "https://files.smpfsa.com/edt/TPs/ES5G8.pdf"
+                },
+
+                EER: {
+                    1: "https://files.smpfsa.com/edt/TPs/EER5G1.pdf",
+                    2: "https://files.smpfsa.com/edt/TPs/EER5G2.pdf",
+                    3: "https://files.smpfsa.com/edt/TPs/EER5G3.pdf",
+                    4: "https://files.smpfsa.com/edt/TPs/EER5G4.pdf",
+                    5: "https://files.smpfsa.com/edt/TPs/EER5G5.pdf",
+                    6: "https://files.smpfsa.com/edt/TPs/EER5G6.pdf",
+                    7: "https://files.smpfsa.com/edt/TPs/EER5G7.pdf",
+                    8: "https://files.smpfsa.com/edt/TPs/EER5G8.pdf"
+                }
+
+            }
+
+        };
+
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
+
+        const semester = document.getElementById("semester");
+        const section = document.getElementById("section");
+        const filiere = document.getElementById("filiere");
+        const td = document.getElementById("td");
+        const tp = document.getElementById("tp");
+
+        const codePreview = document.getElementById("codePreview");
+        const codeInput = document.getElementById("codeInput");
+        const status = document.getElementById("status");
+
+        const sectionBox = document.getElementById("sectionBox");
+        const filiereBox = document.getElementById("filiereBox");
+        const tdBox = document.getElementById("tdBox");
+        const tpBox = document.getElementById("tpBox");
+
+
+        /* =====================================================
+           OUTILS
+        ===================================================== */
+
+        function hide(element) {
+            element.classList.add("hidden");
+        }
+
+
+        function show(element) {
+            element.classList.remove("hidden");
+        }
+
+
+        function resetSelect(select) {
+
+            select.innerHTML = `
+                <option value="">
+                    -- Choisir --
+                </option>
+            `;
+
+        }
+
+
+        /*
+            Remplit un select en essayant
+            de conserver sa valeur actuelle.
+        */
+
+        function fillSelect(select, values, wantedValue = null) {
+
+            const oldValue =
+                wantedValue !== null
+                    ? String(wantedValue)
+                    : select.value;
+
+            resetSelect(select);
+
+            values.forEach(function(value) {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = value;
+                option.textContent = value;
+
+                select.appendChild(option);
+
+            });
+
+
+            if (values.includes(oldValue)) {
+
+                select.value = oldValue;
+
+            } else {
+
+                select.value = "";
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CREATION DES CHOIX
+        ===================================================== */
+
+        function createSections(value = null) {
+
+            fillSelect(
+                section,
+                ["A", "B", "C"],
+                value
+            );
+
+        }
+
+
+        function createFilieres(value = null) {
+
+            fillSelect(
+                filiere,
+                ["ES"],
+                // ["ES", "EER"],
+                value
+            );
+
+        }
+
+
+        function createTD(nombre, value = null) {
+
+            const values = [];
+
+            for (
+                let i = 1;
+                i <= nombre;
+                i++
+            ) {
+
+                values.push(String(i));
+
+            }
+
+            fillSelect(
+                td,
+                values,
+                value
+            );
+
+        }
+
+
+        function createTPLetters(groupes, value = null) {
+
+            fillSelect(
+                tp,
+                groupes,
+                value
+            );
+
+        }
+
+
+        function createTPNumbers(value = null) {
+
+            const values = [];
+
+            for (
+                let i = 1;
+                i <= NOMBRE_TP_S5;
+                i++
+            ) {
+
+                values.push(String(i));
+
+            }
+
+            fillSelect(
+                tp,
+                values,
+                value
+            );
+
+        }
+
+
+        /* =====================================================
+           CHANGEMENT DE SEMESTRE
+        ===================================================== */
+
+        function changeSemester(newSemester) {
+
+            /*
+                Si le semestre est déjà le même,
+                on ne détruit rien.
+            */
+
+            if (semester.value === newSemester) {
+                return;
+            }
+
+
+            semester.value = newSemester;
+
+
+            /*
+                On cache seulement les éléments
+                qui ne correspondent pas au nouveau
+                semestre.
+            */
+
+            hide(sectionBox);
+            hide(filiereBox);
+            hide(tdBox);
+            hide(tpBox);
+
+
+            /* ==========================
+                      S1
+            ========================== */
+
+            if (newSemester === "S1") {
+
+                createSections();
+
+                show(sectionBox);
+
+            }
+            else if (newSemester === "S3")
+            {
+                createTD(NOMBRE_TD_S3);
+                show(tdBox);
+            }
+            else if (newSemester === "S5")
+            {
+                createFilieres();
+                show(filiereBox);
+            }
+
+            updateCodeDisplay();
+        }
+
+
+        /* =====================================================
+           RESET COMPLET
+        ===================================================== */
+
+        function resetEverything() {
+
+            semester.value = "";
+
+            resetSelect(section);
+            resetSelect(filiere);
+            resetSelect(td);
+            resetSelect(tp);
+
+            hide(sectionBox);
+            hide(filiereBox);
+            hide(tdBox);
+            hide(tpBox);
+
+            status.textContent = "";
+
+        }
+
+
+        /* =====================================================
+           AFFICHAGE DU CODE
+        ===================================================== */
+
+        function updateCodeDisplay() {
+
+            const sem = semester.value;
+
+
+            /* =====================================
+               AUCUN SEMESTRE
+            ===================================== */
+
+            if (!sem) {
+
+                codePreview.innerHTML = `
+                    <span class="code-gray">
+                        Choisir...
+                    </span>
+                `;
+
+                /*
+                    On ne force pas l'input ici si
+                    l'utilisateur est en train d'écrire.
+                */
+
+                return;
+            }
+
+
+            /* =====================================
+                            S1
+                          P1A G1a
+            ===================================== */
+
+            if (sem === "S1") {
+
+                const sectionCode =
+                    section.value || "A";
+
+                const tdCode =
+                    td.value || "1";
+
+                const tpCode =
+                    tp.value || "a";
+
+
+                /*
+                    PREVIEW
+                */
+
+                codePreview.innerHTML = `
+
+                    <span class="code-black">
+                        P1
+                    </span>
+
+                    <span class="${
+                        section.value
+                            ? "code-black"
+                            : "code-gray"
+                    }">
+                        ${sectionCode}
+                    </span>
+
+                    <span class="code-black">
+                        &nbsp;G
+                    </span>
+
+                    <span class="${
+                        td.value
+                            ? "code-black"
+                            : "code-gray"
+                    }">
+                        ${tdCode}
+                    </span>
+
+                    <span class="${
+                        tp.value
+                            ? "code-black"
+                            : "code-gray"
+                    }">
+                        ${tpCode}
+                    </span>
+
+                `;
+
+
+                /*
+                    INPUT
+
+                    Il change immédiatement
+                    lorsque les choix changent.
+                */
+
+                codeInput.value =
+                    `P1${sectionCode} G${tdCode}${tpCode}`;
+
+
+                return;
+            }
+
+
+            /* =====================================
+                            S3
+                           G1a
+            ===================================== */
+
+            if (sem === "S3") {
+
+                const tdCode =
+                    td.value || "1";
+
+                const tpCode =
+                    tp.value || "a";
+
+
+                codePreview.innerHTML = `
+
+                    <span class="code-black">
+                        G
+                    </span>
+
+                    <span class="${
+                        td.value
+                            ? "code-black"
+                            : "code-gray"
+                    }">
+                        ${tdCode}
+                    </span>
+
+                    <span class="${
+                        tp.value
+                            ? "code-black"
+                            : "code-gray"
+                    }">
+                        ${tpCode}
+                    </span>
+
+                `;
+
+
+                /*
+                    INPUT
+                */
+
+                codeInput.value =
+                    `G${tdCode}${tpCode}`;
+
+
+                return;
+            }
+
+
+            /* =====================================
+                            S5
+                           G1
+            ===================================== */
+
+            if (sem === "S5") {
+
+                const tpCode =
+                    tp.value || "1";
+
+
+                codePreview.innerHTML = `
+
+                    <span class="code-black">
+                        G
+                    </span>
+
+                    <span class="${
+                        tp.value
+                            ? "code-black"
+                            : "code-gray"
+                    }">
+                        ${tpCode}
+                    </span>
+
+                `;
+
+
+                /*
+                    INPUT
+                */
+
+                codeInput.value =
+                    `G${tpCode}`;
+
+
+                return;
+            }
+
+        }
+
+
+        /* =====================================================
+           SEMESTRE SELECT
+        ===================================================== */
+
+        semester.addEventListener(
+            "change",
+            function() {
+
+                /*
+                    Ici seulement on fait un
+                    changement complet de structure.
+                */
+
+                const newSemester =
+                    semester.value;
+
+
+                resetSelect(section);
+                resetSelect(filiere);
+                resetSelect(td);
+                resetSelect(tp);
+
+                hide(sectionBox);
+                hide(filiereBox);
+                hide(tdBox);
+                hide(tpBox);
+
+
+                if (newSemester === "S1") {
+
+                    createSections();
+
+                    show(sectionBox);
+
+                }
+
+
+                else if (newSemester === "S3") {
+
+                    createTD(NOMBRE_TD_S3);
+
+                    show(tdBox);
+
+                }
+
+
+                else if (newSemester === "S5") {
+
+                    createFilieres();
+
+                    show(filiereBox);
+
+                }
+
+
+                updateCodeDisplay();
+
+            }
+        );
+
+
+        /* =====================================================
+           S1 → SECTION
+        ===================================================== */
+
+        section.addEventListener(
+            "change",
+            function() {
+
+                if (!section.value) {
+
+                    hide(tdBox);
+                    hide(tpBox);
+
+                    updateCodeDisplay();
+
+                    return;
+
+                }
+
+
+                /*
+                    On garde les valeurs existantes.
+                */
+
+                const oldTD =
+                    td.value;
+
+                const oldTP =
+                    tp.value;
+
+
+                createTD(
+                    NOMBRE_TD_S1,
+                    oldTD
+                );
+
+                show(tdBox);
+
+
+                /*
+                    Si un TD existait déjà
+                    et qu'il est toujours valide,
+                    on garde aussi le TP.
+                */
+
+                if (td.value) {
+
+                    createTPLetters(
+                        GROUPES_TP_S1,
+                        oldTP
+                    );
+
+                    show(tpBox);
+
+                }
+
+
+                updateCodeDisplay();
+
+
+                if (
+                    td.value &&
+                    tp.value
+                ) {
+
+                    fetchPDF();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           S5 → FILIERE
+        ===================================================== */
+
+        filiere.addEventListener(
+            "change",
+            function() {
+
+                if (!filiere.value) {
+
+                    hide(tpBox);
+
+                    updateCodeDisplay();
+
+                    return;
+
+                }
+
+
+                const oldTP =
+                    tp.value;
+
+
+                createTPNumbers(
+                    oldTP
+                );
+
+                show(tpBox);
+
+
+                updateCodeDisplay();
+
+
+                if (tp.value) {
+
+                    fetchPDF();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           TD → TP
+        ===================================================== */
+
+        td.addEventListener(
+            "change",
+            function() {
+
+                if (!td.value) {
+
+                    hide(tpBox);
+
+                    updateCodeDisplay();
+
+                    return;
+
+                }
+
+
+                /*
+                    On garde le TP actuel
+                    s'il existe toujours.
+                */
+
+                const oldTP =
+                    tp.value;
+
+
+                if (semester.value === "S1") {
+
+                    createTPLetters(
+                        GROUPES_TP_S1,
+                        oldTP
+                    );
+
+                    show(tpBox);
+
+                }
+
+
+                else if (semester.value === "S3") {
+
+                    createTPLetters(
+                        GROUPES_TP_S3,
+                        oldTP
+                    );
+
+                    show(tpBox);
+
+                }
+
+
+                updateCodeDisplay();
+
+
+                if (tp.value) {
+
+                    fetchPDF();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           TP
+        ===================================================== */
+
+        tp.addEventListener(
+            "change",
+            function() {
+
+                updateCodeDisplay();
+
+                fetchPDF();
+
+            }
+        );
+
+
+        /* =====================================================
+           INPUT CODE
+        ===================================================== */
+
+        codeInput.addEventListener(
+            "input",
+            function() {
+
+                let value =
+                    codeInput.value
+                        .trim()
+                        .toUpperCase();
+
+
+                /*
+                    Retirer les espaces inutiles.
+                */
+
+                value =
+                    value.replace(/\s+/g, " ");
+
+
+                /*
+                    =====================================
+                            INPUT VIDE
+                    =====================================
+                */
+
+                if (!value) {
+
+                    resetEverything();
+
+                    updateCodeDisplay();
+
+                    return;
+
+                }
+
+
+                /*
+                    =====================================
+                               S1
+                            P1A G1a
+                    =====================================
+                */
+
+                const s1Match =
+                    value.match(
+                        /^P1([ABC])\s*G(\d+)([A-Z])$/
+                    );
+
+
+                if (s1Match) {
+
+                    const sectionValue =
+                        s1Match[1];
+
+                    const tdValue =
+                        Number(s1Match[2]);
+
+                    const tpValue =
+                        s1Match[3].toLowerCase();
+
+
+                    /*
+                        Vérifier TD
+                    */
+
+                    if (
+                        tdValue < 1 ||
+                        tdValue > NOMBRE_TD_S1
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    /*
+                        Vérifier TP
+                    */
+
+                    if (
+                        !GROUPES_TP_S1.includes(tpValue)
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    /*
+                        IMPORTANT :
+
+                        On passe réellement à S1.
+                    */
+
+                    if (
+                        semester.value !== "S1"
+                    ) {
+
+                        changeSemester("S1");
+
+                    }
+
+
+                    /*
+                        Section
+                    */
+
+                    createSections(
+                        sectionValue
+                    );
+
+                    section.value =
+                        sectionValue;
+
+                    show(sectionBox);
+
+
+                    /*
+                        TD
+                    */
+
+                    createTD(
+                        NOMBRE_TD_S1,
+                        tdValue
+                    );
+
+                    td.value =
+                        String(tdValue);
+
+                    show(tdBox);
+
+
+                    /*
+                        TP
+                    */
+
+                    createTPLetters(
+                        GROUPES_TP_S1,
+                        tpValue
+                    );
+
+                    tp.value =
+                        tpValue;
+
+                    show(tpBox);
+
+
+                    updateCodeDisplay();
+
+
+                    /*
+                        PDF uniquement maintenant,
+                        car le code est complet.
+                    */
+
+                    fetchPDF();
+
+                    return;
+
+                }
+
+
+                /*
+                    =====================================
+                               S3
+                               G1a
+                    =====================================
+                */
+
+                const s3Match =
+                    value.match(
+                        /^G(\d+)([A-Z])$/
+                    );
+
+
+                if (s3Match) {
+
+                    const tdValue =
+                        Number(s3Match[1]);
+
+                    const tpValue =
+                        s3Match[2].toLowerCase();
+
+
+                    if (
+                        tdValue < 1 ||
+                        tdValue > NOMBRE_TD_S3
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    if (
+                        !GROUPES_TP_S3.includes(tpValue)
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    /*
+                        Passage réel vers S3.
+                    */
+
+                    if (
+                        semester.value !== "S3"
+                    ) {
+
+                        changeSemester("S3");
+
+                    }
+
+
+                    /*
+                        TD
+                    */
+
+                    createTD(
+                        NOMBRE_TD_S3,
+                        tdValue
+                    );
+
+                    td.value =
+                        String(tdValue);
+
+                    show(tdBox);
+
+
+                    /*
+                        TP
+                    */
+
+                    createTPLetters(
+                        GROUPES_TP_S3,
+                        tpValue
+                    );
+
+                    tp.value =
+                        tpValue;
+
+                    show(tpBox);
+
+
+                    updateCodeDisplay();
+
+                    fetchPDF();
+
+                    return;
+
+                }
+
+
+                /*
+                    =====================================
+                               S5
+                               G1
+                    =====================================
+                */
+
+                const s5Match =
+                    value.match(
+                        /^G(\d+)$/
+                    );
+
+
+                if (s5Match) {
+
+                    const tpValue =
+                        Number(s5Match[1]);
+
+
+                    if (
+                        tpValue < 1 ||
+                        tpValue > NOMBRE_TP_S5
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    /*
+                        Passage réel vers S5.
+                    */
+
+                    if (
+                        semester.value !== "S5"
+                    ) {
+
+                        changeSemester("S5");
+
+                    }
+
+
+                    /*
+                        Si aucune filière n'est choisie,
+                        ES est utilisée par défaut.
+
+                        Si EER est déjà choisie,
+                        elle reste EER.
+                    */
+
+                    if (!filiere.value) {
+
+                        createFilieres("ES");
+
+                        filiere.value =
+                            "ES";
+
+                    }
+                    else {
+
+                        createFilieres(
+                            filiere.value
+                        );
+
+                    }
+
+
+                    show(filiereBox);
+
+
+                    /*
+                        TP
+                    */
+
+                    createTPNumbers(
+                        tpValue
+                    );
+
+                    tp.value =
+                        String(tpValue);
+
+                    show(tpBox);
+
+
+                    updateCodeDisplay();
+
+                    fetchPDF();
+
+                    return;
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           FETCH PDF
+        ===================================================== */
+
+        function fetchPDF() {
+
+            const sem =
+                semester.value;
+
+            let url = null;
+
+
+            /*
+                S1
+            */
+
+            if (sem === "S1") {
+
+                if (
+                    !section.value ||
+                    !td.value ||
+                    !tp.value
+                ) {
+
+                    return;
+
+                }
+
+
+                url =
+                    documents
+                        ?.S1
+                        ?. [section.value]
+                        ?. [td.value]
+                        ?. [tp.value];
+
+            }
+
+
+            /*
+                S3
+            */
+
+            else if (sem === "S3") {
+
+                if (
+                    !td.value ||
+                    !tp.value
+                ) {
+
+                    return;
+
+                }
+
+
+                url =
+                    documents
+                        ?.S3
+                        ?. [td.value]
+                        ?. [tp.value];
+
+            }
+
+
+            /*
+                S5
+            */
+
+            else if (sem === "S5") {
+
+                if (
+                    !filiere.value ||
+                    !tp.value
+                ) {
+
+                    return;
+
+                }
+
+
+                url =
+                    documents
+                        ?.S5
+                        ?. [filiere.value]
+                        ?. [tp.value];
+
+            }
+
+
+            /*
+                Pas d'URL
+            */
+
+            if (!url) {
+
+                console.warn(
+                    "Aucun PDF pour cette combinaison."
+                );
+
+                status.textContent =
+                    "Aucun PDF pour cette combinaison.";
+
+                return;
+
+            }
+
+
+            /*
+                IMPORTANT :
+
+                Ici on affiche seulement l'URL.
+                Le fetch peut être supprimé si
+                ton propre PDF viewer reçoit
+                directement cette URL.
+            */
+
+            console.log(
+                "URL PDF :",
+                url
+            );
+
+            if(studentSearch.value=="")
+            {
+                betterviewf(url);
+            }
+
+
+            status.textContent =
+                "PDF sélectionné.";
+
+
+            /*
+                =====================================
+                TON PDF VIEWER
+                =====================================
+
+                Exemple :
+
+                monPdfViewer.load(url);
+
+            */
+
+        }
+
+
+        /* =====================================================
+           INITIALISATION
+        ===================================================== */
+
+        resetEverything();
+
+        updateCodeDisplay();
+
+        </script>
+
+            <div id="pdfPopup" onclick="closePdfFromBackground(event)">
+              <div id="pdfWindow">
+                      <div id="pdfToolbar">
+                  <div id="pdfTitle">PDF</div>
+                  <div id="pdfControls">
+                    <!-- <button style="width: 48%;font-size:15px" type="button" onclick="downloadPDF() "title="Télécharger le PDF"> Télécharger le PDF ↓ </button> -->
+                    <button style="width: 81%;font-size:15px" type="button" onclick="downloadPDF() "title="Télécharger le PDF"> Télécharger</button>
+                    <button type="button" onclick="minimizePDF()" title="Minimiser"> − </button>
+                    <!-- <button type="button" onclick="togglePdfHalfSize()" id="pdfHalfButton" title="Demi-écran"> ◫ </button> -->
+                    <button type="button" onclick="togglePdfSize()" id="pdfExpandButton" title="Agrandir"> ⛶ </button>
+                    <!-- <button type="button" onclick="closePDF()" title="Fermer"> × </button> -->
+                  </div>
+                </div>
+                <iframe id="pdfViewer" title="PDF Viewer" allowfullscreen></iframe>
+              </div>
+            </div>
+            
+            <style>
+
+              /* =========================================================
+                 PDF POPUP
+                 ========================================================= */
+
+              #pdfPopup {
+                  /*position: fixed;*/
+                  inset: 0;
+                  z-index: 99999;
+
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+
+                  box-sizing: border-box;
+
+                  /*background: rgba(0, 0, 0, 0.65);*/
+
+                  opacity: 0;
+                  visibility: hidden;
+                  pointer-events: none;
+
+                  /*transition: opacity .25s ease;*/
+
+                  padding: 30px;
+                  margin-bottom: 15px !important;
+              }
+
+              #pdfPopup.open {
+                  opacity: 1;
+                  visibility: visible;
+                  pointer-events: auto;
+              }
+
+
+              /* =========================================================
+                 PDF WINDOW - NORMAL
+                 ========================================================= */
+
+              #pdfWindow {
+                  width: min(1100px, 95vw);
+                  height: min(90vh, 850px);
+
+                  background: #202124;
+                  border-radius: 14px;
+                  overflow: hidden;
+
+                  display: flex;
+                  flex-direction: column;
+
+                  box-shadow: 0 20px 70px rgba(0,0,0,.5);
+
+                  transform: scale(.05);
+                  opacity: 0;
+
+                  transition:
+                      transform .35s cubic-bezier(.2,.8,.2,1),
+                      opacity .2s ease,
+                      width .3s ease,
+                      height .3s ease,
+                      top .3s ease,
+                      left .3s ease,
+                      border-radius .3s ease;
+              }
+
+              /* =========================================================
+                 FULLSCREEN PDF
+                 ========================================================= */
+
+              #pdfWindow.pdf-expanded {
+                  position: fixed !important;
+
+                  top: 0 !important;
+                  right: 0 !important;
+                  bottom: 0 !important;
+                  left: 0 !important;
+
+                  width: 100vw !important;
+                  height: 100vh !important;
+
+                  max-width: none !important;
+                  max-height: none !important;
+
+                  margin: 0 !important;
+                  border-radius: 0 !important;
+
+                  transform: none !important;
+                  opacity: 1 !important;
+
+                  z-index: 100000 !important;
+              }
+
+              /* Make the PDF itself fill the fullscreen window */
+              #pdfWindow.pdf-expanded #pdfViewer {
+                  height: calc(100% - 52px) !important;
+                  width: 100% !important;
+              }
+
+              #pdfPopup.open #pdfWindow {
+                  transform: scale(1);
+                  opacity: 1;
+              }
+
+
+              /* =========================================================
+                 TOOLBAR
+                 ========================================================= */
+
+              #pdfToolbar {
+                  height: 52px;
+                  min-height: 52px;
+
+                  background: #292929;
+
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+
+                  padding: 0 10px 0 16px;
+
+                  box-sizing: border-box;
+              }
+
+              #pdfTitle {
+                  color: white;
+
+                  font-size: 14px;
+
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+
+                  max-width: 45%;
+              }
+
+              #pdfControls {
+                  display: flex;
+                  gap: 6px;
+              }
+
+              #pdfControls button {
+                  width: 53px;
+                  height: 36px;
+
+                  border: 0;
+                  border-radius: 8px;
+
+                  background: #3a3a3a;
+                  color: white;
+
+                  cursor: pointer;
+
+                  font-size: 20px;
+
+                  margin: 0;
+                  padding: 0;
+              }
+
+              #pdfControls button:hover {
+                  background: #505050;
+              }
+
+
+              /* =========================================================
+                 PDF VIEWER
+                 ========================================================= */
+
+              #pdfViewer {
+                  width: 100%;
+                  height: calc(100% - 52px);
+
+                  border: 0;
+                  display: block;
+
+                  background: white;
+              }
+
+
+              /* =========================================================
+                 SPLIT MODE
+                 ========================================================= */
+
+              /*
+                 IMPORTANT:
+                 In split mode the popup itself becomes transparent
+                 and DOES NOT block the page.
+              */
+
+              #pdfPopup.pdf-split {
+                  background: transparent;
+
+                  pointer-events: none;
+
+                  align-items: flex-start;
+                  justify-content: flex-start;
+              }
+
+
+              /*
+                 PC:
+                 PDF occupies the TOP half of the screen.
+              */
+
+              #pdfPopup.pdf-split #pdfWindow {
+                  position: fixed;
+
+                  top: 0;
+                  left: 0;
+
+                  width: 100vw;
+                  height: 50vh;
+
+                  max-width: none;
+                  max-height: none;
+
+                  border-radius: 0;
+
+                  transform: none !important;
+                  opacity: 1;
+
+                  box-shadow: 0 4px 20px rgba(0,0,0,.35);
+
+                  pointer-events: auto;
+              }
+
+              /* =========================================================
+                 PAGE AREA WHEN PDF IS SPLIT
+                 ========================================================= */
+
+              /* =========================================================
+                 PAGE AREA WHEN PDF IS SPLIT
+                 ========================================================= */
+
+              body.pdf-split-mode {
+                  overflow: hidden !important;
+              }
+
+              /*
+                 The page occupies the entire lower half.
+                 Force it to 100vw so existing container widths,
+                 margins, max-widths, etc. cannot make it narrower.
+              */
+              body.pdf-split-mode .container {
+                  position: fixed !important;
+
+                  left: 0 !important;
+                  right: 0 !important;
+                  bottom: 0 !important;
+
+                  width: 100vw !important;
+                  max-width: none !important;
+
+                  height: 43vh !important;
+                  max-height: 43vh !important;
+
+                  margin-left: 0 !important;
+                  margin-right: 0 !important;
+
+                  overflow-y: auto;
+                  overflow-x: hidden;
+
+                  box-sizing: border-box;
+              }
+
+
+              /* =========================================================
+                 MINIMIZED MODE
+                 ========================================================= */
+
+              #pdfPopup.pdf-minimized {
+                  background: transparent;
+
+                  pointer-events: none;
+
+                  align-items: flex-start;
+                  justify-content: flex-start;
+              }
+
+
+              /*
+                 Small floating window.
+              */
+
+              #pdfPopup.pdf-minimized #pdfWindow {
+                  position: fixed;
+
+                  width: 360px;
+                  height: 52px;
+
+                  top: 20px;
+                  right: 20px;
+                  left: auto;
+
+                  border-radius: 10px;
+
+                  transform: none !important;
+                  opacity: 1;
+
+                  box-shadow: 0 8px 30px rgba(0,0,0,.45);
+
+                  cursor: pointer;
+
+                  pointer-events: auto;
+              }
+
+
+              /*
+                 Hide the PDF itself while minimized.
+              */
+
+              #pdfPopup.pdf-minimized #pdfViewer {
+                  display: none;
+              }
+
+
+              /*
+                 Toolbar becomes the entire minimized window.
+              */
+
+              #pdfPopup.pdf-minimized #pdfToolbar {
+                  height: 52px;
+                  min-height: 52px;
+
+                  border-radius: 10px;
+              }
+
+
+              /*
+                 Filename has more room when minimized.
+              */
+
+              #pdfPopup.pdf-minimized #pdfTitle {
+                  flex: 1;
+                  min-width: 0;
+                  max-width: none;
+
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+
+                  margin-right: 8px;
+              }
+
+
+              /*
+                 Hide the split button while minimized.
+              */
+
+              #pdfPopup.pdf-minimized #pdfHalfButton {
+                  display: none;
+              }
+
+
+              /* =========================================================
+                 MOBILE
+                 ========================================================= */
+
+              @media (max-width: 600px) {
+
+                  #pdfPopup {
+                      padding: 0;
+                  }
+
+                  #pdfWindow {
+                      width: 95vw;
+                      height: 90dvh;
+
+                      border-radius: 12px;
+                  }
+
+
+                  /*
+                     MOBILE SPLIT
+
+                     PDF takes the upper half of the screen.
+                     The bottom half remains fully interactive.
+                  */
+
+                  #pdfPopup.pdf-split #pdfWindow {
+                      top: 0;
+                      left: 0;
+
+                      width: 100vw;
+                      height: 50dvh;
+
+                      border-radius: 0;
+                  }
+
+
+                  #pdfToolbar {
+                      height: 50px;
+                      min-height: 50px;
+                  }
+
+                  #pdfViewer {
+                      height: calc(100% - 50px);
+                  }
+
+
+                  /*
+                     Mobile minimized window
+                  */
+
+                  #pdfPopup.pdf-minimized #pdfWindow {
+                      width: calc(100vw - 20px);
+                      height: 50px;
+
+                      top: 10px;
+                      right: 10px;
+                      left: 10px;
+
+                      border-radius: 10px;
+                  }
+
+                  #pdfPopup.pdf-minimized #pdfToolbar {
+                      height: 50px;
+                      min-height: 50px;
+                  }
+
+                  #pdfPopup.pdf-minimized #pdfTitle {
+                    flex: 1;
+                    min-width: 0;
+                    max-width: none;
+
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                  #pdfControls {
+                      gap: 4px;
+                  }
+
+                  #pdfControls button {
+                      width: 44px;
+                      height: 34px;
+                      font-size: 18px;
+                  }
+              }
+
+              /* =========================================================
+                 MINIMIZED PDF - MAKE FILENAME VISIBLE
+                 ========================================================= */
+
+              #pdfPopup.pdf-minimized #pdfToolbar {
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-start;
+                  padding: 0 8px 0 14px;
+                  gap: 8px;
+              }
+
+              /* Filename gets a real area in the minimized window */
+              #pdfPopup.pdf-minimized #pdfTitle {
+                  display: block !important;
+
+                  flex: 1 1 auto;
+                  width: auto;
+                  min-width: 0;
+                  max-width: none !important;
+
+                  color: #ffffff !important;
+                  font-size: 14px;
+                  font-weight: 500;
+
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+
+                  visibility: visible !important;
+                  opacity: 1 !important;
+              }
+
+              /*
+                 The controls must not be allowed to push
+                 the filename completely off screen.
+              */
+              #pdfPopup.pdf-minimized #pdfControls {
+                  flex: 0 0 auto;
+                  width: auto;
+                  display: flex;
+                  align-items: center;
+                  gap: 5px;
+              }
+
+              /*
+                 The large "Ouvrir en mode PC" button takes
+                 almost the entire toolbar normally, so hide it
+                 when minimized.
+              */
+              #pdfPopup.pdf-minimized #pdfControls button:first-child {
+                  display: none;
+              }
+
+              /* Split button is already hidden, keep it hidden */
+              #pdfPopup.pdf-minimized #pdfHalfButton {
+                  display: none;
+              }
+
+              /*
+                 Give the minimized window enough width
+                 for the filename + controls.
+              */
+              #pdfPopup.pdf-minimized #pdfWindow {
+                  width: 420px;
+                  max-width: calc(100vw - 20px);
+              }
+
+              /* Mobile */
+              @media (max-width: 600px) {
+
+                  #pdfPopup.pdf-minimized #pdfWindow {
+                      width: calc(100vw - 20px);
+                  }
+
+                  #pdfPopup.pdf-minimized #pdfTitle {
+                      flex: 1 1 auto;
+                      max-width: none !important;
+                      min-width: 0;
+                      font-size: 13px;
+                  }
+
+                  #pdfPopup.pdf-minimized #pdfControls {
+                      flex-shrink: 0;
+                  }
+              }
+
+            </style>
+
+            <script type="text/javascript">
+
+                // const popup = document.getElementById("pdfPopup");
+                //   const viewer = document.getElementById("pdfViewer");
+                //   const title = document.getElementById("pdfTitle");
+                //   const windowElement = document.getElementById("pdfWindow");
+
+                //   popup.classList.remove("pdf-split");
+                //   popup.classList.remove("pdf-minimized");
+
+                //   windowElement.classList.remove("pdf-expanded");
+                //   windowElement.classList.remove("pdf-half");
+
+                //   /* Show popup */
+
+                //   popup.classList.add("open");
+
+                //   // document.body.style.overflow = "hidden";
+
+
+                  let currentPDFUrl = "";
+
+
+                  /* =========================================================
+                     OPEN PDF
+                     ========================================================= */
+
+                  function betterviewf(pdfUrl)
+                  {
+                      currentPDFUrl = pdfUrl;
+
+                      const popup = document.getElementById("pdfPopup");
+                      const viewer = document.getElementById("pdfViewer");
+                      const title = document.getElementById("pdfTitle");
+                      const windowElement = document.getElementById("pdfWindow");
+
+                      /*
+                         Every time a new PDF is opened,
+                         start in normal popup mode.
+                      */
+
+                      popup.classList.remove("pdf-split");
+                      popup.classList.remove("pdf-minimized");
+
+                      windowElement.classList.remove("pdf-expanded");
+                      windowElement.classList.remove("pdf-half");
+
+
+                      /* Filename */
+
+                      let filename = pdfUrl.substring(
+                          pdfUrl.lastIndexOf("/") + 1
+                      );
+
+                      filename = decodeURIComponent(filename);
+
+                      title.textContent = filename;
+
+
+                      /* Google PDF viewer */
+
+                      viewer.src =
+                          "https://docs.google.com/gview?embedded=true&url=" +
+                          encodeURIComponent(pdfUrl);
+
+
+                      /* Show popup */
+
+                      popup.classList.add("open");
+
+                      // document.body.style.overflow = "hidden";
+
+
+                      // // Aller tout en bas instantanément
+                      //   window.scrollTo(0, document.body.scrollHeight);
+
+                        // Aller tout en bas avec un effet fluide
+
+                        if(studentSearch.value=="")
+                        {
+                            window.scrollTo({
+                              top: document.body.scrollHeight,
+                              behavior: 'smooth'
+                            });
+                        }
+
+                  }
+
+
+                  /* =========================================================
+                     OPEN DIRECT PDF
+                     ========================================================= */
+
+                  function openDirectPDF()
+                  {
+                      if (!currentPDFUrl) return;
+
+                      const viewer = document.getElementById("pdfViewer");
+
+                      viewer.src = currentPDFUrl;
+                  }
+
+                  /* =========================================================
+                   DOWNLOAD PDF
+                   ========================================================= */
+
+                    function downloadPDF()
+                    {
+                        if (!currentPDFUrl) {
+                            return;
+                        }
+
+                        const link = document.createElement("a");
+
+                        link.href = currentPDFUrl;
+
+                        console.log(currentPDFUrl);
+
+                        /*
+                           Récupère le nom du fichier depuis l'URL.
+                        */
+
+                        let filename =
+                            currentPDFUrl.substring(
+                                currentPDFUrl.lastIndexOf("/") + 1
+                            );
+
+                        try {
+                            filename = decodeURIComponent(filename);
+                        }
+                        catch (error) {
+                            console.warn(
+                                "Impossible de décoder le nom du fichier."
+                            );
+                        }
+
+                        /*
+                           Demande au navigateur de télécharger
+                           le fichier au lieu de l'ouvrir.
+                        */
+
+                        link.download = filename || "document.pdf";
+
+                        link.target = "_blank";
+
+                        document.body.appendChild(link);
+
+                        link.click();
+
+                        document.body.removeChild(link);
+                    }
+
+
+                  /* =========================================================
+                     CLOSE
+                     ========================================================= */
+
+                  function closePDF()
+                  {
+                      const popup = document.getElementById("pdfPopup");
+                      const viewer = document.getElementById("pdfViewer");
+
+                      /* IMPORTANT:
+                         Always remove the page split state when closing.
+                      */
+                      document.body.classList.remove("pdf-split-mode");
+
+                      popup.classList.remove("open");
+                      popup.classList.remove("pdf-split");
+                      popup.classList.remove("pdf-minimized");
+
+                      document.body.style.overflow = "";
+
+                      setTimeout(() => {
+                          viewer.src = "";
+                      }, 300);
+                  }
+
+
+                  /* =========================================================
+                     MINIMIZE
+                     ========================================================= */
+
+                  function minimizePDF()
+                  {
+                      const popup = document.getElementById("pdfPopup");
+                      const windowElement = document.getElementById("pdfWindow");
+
+                      /*
+                         If fullscreen is active, remove it first.
+                      */
+                      windowElement.classList.remove("pdf-expanded");
+
+                      /*
+                         If split mode is active, remove the page split state.
+                      */
+                      popup.classList.remove("pdf-split");
+                      document.body.classList.remove("pdf-split-mode");
+
+                      /*
+                         Now minimize normally.
+                      */
+                      popup.classList.add("pdf-minimized");
+
+                      /*
+                         Make the page normal and scrollable again.
+                      */
+                      document.body.style.overflow = "";
+                  }
+
+
+                  /* =========================================================
+                     RESTORE MINIMIZED PDF
+                     ========================================================= */
+
+                  function restorePDF()
+                  {
+                      const popup = document.getElementById("pdfPopup");
+
+                      if (!popup.classList.contains("pdf-minimized")) {
+                          return;
+                      }
+
+                      popup.classList.remove("pdf-minimized");
+
+                      // document.body.style.overflow = "hidden";
+                      document.body.style.overflow = "visible";
+                  }
+
+
+                  /* =========================================================
+                     CLICK MINIMIZED WINDOW
+                     ========================================================= */
+
+                  document.addEventListener("click", function(event)
+                  {
+                      const popup = document.getElementById("pdfPopup");
+                      const windowElement = document.getElementById("pdfWindow");
+
+                      /*
+                         If minimized and the user clicks the window,
+                         restore it.
+                      */
+
+                      if (
+                          popup.classList.contains("pdf-minimized") &&
+                          windowElement.contains(event.target)
+                      ) {
+                          /*
+                             Don't restore if clicking one of the controls.
+                          */
+
+                          if (event.target.closest("button")) {
+                              return;
+                          }
+
+                          restorePDF();
+                      }
+                  });
+
+
+                  /* =========================================================
+                     BACKGROUND CLOSE
+                     ========================================================= */
+
+                  function closePdfFromBackground(event)
+                  {
+                      const popup = document.getElementById("pdfPopup");
+
+                      /*
+                         Only close when clicking the actual dark background.
+                      */
+
+                      if (
+                          !popup.classList.contains("pdf-split") &&
+                          !popup.classList.contains("pdf-minimized") &&
+                          event.target === event.currentTarget
+                      ) {
+                          closePDF();
+                      }
+                  }
+
+
+                  /* =========================================================
+                     SPLIT SCREEN
+                     ========================================================= */
+
+                  function togglePdfHalfSize() {
+
+                      const popup = document.getElementById("pdfPopup");
+                      const windowElement = document.getElementById("pdfWindow");
+                      const button = document.getElementById("pdfHalfButton");
+
+                      /* If minimized, restore first */
+                      if (popup.classList.contains("pdf-minimized")) {
+                          popup.classList.remove("pdf-minimized");
+                      }
+
+                      /* Fullscreen must be disabled */
+                      windowElement.classList.remove("pdf-expanded");
+
+                      /* Toggle split */
+                      const isSplit = popup.classList.toggle("pdf-split");
+
+                      /* Also resize the PAGE */
+                      document.body.classList.toggle("pdf-split-mode", isSplit);
+
+                      if (isSplit) {
+
+                          /* PDF occupies top half */
+                          document.body.style.overflow = "";
+
+                          button.textContent = "◧";
+                          button.title = "Revenir à la taille normale";
+
+                      } else {
+
+                          /* Return to normal popup */
+                          document.body.classList.remove("pdf-split-mode");
+
+                          // document.body.style.overflow = "hidden";
+
+                          button.textContent = "◫";
+                          button.title = "Demi-écran";
+                      }
+                  }
+
+
+                  /* =========================================================
+                     FULLSCREEN / EXPAND
+                     ========================================================= */
+
+                  function togglePdfSize() {
+
+                      const popup = document.getElementById("pdfPopup");
+                      const windowElement = document.getElementById("pdfWindow");
+                  const button = document.getElementById("pdfExpandButton");
+
+                  /*
+                     If minimized, restore it first.
+                  */
+                  if (popup.classList.contains("pdf-minimized")) {
+                      popup.classList.remove("pdf-minimized");
+                  }
+
+                  /*
+                     Fullscreen and split cannot be active together.
+                     IMPORTANT: also remove the body's split state.
+                  */
+                  popup.classList.remove("pdf-split");
+                  document.body.classList.remove("pdf-split-mode");
+
+                  const isExpanded = windowElement.classList.toggle("pdf-expanded");
+
+                  if (isExpanded) {
+
+                      document.body.style.overflow = "hidden";
+
+                      button.textContent = "↙";
+                      button.title = "Réduire";
+
+                  } else {
+
+                              // document.body.style.overflow = "hidden";
+                                document.body.style.overflow = "visible";
+
+                              button.textContent = "⛶";
+                              button.title = "Agrandir";
+                          }
+                      }
+
+                </script>
+
+
+
+    </body>
+
+</html>

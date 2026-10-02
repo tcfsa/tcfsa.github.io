@@ -220,7 +220,7 @@
       }
 
 
-      /* ad styles */
+      /* ichh styles */
 
       *,
       *::before,
@@ -254,7 +254,7 @@
 
 
           /* ==================================================
-             MAIN AD
+             MAIN ichh
           ================================================== */
 
           .domain-banner {
@@ -1563,7 +1563,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
 
-    <!-- Fonts of the ad -->
+    <!-- Fonts of the ichh -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -1636,7 +1636,7 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- ==================================================
-       AD
+       ichh
   ================================================== -->
 
   <div style="
@@ -2128,9 +2128,9 @@
         </h2>
 
         <h3 class="home-footer-item-2" style="text-box: auto;">
-          Visiteurs uniques (total) : 1200
+          Visiteurs uniques (total) : 1300
           <br>
-          Visiteurs uniques ce mois : 470
+          Visiteurs uniques ce mois : 14
         </h3>
 
 
@@ -2192,8 +2192,8 @@
         { m: "Juin 26", v: 960, u: 45 },
         { m: "Juil 26", v: 183, u: 14 },
         { m: "Août 26", v: 253, u: 52 },
-        { m: "Sep 26", v: 1700, u: 470 }
-        // { m: "Oct", v: 900, u: 300 },
+        { m: "Sep 26", v: 2038, u: 573 },
+        { m: "Oct 26", v: 116, u: 14 }
         // { m: "Nov", v: 420, u: 320 },
         // { m: "Déc", v: 480, u: 380 }
       ];
@@ -2237,8 +2237,8 @@
       const totalsBox = document.getElementById("totals");
       const max = Math.max(...data.flatMap(d => [d.v, d.u]));
       // const scale = 140 / max;
-      const scaleV = 250 / max;
-      const scaleU = 1200 / max;
+      const scaleV = 200 / max;
+      const scaleU = 900 / max;
 
       const totalViews = data.reduce((sum, d) => sum + d.v, 0);
       const totalUsers = data.reduce((sum, d) => sum + d.u, 0);
@@ -2345,7 +2345,7 @@
        RANDOM BACKGROUND
     ================================================== */
 
-    const ad =
+    const ichh =
       document.querySelector(
         ".domain-banner"
       );
@@ -2425,7 +2425,7 @@
       ];
 
 
-    ad.style.background = `
+    ichh.style.background = `
 
       radial-gradient(
         circle at 90% 10%,
