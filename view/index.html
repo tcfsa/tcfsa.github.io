@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BZT5VSZS3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-8BZT5VSZS3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../home-styles.css">
+    <script src="../main.js"></script>
+    <script src="../btns.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+
+    <title>PDF viewer</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../icons/apple-touch-icon-57x57.png"> 
+    <link rel="apple-touch-icon" sizes="60x60" href="../icons/apple-touch-icon-60x60.png"> 
+    <link rel="apple-touch-icon" sizes="72x72" href="../icons/apple-touch-icon-72x72.png"> 
+    <link rel="apple-touch-icon" sizes="76x76" href="../icons/apple-touch-icon-76x76.png"> 
+    <link rel="apple-touch-icon" sizes="114x114" href="../icons/apple-touch-icon-114x114.png"> 
+    <link rel="apple-touch-icon" sizes="120x120" href="../icons/apple-touch-icon-120x120.png"> 
+    <link rel="apple-touch-icon" sizes="144x144" href="../icons/apple-touch-icon-144x144.png"> 
+    <link rel="apple-touch-icon" sizes="152x152" href="../icons/apple-touch-icon-152x152.png"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon-180x180.png"> 
+    <link rel="icon" type="image/png" href="../icons/favicon-32x32.png" sizes="32x32"> 
+    <link rel="icon" type="image/png" href="../icons/android-chrome-192x192.png" sizes="192x192"> 
+    <link rel="icon" type="image/png" href="../icons/favicon-96x96.png" sizes="96x96"> 
+    <link rel="icon" type="image/png" href="../icons/favicon-16x16.png" sizes="16x16">
+
+    
+  </head>
+  <body style="padding: 0px">
+    
+    <div id="pdfPopup" onclick="closePdfFromBackground(event)">
+      <div id="pdfWindow">
+              <div id="pdfToolbar">
+          <div id="pdfTitle">PDF</div>
+          <div id="pdfControls">
+            <button style="width: 84%;font-size:15px" type="button" onclick="openDirectPDF()" title="PDF direct"> Ouvrir en mode PC (PC uniquement)</button>
+            <button type="button" onclick="minimizePDF()" title="Minimiser"> − </button>
+            <button type="button" onclick="togglePdfHalfSize()" id="pdfHalfButton" title="Demi-écran"> ◫ </button>
+            <button type="button" onclick="togglePdfSize()" id="pdfExpandButton" title="Agrandir"> ⛶ </button>
+            <button type="button" onclick="closePDF()" title="Fermer"> × </button>
+          </div>
+        </div>
+        <iframe id="pdfViewer" title="PDF Viewer" allowfullscreen></iframe>
+      </div>
+    </div>
+    
+    <style>
+
+      /* =========================================================
+         PDF POPUP
+         ========================================================= */
+
+      #pdfPopup {
+          position: fixed;
+          inset: 0;
+          z-index: 99999;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          box-sizing: border-box;
+
+          background: rgba(0, 0, 0, 0.65);
+
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+
+          transition: opacity .25s ease;
+      }
+
+      #pdfPopup.open {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+      }
+
+
+      /* =========================================================
+         PDF WINDOW - NORMAL
+         ========================================================= */
+
+      #pdfWindow {
+          width: min(1100px, 95vw);
+          height: min(90vh, 850px);
+
+          background: #202124;
+          border-radius: 14px;
+          overflow: hidden;
+
+          display: flex;
+          flex-direction: column;
+
+          box-shadow: 0 20px 70px rgba(0,0,0,.5);
+
+          transform: scale(.05);
+          opacity: 0;
+
+          transition:
+              transform .35s cubic-bezier(.2,.8,.2,1),
+              opacity .2s ease,
+              width .3s ease,
+              height .3s ease,
+              top .3s ease,
+              left .3s ease,
+              border-radius .3s ease;
+      }
+
+      /* =========================================================
+         FULLSCREEN PDF
+         ========================================================= */
+
+      #pdfWindow.pdf-expanded {
+          position: fixed !important;
+
+          top: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          left: 0 !important;
+
+          width: 100vw !important;
+          height: 100vh !important;
+
+          max-width: none !important;
+          max-height: none !important;
+
+          margin: 0 !important;
+          border-radius: 0 !important;
+
+          transform: none !important;
+          opacity: 1 !important;
+
+          z-index: 100000 !important;
+      }
+
+      /* Make the PDF itself fill the fullscreen window */
+      #pdfWindow.pdf-expanded #pdfViewer {
+          height: calc(100% - 52px) !important;
+          width: 100% !important;
+      }
+
+      #pdfPopup.open #pdfWindow {
+          transform: scale(1);
+          opacity: 1;
+      }
+
+
+      /* =========================================================
+         TOOLBAR
+         ========================================================= */
+
+      #pdfToolbar {
+          height: 52px;
+          min-height: 52px;
+
+          background: #292929;
+
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          padding: 0 10px 0 16px;
+
+          box-sizing: border-box;
+      }
+
+      #pdfTitle {
+          color: white;
+
+          font-size: 14px;
+
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          max-width: 45%;
+      }
+
+      #pdfControls {
+          display: flex;
+          gap: 6px;
+      }
+
+      #pdfControls button {
+          width: 53px;
+          height: 36px;
+
+          border: 0;
+          border-radius: 8px;
+
+          background: #3a3a3a;
+          color: white;
+
+          cursor: pointer;
+
+          font-size: 20px;
+
+          margin: 0;
+          padding: 0;
+      }
+
+      #pdfControls button:hover {
+          background: #505050;
+      }
+
+
+      /* =========================================================
+         PDF VIEWER
+         ========================================================= */
+
+      #pdfViewer {
+          width: 100%;
+          height: calc(100% - 52px);
+
+          border: 0;
+          display: block;
+
+          background: white;
+      }
+
+
+      /* =========================================================
+         SPLIT MODE
+         ========================================================= */
+
+      /*
+         IMPORTANT:
+         In split mode the popup itself becomes transparent
+         and DOES NOT block the page.
+      */
+
+      #pdfPopup.pdf-split {
+          background: transparent;
+
+          pointer-events: none;
+
+          align-items: flex-start;
+          justify-content: flex-start;
+      }
+
+
+      /*
+         PC:
+         PDF occupies the TOP half of the screen.
+      */
+
+      #pdfPopup.pdf-split #pdfWindow {
+          position: fixed;
+
+          top: 0;
+          left: 0;
+
+          width: 100vw;
+          height: 50vh;
+
+          max-width: none;
+          max-height: none;
+
+          border-radius: 0;
+
+          transform: none !important;
+          opacity: 1;
+
+          box-shadow: 0 4px 20px rgba(0,0,0,.35);
+
+          pointer-events: auto;
+      }
+
+      /* =========================================================
+         PAGE AREA WHEN PDF IS SPLIT
+         ========================================================= */
+
+      /* =========================================================
+         PAGE AREA WHEN PDF IS SPLIT
+         ========================================================= */
+
+      body.pdf-split-mode {
+          overflow: hidden !important;
+      }
+
+      /*
+         The page occupies the entire lower half.
+         Force it to 100vw so existing container widths,
+         margins, max-widths, etc. cannot make it narrower.
+      */
+      body.pdf-split-mode .container {
+          position: fixed !important;
+
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+
+          width: 100vw !important;
+          max-width: none !important;
+
+          height: 43vh !important;
+          max-height: 43vh !important;
+
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+
+          overflow-y: auto;
+          overflow-x: hidden;
+
+          box-sizing: border-box;
+      }
+
+
+      /* =========================================================
+         MINIMIZED MODE
+         ========================================================= */
+
+      #pdfPopup.pdf-minimized {
+          background: transparent;
+
+          pointer-events: none;
+
+          align-items: flex-start;
+          justify-content: flex-start;
+      }
+
+
+      /*
+         Small floating window.
+      */
+
+      #pdfPopup.pdf-minimized #pdfWindow {
+          position: fixed;
+
+          width: 360px;
+          height: 52px;
+
+          top: 20px;
+          right: 20px;
+          left: auto;
+
+          border-radius: 10px;
+
+          transform: none !important;
+          opacity: 1;
+
+          box-shadow: 0 8px 30px rgba(0,0,0,.45);
+
+          cursor: pointer;
+
+          pointer-events: auto;
+      }
+
+
+      /*
+         Hide the PDF itself while minimized.
+      */
+
+      #pdfPopup.pdf-minimized #pdfViewer {
+          display: none;
+      }
+
+
+      /*
+         Toolbar becomes the entire minimized window.
+      */
+
+      #pdfPopup.pdf-minimized #pdfToolbar {
+          height: 52px;
+          min-height: 52px;
+
+          border-radius: 10px;
+      }
+
+
+      /*
+         Filename has more room when minimized.
+      */
+
+      #pdfPopup.pdf-minimized #pdfTitle {
+          flex: 1;
+          min-width: 0;
+          max-width: none;
+
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          margin-right: 8px;
+      }
+
+
+      /*
+         Hide the split button while minimized.
+      */
+
+      #pdfPopup.pdf-minimized #pdfHalfButton {
+          display: none;
+      }
+
+
+      /* =========================================================
+         MOBILE
+         ========================================================= */
+
+      @media (max-width: 600px) {
+
+          #pdfPopup {
+              padding: 0;
+          }
+
+          #pdfWindow {
+              width: 95vw;
+              height: 90dvh;
+
+              border-radius: 12px;
+          }
+
+
+          /*
+             MOBILE SPLIT
+
+             PDF takes the upper half of the screen.
+             The bottom half remains fully interactive.
+          */
+
+          #pdfPopup.pdf-split #pdfWindow {
+              top: 0;
+              left: 0;
+
+              width: 100vw;
+              height: 50dvh;
+
+              border-radius: 0;
+          }
+
+
+          #pdfToolbar {
+              height: 50px;
+              min-height: 50px;
+          }
+
+          #pdfViewer {
+              height: calc(100% - 50px);
+          }
+
+
+          /*
+             Mobile minimized window
+          */
+
+          #pdfPopup.pdf-minimized #pdfWindow {
+              width: calc(100vw - 20px);
+              height: 50px;
+
+              top: 10px;
+              right: 10px;
+              left: 10px;
+
+              border-radius: 10px;
+          }
+
+          #pdfPopup.pdf-minimized #pdfToolbar {
+              height: 50px;
+              min-height: 50px;
+          }
+
+          #pdfPopup.pdf-minimized #pdfTitle {
+            flex: 1;
+            min-width: 0;
+            max-width: none;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+          #pdfControls {
+              gap: 4px;
+          }
+
+          #pdfControls button {
+              width: 44px;
+              height: 34px;
+              font-size: 18px;
+          }
+      }
+
+      /* =========================================================
+         MINIMIZED PDF - MAKE FILENAME VISIBLE
+         ========================================================= */
+
+      #pdfPopup.pdf-minimized #pdfToolbar {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 0 8px 0 14px;
+          gap: 8px;
+      }
+
+      /* Filename gets a real area in the minimized window */
+      #pdfPopup.pdf-minimized #pdfTitle {
+          display: block !important;
+
+          flex: 1 1 auto;
+          width: auto;
+          min-width: 0;
+          max-width: none !important;
+
+          color: #ffffff !important;
+          font-size: 14px;
+          font-weight: 500;
+
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          visibility: visible !important;
+          opacity: 1 !important;
+      }
+
+      /*
+         The controls must not be allowed to push
+         the filename completely off screen.
+      */
+      #pdfPopup.pdf-minimized #pdfControls {
+          flex: 0 0 auto;
+          width: auto;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+      }
+
+      /*
+         The large "Ouvrir en mode PC" button takes
+         almost the entire toolbar normally, so hide it
+         when minimized.
+      */
+      #pdfPopup.pdf-minimized #pdfControls button:first-child {
+          display: none;
+      }
+
+      /* Split button is already hidden, keep it hidden */
+      #pdfPopup.pdf-minimized #pdfHalfButton {
+          display: none;
+      }
+
+      /*
+         Give the minimized window enough width
+         for the filename + controls.
+      */
+      #pdfPopup.pdf-minimized #pdfWindow {
+          width: 420px;
+          max-width: calc(100vw - 20px);
+      }
+
+      /* Mobile */
+      @media (max-width: 600px) {
+
+          #pdfPopup.pdf-minimized #pdfWindow {
+              width: calc(100vw - 20px);
+          }
+
+          #pdfPopup.pdf-minimized #pdfTitle {
+              flex: 1 1 auto;
+              max-width: none !important;
+              min-width: 0;
+              font-size: 13px;
+          }
+
+          #pdfPopup.pdf-minimized #pdfControls {
+              flex-shrink: 0;
+          }
+      }
+
+    </style>
+
+    <script type="text/javascript">
+
+
+      let currentPDFUrl = "";
+      
+      c = new URL(window.location.href).search.replace("?f=", "")
+
+      if(c != "")
+      {
+        betterviewf(c);
+      }
+
+
+      /* =========================================================
+         OPEN PDF
+         ========================================================= */
+
+      function betterviewf(pdfUrl)
+      {
+          currentPDFUrl = pdfUrl;
+
+          const popup = document.getElementById("pdfPopup");
+          const viewer = document.getElementById("pdfViewer");
+          const title = document.getElementById("pdfTitle");
+          const windowElement = document.getElementById("pdfWindow");
+
+          /*
+             Every time a new PDF is opened,
+             start in normal popup mode.
+          */
+
+          popup.classList.remove("pdf-split");
+          popup.classList.remove("pdf-minimized");
+
+          windowElement.classList.remove("pdf-expanded");
+          windowElement.classList.remove("pdf-half");
+
+
+          /* Filename */
+
+          let filename = pdfUrl.substring(
+              pdfUrl.lastIndexOf("/") + 1
+          );
+
+          filename = decodeURIComponent(filename);
+
+          title.textContent = filename;
+
+
+          /* Google PDF viewer */
+
+          viewer.src =
+              "https://docs.google.com/gview?embedded=true&url=" +
+              encodeURIComponent(pdfUrl);
+
+
+          /* Show popup */
+
+          popup.classList.add("open");
+
+          document.body.style.overflow = "hidden";
+      }
+
+
+      /* =========================================================
+         OPEN DIRECT PDF
+         ========================================================= */
+
+      function openDirectPDF()
+      {
+          if (!currentPDFUrl) return;
+
+          const viewer = document.getElementById("pdfViewer");
+
+          viewer.src = currentPDFUrl;
+      }
+
+
+      /* =========================================================
+         CLOSE
+         ========================================================= */
+
+      function closePDF()
+      {
+          const popup = document.getElementById("pdfPopup");
+          const viewer = document.getElementById("pdfViewer");
+
+          /* IMPORTANT:
+             Always remove the page split state when closing.
+          */
+          document.body.classList.remove("pdf-split-mode");
+
+          popup.classList.remove("open");
+          popup.classList.remove("pdf-split");
+          popup.classList.remove("pdf-minimized");
+
+          document.body.style.overflow = "";
+
+          setTimeout(() => {
+              viewer.src = "";
+          }, 300);
+      }
+
+
+      /* =========================================================
+         MINIMIZE
+         ========================================================= */
+
+      function minimizePDF()
+      {
+          const popup = document.getElementById("pdfPopup");
+          const windowElement = document.getElementById("pdfWindow");
+
+          /*
+             If fullscreen is active, remove it first.
+          */
+          windowElement.classList.remove("pdf-expanded");
+
+          /*
+             If split mode is active, remove the page split state.
+          */
+          popup.classList.remove("pdf-split");
+          document.body.classList.remove("pdf-split-mode");
+
+          /*
+             Now minimize normally.
+          */
+          popup.classList.add("pdf-minimized");
+
+          /*
+             Make the page normal and scrollable again.
+          */
+          document.body.style.overflow = "";
+      }
+
+
+      /* =========================================================
+         RESTORE MINIMIZED PDF
+         ========================================================= */
+
+      function restorePDF()
+      {
+          const popup = document.getElementById("pdfPopup");
+
+          if (!popup.classList.contains("pdf-minimized")) {
+              return;
+          }
+
+          popup.classList.remove("pdf-minimized");
+
+          document.body.style.overflow = "hidden";
+      }
+
+
+      /* =========================================================
+         CLICK MINIMIZED WINDOW
+         ========================================================= */
+
+      document.addEventListener("click", function(event)
+      {
+          const popup = document.getElementById("pdfPopup");
+          const windowElement = document.getElementById("pdfWindow");
+
+          /*
+             If minimized and the user clicks the window,
+             restore it.
+          */
+
+          if (
+              popup.classList.contains("pdf-minimized") &&
+              windowElement.contains(event.target)
+          ) {
+              /*
+                 Don't restore if clicking one of the controls.
+              */
+
+              if (event.target.closest("button")) {
+                  return;
+              }
+
+              restorePDF();
+          }
+      });
+
+
+      /* =========================================================
+         BACKGROUND CLOSE
+         ========================================================= */
+
+      function closePdfFromBackground(event)
+      {
+          const popup = document.getElementById("pdfPopup");
+
+          /*
+             Only close when clicking the actual dark background.
+          */
+
+          if (
+              !popup.classList.contains("pdf-split") &&
+              !popup.classList.contains("pdf-minimized") &&
+              event.target === event.currentTarget
+          ) {
+              closePDF();
+          }
+      }
+
+
+      /* =========================================================
+         SPLIT SCREEN
+         ========================================================= */
+
+      function togglePdfHalfSize() {
+
+          const popup = document.getElementById("pdfPopup");
+          const windowElement = document.getElementById("pdfWindow");
+          const button = document.getElementById("pdfHalfButton");
+
+          /* If minimized, restore first */
+          if (popup.classList.contains("pdf-minimized")) {
+              popup.classList.remove("pdf-minimized");
+          }
+
+          /* Fullscreen must be disabled */
+          windowElement.classList.remove("pdf-expanded");
+
+          /* Toggle split */
+          const isSplit = popup.classList.toggle("pdf-split");
+
+          /* Also resize the PAGE */
+          document.body.classList.toggle("pdf-split-mode", isSplit);
+
+          if (isSplit) {
+
+              /* PDF occupies top half */
+              document.body.style.overflow = "";
+
+              button.textContent = "◧";
+              button.title = "Revenir à la taille normale";
+
+          } else {
+
+              /* Return to normal popup */
+              document.body.classList.remove("pdf-split-mode");
+
+              document.body.style.overflow = "hidden";
+
+              button.textContent = "◫";
+              button.title = "Demi-écran";
+          }
+      }
+
+
+      /* =========================================================
+         FULLSCREEN / EXPAND
+         ========================================================= */
+
+      function togglePdfSize() {
+
+          const popup = document.getElementById("pdfPopup");
+          const windowElement = document.getElementById("pdfWindow");
+          const button = document.getElementById("pdfExpandButton");
+
+          /*
+             If minimized, restore it first.
+          */
+          if (popup.classList.contains("pdf-minimized")) {
+              popup.classList.remove("pdf-minimized");
+          }
+
+          /*
+             Fullscreen and split cannot be active together.
+             IMPORTANT: also remove the body's split state.
+          */
+          popup.classList.remove("pdf-split");
+          document.body.classList.remove("pdf-split-mode");
+
+          const isExpanded = windowElement.classList.toggle("pdf-expanded");
+
+          if (isExpanded) {
+
+              document.body.style.overflow = "hidden";
+
+              button.textContent = "↙";
+              button.title = "Réduire";
+
+          } else {
+
+              document.body.style.overflow = "hidden";
+
+              button.textContent = "⛶";
+              button.title = "Agrandir";
+          }
+      }
+
+    </script>
+
+  </body>
+
+</html>
