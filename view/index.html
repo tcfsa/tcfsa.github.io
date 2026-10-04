@@ -664,6 +664,56 @@
           viewer.src = currentPDFUrl;
       }
 
+      /* =========================================================
+       DOWNLOAD PDF
+       ========================================================= */
+
+        function downloadPDF()
+        {
+            if (!currentPDFUrl) {
+                return;
+            }
+
+            const link = document.createElement("a");
+
+            link.href = currentPDFUrl;
+
+            console.log(currentPDFUrl);
+
+            /*
+               Récupère le nom du fichier depuis l'URL.
+            */
+
+            let filename =
+                currentPDFUrl.substring(
+                    currentPDFUrl.lastIndexOf("/") + 1
+                );
+
+            try {
+                filename = decodeURIComponent(filename);
+            }
+            catch (error) {
+                console.warn(
+                    "Impossible de décoder le nom du fichier."
+                );
+            }
+
+            /*
+               Demande au navigateur de télécharger
+               le fichier au lieu de l'ouvrir.
+            */
+
+            link.download = filename || "document.pdf";
+
+            link.target = "_blank";
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
+        }
+
 
       /* =========================================================
          CLOSE
