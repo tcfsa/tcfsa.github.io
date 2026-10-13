@@ -1429,21 +1429,6 @@
                     getPDFUrlFromGroupCode(student.group);
 
 
-                if (!pdfUrl) {
-
-                    const error = document.createElement("div");
-
-                    error.className =
-                        "student-result-error";
-
-                    error.textContent =
-                        "Aucun PDF trouvé pour le groupe " +
-                        student.group;
-
-                    result.appendChild(error);
-
-                    studentResults.appendChild(result);
-
             // student.name display in the url the so it can be used as a url to access directly
 
 
@@ -1463,8 +1448,23 @@
 
 
 
-    
 
+
+                if (!pdfUrl) {
+
+                    const error = document.createElement("div");
+
+                    error.className =
+                        "student-result-error";
+
+                    error.textContent =
+                        "Aucun PDF trouvé pour le groupe " +
+                        student.group;
+
+                    result.appendChild(error);
+
+                    studentResults.appendChild(result);
+    
                     return;
                 }
 
