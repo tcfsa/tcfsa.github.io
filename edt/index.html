@@ -1380,27 +1380,6 @@
 
         function displayStudentResults(results) {
 
-            // student.name display in the url the so it can be used as a url to access directly
-
-
-        // var queryStart = window.location.href.indexOf("?s=");
-        // var queryEnd = window.location.href.indexOf("#");
-        // var query = window.location.href.slice(queryStart, queryEnd).replace("?s=", "").replace("#", "");
-
-        // if(query != "admin")
-
-            const nextURL = 'https://www.smpfsa.com/edt/?s='+student.name;
-            const nextTitle = 'boi';
-            const nextState = { additionalInformation: 'Updated the URL with JS' };
-
-            // This will create a new entry in the browser's history, without reloading
-            window.history.pushState(nextState, nextTitle, nextURL);
-
-
-
-
-    
-
             studentResults.innerHTML = "";
 
             results.forEach(function(student) {
@@ -1464,6 +1443,27 @@
                     result.appendChild(error);
 
                     studentResults.appendChild(result);
+
+            // student.name display in the url the so it can be used as a url to access directly
+
+
+        // var queryStart = window.location.href.indexOf("?s=");
+        // var queryEnd = window.location.href.indexOf("#");
+        // var query = window.location.href.slice(queryStart, queryEnd).replace("?s=", "").replace("#", "");
+
+        // if(query != "admin")
+
+            const nextURL = 'https://www.smpfsa.com/edt/?s='+student.name;
+            const nextTitle = 'boi';
+            const nextState = { additionalInformation: 'Updated the URL with JS' };
+
+            // This will create a new entry in the browser's history, without reloading
+            window.history.pushState(nextState, nextTitle, nextURL);
+
+
+
+
+    
 
                     return;
                 }
