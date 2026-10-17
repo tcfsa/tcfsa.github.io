@@ -1,0 +1,1312 @@
+:root {
+  --green: #00c923;
+  --course: #b8a0ff;
+  --td: #fff58a;
+  --tp: #9bffad;
+  --exit: #20f52d;
+  --day-width: 44px;
+  --border: #111;
+  --text: #111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+            font-family: "Google Sans Flex", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  background: #f5f6f8;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  touch-action: manipulation;
+}
+
+.big-title {
+  /*font-family: Arial, Helvetica, sans-serif;*/
+            font-family: "Google Sans Flex", sans-serif;
+      font-size: clamp(58px, 4vw, 56px);
+    font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--group-color, #00b923);
+
+  margin: 12px auto;
+  padding: 8px 16px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+
+  transition: color 0.25s ease;
+}
+
+/* Optional title styling */
+.big-title span {
+  color: inherit;
+}
+
+/*@media (max-width: 600px) {
+  .big-title {
+    font-size: clamp(24px, 7vw, 36px);
+    letter-spacing: -0.5px;
+    padding: 8px;
+  }
+}*/
+
+/*@media print {
+  .big-title {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}*/
+
+.topbar {
+  min-height: 42px;
+  padding: 9px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #c4d1ef;
+  border-bottom: 2px solid #111;
+  color: #85001c;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.header {
+  min-height: 130px;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 75px minmax(280px, 1.8fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  background: white;
+  border-bottom: 2px solid #111;
+}
+
+.header h1 {
+  margin: 0;
+  text-align: center;
+  /*color: #00b923;*/
+  font-size: clamp(44px, 3.2vw, 48px);
+  font-weight: 700;
+  letter-spacing: -1px;
+  overflow-wrap: anywhere;
+}
+
+.qr {
+  width: 110px;
+  height: 110px;
+}
+
+.qr img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.controls {
+  text-align: center;
+}
+
+.instruction {
+  margin: 0 0 12px;
+  color: #d00000;
+  font-weight: 700;
+}
+
+.week-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.week-controls input {
+  width: 76px;
+  min-height: 40px;
+  padding: 7px;
+  border: 2px solid #444;
+  border-radius: 5px;
+  background: white;
+  font-weight: 700;
+}
+
+.week-controls button {
+  min-width: 42px;
+  min-height: 42px;
+  border: 2px solid #188a00;
+  border-radius: 8px;
+  color: #087800;
+  background: #eaffdf;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button {
+  min-height: 42px;
+  padding: 9px 14px;
+  margin: 5px 3px;
+  border: 2px solid #222;
+  border-radius: 7px;
+  background: white;
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #e6f5e5;
+}
+
+.button:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #1478e8;
+  outline-offset: 2px;
+}
+
+.toolbar {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: #f5f6f8;
+    border-bottom: 2px solid #111;
+}
+
+.toolbar select {
+  min-height: 42px;
+  max-width: 100%;
+  padding: 8px;
+  border: 2px solid #222;
+  border-radius: 7px;
+  background: white;
+  font-weight: 700;
+}
+
+/* TIMETABLE */
+
+.schedule-wrap {
+  margin: 0 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 2px solid #111;
+  border-radius: 4px;
+  background: white;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.schedule {
+  min-width: 1050px;
+  background: white;
+}
+
+.time-header {
+  height: 58px;
+  display: grid;
+  grid-template-columns: var(--day-width) repeat(42, minmax(0, 1fr));
+  background: #a5ff75;
+  border-bottom: 2px solid #111;
+}
+
+.corner {
+  background: #fff18b;
+  border-right: 2px solid #111;
+}
+
+.time-label {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  /*border-left: 1px solid #555;*/
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+}
+
+.day-row {
+  display: grid;
+  grid-template-columns: var(--day-width) minmax(0, 1fr);
+  min-height: 98px;
+  border-bottom: 2px solid #111;
+}
+
+.day-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 2px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: #fff18b;
+  /*border-right: 2px solid #111;*/
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.day-content {
+  position: relative;
+  min-width: 0;
+  min-height: 98px;
+
+  /* Uniform grid: no artificial grey block in the middle. */
+  background-color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #c5c5c5 1px,
+    transparent 1px
+  );
+  background-size: calc(100% / 42) 100%;
+}
+
+/* The previous grey break overlay has been removed. */
+
+.session {
+  position: absolute;
+  z-index: 1;
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid #111;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 1px 0 #777;
+}
+
+.session-header {
+  min-height: 25px;
+  padding: 4px 2px;
+  border-bottom: 2px solid #111;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.session.course .session-header {
+  background: var(--course);
+}
+
+.session.td .session-header {
+  background: var(--td);
+}
+
+.session.tp .session-header {
+  background: var(--tp);
+}
+
+.session.exit .session-header {
+  background: var(--exit);
+}
+
+.session-body {
+  min-height: 55px;
+  padding: 5px 3px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.session-body > strong {
+  display: block;
+  font-weight: 700;
+}
+
+.room {
+  display: block;
+  margin-top: 5px;
+  color: #d00000;
+  font-weight: 700;
+}
+
+.module-date {
+  display: inline-block;
+  margin-top: 4px;
+  /*padding: 2px 4px;*/
+  border: 1px solid #333;
+  border-radius: 3px;
+  background: #fff16a;
+  color: #111;
+  font-weight: 700;
+}
+
+/* TP: six available module positions. */
+
+.tp-modules {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  /*gap: 3px;*/
+  height: 100%;
+  min-height: 50px;
+  /*padding: 3px;*/
+}
+
+.tp-module {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*padding: 3px 1px;*/
+  /*border: 1px solid #777;*/
+  /*border-radius: 4px;*/
+  /*background: #f4fff5;*/
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.tp-module strong {
+  display: block;
+  font-weight: 700;
+}
+
+.tp-module .room {
+  margin-top: 3px;
+}
+
+.tp-module .module-date {
+  margin-top: 3px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 18px 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 36px;
+  height: 25px;
+  border: 2px solid #111;
+  border-radius: 3px;
+}
+
+.swatch.course { background: var(--course); }
+.swatch.td { background: var(--td); }
+.swatch.tp { background: var(--tp); }
+.swatch.exit { background: var(--exit); }
+
+.footer {
+  padding: 12px;
+  margin: 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  background: white;
+}
+
+/* TABLET */
+
+/*@media (max-width: 900px) {
+  .header {
+    grid-template-columns: 1fr 65px;
+    gap: 12px;
+  }
+
+  .header h1 {
+    font-size: clamp(24px, 5vw, 38px);
+  }
+
+  .header .controls {
+    grid-column: 1 / -1;
+  }
+
+  .qr {
+    width: 60px;
+    height: 60px;
+    justify-self: center;
+  }
+
+  .schedule-wrap {
+    margin: 0 10px;
+  }
+}*/
+
+/* MOBILE */
+
+/* MOBILE: preserve the original rectangular timetable */
+
+/*@media screen and (max-width: 600px) {
+  .schedule-wrap {
+    margin: 0;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid #111;
+    border-radius: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .schedule {
+    width: 1050px;
+    min-width: 1050px;
+  }
+
+  .time-header {
+    display: grid;
+    height: 55px;
+  }
+
+  .day-row {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    min-height: 100px;
+    border-bottom: 2px solid #111;
+    overflow: visible;
+  }
+
+  .day-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    padding: 4px;*/
+    /*border-right: 2px solid #111;*/
+   /* border-bottom: 0;
+    background: #fff18b;
+  }
+
+  .day-content {
+    position: relative;
+    display: block;
+    min-width: 0;
+    min-height: 100px;
+    padding: 0;
+    overflow: visible;
+    background-color: white;
+    background-image: linear-gradient(
+      to right,
+      #c5c5c5 1px,
+      transparent 1px
+    );
+    background-size: calc(100% / 42) 100%;
+  }
+
+  .day-content::before {
+    display: none;
+  }
+
+  .session {
+    position: absolute;
+    display: block;
+    width: auto;
+    height: calc(100% - 6px);
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .session-header {
+    min-height: 25px;
+    padding: 4px 2px;
+    font-size: 11px;
+  }
+
+  .session-body {
+    min-height: 0;
+    padding: 3px 2px;
+    font-size: 11px;
+  }
+
+  .session-body > strong {
+    font-size: 12px;
+  }
+
+  .room {
+    margin-top: 3px;
+    font-size: 10px;
+  }
+
+  .tp-modules {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+    grid-auto-flow: column;
+    gap: 2px;
+    height: 100%;
+    min-height: 0;
+    padding: 2px;
+  }
+
+  .tp-module {
+    grid-row: 1 !important;
+    grid-column: auto !important;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    padding: 3px 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 9px;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .tp-module strong {
+    font-size: 10px;
+  }
+
+  .tp-module .room {
+    font-size: 9px;
+  }
+
+  .tp-module .module-date {
+    font-size: 9px;
+    padding: 1px;
+  }
+}*/
+/* PDF */
+
+@page {
+  size: A3 landscape;
+  margin: 7mm;
+}
+
+/*@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print,
+  .topbar,
+  .instruction,
+  .week-controls,
+  #currentWeek {
+    display: none !important;
+  }
+
+  .header {
+    min-height: 65px;
+    padding: 0 5px;
+  }
+
+  .header h1 {
+    font-size: 30px;
+  }
+
+  .schedule-wrap {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #111;
+  background: white;
+}
+
+.schedule {
+  width: 100%;
+  min-width: 0;
+  background: white;
+}
+
+  .time-header {
+    height: 42px;
+  }
+
+  .time-label {
+    font-size: 8px;
+  }
+
+  .day-row,
+  .day-content {
+    min-height: 75px;
+  }
+
+  .session-header {
+    min-height: 18px;
+    padding: 2px 1px;
+    font-size: 9px;
+  }
+
+  .session-body {
+    min-height: 45px;
+    padding: 2px 1px;
+    font-size: 9px;
+  }
+
+  .tp-module {
+    font-size: 8px;
+  }
+
+  .legend {
+    padding: 7px;
+    font-size: 11px;
+  }
+
+  .swatch {
+    width: 24px;
+    height: 16px;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}*/
+
+/* FIT THE ENTIRE TIMETABLE TO THE AVAILABLE SCREEN */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.schedule {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.time-header {
+  grid-template-columns: 35px repeat(42, minmax(0, 1fr));
+  width: 100%;
+}
+
+.day-row {
+  grid-template-columns: 35px minmax(0, 1fr);
+  width: 100%;
+  min-width: 0;
+}
+
+.day-content {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.session {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.session-header,
+.session-body,
+.tp-module {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* TP modules always remain in one horizontal row */
+.tp-modules {
+  display: grid !important;
+  grid-template-columns: repeat(var(--tp-count, 4), minmax(0, 1fr)) !important;
+  grid-template-rows: minmax(0, 1fr) !important;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tp-module {
+  grid-row: 1 !important;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Shrink typography and spacing on narrower screens */
+/*@media screen and (max-width: 900px) {
+  .schedule-wrap {
+    overflow: hidden;
+  }
+
+  .schedule {
+    min-width: 0;
+  }
+
+  .time-header {
+    height: 42px;
+    grid-template-columns: 28px repeat(42, minmax(0, 1fr));
+  }
+
+  .day-row {
+    grid-template-columns: 28px minmax(0, 1fr);
+    min-height: 80px;
+  }
+
+  .day-label {
+    min-height: 80px;
+    font-size: 10px;
+  }
+
+  .day-content {
+    min-height: 80px;
+  }
+
+  .time-label {
+    font-size: 8px;
+  }
+
+  .session-header {
+    min-height: 0;
+    padding: 2px 0;
+    font-size: clamp(6px, 1vw, 10px);
+  }
+
+  .session-body {
+    padding: 2px 0;
+    font-size: clamp(6px, 1vw, 10px);
+  }
+
+  .session-body > strong,
+  .tp-module strong {
+    font-size: clamp(6px, 1vw, 10px);
+  }
+
+  .room,
+  .tp-module .room,
+  .module-date {
+    margin-top: 2px;
+    font-size: clamp(5px, 0.8vw, 9px);
+  }
+
+  .tp-modules {
+    gap: 1px;
+    padding: 1px;
+  }
+
+  .tp-module {
+    padding: 1px 0;
+    font-size: clamp(5px, 0.8vw, 9px);
+  }
+}*/
+
+/* Small screens: keep every day rectangular */
+/*@media screen and (max-width: 600px) {
+  .day-row {
+    display: grid;
+    grid-template-columns: 25px minmax(0, 1fr);
+    min-height: 65px;
+  }
+
+  .day-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    min-height: 65px;
+    padding: 2px;
+    font-size: 9px;
+  }
+
+  .day-content {
+    min-height: 65px;
+    padding: 0;
+    display: block;
+  }
+
+  .session {
+    position: absolute;
+    height: calc(100% - 4px) !important;
+    top: 2px !important;
+    overflow: hidden;
+  }
+
+  .session-header {
+    font-size: 6px;
+  }
+
+  .session-body {
+    font-size: 7px;
+  }
+
+  .tp-module strong,
+  .tp-module .room,
+  .tp-module .module-date {
+    font-size: 6px;
+  }
+
+  .toolbar {
+    gap: 4px;
+    padding: 5px;
+  }
+}*/
+
+/* Fit the printable page to the paper width */
+/*@media print {
+  .schedule-wrap,
+  .schedule {
+    width: 100%;
+    min-width: 0;
+    overflow: visible;
+  }
+}*/
+
+/* ==========================================
+   RESPONSIVE TIMETABLE — READABILITY FIRST
+   Rectangular layout, bold text, no clipping
+   ========================================== */
+
+html {
+  width: 100%;
+  max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  color: #111;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+            font-family: "Google Sans Flex", sans-serif;
+  font-weight: 700;
+}
+
+.schedule-wrap {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #fff;
+  border: 1px solid #111;
+  -webkit-overflow-scrolling: touch;
+}
+
+.schedule {
+  width: 100%;
+  min-width: 760px;
+  background: #fff;
+}
+
+/* Keep the timeline and day columns aligned. */
+.time-header {
+  display: grid;
+  grid-template-columns: 38px repeat(42, minmax(0, 1fr));
+  height: 48px;
+}
+
+.day-row {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  min-height: 88px;
+}
+
+.day-label {
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.day-content {
+  position: relative;
+  min-width: 0;
+  min-height: 95px;
+  overflow: hidden;
+  background-color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #aaa 1px,
+    transparent 1px
+  );
+  background-size: calc(100% / 42) 100%;
+}
+
+/* Strong, high-contrast session labels. */
+.session {
+  position: absolute;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  border: 2px solid #111;
+  border-radius: 5px;
+  color: #111;
+}
+
+.session-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25px;
+  padding: 3px 2px;
+  border-bottom: 2px solid #111;
+  font-size: 14px ;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.session-body {
+  min-width: 0;
+  padding: 5px 3px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.tp-session-body
+{
+  padding: 0px;
+}
+
+.session-body > strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.room {
+  display: block;
+  margin-top: 3px;
+  color: #ff1313;
+  font-size: 14px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.module-date {
+  display: inline-block;
+  margin-top: 3px;
+  /*padding: 2px 3px;*/
+  border: 1px solid #333;
+  border-radius: 3px;
+  background: #fff18b;
+  color: #111;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* TP modules: always one horizontal row. */
+.tp-modules {
+  display: grid !important;
+  grid-template-columns: repeat(
+    var(--tp-count, 4),
+    minmax(0, 1fr)
+  ) !important;
+  grid-template-rows: minmax(0, 1fr) !important;
+  grid-auto-flow: column;
+  /*gap: 3px;*/
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  /*padding: 3px;*/
+  margin-top: 5px;
+}
+
+.tp-module {
+  grid-row: 1 !important;
+  grid-column: auto !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  /*padding: 3px 2px;*/
+  /*border: 1px solid #444;*/
+  /*border-radius: 4px;*/
+  /*background: #f0fff2;*/
+  color: #111;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.tp-module strong {
+  font-size: 16px;
+  line-height: 0.9;
+  font-weight: 700;
+}
+
+.tp-module .room {
+  font-size: 14px;
+  line-height: 0.9;
+}
+
+.tp-module .module-date {
+  font-size: 15px;
+}
+
+/* Tablets */
+/*@media screen and (max-width: 900px) {
+  .schedule {
+    min-width: 760px;
+  }
+
+  .day-row,
+  .day-content {
+    min-height: 84px;
+  }
+
+  .session-header {
+    font-size: 14px;
+  }
+
+  .session-body {
+    font-size: 11px;
+  }
+}*/
+
+/* Phones: readable rectangular timetable.
+   Swipe horizontally if necessary. */
+/*@media screen and (max-width: 600px) {
+  .schedule-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .schedule {
+    width: 760px;
+    min-width: 760px;
+    max-width: none;
+  }
+
+  .time-header {
+    height: 46px;
+  }
+
+  .time-label {
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .day-row {
+    grid-template-columns: 34px minmax(0, 1fr);
+    min-height: 92px;
+  }
+
+  .day-label {
+    min-height: 92px;
+    padding: 3px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .day-content {
+    min-height: 92px;
+  }
+
+  .session-header {
+    min-height: 25px;
+    padding: 3px 2px;
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .session-body {
+    padding: 4px 2px;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .session-body > strong {
+    font-size: 12px;
+  }
+
+  .room {
+    font-size: 11px;
+  }
+
+  .tp-modules {
+    gap: 2px;
+    padding: 2px;
+  }
+
+  .tp-module {
+    padding: 3px 1px;
+  }
+
+  .tp-module strong {
+    font-size: 10px;
+  }
+
+  .tp-module .room,
+  .tp-module .module-date {
+    font-size: 9px;
+  }
+}*/
+
+/* Extra-small phones */
+/*@media screen and (max-width: 360px) {
+  .schedule {
+    min-width: 760px;
+  }
+
+  .session-header {
+    font-size: 11px;
+  }
+
+  .session-body > strong {
+    font-size: 12px;
+  }
+}*/
+
+/* Preserve contrast and colors in PDF exports. */
+/*@media print {
+  .schedule-wrap {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .schedule {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .session-header,
+  .session-body,
+  .tp-module,
+  .room {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}*/
+
+/* Rectangular frame containing the timetable */
+.timetable-frame {
+  /*width: calc(100% - 24px);*/
+  /*max-width: 1600px;*/
+  /*margin: 20px auto;*/
+
+    /*scale: 20%;*/
+    /*transform: scale(clamp(0.25, calc(60vw / 1162px), 1));*/
+    height: 930px;
+    width: 1280px;
+
+    display: none;
+
+    position: relative;
+  left: 50%;
+
+  transform: translateX(-50%) scale(var(--scale, 1));
+  transform-origin: top center;
+
+    /*aspect-ratio: 1280/970;*/
+    /*width: 100%;*/
+    /*max-width: 1000px;*/
+        /*justify-self: center;*/
+    /*margin-top: -188px;*/
+
+  border: 3px solid #111;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
+}
+
+.timetable-frame-elem2
+{
+      margin-top: calc((1 - var(--scale)) * (1 - var(--scale)) * -1065px);
+    /*margin-bottom: calc((1 - var(--scale)) * (1 - var(--scale)) * -1965px);*/
+}
+
+/* Scroll inside the rectangle, never outside it */
+.timetable-frame .schedule-wrap {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Preserve readable timetable proportions */
+.timetable-frame .schedule {
+  width: 100%;
+  min-width: 760px;
+  background: #fff;
+}
+
+/* Keep the frame responsive */
+/*@media screen and (max-width: 600px) {
+  .timetable-frame {
+    width: calc(100% - 16px);
+    margin: 8px auto;
+    border-width: 2px;
+    border-radius: 6px;
+    box-shadow: none;
+  }
+
+  .timetable-frame .schedule-wrap {
+    max-height: 75vh;
+    overflow: auto;
+  }
+
+  .timetable-frame .schedule {
+    min-width: 760px;
+  }
+}*/
+
+/* Print the complete timetable */
+/*@media print {
+  .timetable-frame {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border: 1px solid #111;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .timetable-frame .schedule-wrap {
+    overflow: visible;
+    max-height: none;
+  }
+
+  .timetable-frame .schedule {
+    width: 100%;
+    min-width: 0;
+  }
+}*/
