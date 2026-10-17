@@ -1769,16 +1769,16 @@ function searchStudent() {
     // 3. Vérifier si CHAQUE mot de la recherche est inclus dans le nom de l'étudiant
     //    La méthode .every() renvoie true uniquement si toutes les conditions sont vraies
     return searchWords.every(function(word) {
-    const nextURL = window.location.origin+window.location.pathname+'?s='+name+"#";
+        return name.includes(word);
+    });
+});
+
+    const nextURL = window.location.origin+window.location.pathname+'?s='+results[0].name+"#";
             const nextTitle = 'boi';
             const nextState = { additionalInformation: 'Updated the URL with JS' };
 
             // This will create a new entry in the browser's history, without reloading
             window.history.pushState(nextState, nextTitle, nextURL);
-        return name.includes(word);
-    });
-});
-
 
     /*
         Aucun résultat
