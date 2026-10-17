@@ -1446,7 +1446,7 @@
         if(query=="")
         {
 
-            const nextURL = window.location.origin+'?s='+student.name+"#";
+            const nextURL = window.location.origin+window.location.pathname+'?s='+student.name+"#";
             const nextTitle = 'boi';
             const nextState = { additionalInformation: 'Updated the URL with JS' };
 
@@ -1820,7 +1820,7 @@ function searchStudent() {
         results.length +
         " résultats trouvés.";
 
-        
+
         document.getElementById("copybtn").style.display = "block";
 
 
