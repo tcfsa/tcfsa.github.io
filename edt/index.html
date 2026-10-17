@@ -19,6 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+
 
 
     <title>Emplois du temps des TPs</title>
@@ -302,177 +305,177 @@
         ================================= */
 
         .student-pdf-viewer {
-    width: 100%;
-    height: 700px;
+            width: 100%;
+            height: 700px;
 
-    background: #202124;
+            background: #202124;
 
-    border-radius: 12px;
-    overflow: hidden;
+            border-radius: 12px;
+            overflow: hidden;
 
-    display: flex;
-    flex-direction: column;
+            display: flex;
+            flex-direction: column;
 
-    box-shadow:
-        0 4px 20px rgba(0, 0, 0, .15);
-}
-
-
-.student-pdf-toolbar {
-    height: 52px;
-    min-height: 52px;
-
-    background: #292929;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 10px 0 16px;
-}
-
-
-.student-pdf-title {
-    color: white;
-
-    font-size: 14px;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-    max-width: 45%;
-}
-
-
-.student-pdf-controls {
-    display: flex;
-    gap: 6px;
-}
-
-
-.student-pdf-controls button {
-    height: 36px;
-
-    border: 0;
-    border-radius: 8px;
-
-    background: #3a3a3a;
-    color: white;
-
-    cursor: pointer;
-
-    font-size: 14px;
-
-    padding: 0 14px;
-}
-
-
-.student-pdf-controls button:hover {
-    background: #505050;
-}
-
-
-.student-pdf-frame {
-    width: 100%;
-    height: calc(100% - 52px);
-
-    border: 0;
-
-    display: block;
-
-    background: white;
-}
-
-
-@media (max-width: 600px) {
-
-    .student-pdf-viewer {
-        height: 600px;
-    }
-
-    .student-pdf-toolbar {
-        height: 50px;
-        min-height: 50px;
-    }
-
-    .student-pdf-title {
-        max-width: 40%;
-        font-size: 12px;
-    }
-
-    .student-pdf-controls button {
-        padding: 0 8px;
-        font-size: 12px;
-    }
-
-}
-
-
-        .student-result-error {
-            color: #c0392b;
-            padding: 10px;
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, .15);
         }
 
 
+        .student-pdf-toolbar {
+            height: 52px;
+            min-height: 52px;
 
-        .student-search-row {
-    display: flex;
-    align-items: stretch;
-    gap: 10px;
-}
+            background: #292929;
 
-.student-search-row button {
-    flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    padding: 0 22px;
-
-    border: 0;
-    border-radius: 10px;
-
-    background: #222;
-    color: white;
-
-    font-size: 16px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        background .2s ease,
-        transform .1s ease;
-}
-
-.student-search-row button:hover {
-    background: #444;
-}
-
-.student-search-row button:active {
-    transform: scale(.97);
-}
-
-.student-search-row input {
-    flex: 1;
-    min-width: 0;
-}
+            padding: 0 10px 0 16px;
+        }
 
 
-@media (max-width: 600px) {
+        .student-pdf-title {
+            color: white;
 
-    .student-search-row {
-        flex-direction: column;
-    }
+            font-size: 14px;
 
-    .student-search-row button {
-        width: 100%;
-        height: 46px;
-    }
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
-    .student-search-row input {
-        width: 100%;
-    }
+            max-width: 45%;
+        }
 
-}
+
+        .student-pdf-controls {
+            display: flex;
+            gap: 6px;
+        }
+
+
+        .student-pdf-controls button {
+            height: 36px;
+
+            border: 0;
+            border-radius: 8px;
+
+            background: #3a3a3a;
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            padding: 0 14px;
+        }
+
+
+        .student-pdf-controls button:hover {
+            background: #505050;
+        }
+
+
+        .student-pdf-frame {
+            width: 100%;
+            height: calc(100% - 52px);
+
+            border: 0;
+
+            display: block;
+
+            background: white;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .student-pdf-viewer {
+                height: 600px;
+            }
+
+            .student-pdf-toolbar {
+                height: 50px;
+                min-height: 50px;
+            }
+
+            .student-pdf-title {
+                max-width: 40%;
+                font-size: 12px;
+            }
+
+            .student-pdf-controls button {
+                padding: 0 8px;
+                font-size: 12px;
+            }
+
+        }
+
+
+                .student-result-error {
+                    color: #c0392b;
+                    padding: 10px;
+                }
+
+
+
+                .student-search-row {
+            display: flex;
+            align-items: stretch;
+            gap: 10px;
+        }
+
+        .student-search-row button {
+            flex: 0 0 auto;
+
+            padding: 0 22px;
+
+            border: 0;
+            border-radius: 10px;
+
+            background: #222;
+            color: white;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background .2s ease,
+                transform .1s ease;
+        }
+
+        .student-search-row button:hover {
+            background: #444;
+        }
+
+        .student-search-row button:active {
+            transform: scale(.97);
+        }
+
+        .student-search-row input {
+            flex: 1;
+            min-width: 0;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .student-search-row {
+                flex-direction: column;
+            }
+
+            .student-search-row button {
+                width: 100%;
+                height: 46px;
+            }
+
+            .student-search-row input {
+                width: 100%;
+            }
+
+        }
 
 
 
@@ -525,6 +528,8 @@
 
         <button id="studentSearchButton" type="button">Chercher</button>
 
+        <button id="copybtn" type="button" style="display : none" onclick="copyText(window.location.href)">Copier le lien</button>
+
     </div>
 
     <div id="studentSearchStatus"></div>
@@ -541,38 +546,38 @@
     <div id="studentResults"></div>
 
 
-    <h1 style="font-weight: 700;font-size: 30px;">Ou bien</h1>
+    <!-- <h1 style="font-weight: 700;font-size: 30px;">Ou bien</h1>
 
-    <div class="box">
+    <div class="box"> -->
 
 
         <!-- =================================
              CODE
         ================================== -->
 
-        <div class="code-area">
+<!--         <div class="code-area">
 
             <span class="code-label">
                 Code du groupe
             </span>
-
+ -->
 
             <!--
                 C'est ici que le code progressif
                 est affiché.
             -->
 
-            <div id="codePreview"
+<!--             <div id="codePreview"
                  class="code-preview">
             </div>
 
-
+ -->
             <!--
                 Champ pour écrire manuellement
                 le code.
             -->
 
-            <input
+<!--             <input
                 id="codeInput"
                 type="text"
                 placeholder="Écrire le code..."
@@ -582,13 +587,13 @@
         </div>
 
     <h1 style="font-weight: 700;font-size: 30px;">Ou bien</h1>
-
+ -->
 
         <!-- =================================
              SEMESTRE
         ================================== -->
 
-        <div class="choice">
+<!--         <div class="choice">
 
             <label for="semester">
                 Semestre
@@ -599,7 +604,7 @@
                 <option value="">
                     -- Choisir --
                 </option>
-
+ -->
                 <!-- <option value="S1">
                     S1
                 </option>
@@ -607,7 +612,7 @@
                 <option value="S3">
                     S3
                 </option> -->
-
+<!-- 
                 <option value="S5">
                     S5
                 </option>
@@ -616,13 +621,13 @@
 
         </div>
 
-
+ -->
 
         <!-- =================================
              SECTION S1
         ================================== -->
 
-        <div
+<!--         <div
             id="sectionBox"
             class="choice hidden"
         >
@@ -640,13 +645,13 @@
             </select>
 
         </div>
-
+ -->
 
 
         <!-- =================================
              FILIERE S5
         ================================== -->
-
+<!-- 
         <div id="filiereBox" class="choice hidden">
             <label for="filiere"> Filière </label>
             <select id="filiere">
@@ -654,10 +659,10 @@
             </select>
         </div>
 
-        <!-- =================================
+ -->        <!-- =================================
              TD
         ================================== -->
-
+<!-- 
         <div id="tdBox" class="choice hidden">
             <label for="td"> Groupe TD </label>
             <select id="td">
@@ -665,12 +670,12 @@
             </select>
         </div>
 
-
+ -->
 
         <!-- =================================
              TP
         ================================== -->
-
+<!-- 
         <div
             id="tpBox"
             class="choice hidden"
@@ -695,12 +700,156 @@
         <div id="status"></div>
 
     </div>
+ -->
+<!-- </div> -->
 
+<div class="timetable-frame timetable-frame-elem1">
+  <nav class="topbar">
+    <span>👨‍🎓 <b id="topCode1">EER5 G2</b></span>
+    <span>Emploi du temps de : <b id="topTitle1">EER5 G2</b></span>
+    <!-- <span>🛠 Outils</span> -->
+    <!-- <span>Déconnexion 🚪</span> -->
+  </nav>
+
+  <header class="header">
+    <div class="big-title" id="sectionTitle1">S5 : EER</div>
+
+    <div class="qr">
+      <img id="qrImage" alt="QR code du planning" src="qr smpfsa.png">
+    </div>
+
+    <section class="controls">
+
+      <!-- <p class="instruction">Utilisez les flèches vertes pour choisir votre semaine ...</p> -->
+
+      <!-- <div class="week-controls">
+        <button id="prevWeek" class="arrow">◀</button>
+        <label>Semaine :
+          <input id="weekInput" type="number" min="1" max="53">
+        </label>
+        <label>Année :
+          <input id="yearInput" type="number">
+        </label>
+        <button id="nextWeek" class="arrow">▶</button>
+      </div> -->
+
+      <!-- <button id="currentWeek" class="action-btn">Retour à la semaine actuelle</button> -->
+
+    </section>
+
+    <h1 class="big-title" id="bigTitle1">Groupe : G8</h1>
+  </header>
+
+  <!-- <div class="toolbar"> -->
+    <!-- <select id="scheduleSelect" aria-label="Choisir un planning"></select> -->
+    <!-- <button id="exportPdf" class="action-btn">Exporter en PDF</button> -->
+    <!-- <button id="downloadJson" class="action-btn">Télécharger JSON</button> -->
+  <!-- </div> -->
+
+  <!-- <main class="schedule-wrap">
+    <div class="schedule">
+      <div class="time-header" id="timeHeader">
+        <div class="corner"></div>
+      </div>
+      <div id="daysContainer"></div>
+    </div>
+  </main> -->
+
+  <div class="schedule-wrap">
+    <div class="schedule">
+      <div id="timeHeader1" class="time-header"></div>
+      <div id="daysContainer1"></div>
+    </div>
+  </div>
+
+  <footer class="legend">
+    <b>Légende des entêtes :</b>
+    <span><i class="swatch course"></i> Cours</span>
+    <span><i class="swatch td"></i> TD</span>
+    <span><i class="swatch tp"></i> TP</span>
+    <!-- <i class="swatch exit"></i> Sortie -->
+  </footer>
+
+  <!-- <p class="footer" id="footer"></p> -->
+</div>
+
+
+<div class="timetable-frame timetable-frame-elem2">
+  <nav class="topbar">
+    <span>👨‍🎓 <b id="topCode2">EER5 G2</b></span>
+    <span>Emploi du temps de : <b id="topTitle2">EER5 G2</b></span>
+    <!-- <span>🛠 Outils</span> -->
+    <!-- <span>Déconnexion 🚪</span> -->
+  </nav>
+
+  <header class="header">
+    <div class="big-title" id="sectionTitle2">S5 : EER</div>
+
+    <div class="qr">
+      <img id="qrImage" alt="QR code du planning" src="qr smpfsa.png">
+    </div>
+
+    <section class="controls">
+
+      <!-- <p class="instruction">Utilisez les flèches vertes pour choisir votre semaine ...</p> -->
+
+      <!-- <div class="week-controls">
+        <button id="prevWeek" class="arrow">◀</button>
+        <label>Semaine :
+          <input id="weekInput" type="number" min="1" max="53">
+        </label>
+        <label>Année :
+          <input id="yearInput" type="number">
+        </label>
+        <button id="nextWeek" class="arrow">▶</button>
+      </div> -->
+
+      <!-- <button id="currentWeek" class="action-btn">Retour à la semaine actuelle</button> -->
+
+    </section>
+
+    <h1 class="big-title" id="bigTitle2">Groupe : G8</h1>
+  </header>
+
+  <!-- <div class="toolbar"> -->
+    <!-- <select id="scheduleSelect" aria-label="Choisir un planning"></select> -->
+    <!-- <button id="exportPdf" class="action-btn">Exporter en PDF</button> -->
+    <!-- <button id="downloadJson" class="action-btn">Télécharger JSON</button> -->
+  <!-- </div> -->
+
+  <!-- <main class="schedule-wrap">
+    <div class="schedule">
+      <div class="time-header" id="timeHeader">
+        <div class="corner"></div>
+      </div>
+      <div id="daysContainer"></div>
+    </div>
+  </main> -->
+
+  <div class="schedule-wrap">
+    <div class="schedule">
+      <div id="timeHeader2" class="time-header"></div>
+      <div id="daysContainer2"></div>
+    </div>
+  </div>
+
+  <footer class="legend">
+    <b>Légende des entêtes :</b>
+    <span><i class="swatch course"></i> Cours</span>
+    <span><i class="swatch td"></i> TD</span>
+    <span><i class="swatch tp"></i> TP</span>
+    <!-- <i class="swatch exit"></i> Sortie -->
+  </footer>
+
+  <!-- <p class="footer" id="footer"></p> -->
 </div>
 
 
 
     <script>
+
+        window.location.href = "https://smpfsa.com/edt/old";
+
 
         /* =====================================================
            ÉTUDIANTS
@@ -1425,9 +1574,49 @@
                    PDF URL
                 ===================================== */
 
-                const pdfUrl =
-                    getPDFUrlFromGroupCode(student.group);
+                // const pdfUrl =
+                //     getPDFUrlFromGroupCode(student.group);
+                
+                studentResults.appendChild(result);
 
+                currentCode = getPDFUrlFromGroupCode(student.group);
+                document.querySelector('.timetable-frame-elem1').style.display = 'block';
+                if(results.length>1)
+                {
+                document.querySelector('.timetable-frame-elem2').style.display = 'block';
+
+                }
+
+                console.log(document.querySelectorAll('.tp-module'));
+          document.querySelectorAll('.tp-module')
+          .forEach(element => {
+            console.log(element.parentElement);
+            console.log(element.parentElement.childElementCount === 6);
+            console.log(element.parentElement.childElementCount);
+            if (element.parentElement && element.parentElement.childElementCount === 6)
+            {
+                element.querySelectorAll('.tp-module strong, .tp-module span')
+                .forEach(elemm => {
+                    elemm.style.fontSize = '13px';
+                    console.log('yolo');
+                  
+                });
+              // element[0].style.fontSize = '13px';
+              // element[1].style.fontSize = '13px';
+              // element[2].style.fontSize = '13px';
+            }
+          });
+
+                console.log(currentCode);
+
+                  renderSchedule1();
+                  renderSchedule2();
+
+                   document.querySelector('.timetable-frame-elem1').scrollIntoView({ 
+                      behavior: 'smooth', 
+                      block: 'start' 
+                    });
+                
 
             // student.name display in the url the so it can be used as a url to access directly
 
@@ -1438,210 +1627,223 @@
 
         // if(query != "admin")
 
-            const nextURL = 'https://www.smpfsa.com/edt/?s='+student.name;
+            // const nextURL = 'https://www.smpfsa.com/edt/?s='+student.name;
+            // const nextTitle = 'boi';
+            // const nextState = { additionalInformation: 'Updated the URL with JS' };
+
+            // // This will create a new entry in the browser's history, without reloading
+            // window.history.pushState(nextState, nextTitle, nextURL);
+
+    var queryStart = window.location.href.indexOf("?s=");
+        var queryEnd = window.location.href.indexOf("#");
+        var query = window.location.href.slice(queryStart, queryEnd).replace("?s=", "").replace("#", "");
+
+        console.log(query);
+        if(query=="")
+        {
+
+            const nextURL = window.location.origin+window.location.pathname+'?s='+student.name+"#";
             const nextTitle = 'boi';
             const nextState = { additionalInformation: 'Updated the URL with JS' };
 
             // This will create a new entry in the browser's history, without reloading
             window.history.pushState(nextState, nextTitle, nextURL);
+}
 
 
 
 
+                // if (!pdfUrl) {
 
+                //     const error = document.createElement("div");
 
-                if (!pdfUrl) {
+                //     error.className =
+                //         "student-result-error";
 
-                    const error = document.createElement("div");
+                //     error.textContent =
+                //         "Aucun PDF trouvé pour le groupe " +
+                //         student.group;
 
-                    error.className =
-                        "student-result-error";
+                //     result.appendChild(error);
 
-                    error.textContent =
-                        "Aucun PDF trouvé pour le groupe " +
-                        student.group;
-
-                    result.appendChild(error);
-
-                    studentResults.appendChild(result);
+                //     studentResults.appendChild(result);
     
-                    return;
-                }
+                //     return;
+                // }
 
 
                 /* =====================================
                    PDF VIEWER
                 ===================================== */
 
-                const viewerBox =
-                    document.createElement("div");
+                // const viewerBox =
+                //     document.createElement("div");
 
-                viewerBox.className =
-                    "student-pdf-viewer";
+                // viewerBox.className =
+                //     "student-pdf-viewer";
 
 
                 /* =====================================
                    TOOLBAR
                 ===================================== */
 
-                const toolbar =
-                    document.createElement("div");
+                // const toolbar =
+                //     document.createElement("div");
 
-                toolbar.className =
-                    "student-pdf-toolbar";
-
-
-                const title =
-                    document.createElement("div");
-
-                title.className =
-                    "student-pdf-title";
-
-                let filename =
-                    pdfUrl.substring(
-                        pdfUrl.lastIndexOf("/") + 1
-                    );
-
-                try {
-                    filename =
-                        decodeURIComponent(filename);
-                }
-                catch (error) {}
-
-                title.textContent = filename;
+                // toolbar.className =
+                //     "student-pdf-toolbar";
 
 
-                const controls =
-                    document.createElement("div");
+                // const title =
+                //     document.createElement("div");
 
-                controls.className =
-                    "student-pdf-controls";
+                // title.className =
+                //     "student-pdf-title";
+
+                // let filename =
+                //     pdfUrl.substring(
+                //         pdfUrl.lastIndexOf("/") + 1
+                //     );
+
+                // try {
+                //     filename =
+                //         decodeURIComponent(filename);
+                // }
+                // catch (error) {}
+
+                // title.textContent = filename;
+
+
+                // const controls =
+                //     document.createElement("div");
+
+                // controls.className =
+                //     "student-pdf-controls";
 
 
                 /* =====================================
                    DOWNLOAD
                 ===================================== */
 
-                const downloadButton =
-                    document.createElement("button");
+                // const downloadButton =
+                //     document.createElement("button");
 
-                downloadButton.textContent =
-                    "Télécharger ↓";
+                // downloadButton.textContent =
+                //     "Télécharger ↓";
 
-                downloadButton.title =
-                    "Télécharger";
+                // downloadButton.title =
+                //     "Télécharger";
 
 
-                downloadButton.addEventListener(
-                    "click",
-                    function(event) {
+                // downloadButton.addEventListener(
+                //     "click",
+                //     function(event) {
 
-                        event.stopPropagation();
+                //         event.stopPropagation();
 
-                        const link =
-                            document.createElement("a");
+                //         const link =
+                //             document.createElement("a");
 
-                        link.href = pdfUrl;
-                        link.download = filename;
-                        link.target = "_blank";
+                //         link.href = pdfUrl;
+                //         link.download = filename;
+                //         link.target = "_blank";
 
-                        document.body.appendChild(link);
+                //         document.body.appendChild(link);
 
-                        link.click();
+                //         link.click();
 
-                        document.body.removeChild(link);
+                //         document.body.removeChild(link);
 
-                    }
-                );
+                //     }
+                // );
 
 
                 /* =====================================
                    FULLSCREEN
                 ===================================== */
 
-                const fullscreenButton =
-                    document.createElement("button");
+                // const fullscreenButton =
+                //     document.createElement("button");
 
-                fullscreenButton.textContent = "⛶";
+                // fullscreenButton.textContent = "⛶";
 
-                fullscreenButton.title =
-                    "Agrandir";
-
-
-                    fullscreenButton.addEventListener(
-                        "click",
-                        function(event) {
-
-                            event.stopPropagation();
-
-                            if (
-                                !document.fullscreenElement
-                            ) {
-
-                                viewerBox.requestFullscreen();
-
-                                fullscreenButton.textContent =
-                                    "↙";
-
-                                fullscreenButton.title =
-                                    "Réduire";
-
-                            }
-                            else {
-
-                                document.exitFullscreen();
-
-                                fullscreenButton.textContent =
-                                    "⛶";
-
-                                fullscreenButton.title =
-                                    "Agrandir";
-                            }
-
-                        }
-                    );
+                // fullscreenButton.title =
+                //     "Agrandir";
 
 
-                controls.appendChild(downloadButton);
-                controls.appendChild(fullscreenButton);
+                //     fullscreenButton.addEventListener(
+                //         "click",
+                //         function(event) {
+
+                //             event.stopPropagation();
+
+                //             if (
+                //                 !document.fullscreenElement
+                //             ) {
+
+                //                 viewerBox.requestFullscreen();
+
+                //                 fullscreenButton.textContent =
+                //                     "↙";
+
+                //                 fullscreenButton.title =
+                //                     "Réduire";
+
+                //             }
+                //             else {
+
+                //                 document.exitFullscreen();
+
+                //                 fullscreenButton.textContent =
+                //                     "⛶";
+
+                //                 fullscreenButton.title =
+                //                     "Agrandir";
+                //             }
+
+                //         }
+                //     );
 
 
-                toolbar.appendChild(title);
-                toolbar.appendChild(controls);
+                // controls.appendChild(downloadButton);
+                // controls.appendChild(fullscreenButton);
+
+
+                // toolbar.appendChild(title);
+                // toolbar.appendChild(controls);
 
 
                 /* =====================================
                    PDF IFRAME
                 ===================================== */
 
-                const iframe =
-                    document.createElement("iframe");
+                // const iframe =
+                //     document.createElement("iframe");
 
-                iframe.className =
-                    "student-pdf-frame";
+                // iframe.className =
+                //     "student-pdf-frame";
 
-                iframe.title =
-                    "Emploi du temps - " +
-                    student.group;
+                // iframe.title =
+                //     "Emploi du temps - " +
+                //     student.group;
 
-                iframe.allowFullscreen = true;
-
-
-                iframe.src =
-                    "https://docs.google.com/gview?embedded=true&url=" +
-                    encodeURIComponent(pdfUrl);
+                // iframe.allowFullscreen = true;
 
 
-                /* =====================================
-                   ASSEMBLER
-                ===================================== */
+                // iframe.src =
+                //     "https://docs.google.com/gview?embedded=true&url=" +
+                //     encodeURIComponent(pdfUrl);
 
-                viewerBox.appendChild(toolbar);
-                viewerBox.appendChild(iframe);
 
-                result.appendChild(viewerBox);
+                // /* =====================================
+                //    ASSEMBLER
+                // ===================================== */
 
-                studentResults.appendChild(result);
+                // viewerBox.appendChild(toolbar);
+                // viewerBox.appendChild(iframe);
+
+                // result.appendChild(viewerBox);
+
 
             });
 
@@ -1652,1222 +1854,1620 @@
         ===================================================== */
 
         const studentSearchButton =
-    document.getElementById("studentSearchButton");
+            document.getElementById("studentSearchButton");
 
 
-/* =====================================================
-   RECHERCHE CODE MASSAR / NOM
-===================================================== */
+        /* =====================================================
+           RECHERCHE CODE MASSAR / NOM
+        ===================================================== */
 
-function searchStudent() {
+        function searchStudent() {
 
-    const search =
-        studentSearch.value
-            .trim()
-            .toLowerCase();
+            const nextURL = window.location.origin+window.location.pathname+'?s='+student.name+"#";
+            const nextTitle = 'boi';
+            const nextState = { additionalInformation: 'Updated the URL with JS' };
 
+            // This will create a new entry in the browser's history, without reloading
+            window.history.pushState(nextState, nextTitle, nextURL);
 
-    /*
-        Recherche vide
-    */
-
-    if (!search) {
-
-        studentSearchStatus.textContent =
-            // "Veuillez entrer un Code Massar ou un nom.";
-            "Veuillez entrer un nom.";
-
-        studentResults.innerHTML = "";
-
-        return;
-
-    }
+            const search =
+                studentSearch.value
+                    .trim()
+                    .toLowerCase();
 
 
-    /*
-        Recherche dans Massar OU nom
-    */
+            /*
+                Recherche vide
+            */
 
-    // const results =
-    //     students.filter(function(student) {
+            if (!search) {
 
-    //         // const massar =
-    //         //     student.massar
-    //         //         .toLowerCase();
+                studentSearchStatus.textContent =
+                    // "Veuillez entrer un Code Massar ou un nom.";
+                    "Veuillez entrer un nom.";
 
-    //         // const massarWithoutPrefix =
-    //         //     student.massar
-    //         //         .slice(3)
-    //         //         .toLowerCase();
+                studentResults.innerHTML = "";
 
-    //         const name =
-    //             student.name
-    //                 .toLowerCase();
+                return;
 
-
-    //         return name.includes(search);
-    //         // (
-    //             // massar.includes(search) ||
-    //             // massarWithoutPrefix.includes(search) ||
-    //             // name.includes(search)
-    //         // );
-
-    //     });
-
-    const results =
-    students.filter(function(student) {
-
-        const name =
-            student.name
-                .toLowerCase()
-                .trim();
-
-        // Normal order: "AABAD Amir"
-        if (name.includes(search)) {
-            return true;
-        }
-
-        // Reversed order: "Amir AABAD"
-        const parts = name.split(/\s+/);
-
-        if (parts.length >= 2) {
-
-            const reversedName =
-                parts.slice(1).join(" ") +
-                " " +
-                parts[0];
-
-            if (reversedName.includes(search)) {
-                return true;
             }
-        }
 
-        return false;
 
+            /*
+                Recherche dans Massar OU nom
+            */
+
+            // const results =
+            //     students.filter(function(student) {
+
+            //         // const massar =
+            //         //     student.massar
+            //         //         .toLowerCase();
+
+            //         // const massarWithoutPrefix =
+            //         //     student.massar
+            //         //         .slice(3)
+            //         //         .toLowerCase();
+
+            //         const name =
+            //             student.name
+            //                 .toLowerCase();
+
+
+            //         return name.includes(search);
+            //         // (
+            //             // massar.includes(search) ||
+            //             // massarWithoutPrefix.includes(search) ||
+            //             // name.includes(search)
+            //         // );
+
+            //     });
+
+            // const results =
+            // students.filter(function(student) {
+
+            //     const name =
+            //         student.name
+            //             .toLowerCase()
+            //             .trim();
+
+            //     // Normal order: "AABAD Amir"
+            //     if (name.includes(search)) {
+            //         return true;
+            //     }
+
+            //     // Reversed order: "Amir AABAD"
+            //     const parts = name.split(/\s+/);
+
+            //     if (parts.length >= 2) {
+
+            //         const reversedName =
+            //             parts.slice(1).join(" ") +
+            //             " " +
+            //             parts[0];
+
+            //         if (reversedName.includes(search)) {
+            //             return true;
+            //         }
+            //     }
+
+            //     return false;
+
+            // });
+
+            const results = students.filter(function(student) {
+    // 1. Nettoyer et normaliser le nom de l'étudiant
+    const name = student.name.toLowerCase().trim();
+    
+    // 2. Découper la recherche de l'utilisateur en mots individuels (tableau)
+    //    On filtre les entrées vides au cas où l'utilisateur met plusieurs espaces d'affilée
+    const searchWords = search.toLowerCase().trim().split(/\s+/);
+
+    // 3. Vérifier si CHAQUE mot de la recherche est inclus dans le nom de l'étudiant
+    //    La méthode .every() renvoie true uniquement si toutes les conditions sont vraies
+    return searchWords.every(function(word) {
+        return name.includes(word);
     });
-
-
-    /*
-        Aucun résultat
-    */
-
-    if (results.length === 0) {
-
-        studentSearchStatus.textContent =
-            "Aucun étudiant trouvé.";
-
-        studentResults.innerHTML = "";
-
-        return;
-
-    }
-
-
-    /*
-        UN SEUL RÉSULTAT
-    */
-
-    if (results.length === 1) {
-
-        const student =
-            results[0];
-
-        studentSearchStatus.textContent =
-            "Étudiant trouvé.";
-
-
-        /*
-            Afficher les informations
-            de l'étudiant.
-        */
-
-        displayStudentResults(results);
-
-
-        /*
-            Utiliser automatiquement
-            le code du groupe.
-        */
-
-        codeInput.value =
-            student.group;
-
-        codeInput.dispatchEvent(
-            new Event("input")
-        );
-
-        return;
-
-    }
-
-
-    /*
-        PLUSIEURS RÉSULTATS
-    */
-
-    studentSearchStatus.textContent =
-        results.length +
-        " résultats trouvés.";
-
-
-    /*
-        Ne pas choisir automatiquement
-        un groupe.
-    */
-
-    displayStudentResults(results);
-
-}
-
-
-/* =====================================================
-   BOUTON CHERCHER
-===================================================== */
-
-studentSearchButton.addEventListener(
-    "click",
-    function() {
-
-        searchStudent();
-        searchStudent();
-
-    }
-);
-
-
-/* =====================================================
-   ENTRÉE CLAVIER
-===================================================== */
-
-studentSearch.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "Enter") {
-
-            event.preventDefault();
-
-            searchStudent();
-
-        }
-
-    }
-);
-
-
-
-
-
-
-
-        /* =====================================================
-           CONFIGURATION
-        ===================================================== */
-
-        const NOMBRE_TD_S1 = 5;
-        const NOMBRE_TD_S3 = 6;
-        const NOMBRE_TP_S5 = 8;
-
-
-        /* TP S1 */
-        const GROUPES_TP_S1 = [
-            "a",
-            "b",
-            "c"
-        ];
-
-
-        /* TP S3 */
-        const GROUPES_TP_S3 = [
-            "a",
-            "b",
-            "c"
-        ];
-
-
-        /* =====================================================
-           DOCUMENTS
-        ===================================================== */
-
-        const documents = {
-
-            S1: {
-
-                A: {
-                    1: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1AG1a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1AG1b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1AG1c.pdf"
-                    },
-
-                    2: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1AG2a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1AG2b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1AG2c.pdf"
-                    },
-
-                    3: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1AG3a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1AG3b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1AG3c.pdf"
-                    },
-
-                    4: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1AG4a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1AG4b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1AG4c.pdf"
-                    },
-
-                    5: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1AG5a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1AG5b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1AG5c.pdf"
-                    }
-                },
-
-                B: {
-                    1: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1BG1a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1BG1b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1BG1c.pdf"
-                    },
-
-                    2: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1BG2a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1BG2b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1BG2c.pdf"
-                    },
-
-                    3: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1BG3a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1BG3b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1BG3c.pdf"
-                    },
-
-                    4: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1BG4a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1BG4b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1BG4c.pdf"
-                    },
-
-                    5: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1BG5a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1BG5b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1BG5c.pdf"
-                    }
-                },
-
-                C: {
-
-                    1: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1CG1a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1CG1b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1CG1c.pdf"
-                    },
-
-                    2: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1CG2a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1CG2b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1CG2c.pdf"
-                    },
-
-                    3: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1CG3a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1CG3b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1CG3c.pdf"
-                    },
-
-                    4: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1CG4a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1CG4b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1CG4c.pdf"
-                    },
-
-                    5: {
-                        a: "https://files.smpfsa.com/edt/TPs/P1CG5a.pdf",
-                        b: "https://files.smpfsa.com/edt/TPs/P1CG5b.pdf",
-                        c: "https://files.smpfsa.com/edt/TPs/P1CG5c.pdf"
-                    }
-                }
-
-            },
-
-
-            S3: {
-
-                1: {
-                    a: "https://files.smpfsa.com/edt/TPs/S3/P3-G1a.pdf",
-                    b: "https://files.smpfsa.com/edt/TPs/S3/P3-G1b.pdf",
-                    c: "https://files.smpfsa.com/edt/TPs/S3/P3-G1c.pdf",
-                    d: "https://files.smpfsa.com/edt/TPs/S3/P3-G1d.pdf"
-                },
-
-                2: {
-                    a: "https://files.smpfsa.com/edt/TPs/S3/P3-G2a.pdf",
-                    b: "https://files.smpfsa.com/edt/TPs/S3/P3-G2b.pdf",
-                    c: "https://files.smpfsa.com/edt/TPs/S3/P3-G2c.pdf",
-                    d: "https://files.smpfsa.com/edt/TPs/S3/P3-G2d.pdf"
-                },
-
-                3: {
-                    a: "https://files.smpfsa.com/edt/TPs/S3/P3-G3a.pdf",
-                    b: "https://files.smpfsa.com/edt/TPs/S3/P3-G3b.pdf",
-                    c: "https://files.smpfsa.com/edt/TPs/S3/P3-G3c.pdf",
-                    d: "https://files.smpfsa.com/edt/TPs/S3/P3-G3d.pdf"
-                },
-
-                4: {
-                    a: "https://files.smpfsa.com/edt/TPs/S3/P3-G4a.pdf",
-                    b: "https://files.smpfsa.com/edt/TPs/S3/P3-G4b.pdf",
-                    c: "https://files.smpfsa.com/edt/TPs/S3/P3-G4c.pdf",
-                    d: "https://files.smpfsa.com/edt/TPs/S3/P3-G4d.pdf"
-                },
-
-                5: {
-                    a: "https://files.smpfsa.com/edt/TPs/S3/P3-G5a.pdf",
-                    b: "https://files.smpfsa.com/edt/TPs/S3/P3-G5b.pdf",
-                    c: "https://files.smpfsa.com/edt/TPs/S3/P3-G5c.pdf",
-                    d: "https://files.smpfsa.com/edt/TPs/S3/P3-G5d.pdf"
-                },
-
-                6: {
-                    a: "https://files.smpfsa.com/edt/TPs/S3/P3-G6a.pdf",
-                    b: "https://files.smpfsa.com/edt/TPs/S3/P3-G6b.pdf",
-                    c: "https://files.smpfsa.com/edt/TPs/S3/P3-G6c.pdf",
-                    d: "https://files.smpfsa.com/edt/TPs/S3/P3-G6d.pdf"
-                }
-
-            },
-
-
-            S5: {
-
-                ES: {
-                    1: "https://files.smpfsa.com/edt/TPs/ES5/ES5G1.pdf",
-                    2: "https://files.smpfsa.com/edt/TPs/ES5/ES5G2.pdf",
-                    3: "https://files.smpfsa.com/edt/TPs/ES5/ES5G3.pdf",
-                    4: "https://files.smpfsa.com/edt/TPs/ES5/ES5G4.pdf",
-                    5: "https://files.smpfsa.com/edt/TPs/ES5/ES5G5.pdf",
-                    6: "https://files.smpfsa.com/edt/TPs/ES5/ES5G6.pdf",
-                    7: "https://files.smpfsa.com/edt/TPs/ES5/ES5G7.pdf",
-                    8: "https://files.smpfsa.com/edt/TPs/ES5/ES5G8.pdf"
-                },
-
-                EER: {
-                    1: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G1.pdf",
-                    2: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G2.pdf",
-                    3: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G3.pdf",
-                    4: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G4.pdf",
-                    5: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G5.pdf",
-                    6: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G6.pdf",
-                    7: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G7.pdf",
-                    8: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G8.pdf"
-                },
-
-                EER_CALCUL: {
-                    1: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG1.pdf",
-                    2: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG2.pdf",
-                    3: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG3.pdf",
-                    4: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG4.pdf",
-                    5: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG5.pdf",
-                    6: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG6.pdf",
-                    7: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG7.pdf",
-                    8: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG8.pdf"
-                }
-
-            }
-
-        };
-
-
-        /* =====================================================
-           ELEMENTS
-        ===================================================== */
-
-        const semester = document.getElementById("semester");
-        const section = document.getElementById("section");
-        const filiere = document.getElementById("filiere");
-        const td = document.getElementById("td");
-        const tp = document.getElementById("tp");
-
-        const codePreview = document.getElementById("codePreview");
-        const codeInput = document.getElementById("codeInput");
-        const status = document.getElementById("status");
-
-        const sectionBox = document.getElementById("sectionBox");
-        const filiereBox = document.getElementById("filiereBox");
-        const tdBox = document.getElementById("tdBox");
-        const tpBox = document.getElementById("tpBox");
-
-
-        /* =====================================================
-           OUTILS
-        ===================================================== */
-
-        function hide(element) {
-            element.classList.add("hidden");
-        }
-
-
-        function show(element) {
-            element.classList.remove("hidden");
-        }
-
-
-        function resetSelect(select) {
-
-            select.innerHTML = `
-                <option value="">
-                    -- Choisir --
-                </option>
-            `;
-
-        }
-
-
-        /*
-            Remplit un select en essayant
-            de conserver sa valeur actuelle.
-        */
-
-        function fillSelect(select, values, wantedValue = null) {
-
-            const oldValue =
-                wantedValue !== null
-                    ? String(wantedValue)
-                    : select.value;
-
-            resetSelect(select);
-
-            values.forEach(function(value) {
-
-                const option =
-                    document.createElement("option");
-
-                option.value = value;
-                option.textContent = value;
-
-                select.appendChild(option);
-
-            });
-
-
-            if (values.includes(oldValue)) {
-
-                select.value = oldValue;
-
-            } else {
-
-                select.value = "";
-
-            }
-
-        }
-
-
-        /* =====================================================
-           CREATION DES CHOIX
-        ===================================================== */
-
-        function createSections(value = null) {
-
-            fillSelect(
-                section,
-                ["A", "B", "C"],
-                value
-            );
-
-        }
-
-
-        function createFilieres(value = null) {
-
-            fillSelect(
-                filiere,
-                // ["ES"],
-                ["ES", "EER", "EER_CALCUL"],
-                value
-            );
-
-        }
-
-
-        function createTD(nombre, value = null) {
-
-            const values = [];
-
-            for (
-                let i = 1;
-                i <= nombre;
-                i++
-            ) {
-
-                values.push(String(i));
-
-            }
-
-            fillSelect(
-                td,
-                values,
-                value
-            );
-
-        }
-
-
-        function createTPLetters(groupes, value = null) {
-
-            fillSelect(
-                tp,
-                groupes,
-                value
-            );
-
-        }
-
-
-        function createTPNumbers(value = null) {
-
-            const values = [];
-
-            for (
-                let i = 1;
-                i <= NOMBRE_TP_S5;
-                i++
-            ) {
-
-                values.push(String(i));
-
-            }
-
-            fillSelect(
-                tp,
-                values,
-                value
-            );
-
-        }
-
-
-        /* =====================================================
-           CHANGEMENT DE SEMESTRE
-        ===================================================== */
-
-        function changeSemester(newSemester) {
-
-            /*
-                Si le semestre est déjà le même,
-                on ne détruit rien.
-            */
-
-            if (semester.value === newSemester) {
-                return;
-            }
-
-
-            semester.value = newSemester;
+});
 
 
             /*
-                On cache seulement les éléments
-                qui ne correspondent pas au nouveau
-                semestre.
+                Aucun résultat
             */
 
-            hide(sectionBox);
-            hide(filiereBox);
-            hide(tdBox);
-            hide(tpBox);
+            if (results.length === 0) {
 
+                studentSearchStatus.textContent =
+                    "Aucun étudiant trouvé.";
 
-            /* ==========================
-                      S1
-            ========================== */
-
-            if (newSemester === "S1") {
-
-                createSections();
-
-                show(sectionBox);
-
-            }
-            else if (newSemester === "S3")
-            {
-                createTD(NOMBRE_TD_S3);
-                show(tdBox);
-            }
-            else if (newSemester === "S5")
-            {
-                createFilieres();
-                show(filiereBox);
-            }
-
-            updateCodeDisplay();
-        }
-
-
-        /* =====================================================
-           RESET COMPLET
-        ===================================================== */
-
-        function resetEverything() {
-
-            semester.value = "";
-
-            resetSelect(section);
-            resetSelect(filiere);
-            resetSelect(td);
-            resetSelect(tp);
-
-            hide(sectionBox);
-            hide(filiereBox);
-            hide(tdBox);
-            hide(tpBox);
-
-            status.textContent = "";
-
-        }
-
-
-        /* =====================================================
-           AFFICHAGE DU CODE
-        ===================================================== */
-
-        function updateCodeDisplay() {
-
-            const sem = semester.value;
-
-
-            /* =====================================
-               AUCUN SEMESTRE
-            ===================================== */
-
-            if (!sem) {
-
-                codePreview.innerHTML = `
-                    <span class="code-gray">
-                        Choisir...
-                    </span>
-                `;
-
-                /*
-                    On ne force pas l'input ici si
-                    l'utilisateur est en train d'écrire.
-                */
+                studentResults.innerHTML = "";
 
                 return;
+
             }
 
 
-            /* =====================================
-                            S1
-                          P1A G1a
-            ===================================== */
+            /*
+                UN SEUL RÉSULTAT
+            */
 
-            if (sem === "S1") {
+            if (results.length === 1) {
 
-                const sectionCode =
-                    section.value || "A";
+                const student =
+                    results[0];
 
-                const tdCode =
-                    td.value || "1";
-
-                const tpCode =
-                    tp.value || "a";
+                studentSearchStatus.textContent =
+                    "Étudiant trouvé.";
 
 
                 /*
-                    PREVIEW
+                    Afficher les informations
+                    de l'étudiant.
                 */
 
-                codePreview.innerHTML = `
-
-                    <span class="code-black">
-                        P1
-                    </span>
-
-                    <span class="${
-                        section.value
-                            ? "code-black"
-                            : "code-gray"
-                    }">
-                        ${sectionCode}
-                    </span>
-
-                    <span class="code-black">
-                        &nbsp;G
-                    </span>
-
-                    <span class="${
-                        td.value
-                            ? "code-black"
-                            : "code-gray"
-                    }">
-                        ${tdCode}
-                    </span>
-
-                    <span class="${
-                        tp.value
-                            ? "code-black"
-                            : "code-gray"
-                    }">
-                        ${tpCode}
-                    </span>
-
-                `;
+                displayStudentResults(results);
 
 
                 /*
-                    INPUT
-
-                    Il change immédiatement
-                    lorsque les choix changent.
+                    Utiliser automatiquement
+                    le code du groupe.
                 */
 
                 codeInput.value =
-                    `P1${sectionCode} G${tdCode}${tpCode}`;
+                    student.group;
 
+                codeInput.dispatchEvent(
+                    new Event("input")
+                );
 
                 return;
+
             }
 
 
-            /* =====================================
-                            S3
-                           G1a
-            ===================================== */
+            /*
+                PLUSIEURS RÉSULTATS
+            */
 
-            if (sem === "S3") {
-
-                const tdCode =
-                    td.value || "1";
-
-                const tpCode =
-                    tp.value || "a";
+            studentSearchStatus.textContent =
+                results.length +
+                " résultats trouvés.";
 
 
-                codePreview.innerHTML = `
+            /*
+                Ne pas choisir automatiquement
+                un groupe.
+            */
 
-                    <span class="code-black">
-                        G
-                    </span>
-
-                    <span class="${
-                        td.value
-                            ? "code-black"
-                            : "code-gray"
-                    }">
-                        ${tdCode}
-                    </span>
-
-                    <span class="${
-                        tp.value
-                            ? "code-black"
-                            : "code-gray"
-                    }">
-                        ${tpCode}
-                    </span>
-
-                `;
-
-
-                /*
-                    INPUT
-                */
-
-                codeInput.value =
-                    `G${tdCode}${tpCode}`;
-
-
-                return;
-            }
-
-
-            /* =====================================
-                            S5
-                           G1
-            ===================================== */
-
-            if (sem === "S5") {
-
-                const tpCode =
-                    tp.value || "1";
-
-
-                codePreview.innerHTML = `
-
-                    <span class="code-black">
-                        G
-                    </span>
-
-                    <span class="${
-                        tp.value
-                            ? "code-black"
-                            : "code-gray"
-                    }">
-                        ${tpCode}
-                    </span>
-
-                `;
-
-
-                /*
-                    INPUT
-                */
-
-                codeInput.value =
-                    `G${tpCode}`;
-
-
-                return;
-            }
+            displayStudentResults(results);
 
         }
 
 
         /* =====================================================
-           SEMESTRE SELECT
+           BOUTON CHERCHER
         ===================================================== */
 
-        semester.addEventListener(
-            "change",
+        studentSearchButton.addEventListener(
+            "click",
             function() {
 
-                /*
-                    Ici seulement on fait un
-                    changement complet de structure.
-                */
-
-                const newSemester =
-                    semester.value;
-
-
-                resetSelect(section);
-                resetSelect(filiere);
-                resetSelect(td);
-                resetSelect(tp);
-
-                hide(sectionBox);
-                hide(filiereBox);
-                hide(tdBox);
-                hide(tpBox);
-
-
-                if (newSemester === "S1") {
-
-                    createSections();
-
-                    show(sectionBox);
-
-                }
-
-
-                else if (newSemester === "S3") {
-
-                    createTD(NOMBRE_TD_S3);
-
-                    show(tdBox);
-
-                }
-
-
-                else if (newSemester === "S5") {
-
-                    createFilieres();
-
-                    show(filiereBox);
-
-                }
-
-
-                updateCodeDisplay();
+                searchStudent();
+                searchStudent();
 
             }
         );
 
 
         /* =====================================================
-           S1 → SECTION
+           ENTRÉE CLAVIER
         ===================================================== */
 
-        section.addEventListener(
-            "change",
-            function() {
+        studentSearch.addEventListener(
+            "keydown",
+            function(event) {
 
-                if (!section.value) {
+                if (event.key === "Enter") {
 
+                    event.preventDefault();
+
+                    searchStudent();
+
+                }
+
+            }
+        );
+
+
+
+
+
+
+
+                /* =====================================================
+                   CONFIGURATION
+                ===================================================== */
+
+                const NOMBRE_TD_S1 = 5;
+                const NOMBRE_TD_S3 = 6;
+                const NOMBRE_TP_S5 = 8;
+
+
+                /* TP S1 */
+                const GROUPES_TP_S1 = [
+                    "a",
+                    "b",
+                    "c"
+                ];
+
+
+                /* TP S3 */
+                const GROUPES_TP_S3 = [
+                    "a",
+                    "b",
+                    "c"
+                ];
+
+
+                /* =====================================================
+                   DOCUMENTS
+                ===================================================== */
+
+                const documents = {
+
+                    S1: {
+
+                        A: {
+                            1: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1AG1a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1AG1b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1AG1c.pdf"
+                            },
+
+                            2: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1AG2a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1AG2b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1AG2c.pdf"
+                            },
+
+                            3: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1AG3a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1AG3b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1AG3c.pdf"
+                            },
+
+                            4: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1AG4a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1AG4b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1AG4c.pdf"
+                            },
+
+                            5: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1AG5a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1AG5b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1AG5c.pdf"
+                            }
+                        },
+
+                        B: {
+                            1: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1BG1a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1BG1b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1BG1c.pdf"
+                            },
+
+                            2: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1BG2a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1BG2b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1BG2c.pdf"
+                            },
+
+                            3: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1BG3a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1BG3b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1BG3c.pdf"
+                            },
+
+                            4: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1BG4a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1BG4b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1BG4c.pdf"
+                            },
+
+                            5: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1BG5a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1BG5b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1BG5c.pdf"
+                            }
+                        },
+
+                        C: {
+
+                            1: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1CG1a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1CG1b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1CG1c.pdf"
+                            },
+
+                            2: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1CG2a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1CG2b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1CG2c.pdf"
+                            },
+
+                            3: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1CG3a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1CG3b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1CG3c.pdf"
+                            },
+
+                            4: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1CG4a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1CG4b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1CG4c.pdf"
+                            },
+
+                            5: {
+                                a: "https://files.smpfsa.com/edt/TPs/P1CG5a.pdf",
+                                b: "https://files.smpfsa.com/edt/TPs/P1CG5b.pdf",
+                                c: "https://files.smpfsa.com/edt/TPs/P1CG5c.pdf"
+                            }
+                        }
+
+                    },
+
+
+                    S3: {
+
+                        1: {
+                            a: "https://files.smpfsa.com/edt/TPs/S3/P3-G1a.pdf",
+                            b: "https://files.smpfsa.com/edt/TPs/S3/P3-G1b.pdf",
+                            c: "https://files.smpfsa.com/edt/TPs/S3/P3-G1c.pdf",
+                            d: "https://files.smpfsa.com/edt/TPs/S3/P3-G1d.pdf"
+                        },
+
+                        2: {
+                            a: "https://files.smpfsa.com/edt/TPs/S3/P3-G2a.pdf",
+                            b: "https://files.smpfsa.com/edt/TPs/S3/P3-G2b.pdf",
+                            c: "https://files.smpfsa.com/edt/TPs/S3/P3-G2c.pdf",
+                            d: "https://files.smpfsa.com/edt/TPs/S3/P3-G2d.pdf"
+                        },
+
+                        3: {
+                            a: "https://files.smpfsa.com/edt/TPs/S3/P3-G3a.pdf",
+                            b: "https://files.smpfsa.com/edt/TPs/S3/P3-G3b.pdf",
+                            c: "https://files.smpfsa.com/edt/TPs/S3/P3-G3c.pdf",
+                            d: "https://files.smpfsa.com/edt/TPs/S3/P3-G3d.pdf"
+                        },
+
+                        4: {
+                            a: "https://files.smpfsa.com/edt/TPs/S3/P3-G4a.pdf",
+                            b: "https://files.smpfsa.com/edt/TPs/S3/P3-G4b.pdf",
+                            c: "https://files.smpfsa.com/edt/TPs/S3/P3-G4c.pdf",
+                            d: "https://files.smpfsa.com/edt/TPs/S3/P3-G4d.pdf"
+                        },
+
+                        5: {
+                            a: "https://files.smpfsa.com/edt/TPs/S3/P3-G5a.pdf",
+                            b: "https://files.smpfsa.com/edt/TPs/S3/P3-G5b.pdf",
+                            c: "https://files.smpfsa.com/edt/TPs/S3/P3-G5c.pdf",
+                            d: "https://files.smpfsa.com/edt/TPs/S3/P3-G5d.pdf"
+                        },
+
+                        6: {
+                            a: "https://files.smpfsa.com/edt/TPs/S3/P3-G6a.pdf",
+                            b: "https://files.smpfsa.com/edt/TPs/S3/P3-G6b.pdf",
+                            c: "https://files.smpfsa.com/edt/TPs/S3/P3-G6c.pdf",
+                            d: "https://files.smpfsa.com/edt/TPs/S3/P3-G6d.pdf"
+                        }
+
+                    },
+
+
+                    S5: {
+
+                        ES: {
+                            1: "ES5G1",
+                            2: "ES5G2",
+                            3: "ES5G3",
+                            4: "ES5G4",
+                            // 1: "https://files.smpfsa.com/edt/TPs/ES5/ES5G1.pdf",
+                            // 2: "https://files.smpfsa.com/edt/TPs/ES5/ES5G2.pdf",
+                            // 3: "https://files.smpfsa.com/edt/TPs/ES5/ES5G3.pdf",
+                            // 4: "https://files.smpfsa.com/edt/TPs/ES5/ES5G4.pdf",
+                            // 5: "https://files.smpfsa.com/edt/TPs/ES5/ES5G5.pdf",
+                            // 6: "https://files.smpfsa.com/edt/TPs/ES5/ES5G6.pdf",
+                            // 7: "https://files.smpfsa.com/edt/TPs/ES5/ES5G7.pdf",
+                            // 8: "https://files.smpfsa.com/edt/TPs/ES5/ES5G8.pdf"
+                        },
+
+                        EER: {
+                            1: "EER5G1",
+                            // 1: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G1.pdf",
+                            // 2: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G2.pdf",
+                            // 3: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G3.pdf",
+                            // 4: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G4.pdf",
+                            // 5: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G5.pdf",
+                            // 6: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G6.pdf",
+                            // 7: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G7.pdf",
+                            // 8: "https://files.smpfsa.com/edt/TPs/EER5/nEER5G8.pdf"
+                        },
+
+                        EER_CALCUL: {
+                            1: "EER5CALCULG1",
+                            // 1: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG1.pdf",
+                            // 2: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG2.pdf",
+                            // 3: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG3.pdf",
+                            // 4: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG4.pdf",
+                            // 5: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG5.pdf",
+                            // 6: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG6.pdf",
+                            // 7: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG7.pdf",
+                            // 8: "https://files.smpfsa.com/edt/TPs/EER5/EER5CALCULG8.pdf"
+                        }
+
+                    }
+
+                };
+
+
+                /* =====================================================
+                   ELEMENTS
+                ===================================================== */
+
+                // const semester = document.getElementById("semester");
+                const section = document.getElementById("section");
+                const filiere = document.getElementById("filiere");
+                const td = document.getElementById("td");
+                const tp = document.getElementById("tp");
+
+                const codePreview = document.getElementById("codePreview");
+                const codeInput = document.getElementById("codeInput");
+                const status = document.getElementById("status");
+
+                const sectionBox = document.getElementById("sectionBox");
+                const filiereBox = document.getElementById("filiereBox");
+                const tdBox = document.getElementById("tdBox");
+                const tpBox = document.getElementById("tpBox");
+
+
+                /* =====================================================
+                   OUTILS
+                ===================================================== */
+
+                function hide(element) {
+                    element.classList.add("hidden");
+                }
+
+
+                function show(element) {
+                    element.classList.remove("hidden");
+                }
+
+
+                function resetSelect(select) {
+
+                    select.innerHTML = `
+                        <option value="">
+                            -- Choisir --
+                        </option>
+                    `;
+
+                }
+
+
+                /*
+                    Remplit un select en essayant
+                    de conserver sa valeur actuelle.
+                */
+
+                function fillSelect(select, values, wantedValue = null) {
+
+                    const oldValue =
+                        wantedValue !== null
+                            ? String(wantedValue)
+                            : select.value;
+
+                    resetSelect(select);
+
+                    values.forEach(function(value) {
+
+                        const option =
+                            document.createElement("option");
+
+                        option.value = value;
+                        option.textContent = value;
+
+                        select.appendChild(option);
+
+                    });
+
+
+                    if (values.includes(oldValue)) {
+
+                        select.value = oldValue;
+
+                    } else {
+
+                        select.value = "";
+
+                    }
+
+                }
+
+
+                /* =====================================================
+                   CREATION DES CHOIX
+                ===================================================== */
+
+                function createSections(value = null) {
+
+                    fillSelect(
+                        section,
+                        ["A", "B", "C"],
+                        value
+                    );
+
+                }
+
+
+                function createFilieres(value = null) {
+
+                    fillSelect(
+                        filiere,
+                        // ["ES"],
+                        ["ES", "EER", "EER_CALCUL"],
+                        value
+                    );
+
+                }
+
+
+                function createTD(nombre, value = null) {
+
+                    const values = [];
+
+                    for (
+                        let i = 1;
+                        i <= nombre;
+                        i++
+                    ) {
+
+                        values.push(String(i));
+
+                    }
+
+                    fillSelect(
+                        td,
+                        values,
+                        value
+                    );
+
+                }
+
+
+                function createTPLetters(groupes, value = null) {
+
+                    fillSelect(
+                        tp,
+                        groupes,
+                        value
+                    );
+
+                }
+
+
+                function createTPNumbers(value = null) {
+
+                    const values = [];
+
+                    for (
+                        let i = 1;
+                        i <= NOMBRE_TP_S5;
+                        i++
+                    ) {
+
+                        values.push(String(i));
+
+                    }
+
+                    fillSelect(
+                        tp,
+                        values,
+                        value
+                    );
+
+                }
+
+
+                /* =====================================================
+                   CHANGEMENT DE SEMESTRE
+                ===================================================== */
+
+                function changeSemester(newSemester) {
+
+                    /*
+                        Si le semestre est déjà le même,
+                        on ne détruit rien.
+                    */
+
+                    if (semester.value === newSemester) {
+                        return;
+                    }
+
+
+                    semester.value = newSemester;
+
+
+                    /*
+                        On cache seulement les éléments
+                        qui ne correspondent pas au nouveau
+                        semestre.
+                    */
+
+                    hide(sectionBox);
+                    hide(filiereBox);
                     hide(tdBox);
                     hide(tpBox);
 
-                    updateCodeDisplay();
 
-                    return;
+                    /* ==========================
+                              S1
+                    ========================== */
 
-                }
+                    if (newSemester === "S1") {
 
+                        createSections();
 
-                /*
-                    On garde les valeurs existantes.
-                */
+                        show(sectionBox);
 
-                const oldTD =
-                    td.value;
-
-                const oldTP =
-                    tp.value;
-
-
-                createTD(
-                    NOMBRE_TD_S1,
-                    oldTD
-                );
-
-                show(tdBox);
-
-
-                /*
-                    Si un TD existait déjà
-                    et qu'il est toujours valide,
-                    on garde aussi le TP.
-                */
-
-                if (td.value) {
-
-                    createTPLetters(
-                        GROUPES_TP_S1,
-                        oldTP
-                    );
-
-                    show(tpBox);
-
-                }
-
-
-                updateCodeDisplay();
-
-
-                if (
-                    td.value &&
-                    tp.value
-                ) {
-
-                    fetchPDF();
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
-           S5 → FILIERE
-        ===================================================== */
-
-        filiere.addEventListener(
-            "change",
-            function() {
-
-                if (!filiere.value) {
-
-                    hide(tpBox);
+                    }
+                    else if (newSemester === "S3")
+                    {
+                        createTD(NOMBRE_TD_S3);
+                        show(tdBox);
+                    }
+                    else if (newSemester === "S5")
+                    {
+                        createFilieres();
+                        show(filiereBox);
+                    }
 
                     updateCodeDisplay();
+                }
 
-                    return;
+
+                /* =====================================================
+                   RESET COMPLET
+                ===================================================== */
+
+                function resetEverything() {
+
+                    // semester.value = "";
+
+                    // resetSelect(section);
+                    // resetSelect(filiere);
+                    // resetSelect(td);
+                    // resetSelect(tp);
+
+                    // hide(sectionBox);
+                    // hide(filiereBox);
+                    // hide(tdBox);
+                    // hide(tpBox);
+
+                    // status.textContent = "";
 
                 }
 
 
-                const oldTP =
-                    tp.value;
+                /* =====================================================
+                   AFFICHAGE DU CODE
+                ===================================================== */
 
+                function updateCodeDisplay() {
 
-                createTPNumbers(
-                    oldTP
-                );
+                    // const sem = semester.value;
 
-                show(tpBox);
 
+                    /* =====================================
+                       AUCUN SEMESTRE
+                    ===================================== */
 
-                updateCodeDisplay();
+                    // if (!sem) {
 
+                    //     codePreview.innerHTML = `
+                    //         <span class="code-gray">
+                    //             Choisir...
+                    //         </span>
+                    //     `;
 
-                if (tp.value) {
+                    //     /*
+                    //         On ne force pas l'input ici si
+                    //         l'utilisateur est en train d'écrire.
+                    //     */
 
-                    fetchPDF();
+                    //     return;
+                    // }
 
-                }
 
-            }
-        );
+                    /* =====================================
+                                    S1
+                                  P1A G1a
+                    ===================================== */
 
+                    // if (sem === "S1") {
 
-        /* =====================================================
-           TD → TP
-        ===================================================== */
+                    //     const sectionCode =
+                    //         section.value || "A";
 
-        td.addEventListener(
-            "change",
-            function() {
+                    //     const tdCode =
+                    //         td.value || "1";
 
-                if (!td.value) {
+                    //     const tpCode =
+                    //         tp.value || "a";
 
-                    hide(tpBox);
 
-                    updateCodeDisplay();
+                    //     /*
+                    //         PREVIEW
+                    //     */
 
-                    return;
+                    //     codePreview.innerHTML = `
 
-                }
+                    //         <span class="code-black">
+                    //             P1
+                    //         </span>
 
+                    //         <span class="${
+                    //             section.value
+                    //                 ? "code-black"
+                    //                 : "code-gray"
+                    //         }">
+                    //             ${sectionCode}
+                    //         </span>
 
-                /*
-                    On garde le TP actuel
-                    s'il existe toujours.
-                */
+                    //         <span class="code-black">
+                    //             &nbsp;G
+                    //         </span>
 
-                const oldTP =
-                    tp.value;
+                    //         <span class="${
+                    //             td.value
+                    //                 ? "code-black"
+                    //                 : "code-gray"
+                    //         }">
+                    //             ${tdCode}
+                    //         </span>
 
+                    //         <span class="${
+                    //             tp.value
+                    //                 ? "code-black"
+                    //                 : "code-gray"
+                    //         }">
+                    //             ${tpCode}
+                    //         </span>
 
-                if (semester.value === "S1") {
+                    //     `;
 
-                    createTPLetters(
-                        GROUPES_TP_S1,
-                        oldTP
-                    );
 
-                    show(tpBox);
+                    //     /*
+                    //         INPUT
 
-                }
+                    //         Il change immédiatement
+                    //         lorsque les choix changent.
+                    //     */
 
+                    //     codeInput.value =
+                    //         `P1${sectionCode} G${tdCode}${tpCode}`;
 
-                else if (semester.value === "S3") {
 
-                    createTPLetters(
-                        GROUPES_TP_S3,
-                        oldTP
-                    );
+                    //     return;
+                    // }
 
-                    show(tpBox);
 
-                }
+                    /* =====================================
+                                    S3
+                                   G1a
+                    ===================================== */
 
+                    // if (sem === "S3") {
 
-                updateCodeDisplay();
+                    //     const tdCode =
+                    //         td.value || "1";
 
+                    //     const tpCode =
+                    //         tp.value || "a";
 
-                if (tp.value) {
 
-                    fetchPDF();
+                    //     codePreview.innerHTML = `
 
-                }
+                    //         <span class="code-black">
+                    //             G
+                    //         </span>
 
-            }
-        );
+                    //         <span class="${
+                    //             td.value
+                    //                 ? "code-black"
+                    //                 : "code-gray"
+                    //         }">
+                    //             ${tdCode}
+                    //         </span>
 
+                    //         <span class="${
+                    //             tp.value
+                    //                 ? "code-black"
+                    //                 : "code-gray"
+                    //         }">
+                    //             ${tpCode}
+                    //         </span>
 
-        /* =====================================================
-           TP
-        ===================================================== */
+                    //     `;
 
-        tp.addEventListener(
-            "change",
-            function() {
 
-                updateCodeDisplay();
+                    //     /*
+                    //         INPUT
+                    //     */
 
-                fetchPDF();
+                    //     codeInput.value =
+                    //         `G${tdCode}${tpCode}`;
 
-            }
-        );
 
+                    //     return;
+                    // }
 
-        /* =====================================================
-           INPUT CODE
-        ===================================================== */
 
-        codeInput.addEventListener(
-            "input",
-            function() {
+                    /* =====================================
+                                    S5
+                                   G1
+                    ===================================== */
 
-                let value =
-                    codeInput.value
-                        .trim()
-                        .toUpperCase();
+                //     if (sem === "S5") {
 
+                //         const tpCode =
+                //             tp.value || "1";
 
-                /*
-                    Retirer les espaces inutiles.
-                */
 
-                value =
-                    value.replace(/\s+/g, " ");
+                //         codePreview.innerHTML = `
 
+                //             <span class="code-black">
+                //                 G
+                //             </span>
 
-                /*
-                    =====================================
-                            INPUT VIDE
-                    =====================================
-                */
+                //             <span class="${
+                //                 tp.value
+                //                     ? "code-black"
+                //                     : "code-gray"
+                //             }">
+                //                 ${tpCode}
+                //             </span>
 
-                if (!value) {
+                //         `;
 
-                    resetEverything();
 
-                    updateCodeDisplay();
+                //         /*
+                //             INPUT
+                //         */
 
-                    return;
+                //         codeInput.value =
+                //             `G${tpCode}`;
 
-                }
 
+                //         return;
+                //     }
 
-                /*
-                    =====================================
-                               S1
-                            P1A G1a
-                    =====================================
-                */
+                // }
 
-                const s1Match =
-                    value.match(
-                        /^P1([ABC])\s*G(\d+)([A-Z])$/
-                    );
 
+                /* =====================================================
+                   SEMESTRE SELECT
+                ===================================================== */
 
-                if (s1Match) {
+                // semester.addEventListener(
+                //     "change",
+                //     function() {
 
-                    const sectionValue =
-                        s1Match[1];
+                //         /*
+                //             Ici seulement on fait un
+                //             changement complet de structure.
+                //         */
 
-                    const tdValue =
-                        Number(s1Match[2]);
+                //         const newSemester =
+                //             semester.value;
 
-                    const tpValue =
-                        s1Match[3].toLowerCase();
+
+                //         resetSelect(section);
+                //         resetSelect(filiere);
+                //         resetSelect(td);
+                //         resetSelect(tp);
+
+                //         hide(sectionBox);
+                //         hide(filiereBox);
+                //         hide(tdBox);
+                //         hide(tpBox);
+
+
+                //         if (newSemester === "S1") {
+
+                //             createSections();
+
+                //             show(sectionBox);
+
+                //         }
+
+
+                //         else if (newSemester === "S3") {
+
+                //             createTD(NOMBRE_TD_S3);
+
+                //             show(tdBox);
+
+                //         }
+
+
+                //         else if (newSemester === "S5") {
+
+                //             createFilieres();
+
+                //             show(filiereBox);
+
+                //         }
+
+
+                //         updateCodeDisplay();
+
+                //     }
+                // );
+
+
+                /* =====================================================
+                   S1 → SECTION
+                ===================================================== */
+
+                // section.addEventListener(
+                //     "change",
+                //     function() {
+
+                //         if (!section.value) {
+
+                //             hide(tdBox);
+                //             hide(tpBox);
+
+                //             updateCodeDisplay();
+
+                //             return;
+
+                //         }
+
+
+                //         /*
+                //             On garde les valeurs existantes.
+                //         */
+
+                //         const oldTD =
+                //             td.value;
+
+                //         const oldTP =
+                //             tp.value;
+
+
+                //         createTD(
+                //             NOMBRE_TD_S1,
+                //             oldTD
+                //         );
+
+                //         show(tdBox);
+
+
+                //         /*
+                //             Si un TD existait déjà
+                //             et qu'il est toujours valide,
+                //             on garde aussi le TP.
+                //         */
+
+                //         if (td.value) {
+
+                //             createTPLetters(
+                //                 GROUPES_TP_S1,
+                //                 oldTP
+                //             );
+
+                //             show(tpBox);
+
+                //         }
+
+
+                //         updateCodeDisplay();
+
+
+                //         if (
+                //             td.value &&
+                //             tp.value
+                //         ) {
+
+                //             fetchPDF();
+
+                //         }
+
+                //     }
+                // );
+
+
+                /* =====================================================
+                   S5 → FILIERE
+                ===================================================== */
+
+                // filiere.addEventListener(
+                //     "change",
+                //     function() {
+
+                //         if (!filiere.value) {
+
+                //             hide(tpBox);
+
+                //             updateCodeDisplay();
+
+                //             return;
+
+                //         }
+
+
+                //         const oldTP =
+                //             tp.value;
+
+
+                //         createTPNumbers(
+                //             oldTP
+                //         );
+
+                //         show(tpBox);
+
+
+                //         updateCodeDisplay();
+
+
+                //         if (tp.value) {
+
+                //             fetchPDF();
+
+                //         }
+
+                //     }
+                // );
+
+
+                /* =====================================================
+                   TD → TP
+                ===================================================== */
+
+                // td.addEventListener(
+                //     "change",
+                //     function() {
+
+                //         if (!td.value) {
+
+                //             hide(tpBox);
+
+                //             updateCodeDisplay();
+
+                //             return;
+
+                //         }
+
+
+                //         /*
+                //             On garde le TP actuel
+                //             s'il existe toujours.
+                //         */
+
+                //         const oldTP =
+                //             tp.value;
+
+
+                //         // if (semester.value === "S1") {
+
+                //         //     createTPLetters(
+                //         //         GROUPES_TP_S1,
+                //         //         oldTP
+                //         //     );
+
+                //         //     show(tpBox);
+
+                //         // }
+
+
+                //         // else if (semester.value === "S3") {
+
+                //         //     createTPLetters(
+                //         //         GROUPES_TP_S3,
+                //         //         oldTP
+                //         //     );
+
+                //         //     show(tpBox);
+
+                //         // }
+
+
+                //         updateCodeDisplay();
+
+
+                //         if (tp.value) {
+
+                //             fetchPDF();
+
+                //         }
+
+                //     }
+                // );
+
+
+                /* =====================================================
+                   TP
+                ===================================================== */
+
+                // tp.addEventListener(
+                //     "change",
+                //     function() {
+
+                //         updateCodeDisplay();
+
+                //         fetchPDF();
+
+                //     }
+                // );
+
+
+                /* =====================================================
+                   INPUT CODE
+                ===================================================== */
+
+                // codeInput.addEventListener(
+                //     "input",
+                //     function() {
+
+                //         let value =
+                //             codeInput.value
+                //                 .trim()
+                //                 .toUpperCase();
+
+
+                //         /*
+                //             Retirer les espaces inutiles.
+                //         */
+
+                //         value =
+                //             value.replace(/\s+/g, " ");
+
+
+                //         /*
+                //             =====================================
+                //                     INPUT VIDE
+                //             =====================================
+                //         */
+
+                //         if (!value) {
+
+                //             resetEverything();
+
+                //             updateCodeDisplay();
+
+                //             return;
+
+                //         }
+
+
+                        /*
+                            =====================================
+                                       S1
+                                    P1A G1a
+                            =====================================
+                        */
+
+                        // const s1Match =
+                        //     value.match(
+                        //         /^P1([ABC])\s*G(\d+)([A-Z])$/
+                        //     );
+
+
+                        // if (s1Match) {
+
+                        //     const sectionValue =
+                        //         s1Match[1];
+
+                        //     const tdValue =
+                        //         Number(s1Match[2]);
+
+                        //     const tpValue =
+                        //         s1Match[3].toLowerCase();
+
+
+                            /*
+                                Vérifier TD
+                            */
+
+                            // if (
+                            //     tdValue < 1 ||
+                            //     tdValue > NOMBRE_TD_S1
+                            // ) {
+
+                            //     return;
+
+                            // }
+
+
+                            /*
+                                Vérifier TP
+                            */
+
+                            // if (
+                            //     !GROUPES_TP_S1.includes(tpValue)
+                            // ) {
+
+                            //     return;
+
+                            // }
+
+
+                            /*
+                                IMPORTANT :
+
+                                On passe réellement à S1.
+                            */
+
+                            // if (
+                            //     semester.value !== "S1"
+                            // ) {
+
+                            //     // changeSemester("S1");
+
+                            // }
+
+
+                            /*
+                                Section
+                            */
+
+                        //     createSections(
+                        //         sectionValue
+                        //     );
+
+                        //     section.value =
+                        //         sectionValue;
+
+                        //     show(sectionBox);
+
+
+                        //     /*
+                        //         TD
+                        //     */
+
+                        //     createTD(
+                        //         NOMBRE_TD_S1,
+                        //         tdValue
+                        //     );
+
+                        //     td.value =
+                        //         String(tdValue);
+
+                        //     show(tdBox);
+
+
+                            
+                        //         TP
+                            
+
+                        //     createTPLetters(
+                        //         GROUPES_TP_S1,
+                        //         tpValue
+                        //     );
+
+                        //     tp.value =
+                        //         tpValue;
+
+                        //     show(tpBox);
+
+
+                        //     updateCodeDisplay();
+
+
+                        //     /*
+                        //         PDF uniquement maintenant,
+                        //         car le code est complet.
+                        //     */
+
+                        //     fetchPDF();
+
+                        //     return;
+
+                        // }
+
+
+                        /*
+                            =====================================
+                                       S3
+                                       G1a
+                            =====================================
+                        */
+
+                        // const s3Match =
+                        //     value.match(
+                        //         /^G(\d+)([A-Z])$/
+                        //     );
+
+
+                        // if (s3Match) {
+
+                        //     const tdValue =
+                        //         Number(s3Match[1]);
+
+                        //     const tpValue =
+                        //         s3Match[2].toLowerCase();
+
+
+                        //     if (
+                        //         tdValue < 1 ||
+                        //         tdValue > NOMBRE_TD_S3
+                        //     ) {
+
+                        //         return;
+
+                        //     }
+
+
+                        //     if (
+                        //         !GROUPES_TP_S3.includes(tpValue)
+                        //     ) {
+
+                        //         return;
+
+                        //     }
+
+
+                            /*
+                                Passage réel vers S3.
+                            */
+
+                            // if (
+                            //     semester.value !== "S3"
+                            // ) {
+
+                            //     // changeSemester("S3");
+
+                            // }
+
+
+                            /*
+                                TD
+                            */
+
+                        //     createTD(
+                        //         NOMBRE_TD_S3,
+                        //         tdValue
+                        //     );
+
+                        //     td.value =
+                        //         String(tdValue);
+
+                        //     show(tdBox);
+
+
+                        //     /*
+                        //         TP
+                        //     */
+
+                        //     createTPLetters(
+                        //         GROUPES_TP_S3,
+                        //         tpValue
+                        //     );
+
+                        //     tp.value =
+                        //         tpValue;
+
+                        //     show(tpBox);
+
+
+                        //     updateCodeDisplay();
+
+                        //     fetchPDF();
+
+                        //     return;
+
+                        // }
+
+
+                        /*
+                            =====================================
+                                       S5
+                                       G1
+                            =====================================
+                        */
+
+                        // const s5Match =
+                        //     value.match(
+                        //         /^G(\d+)$/
+                        //     );
+
+
+                        // if (s5Match) {
+
+                        //     const tpValue =
+                        //         Number(s5Match[1]);
+
+
+                        //     if (
+                        //         tpValue < 1 ||
+                        //         tpValue > NOMBRE_TP_S5
+                        //     ) {
+
+                        //         return;
+
+                        //     }
+
+
+                            /*
+                                Passage réel vers S5.
+                            */
+
+                            // if (
+                            //     semester.value !== "S5"
+                            // ) {
+
+                            //     // changeSemester("S5");
+
+                            // }
+
+
+                            /*
+                                Si aucune filière n'est choisie,
+                                ES est utilisée par défaut.
+
+                                Si EER est déjà choisie,
+                                elle reste EER.
+                            */
+
+                //             if (!filiere.value) {
+
+                //                 createFilieres("ES");
+
+                //                 filiere.value =
+                //                     "ES";
+
+                //             }
+                //             else {
+
+                //                 createFilieres(
+                //                     filiere.value
+                //                 );
+
+                //             }
+
+
+                //             show(filiereBox);
+
+
+                            
+                //                 TP
+                            
+
+                //             createTPNumbers(
+                //                 tpValue
+                //             );
+
+                //             tp.value =
+                //                 String(tpValue);
+
+                //             show(tpBox);
+
+
+                //             updateCodeDisplay();
+
+                //             fetchPDF();
+
+                //             return;
+
+                //         }
+
+                    }
+                // );
+
+
+                /* =====================================================
+                   FETCH PDF
+                ===================================================== */
+
+                function fetchPDF() {
+
+                    // const sem =
+                    //     semester.value;
+
+                    let url = null;
 
 
                     /*
-                        Vérifier TD
+                        S1
                     */
 
-                    if (
-                        tdValue < 1 ||
-                        tdValue > NOMBRE_TD_S1
-                    ) {
+                    if (sem === "S1") {
 
-                        return;
+                        if (
+                            !section.value ||
+                            !td.value ||
+                            !tp.value
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        url =
+                            documents
+                                ?.S1
+                                ?. [section.value]
+                                ?. [td.value]
+                                ?. [tp.value];
 
                     }
 
 
                     /*
-                        Vérifier TP
+                        S3
                     */
 
-                    if (
-                        !GROUPES_TP_S1.includes(tpValue)
-                    ) {
+                    else if (sem === "S3") {
+
+                        if (
+                            !td.value ||
+                            !tp.value
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        url =
+                            documents
+                                ?.S3
+                                ?. [td.value]
+                                ?. [tp.value];
+
+                    }
+
+
+                    /*
+                        S5
+                    */
+
+                    else if (sem === "S5") {
+
+                        if (
+                            !filiere.value ||
+                            !tp.value
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        url =
+                            documents
+                                ?.S5
+                                ?. [filiere.value]
+                                ?. [tp.value];
+
+                    }
+
+
+                    /*
+                        Pas d'URL
+                    */
+
+                    if (!url) {
+
+                        console.warn(
+                            "Aucun PDF pour cette combinaison."
+                        );
+
+                        status.textContent =
+                            "Aucun PDF pour cette combinaison.";
 
                         return;
 
@@ -2877,437 +3477,98 @@ studentSearch.addEventListener(
                     /*
                         IMPORTANT :
 
-                        On passe réellement à S1.
+                        Ici on affiche seulement l'URL.
+                        Le fetch peut être supprimé si
+                        ton propre PDF viewer reçoit
+                        directement cette URL.
                     */
 
-                    if (
-                        semester.value !== "S1"
-                    ) {
+                    console.log(
+                        "URL PDF :",
+                        url
+                    );
 
-                        changeSemester("S1");
-
+                    if(studentSearch.value=="")
+                    {
+                        betterviewf(url);
                     }
 
 
-                    /*
-                        Section
-                    */
-
-                    createSections(
-                        sectionValue
-                    );
-
-                    section.value =
-                        sectionValue;
-
-                    show(sectionBox);
+                    status.textContent =
+                        "PDF sélectionné.";
 
 
                     /*
-                        TD
+                        =====================================
+                        TON PDF VIEWER
+                        =====================================
+
+                        Exemple :
+
+                        monPdfViewer.load(url);
+
                     */
-
-                    createTD(
-                        NOMBRE_TD_S1,
-                        tdValue
-                    );
-
-                    td.value =
-                        String(tdValue);
-
-                    show(tdBox);
-
-
-                    /*
-                        TP
-                    */
-
-                    createTPLetters(
-                        GROUPES_TP_S1,
-                        tpValue
-                    );
-
-                    tp.value =
-                        tpValue;
-
-                    show(tpBox);
-
-
-                    updateCodeDisplay();
-
-
-                    /*
-                        PDF uniquement maintenant,
-                        car le code est complet.
-                    */
-
-                    fetchPDF();
-
-                    return;
 
                 }
 
 
-                /*
-                    =====================================
-                               S3
-                               G1a
-                    =====================================
-                */
-
-                const s3Match =
-                    value.match(
-                        /^G(\d+)([A-Z])$/
-                    );
-
-
-                if (s3Match) {
-
-                    const tdValue =
-                        Number(s3Match[1]);
-
-                    const tpValue =
-                        s3Match[2].toLowerCase();
-
-
-                    if (
-                        tdValue < 1 ||
-                        tdValue > NOMBRE_TD_S3
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    if (
-                        !GROUPES_TP_S3.includes(tpValue)
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    /*
-                        Passage réel vers S3.
-                    */
-
-                    if (
-                        semester.value !== "S3"
-                    ) {
-
-                        changeSemester("S3");
-
-                    }
-
-
-                    /*
-                        TD
-                    */
-
-                    createTD(
-                        NOMBRE_TD_S3,
-                        tdValue
-                    );
-
-                    td.value =
-                        String(tdValue);
-
-                    show(tdBox);
-
-
-                    /*
-                        TP
-                    */
-
-                    createTPLetters(
-                        GROUPES_TP_S3,
-                        tpValue
-                    );
-
-                    tp.value =
-                        tpValue;
-
-                    show(tpBox);
-
-
-                    updateCodeDisplay();
-
-                    fetchPDF();
-
-                    return;
-
-                }
-
-
-                /*
-                    =====================================
-                               S5
-                               G1
-                    =====================================
-                */
-
-                const s5Match =
-                    value.match(
-                        /^G(\d+)$/
-                    );
-
-
-                if (s5Match) {
-
-                    const tpValue =
-                        Number(s5Match[1]);
-
-
-                    if (
-                        tpValue < 1 ||
-                        tpValue > NOMBRE_TP_S5
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    /*
-                        Passage réel vers S5.
-                    */
-
-                    if (
-                        semester.value !== "S5"
-                    ) {
-
-                        changeSemester("S5");
-
-                    }
-
-
-                    /*
-                        Si aucune filière n'est choisie,
-                        ES est utilisée par défaut.
-
-                        Si EER est déjà choisie,
-                        elle reste EER.
-                    */
-
-                    if (!filiere.value) {
-
-                        createFilieres("ES");
-
-                        filiere.value =
-                            "ES";
-
-                    }
-                    else {
-
-                        createFilieres(
-                            filiere.value
-                        );
-
-                    }
-
-
-                    show(filiereBox);
-
-
-                    /*
-                        TP
-                    */
-
-                    createTPNumbers(
-                        tpValue
-                    );
-
-                    tp.value =
-                        String(tpValue);
-
-                    show(tpBox);
-
-
-                    updateCodeDisplay();
-
-                    fetchPDF();
-
-                    return;
-
-                }
-
-            }
-        );
-
-
-        /* =====================================================
-           FETCH PDF
-        ===================================================== */
-
-        function fetchPDF() {
-
-            const sem =
-                semester.value;
-
-            let url = null;
-
-
-            /*
-                S1
-            */
-
-            if (sem === "S1") {
-
-                if (
-                    !section.value ||
-                    !td.value ||
-                    !tp.value
-                ) {
-
-                    return;
-
-                }
-
-
-                url =
-                    documents
-                        ?.S1
-                        ?. [section.value]
-                        ?. [td.value]
-                        ?. [tp.value];
-
-            }
-
-
-            /*
-                S3
-            */
-
-            else if (sem === "S3") {
-
-                if (
-                    !td.value ||
-                    !tp.value
-                ) {
-
-                    return;
-
-                }
-
-
-                url =
-                    documents
-                        ?.S3
-                        ?. [td.value]
-                        ?. [tp.value];
-
-            }
-
-
-            /*
-                S5
-            */
-
-            else if (sem === "S5") {
-
-                if (
-                    !filiere.value ||
-                    !tp.value
-                ) {
-
-                    return;
-
-                }
-
-
-                url =
-                    documents
-                        ?.S5
-                        ?. [filiere.value]
-                        ?. [tp.value];
-
-            }
-
-
-            /*
-                Pas d'URL
-            */
-
-            if (!url) {
-
-                console.warn(
-                    "Aucun PDF pour cette combinaison."
-                );
-
-                status.textContent =
-                    "Aucun PDF pour cette combinaison.";
-
-                return;
-
-            }
-
-
-            /*
-                IMPORTANT :
-
-                Ici on affiche seulement l'URL.
-                Le fetch peut être supprimé si
-                ton propre PDF viewer reçoit
-                directement cette URL.
-            */
-
-            console.log(
-                "URL PDF :",
-                url
-            );
-
-            if(studentSearch.value=="")
-            {
-                betterviewf(url);
-            }
-
-
-            status.textContent =
-                "PDF sélectionné.";
-
-
-            /*
-                =====================================
-                TON PDF VIEWER
-                =====================================
-
-                Exemple :
-
-                monPdfViewer.load(url);
-
-            */
-
+                /* =====================================================
+                   INITIALISATION
+                ===================================================== */
+
+                resetEverything();
+
+                updateCodeDisplay();
+
+
+                var queryStart = window.location.href.indexOf("?s=");
+        var queryEnd = window.location.href.indexOf("#");
+        var query = window.location.href.slice(queryStart, queryEnd).replace("?s=", "").replace("#", "");
+
+        console.log(query);
+        if(query!="")
+        {
+            studentSearch.value =  decodeURIComponent(query);
+            searchStudent();
+            searchStudent();
+        }
+        else
+        {
+            console.log("url param not found");
         }
 
-
-        /* =====================================================
-           INITIALISATION
-        ===================================================== */
-
-        resetEverything();
-
-        updateCodeDisplay();
+                function copyText(textToCopy) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        console.log("Copié dans le presse-papiers !");
+      })
+      .catch(err => {
+        console.error("Erreur lors de la copie : ", err);
+      });
+  } else {
+    console.warn("Le navigateur ne supporte pas l'API de copie directe.");
+  }
+}
 
         </script>
-
+<!-- 
             <div id="pdfPopup" onclick="closePdfFromBackground(event)">
               <div id="pdfWindow">
                       <div id="pdfToolbar">
                   <div id="pdfTitle">PDF</div>
-                  <div id="pdfControls">
+                  <div id="pdfControls"> -->
                     <!-- <button style="width: 48%;font-size:15px" type="button" onclick="downloadPDF() "title="Télécharger le PDF"> Télécharger le PDF ↓ </button> -->
-                    <button style="width: 81%;font-size:15px" type="button" onclick="downloadPDF() "title="Télécharger le PDF"> Télécharger</button>
-                    <button type="button" onclick="minimizePDF()" title="Minimiser"> − </button>
+                    <!-- <button style="width: 81%;font-size:15px" type="button" onclick="downloadPDF() "title="Télécharger le PDF"> Télécharger</button> -->
+                    <!-- <button type="button" onclick="minimizePDF()" title="Minimiser"> − </button> -->
                     <!-- <button type="button" onclick="togglePdfHalfSize()" id="pdfHalfButton" title="Demi-écran"> ◫ </button> -->
-                    <button type="button" onclick="togglePdfSize()" id="pdfExpandButton" title="Agrandir"> ⛶ </button>
+                    <!-- <button type="button" onclick="togglePdfSize()" id="pdfExpandButton" title="Agrandir"> ⛶ </button> -->
                     <!-- <button type="button" onclick="closePDF()" title="Fermer"> × </button> -->
-                  </div>
+                 <!--  </div>
                 </div>
                 <iframe id="pdfViewer" title="PDF Viewer" allowfullscreen></iframe>
               </div>
-            </div>
+            </div> -->
             
             <style>
 
@@ -4073,31 +4334,31 @@ studentSearch.addEventListener(
                      CLICK MINIMIZED WINDOW
                      ========================================================= */
 
-                  document.addEventListener("click", function(event)
-                  {
-                      const popup = document.getElementById("pdfPopup");
-                      const windowElement = document.getElementById("pdfWindow");
+                  // document.addEventListener("click", function(event)
+                  // {
+                  //     const popup = document.getElementById("pdfPopup");
+                  //     const windowElement = document.getElementById("pdfWindow");
 
-                      /*
-                         If minimized and the user clicks the window,
-                         restore it.
-                      */
+                  //     /*
+                  //        If minimized and the user clicks the window,
+                  //        restore it.
+                  //     */
 
-                      if (
-                          popup.classList.contains("pdf-minimized") &&
-                          windowElement.contains(event.target)
-                      ) {
-                          /*
-                             Don't restore if clicking one of the controls.
-                          */
+                  //     if (
+                  //         popup.classList.contains("pdf-minimized") &&
+                  //         windowElement.contains(event.target)
+                  //     ) {
+                  //         /*
+                  //            Don't restore if clicking one of the controls.
+                  //         */
 
-                          if (event.target.closest("button")) {
-                              return;
-                          }
+                  //         if (event.target.closest("button")) {
+                  //             return;
+                  //         }
 
-                          restorePDF();
-                      }
-                  });
+                  //         restorePDF();
+                  //     }
+                  // });
 
 
                   /* =========================================================
@@ -4222,12 +4483,36 @@ studentSearch.addEventListener(
     width: 90%;
     /* max-width: 500px; */
     max-width: 540px;
-    margin: 20px auto;
+    margin: 0px auto;
+    padding: 10px;">
+      <a href="https://smpfsa.com/edt/old" style="width: 100%">
+          <button style="    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    /* border-radius: 8px; */
+    border-radius: 20px;
+    background-color: #8A8A8A;
+    transition: background-color 0.3s, transform 0.2s;
+    color: white;
+    box-shadow: 0px 3px 10px 0px rgba(31, 31, 31, 0.25);">Ancienne version</button>
+      </a>
+  </div>
+    <div style="    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    /* max-width: 500px; */
+    max-width: 540px;
+    margin: 0px auto;
     padding: 10px;">
       <a href="https://smpfsa.com" style="width: 100%">
           <button style="    width: 100%;
     padding: 20px;
-    margin: 10px 0;
+    margin: 0px 0;
     font-size: 20px;
     cursor: pointer;
     border: none;
@@ -4240,5 +4525,6 @@ studentSearch.addEventListener(
       </a>
         
     </div>
+  <script src="script.js"></script>
 
 </html>
