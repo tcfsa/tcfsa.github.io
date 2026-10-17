@@ -525,6 +525,8 @@
 
         <button id="studentSearchButton" type="button">Chercher</button>
 
+        <button id="copybtn" type="button" style="display : none" onclick="copyText(window.location.href)">Copier le lien</button>
+
     </div>
 
     <div id="studentSearchStatus"></div>
@@ -1444,7 +1446,7 @@
         if(query=="")
         {
 
-            const nextURL = window.location.href+'?s='+student.name+"#";
+            const nextURL = window.location.origin+'?s='+student.name+"#";
             const nextTitle = 'boi';
             const nextState = { additionalInformation: 'Updated the URL with JS' };
 
@@ -1666,6 +1668,8 @@
 
 function searchStudent() {
 
+
+
     const search =
         studentSearch.value
             .trim()
@@ -1801,6 +1805,8 @@ function searchStudent() {
             new Event("input")
         );
 
+        document.getElementById("copybtn").style.display = "block";
+
         return;
 
     }
@@ -1813,6 +1819,9 @@ function searchStudent() {
     studentSearchStatus.textContent =
         results.length +
         " résultats trouvés.";
+
+        
+        document.getElementById("copybtn").style.display = "block";
 
 
     /*
@@ -3310,6 +3319,21 @@ studentSearch.addEventListener(
         {
             console.log("url param not found");
         }
+
+        function copyText(textToCopy) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        console.log("Copié dans le presse-papiers !");
+      })
+      .catch(err => {
+        console.error("Erreur lors de la copie : ", err);
+      });
+  } else {
+    console.warn("Le navigateur ne supporte pas l'API de copie directe.");
+  }
+}
+
 
         </script>
 
