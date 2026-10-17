@@ -1730,37 +1730,52 @@ function searchStudent() {
 
     //     });
 
-    const results =
-    students.filter(function(student) {
+    // const results =
+    // students.filter(function(student) {
 
-        const name =
-            student.name
-                .toLowerCase()
-                .trim();
+    //     const name =
+    //         student.name
+    //             .toLowerCase()
+    //             .trim();
 
-        // Normal order: "AABAD Amir"
-        if (name.includes(search)) {
-            return true;
-        }
+    //     // Normal order: "AABAD Amir"
+    //     if (name.includes(search)) {
+    //         return true;
+    //     }
 
-        // Reversed order: "Amir AABAD"
-        const parts = name.split(/\s+/);
+    //     // Reversed order: "Amir AABAD"
+    //     const parts = name.split(/\s+/);
 
-        if (parts.length >= 2) {
+    //     if (parts.length >= 2) {
 
-            const reversedName =
-                parts.slice(1).join(" ") +
-                " " +
-                parts[0];
+    //         const reversedName =
+    //             parts.slice(1).join(" ") +
+    //             " " +
+    //             parts[0];
 
-            if (reversedName.includes(search)) {
-                return true;
-            }
-        }
+    //         if (reversedName.includes(search)) {
+    //             return true;
+    //         }
+    //     }
 
-        return false;
+    //     return false;
 
+    // });
+
+    const results = students.filter(function(student) {
+    // 1. Nettoyer et normaliser le nom de l'étudiant
+    const name = student.name.toLowerCase().trim();
+    
+    // 2. Découper la recherche de l'utilisateur en mots individuels (tableau)
+    //    On filtre les entrées vides au cas où l'utilisateur met plusieurs espaces d'affilée
+    const searchWords = search.toLowerCase().trim().split(/\s+/);
+
+    // 3. Vérifier si CHAQUE mot de la recherche est inclus dans le nom de l'étudiant
+    //    La méthode .every() renvoie true uniquement si toutes les conditions sont vraies
+    return searchWords.every(function(word) {
+        return name.includes(word);
     });
+});
 
 
     /*
