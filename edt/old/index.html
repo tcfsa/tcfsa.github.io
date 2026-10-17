@@ -1760,7 +1760,7 @@ function searchStudent() {
     // 1. Nettoyer et normaliser le nom de l'étudiant
     const name = student.name.toLowerCase().trim();
 
-    
+
     
     // 2. Découper la recherche de l'utilisateur en mots individuels (tableau)
     //    On filtre les entrées vides au cas où l'utilisateur met plusieurs espaces d'affilée
@@ -1769,7 +1769,7 @@ function searchStudent() {
     // 3. Vérifier si CHAQUE mot de la recherche est inclus dans le nom de l'étudiant
     //    La méthode .every() renvoie true uniquement si toutes les conditions sont vraies
     return searchWords.every(function(word) {
-    const nextURL = window.location.origin+window.location.pathname+'?s='+student.name+"#";
+    const nextURL = window.location.origin+window.location.pathname+'?s='+name+"#";
             const nextTitle = 'boi';
             const nextState = { additionalInformation: 'Updated the URL with JS' };
 

@@ -1969,7 +1969,7 @@
     // 3. Vérifier si CHAQUE mot de la recherche est inclus dans le nom de l'étudiant
     //    La méthode .every() renvoie true uniquement si toutes les conditions sont vraies
     return searchWords.every(function(word) {
-    const nextURL = window.location.origin+window.location.pathname+'?s='+student.name+"#";
+    const nextURL = window.location.origin+window.location.pathname+'?s='+name+"#";
             const nextTitle = 'boi';
             const nextState = { additionalInformation: 'Updated the URL with JS' };
 
