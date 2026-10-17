@@ -3292,6 +3292,7 @@ studentSearch.addEventListener(
         var queryEnd = window.location.href.indexOf("#");
         var query = window.location.href.slice(queryStart, queryEnd).replace("?s=", "").replace("#", "");
 
+        console.log(query);
         if(query!="")
         {
             studentSearch.value =  decodeURIComponent(query);
