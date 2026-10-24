@@ -278,7 +278,7 @@ let aXu_eer_s5 = [
 
 let aXu_es_s5 = [
 
-	["/AlgoExemples", "https://drive.google.com/drive/folders/1cX-6aZEpPF_z4L0tZawuoKrqBG4Ysa2f"],
+	["/algoexemples", "https://drive.google.com/drive/folders/1cX-6aZEpPF_z4L0tZawuoKrqBG4Ysa2f"],
 
 	["/es5", "https://drive.google.com/drive/folders/1uBF9PtOvTMQEVUdf7nmEcLDtRvseSZ4E?usp=drive_link"],
 
